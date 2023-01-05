@@ -99,3 +99,13 @@ ul{
 .todolist-items-header{
     display: flex;
 }
+
+.input-items{
+    border-radius: 10px;
+    border: solid 1px dodgerblue;
+    opacity: 0.4;
+    margin-bottom: 10px;
+    padding: 20px;
+    list-style: none;
+    background-color: whitesmoke;
+}
