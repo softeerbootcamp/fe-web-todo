@@ -6,34 +6,108 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>이게 뭐하는 건가?</title>
     <style>
-        div{background-color:antiquewhite;
-        width:25%;
+        .class_todo_elem{
+        display:flex;
+        flex-direction:column;
+        padding : 15px;
+        }
+    </style>
+    <style>
+        div#id_todo_elem{
+        background-color:lightgreen;
+        width:200px;
+        padding:20px 10px;
+        margin:2%;
+        border:1px solid lightgreen;
+        border-radius:20px;}
+        p{line-height:30px};
+    </style>
+    <style>
+        div#id_header{background-color:white;
+        width:200px;
+        padding:15px;
+        margin:10; 
+        border:1px solid white;}
+        p{line-height:30px};
+    </style>
+    <style>
+        div#id_list_header{background-color:white;
+        width:200px;
         padding:15px;
         margin:10;
-        border:1px solid black;}
+        border:1px solid white;}
+        p{line-height:30px};
+    </style>
+    <style>
+        .class_todo_table{
+        display:flex;
+        background-color:white;
+        width:90%;
+        padding:15px;
+        margin:2%;
+        border:1px solid white;}
         p{line-height:30px};
     </style>
 </head>
 <body>
-    <h1>TO-DO LIST</h1><br>
-    
-    <h2>해야할 일</h2><br>
-    <div>
-        <h3>GitHub 공부하기</h3>
-        <button class="favorite styled"
-            type="button">
-            -
-        </button>
-        <p><b>add, commit, push</b></p>
-    </div><br>
-
-    <div>
-        <h3>아몰랑</h3>
-        <button class="favorite styled"
-            type="button">
-            +
-        </button>
-        <p><b>haha, haha, haha</b></p>
+    <div id="id_header">
+        <h1>TO-DO LIST</h1>
+    </div>
+    <div id="id_list_header">
+        <h2>해야할 일</h2>
+    </div>
+    <div class="class_todo_table">
+        <div class="class_todo_elem">
+            <div id="id_todo_elem">
+                <h3>GitHub 공부하기
+                    <button class="favorite styled"
+                        type="button">
+                        -
+                    </button>
+                </h3>
+                <p><b>add, commit, push</b></p>
+            </div>
+            <div id="id_todo_elem">
+                <h3>GitHub 공부하기
+                    <button class="favorite styled"
+                        type="button">
+                        -
+                    </button>
+                </h3>
+                <p><b>add, commit, push</b></p>
+            </div>
+            <div id="id_todo_elem">
+                <h3>GitHub 공부하기
+                    <button class="favorite styled"
+                        type="button">
+                        -
+                    </button>
+                </h3>
+                <p><b>add, commit, push</b></p>
+            </div>
+        </div>
+        <div class="class_todo_elem">
+            <div id="id_todo_elem">
+                <h3>GitHub 공부하기
+                    <button class="favorite styled"
+                        type="button">
+                        -
+                    </button>
+                </h3>
+                <p><b>add, commit, push</b></p>
+            </div>
+        </div>
+        <div class="class_todo_elem">
+            <div id="id_todo_elem">
+                <h3>GitHub 공부하기
+                    <button class="favorite styled"
+                        type="button">
+                        -
+                    </button>
+                </h3>
+                <p><b>add, commit, push</b></p>
+            </div>
+        </div>
     </div>
 </body>
 </html>
