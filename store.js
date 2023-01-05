@@ -1,18 +1,42 @@
 import { getColumnComponent } from './Components/Column.js';
+class State {
+  #columns = [];
+  #history = [];
+  constructor(state = { columns: [], history: [] }) {
+    this.#columns = state.columns;
+    this.#history = state.history;
+  }
+  deleteColumn(idx) {
+    this.#columns.splice(idx, 1);
+  }
+  getAddingCardState(idx) {
+    return this.#columns[idx].addingState;
+  }
+  toggleAddingState(idx) {
+    this.#columns[idx].addingState = !this.#columns[idx].addingState;
+  }
+  addColumn(column) {
+    this.#columns.unshift(column);
+  }
+  getState() {
+    return { column: this.#columns, history: this.#history };
+  }
+}
+export { State };
 
-export const card = {
+const card = {
   title: 'gitHub 공부하기',
   details: ['gitbub 공부내용', 'gitbub 공부내용'],
   footer: 'author by web',
 };
 
-export const column = {
+const column = {
   title: '해야할 일',
   cards: [card, card, card],
   addingState: false,
 };
 
-export const state = {
+const state = {
   columns: [],
   history: [],
 };

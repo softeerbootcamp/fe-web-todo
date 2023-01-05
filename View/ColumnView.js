@@ -7,10 +7,6 @@ const nthChild = (arr, target) => {
   }
 };
 
-const deleteColumn = (state, idx) => {
-  state.columns.splice(idx, 1);
-};
-
 export const addNewColumn = state => {
   const bodyContainer = document.querySelector('.todo-list-body-container');
   const columnData = {
@@ -20,7 +16,7 @@ export const addNewColumn = state => {
   };
   const columnComponent = getColumnComponent(columnData);
   bodyContainer.prepend(columnComponent);
-  state.columns.unshift(columnData);
+  state.addColumn(columnData);
   attachColumnEvent(state, columnComponent);
 };
 
@@ -29,16 +25,16 @@ const attachColumnEvent = (state, columnComponent) => {
   btnDeleteColumn.addEventListener('click', () => {
     const btnDeleteColumns = document.querySelectorAll('.column-btn-x');
     const idx = nthChild(btnDeleteColumns, btnDeleteColumn);
-    deleteColumn(state, idx);
+    state.deleteColumn(idx);
     columnComponent.remove();
   });
 
   const btnAddCard = columnComponent.querySelector('.column-btn-plus');
-  btnAddCard.addEventListener('click', e => {
+  btnAddCard.addEventListener('click', () => {
     const btnAddCards = document.querySelectorAll('.column-btn-plus');
     const idx = nthChild(btnAddCards, btnAddCard);
 
-    const addingState = state.columns[idx].addingState;
+    const addingState = state.getAddingCardState(idx);
     const newCard = columnComponent.firstChild.nextElementSibling;
     if (addingState) {
       newCard.remove();
@@ -53,6 +49,6 @@ const attachColumnEvent = (state, columnComponent) => {
         );
       }
     }
-    state.columns[idx].addingState = !addingState;
+    state.toggleAddingState(idx);
   });
 };
