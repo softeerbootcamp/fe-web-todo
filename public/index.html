@@ -38,12 +38,12 @@
                     <h3>해야할 일</h3>
                     <div class="count-todo"> 2 </div>
                     <div class="plus-x-button">
-                        <button class="plus-button" id="plus-todo-button" onclick="openModal()">
+                        <button class="plus-button" id="plus-todo-button" onclick="openDoModal()">
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
                                 <path d="M0.105709 7.53033L0.105709 6.46967H6.46967V0.105713H7.53033V6.46967H13.8943V7.53033H7.53033V13.8943H6.46967V7.53033H0.105709Z" fill="black"/>
                             </svg>
                         </button>
-                        <button class="x-button" onclick="closeModal();">
+                        <button class="x-button" id="x-todo-button" onclick="closeTodoModal();">
                             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
                                 <path d="M1.5 11.25L0.75 10.5L5.25 6L0.75 1.5L1.5 0.75L6 5.25L10.5 0.75L11.25 1.5L6.75 6L11.25 10.5L10.5 11.25L6 6.75L1.5 11.25Z" fill="black"/>
                             </svg>
@@ -53,16 +53,16 @@
                 </div>
                 <div class="todo-content">
                     <div class="open-modal-content">
-                        <section id="open-modal" class="hidden">
+                        <section id="open-modal-todo" class="hidden">
                             <div class="list-title-modal" id="list-title-modal-todo">
-                                <input type="text" class="todo-title-input" placeholder="제목을 입력하세요."> </input>
+                                <input type="text" id="title-input" class="todo-title-input" placeholder="제목을 입력하세요."> </input>
                             </div>
                             <div class="caption-modal" id="caption-modal-todo">
-                                <input type="text" class="todo-caption-input" placeholder="내용을 입력하세요."> </input>
+                                <input type="text" id="caption-input" class="todo-caption-input" placeholder="내용을 입력하세요."> </input>
                             </div>
                             <div class="modal-button">
                                 <button type="button" class="cancel-button"> 취소 </button>
-                                <button type="button" class="add-button" onclick="registerToDo()"> 등록 </button>                    
+                                <button type="button" id = "add-button" class="todo-add-button" onclick="registerToDo()"> 등록 </button>                    
                             </div>
                         </section>
                     </div> 
@@ -91,19 +91,34 @@
                     <h3>하고 있는 일</h3>
                     <div class="count-doing"> 1 </div>
                     <div class="plus-x-button">
-                        <button class="plus-button">
+                        <button class="plus-button" id="plus-doing-button" onclick="openIngModal()">
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
                                 <path d="M0.105709 7.53033L0.105709 6.46967H6.46967V0.105713H7.53033V6.46967H13.8943V7.53033H7.53033V13.8943H6.46967V7.53033H0.105709Z" fill="black"/>
                             </svg>
                         </button>
-                        <button class="x-button">
+                        <button class="x-button" id="x-doing-button" onclick="closeDoingModal();">
                             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
                                 <path d="M1.5 11.25L0.75 10.5L5.25 6L0.75 1.5L1.5 0.75L6 5.25L10.5 0.75L11.25 1.5L6.75 6L11.25 10.5L10.5 11.25L6 6.75L1.5 11.25Z" fill="black"/>
                             </svg>
                         </button>
                     </div>                
                 </div>
-                
+                <div class="doing-content">
+                    <div class="open-modal-content">
+                        <section id="open-modal-doing" class="hidden">
+                            <div class="list-title-modal" id="list-title-modal-doing">
+                                <input type="text" id="title-input" class="doing-title-input" placeholder="제목을 입력하세요."> </input>
+                            </div>
+                            <div class="caption-modal" id="caption-modal-doing">
+                                <input type="text" id="caption-input" class="doing-caption-input" placeholder="내용을 입력하세요."> </input>
+                            </div>
+                            <div class="modal-button">
+                                <button type="button" class="cancel-button"> 취소 </button>
+                                <button type="button" id = "add-button" class="doing-add-button" onclick="registerDoing()"> 등록 </button>                    
+                            </div>
+                        </section>
+                    </div> 
+                </div>
                 
                 <section class="todolist" id="todolist-doing">
                     <div class="list-title">
@@ -119,17 +134,33 @@
                     <h3>완료한 일</h3>
                     <div class="count-done"> 0 </div>
                     <div class="plus-x-button">
-                        <button class="plus-button">
+                        <button class="plus-button" id="plus-done-button" onclick="openNeModal()">
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
                                 <path d="M0.105709 7.53033L0.105709 6.46967H6.46967V0.105713H7.53033V6.46967H13.8943V7.53033H7.53033V13.8943H6.46967V7.53033H0.105709Z" fill="black"/>
                             </svg>
                         </button>
-                        <button class="x-button">
+                        <button class="x-button" id="x-done-button" onclick="closeDoneModal();">
                             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
                                 <path d="M1.5 11.25L0.75 10.5L5.25 6L0.75 1.5L1.5 0.75L6 5.25L10.5 0.75L11.25 1.5L6.75 6L11.25 10.5L10.5 11.25L6 6.75L1.5 11.25Z" fill="black"/>
                             </svg>
                         </button>
                     </div>                
+                </div>
+                <div class="done-content">
+                    <div class="open-modal-content">
+                        <section id="open-modal-done" class="hidden">
+                            <div class="list-title-modal" id="list-title-modal-done">
+                                <input type="text" id="title-input" class="done-title-input" placeholder="제목을 입력하세요."> </input>
+                            </div>
+                            <div class="caption-modal" id="caption-modal-done">
+                                <input type="text" id="caption-input" class="done-caption-input" placeholder="내용을 입력하세요."> </input>
+                            </div>
+                            <div class="modal-button">
+                                <button type="button" class="cancel-button"> 취소 </button>
+                                <button type="button" id = "add-button" class="done-add-button" onclick="registerDone()"> 등록 </button>                    
+                            </div>
+                        </section>
+                    </div> 
                 </div>
                 
             </div>

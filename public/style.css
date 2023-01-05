@@ -14,7 +14,7 @@ header {
     top: 0px;
 }
 .site-title {    
-    width: 171px;
+    width: 250px;
     height: 46px;
     left: 80px;
     top: 33px;
@@ -24,7 +24,7 @@ header {
     font-size: 32px;
     color: #010101;
     padding-top: 20px;
-    padding-left: 40px;
+    padding-left: 60px;
 }
 
 .menu-button{
@@ -220,14 +220,14 @@ header {
     gap: 10px;
 }
 
-.todo-title-input{
+#title-input{
     border : none;
     font-weight: 700;
     font-size: 16px;
     margin-bottom: 10px;
 }
 
-.todo-caption-input {
+#caption-input {
     border: none;
     font-size: 14px;
     margin-bottom: 10px;
@@ -245,7 +245,7 @@ header {
     border:none;
 }
 
-.add-button{
+#add-button{
     width: 135px;
     padding: 10px;
     margin-top: 10px;
@@ -260,7 +260,27 @@ header {
     display: none;
 }
 
-#open-modal{
+#open-modal-todo{
+    padding: 16px;
+    margin-bottom: 10px;
+    /*width: auto;*/
+    width: 280px;
+    height: 108px;
+    background: #FFFFFF;
+    border-radius: 6px;
+}
+
+#open-modal-doing{
+    padding: 16px;
+    margin-bottom: 10px;
+    /*width: auto;*/
+    width: 280px;
+    height: 108px;
+    background: #FFFFFF;
+    border-radius: 6px;
+}
+
+#open-modal-done{
     padding: 16px;
     margin-bottom: 10px;
     /*width: auto;*/
