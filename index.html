@@ -2,85 +2,10 @@
 <html lang="ko">
     <head>
     <meta charset = "UTF-8">
-    <link rel = "stylesheet" href = "css/style.css" type="text/css"/>
+    <link rel = "stylesheet" href = "./public/css/style.css" type="text/css"/>
     <style>
-        #Title{
-            font-size : 2.5em;
-            padding : 40px;
-            padding-left : 8px;
-        }
-        TodoList{
-            display : inline-block;
-            font-size : 1.2em;
-            margin-right : 0;
-            font-weight : bold;
-
-        }
-        TodoItem{
-            display: block;
-            font-size: 1.17em;
-            margin-left: 0;
-            margin-right: 0;
-            font-weight: bold;
-            padding-bottom: 10px;
-            padding-top : 20px;
-        }
-        ul1{
-            vertical-align: top;
-            margin:10px;
-        }
-        .flex{
-            display : flex;
-            flex-direction: row;
-            flex-wrap : wrap;
-        }
-        ul{
-            display :flex;
-            flex-direction : column;
-            text-align : left;
-            border : solid;
-            border-color : white;
-            background-color : white;
-            border-radius : 5px;
-            padding-right : 150px;
-            padding-left : 10px;
-
-        }
-        #author_by_web{
-            font-size : 5px;
-            color : gray;
-            padding-top : 10px;
-            padding-bottom : 10px;
-        }
-        li{
-            list-style:none;
-            padding-top : 5px;
-            padding-bottom : 5px;
-        }
-        .flex_between{
-            width : 20vw;
-            display : flex;
-            flex-direction : row;
-            flex-wrap : wrap;
-            justify-content : space-between;
-        }
-        /* #button_add{
-
-        }
-        #button_erase{
-
-        } */
-        #circle{
-            width:30px;
-            height : 30px;
-            background-color : gray;
-            border-color : gray;
-            border-radius : 50%;
-            margin-left : 10px;
-            text-align : center;
-            line-height : 30px;
-            color : black;
-            margin-bottom : 0px;
+        #button_x::after{
+            content: "\00d7";
         }
     </style>
     </head>
@@ -90,23 +15,31 @@
                 <div id="Title">TO-DO LIST</div>
             </div>
 
-            <div class="flex">
+            <div class="flex_row">
                 <ul1>
                     <div class="flex_between">
-                        <div class="flex">
+                        <div class="flex_row">
                             <TodoList>해야할 일</TodoList>
                             <div id="circle">2</div>
                         </div>
-                        <div class="flex">
-                            <button id = "button_add">+</button>
-                            <button id = "button_erase">x</button>
+                        <div class="flex_row">
+                            <button>+</button>
+                            <button id = "button_x"></button>
                         </div>
                     </div>
-                    <ul><TodoItem>GitHub 공부하기</TodoItem>
+                    <ul>
+                        <div class="flex_between">
+                            <TodoItem>GitHub 공부하기</TodoItem>
+                            <button id = "button_x"></button>
+                        </div>
                         <li>add, commit, push</li>
                         <div id = "author_by_web">author by web</div>
                     </ul>
-                    <ul><TodoItem>블로그에 포스팅할 것</TodoItem>
+                    <ul>
+                        <div class="flex_between">
+                            <TodoItem>블로그에 포스팅할 것</TodoItem>
+                            <button id = "button_x"></button>
+                        </div>
                         <li>* GitHub 공부내용</li>
                         <li>* 모던 스크립트 1장 공부내용</li>
                         <div id = "author_by_web">author by web</div>
@@ -114,29 +47,33 @@
                 </ul1>
                 <ul1>
                     <div class="flex_between">
-                        <div class="flex">
+                        <div class="flex_row">
                             <TodoList>하고 있는 일</TodoList>
                             <div id="circle">1</div>
                         </div>
-                        <div class="flex">
-                            <button id = "button_add">+</button>
-                            <button id = "button_erase">x</button>
+                        <div class="flex_row">
+                            <button>+</button>
+                            <button id = "button_x"></button>
                         </div>
                     </div>
-                    <ul><TodoItem>HTML/CSS 공부하기</TodoItem>
+                    <ul>
+                        <div class="flex_between">
+                            <TodoItem>HTML/CSS 공부하기</TodoItem>
+                            <button id = "button_x"></button>
+                        </div>
                         <li>input 태그 실습</li>
                         <div id = "author_by_web">author by web</div>
                     </ul>
                 </ul1>
                 <ul1>
                     <div class="flex_between">
-                        <div class="flex">
+                        <div class="flex_row">
                             <TodoList>완료한 일</TodoList>
                             <div id="circle">0</div>
                         </div>
-                        <div class="flex">
-                            <button id = "button_add">+</button>
-                            <button id = "button_erase">x</button>
+                        <div class="flex_row">
+                            <button>+</button>
+                            <button id = "button_x"></button>
                         </div>
                     </div>
 
