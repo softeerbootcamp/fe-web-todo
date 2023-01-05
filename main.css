@@ -1,5 +1,9 @@
 /* Global */
 
+body {
+    background-color: #E5E5E5;
+}
+
 p {
     font-family: "Noto Sans KR", serif;
 }
@@ -67,12 +71,14 @@ main {
 .section_add_button {
     display: inline-block;
     margin-left: auto;
+    background-color: #E5E5E5;
 }
 
 .section_delete_button {
     display: inline-block;
     margin-left: 16px;
     float: right;
+    background-color: #E5E5E5;
 }
 
 #section1 {
@@ -90,8 +96,10 @@ main {
     margin-left: 8px;
 }
 
+/* Default box */
+
 .box {
-    background-color: aquamarine;
+    background-color: white;
     padding: 0 16px 16px;
     margin-bottom: 16px;
     box-shadow: 0 1px 30px rgba(224, 224, 224, 0.3);
@@ -116,7 +124,6 @@ main {
 
 .box_main_text {
     font-size: 14px;
-    /*margin-top: 8px;*/
     margin-top: 0;
     margin-bottom: 0;
 }
@@ -126,4 +133,57 @@ main {
     margin-top: 8px;
     margin-bottom: 0;
     color: #BDBDBD;
+}
+
+/* Addition box */
+
+.box_addition {
+    background-color: white;
+    padding: 0 16px 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 30px rgba(224, 224, 224, 0.3);
+    border-radius: 6px;
+    border-width: 0 1px;
+    border: solid #0075DE;
+}
+
+.box_addition_title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 48px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #828282;
+}
+
+.box_addition_text {
+    font-size: 14px;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #828282;
+}
+
+.box_addition_buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 16px;
+}
+
+.box_addition_cancel {
+    flex: 1;
+    height: 40px;
+    background-color: #E0E0E0;
+    color: #828282;
+    border-radius: 6px;
+}
+
+.box_addition_confirm {
+    flex: 1;
+    height: 40px;
+    background-color: #86C6FF;
+    color: rgba(255, 255, 255, 0.4);
+    margin-left: 8px;
+    border-radius: 6px;
 }
