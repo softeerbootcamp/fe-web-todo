@@ -1,6 +1,5 @@
 import { updateToDoListUI, state, addNewColumn } from './store.js';
 const $ = (select) => document.querySelector(select);
-const $$ = (select) => document.querySelectorAll(select);
 
 const historyTab = $('.history-container');
 const btnHistoryTab = $('.todo-list-header-button');
