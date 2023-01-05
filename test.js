@@ -1,5 +1,6 @@
-var pi=5;
-var person=15;
+let { todos} = require("./todos");
 
-document.getElementById("total_number").innerHTML = 
-	pi + "<br>" + person;
+const pi = todos.length;
+const person = 10;
+
+document.getElementById("total_number").innerHTML = pi + "<br>" + person;
