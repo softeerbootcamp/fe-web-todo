@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>이게 뭐하는 건가?</title>
+    <title>jaewon homepage</title>
     <style>
         .class_todo_elem{
         display:flex;
         flex-direction:column;
-        padding : 15px;
+        padding : 0px 10px 10px 10px;
         }
     </style>
     <style>
@@ -22,42 +22,61 @@
         border-radius:20px;}
         p{line-height:30px};
     </style>
+    <!-- <style>
+        div#id_todo_elem_header{
+        display:flex;
+        justify-content:space-between;
+        }
+    </style> -->
     <style>
         div#id_header{background-color:white;
         width:200px;
-        padding:15px;
-        margin:10; 
-        border:1px solid white;}
+        padding:15px 15px 0px 15px;
+        margin:0;}
         p{line-height:30px};
     </style>
     <style>
-        div#id_list_header{background-color:white;
+        div#id_list_header{
+        display:flex;
+        justify-content:space-between;
+        background-color:lightgray;
         width:200px;
-        padding:15px;
-        margin:10;
-        border:1px solid white;}
+        padding:0px 15px 0px 15px;
+        margin:10;}
         p{line-height:30px};
     </style>
     <style>
         .class_todo_table{
         display:flex;
-        background-color:white;
+        background-color:lightgray;
         width:90%;
-        padding:15px;
-        margin:2%;
-        border:1px solid white;}
+        padding:0px;
+        margin:0;
+        border:1px solid lightgray;}
         p{line-height:30px};
     </style>
+    <!-- <style>
+        .class_whole_page{
+            display:flex;
+            flex-direction:column;
+            background-color:lightgray !important;
+            width:10;
+            padding:10;
+            margin:10;
+        }
+    </style> -->
 </head>
 <body>
-    <div id="id_header">
-        <h1>TO-DO LIST</h1>
-    </div>
-    <div id="id_list_header">
-        <h2>해야할 일</h2>
-    </div>
+    <header>
+        <div id="id_header">
+            <h1>TO-DO LIST</h1>
+        </div>
+    </header>
     <div class="class_todo_table">
         <div class="class_todo_elem">
+            <div id="id_list_header">
+                <h2>해야할 일</h2>
+            </div>
             <div id="id_todo_elem">
                 <h3>GitHub 공부하기
                     <button class="favorite styled"
@@ -87,6 +106,9 @@
             </div>
         </div>
         <div class="class_todo_elem">
+            <div id="id_list_header">
+                <h2>하고있는 일</h2>
+            </div>
             <div id="id_todo_elem">
                 <h3>GitHub 공부하기
                     <button class="favorite styled"
@@ -98,6 +120,9 @@
             </div>
         </div>
         <div class="class_todo_elem">
+            <div id="id_list_header">
+                <h2>완료한 일</h2>
+            </div>
             <div id="id_todo_elem">
                 <h3>GitHub 공부하기
                     <button class="favorite styled"
