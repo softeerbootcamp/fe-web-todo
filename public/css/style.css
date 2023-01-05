@@ -20,6 +20,8 @@ TodoItem{
     padding-top : 20px;
 }
 ul1{
+    display : flex;
+    flex-direction : column;
     vertical-align: top;
     margin:10px;
 }
@@ -75,4 +77,17 @@ button{
     border : none;
     font-size : 25px;
     color : gray;
+}
+.plus_todo{
+    width : 400px;
+    height : 100px;
+    display :flex;
+    flex-direction : column;
+    text-align : left;
+    border : solid;
+    border-color : white;
+    background-color : white;
+    border-radius : 5px;
+    padding : 10px;
+    margin : 10px;
 }
