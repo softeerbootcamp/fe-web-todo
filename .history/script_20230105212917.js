@@ -54,15 +54,16 @@ add_btn.forEach(item=>{
 
         lst_item.className = 'input-items';
         lst_item.setAttribute("tabindex",'-1');
-        lst_item.addEventListener("blur", ()=>{
-            lst_item.removeAttribute('tabindex');
-            lst_item.remove();})
+        // lst_item.addEventListener("blur", ()=>{
+        //     lst_item.remove();})
         cancle_button.addEventListener('click',()=>{
             lst_item.remove();})
-        register_button.addEventListener('mousedown',(e)=>{
-            const title = input_title.value;
-            const contents = input_contents.value;
-            console.log(title,contents);
+        register_button.addEventListener('click',(e)=>{
+            const input_items = document.querySelector('input-items');
+            console.log(e);
+            // const title = input_title.value;
+            // const contents = input_contents.value;
+            // console.log(title,contents);
             if(!title){
                 alert('no title');
                 return;
@@ -75,7 +76,11 @@ add_btn.forEach(item=>{
             const new_item = make_new_lst(title,contents);
             console.log(new_item);
             item.parentNode.parentNode.parentNode.childNodes[3].prepend(new_item);
+            // lst_item.remove();
         })
+        // const title = input_title.value;
+        //     const contents = input_contents.value;
+        // child.prepend(make_new_lst("title", "contents"));
         child.prepend(lst_item);
         }
     })
