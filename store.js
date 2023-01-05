@@ -7,14 +7,36 @@ export const card = {
 export const column = {
   title: '해야할 일',
   cards: [card, card, card],
+  addingState: false,
 };
 
 export const state = {
   columns: [],
   history: [],
 };
+const getNewCardComponent = () => {
+  const node = document.createElement('div');
+  node.classList.add('todo-list-contents-container');
+  node.classList.add('content-new');
+  node.innerHTML = `
+              <div class="todo-list-contents-header-container">
+              <input
+                class="todo-list-contents-header-text"
+                placeholder="제목을 입력하세요"
+              />
+            </div>
+            <input
+              class="todo-list-contents-desc-container"
+              placeholder="내용을 입력하세요"
+            />
+            <div class="todo-list-new-contents-btn-container">
+              <button class="btn btn-normal">취소</button>
+              <button class="btn btn-accent">등록</button>
+            </div>`;
+  return node;
+};
 
-export const getCardComponent = (cardData) => {
+export const getCardComponent = cardData => {
   const datails =
     cardData.details?.reduce((acc, cur) => acc + `<li>${cur}</li>`, '') || '';
   return `
@@ -46,14 +68,14 @@ export const getCardComponent = (cardData) => {
     `;
 };
 
-export const getColumnComponent = (column) => {
+export const getColumnComponent = column => {
   const cards = column.cards.reduce(
     (acc, cur) => acc + getCardComponent(cur),
     ''
   );
-  return `
-    <div class="todo-list-column-container">
-              <div class="todo-list-column-header-container">
+  const node = document.createElement('div');
+  node.classList.add('todo-list-column-container');
+  node.innerHTML = `<div class="todo-list-column-header-container">
                 <div class="todo-list-column-left">
                   <div class="todo-list-column-header-text">${column.title}</div>
                   <div class="todo-list-column-count-container">
@@ -91,26 +113,49 @@ export const getColumnComponent = (column) => {
                   </button>
                 </div>
               </div>
-              ${cards}
-            </div>
-    `;
+              ${cards}`;
+  return node;
 };
 
-export const updateToDoListUI = (state) => {
-  const $ = (select) => document.querySelector(select);
+export const updateToDoListUI = state => {
+  const $ = select => document.querySelector(select);
   const todoListBodyContainer = $('.todo-list-body-container');
-  const todoListBodyContents = state.columns.reduce(
-    (acc, cur) => acc + getColumnComponent(cur),
-    ''
-  );
-  todoListBodyContainer.innerHTML = todoListBodyContents;
+  todoListBodyContainer.innerHTML = '';
+  state.columns.forEach(ele => {
+    todoListBodyContainer.prepend(getColumnComponent(ele));
+  });
 
   const btnDeleteColumns = document.querySelectorAll('.column-btn-x');
-  btnDeleteColumns.forEach((btnDeleteColumn) => {
-    btnDeleteColumn.addEventListener('click', (e) => {
+  btnDeleteColumns.forEach(btnDeleteColumn => {
+    btnDeleteColumn.addEventListener('click', e => {
       const idx = nthChild(btnDeleteColumns, e.currentTarget);
+
       deleteColumn(state, idx);
       updateToDoListUI(state);
+    });
+  });
+
+  const btnAddCards = document.querySelectorAll('.column-btn-plus');
+  btnAddCards.forEach(btnAddCard => {
+    btnAddCard.addEventListener('click', e => {
+      const columnContainer = e.currentTarget.parentNode.parentNode.parentNode;
+      const idx = nthChild(btnAddCards, e.currentTarget);
+      const addingState = state.columns[idx].addingState;
+      const newCard = columnContainer.firstChild.nextElementSibling;
+      if (addingState) {
+        newCard.remove();
+      }
+      if (!addingState) {
+        if (columnContainer.childElementCount === 1) {
+          columnContainer.append(getNewCardComponent());
+        } else {
+          columnContainer.insertBefore(
+            getNewCardComponent(),
+            newCard.nextSibling
+          );
+        }
+      }
+      state.columns[idx].addingState = !addingState;
     });
   });
 };
@@ -125,13 +170,48 @@ const deleteColumn = (state, idx) => {
   state.columns.splice(idx, 1);
 };
 
-export const addNewColumn = (state) => {
-  state.columns = [
-    {
-      title: '제목 없음',
-      cards: [],
-    },
-    ...state.columns,
-  ];
-  updateToDoListUI(state);
+export const addNewColumn = state => {
+  const bodyContainer = document.querySelector('.todo-list-body-container');
+  const columnData = {
+    title: '제목 없음',
+    cards: [],
+    addingState: false,
+  };
+  const columnComponent = getColumnComponent(columnData);
+  bodyContainer.prepend(columnComponent);
+  state.columns.unshift(columnData);
+  attachColumnEvent(state, columnComponent);
+};
+
+const attachColumnEvent = (state, columnComponent) => {
+  const btnDeleteColumn = columnComponent.querySelector('.column-btn-x');
+  btnDeleteColumn.addEventListener('click', () => {
+    const btnDeleteColumns = document.querySelectorAll('.column-btn-x');
+    const idx = nthChild(btnDeleteColumns, btnDeleteColumn);
+    deleteColumn(state, idx);
+    columnComponent.remove();
+  });
+
+  const btnAddCard = columnComponent.querySelector('.column-btn-plus');
+  btnAddCard.addEventListener('click', e => {
+    const btnAddCards = document.querySelectorAll('.column-btn-plus');
+    const idx = nthChild(btnAddCards, btnAddCard);
+
+    const addingState = state.columns[idx].addingState;
+    const newCard = columnComponent.firstChild.nextElementSibling;
+    if (addingState) {
+      newCard.remove();
+    }
+    if (!addingState) {
+      if (columnComponent.childElementCount === 1) {
+        columnComponent.append(getNewCardComponent());
+      } else {
+        columnComponent.insertBefore(
+          getNewCardComponent(),
+          newCard.nextSibling
+        );
+      }
+    }
+    state.columns[idx].addingState = !addingState;
+  });
 };
