@@ -5,7 +5,6 @@ import { deleteNode, getTargetChild, addClsssName } from "../utils/utils.js";
 const columnAddBtnClickEventHandler = (e) => {
   if (e.target.className === "column-add-btn") {
     addClsssName(e.target, "active");
-    console.log("hi");
     e.currentTarget.innerHTML += newCardWrapper({ id: "newCardInput" });
     const addBtn = document.querySelector(".column-add-btn");
     addBtn.classList.add("active");
@@ -60,7 +59,6 @@ const cardCancelBtnClickEventHandler = (e) => {
 const cardRemoveHoverEventHandler = (e) => {
   if (e.target.className === "card-remove-btn") {
     const cardNode = e.target.closest(".card-wrapper");
-    console.log(e.target);
     cardNode.classList.add("mouse-on");
   }
 };
