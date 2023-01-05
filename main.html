@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>to-do-list</title>
     <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://kit.fontawesome.com/4d499a68c2.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
@@ -13,49 +14,67 @@
     </header>
 
     <div class="todolist">
-        <div class = "todo">
-            <div>해야할 일 <span class="list-count">1</span>
-                <button>+</button>
-                <button>-</button>
+        <section class = "todo">
+            <div class = "todo-header">
+                <h2>해야할 일</h2>
+                <span class="list-count">1</span>
+                <div class="buttons">
+                    <button class="plus button"><i class="fa-solid fa-plus"></i></button>
+                    <button class="delete button"><i class="fa-solid fa-x"></i></button>
+                </div>
             </div> 
             <ul class = "todolist-item">
                 <li class = "todolist-items">
-                    <h3>Git hub 공부하기 <button>x</button></h3>
-                    <ul>
-                        <li>add, commit, push</li>
-                    </ul>
+                    <div class="todolist-items-header">
+                        <h3>Git hub 공부하기</h3>
+                        <button class="delete button"><i class="fa-solid fa-x"></i></button> 
+                    </div>
+                    <p>add, commit, push</p> 
                 </li class = "todolist-items">
                 <li class = "todolist-items">
-                    <h3>블로그에 포스팅할 것 <button>x</button></h3>
-                    <ul>
-                        <li>Git hub 공부내용</li>
-                        <li>모던 자바스크립트 1장 공부 내용</li>
-                    </ul>
+                    <div class="todolist-items-header">
+                        <h3>블로그에 포스팅할 것</h3>
+                        <button class="delete button"><i class="fa-solid fa-x"></i></button> 
+                    </div>
+                    <p>* Git hub 공부내용</p>
+                    <p>* 모던 자바스크립트 1장 공부 내용</p>
                 </li>
             </ul>
-        </div>
-        <div class = "doing">
-            <div>하고있는 일 <span class="list-count">1</span>
-                <button>+</button>
-                <button>-</button>
+        </section>
+        <section class = "doing">
+
+            <div class = "todo-header">
+                <h2>하고있는 일</h2>
+                <span class="list-count">1</span>
+                <div class= "buttons">
+                    <button class="plus button"><i class="fa-solid fa-plus"></i></button>
+                    <button class="delete button"><i class="fa-solid fa-x"></i></button>
+                </div>
             </div> 
+
             <ul class = "todolist-item">
                 <li class = "todolist-items">
-                    <h3>모던 자바스크립트 예제 실습 <button>x</button></h3>
-                    <ul>
-                        <li>input 태그</li>
-                    </ul>
+
+                    <div class="todolist-items-header">
+                        <h3>모던 자바스크립트 예제 실습</h3>
+                        <button class="delete button"><i class="fa-solid fa-x"></i></button> 
+                    </div>
+                    <p>input 태그</p>
                 </li class = "todolist-items">
             </ul>
-        </div>
-        <div class = "done">
-            <div> 완료한 일 <span class="list-count">1</span>
-                <button>+</button>
-                <button>-</button>
+        </section>
+        <section class = "done">
+            <div class = "todo-header">
+                <h2>완료한 일</h2>
+                <span class="list-count">1</span>
+                <div class= "buttons">
+                    <button class="plus button"><i class="fa-solid fa-plus"></i></button>
+                    <button class="delete button"><i class="fa-solid fa-x"></i></button>
+                </div>
             </div> 
             <ul class = "todolist-item">
             </ul>
-        </div>
+        </section>
     </div>
 </body>
 </html>

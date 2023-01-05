@@ -4,6 +4,15 @@ body{
     background-color: gainsboro;
 }
 
+h2{
+    margin: 0;
+    padding: 0 10px;
+}
+
+h3{
+    margin: 5px 0;
+}
+
 header{
     padding-left: 30px;
 }
@@ -14,33 +23,58 @@ header{
     padding-left: 30px;
 }
 
-.todolist > div{
+section{
     width: 25vw;
     margin: 0 10px;
+}
+
+.todo-header {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.buttons{
+    margin-left: auto;
+}
+
+.button{
+    margin-left: auto;
+    border:none;
+    background-color:inherit;
 }
 
 .list-count{
     border-radius: 50%;
     border: 1px solid black;
-    background-color: gray;
+    background-color: lightgray;
     display: inline-block;
     width: 20px;
     height: 20px;
+    font-weight: bold;
+    text-align: center;
+    padding: 1px;
+    line-height: 100%;
 }
 
 ul{
     padding: 0;
 }
 
-.todolist-item > li{
-    border-radius: 4%;
+.todolist-items{
+    border-radius: 10px;
     border: solid 1px black;
     margin-bottom: 10px;
     padding: 10px;
     list-style: none;
+    background-color: whitesmoke;
+}
+
+.todolist-items-header{
+    display: flex;
 }
 
 button{
     justify-content: flex-end;
     cursor: pointer;
+    text-decoration: none;
 }
