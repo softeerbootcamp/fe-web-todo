@@ -1,11 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik:700&display=swap');
 
-.class_todo_elem{
-    display:flex;
-    flex-direction:column;
-    padding : 0px 10px 10px 10px;
+body{
+    background-color:rgb(239, 230, 230);
 }
 
-div#id_todo_elem{
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+li.icon {
+    flex-basis: 25%;
+}
+
+#_col_elem{
+    display:flex;
+    flex-direction:column;
     background-color:white;
     width:200px;
     padding:20px 10px;
@@ -14,45 +26,72 @@ div#id_todo_elem{
     border-radius:10px;
 }
 
-
-div#id_todo_elem_header{
+._row_elem{
     display:flex;
-    justify-content:space-between;
+    flex-direction:column;
+    padding : 0px 10px 10px 10px;
 }
 
-div#id_header{
-    background-color:white;
-    width:200px;
-    padding:15px 15px 0px 15px;
+#_header{
+    display:flex;
+    width:100%;
+    padding:15px;
+    font-size:20px;
     margin:0;
 }
 
-div#id_list_header{
+._todo_table{
+    display:flex;
+    flex-direction:row;
+}
+
+#_col_header{
     display:flex;
     justify-content:space-between;
-    background-color:rgb(239, 230, 230);
     width:200px;
     padding:0px 15px 0px 15px;
     font-size:12px;
     margin:10;
 }
 
-
-.class_todo_table{
+#_elem_header{
     display:flex;
-    background-color:rgb(239, 230, 230);
-    width:90%;
-    padding:0px;
-    margin:0;
-    border:1px solid rgb(239, 230, 230);
+    justify-content:space-between;
+    width:180px;
+    font-size:12px;
 }
 
+.top_Button {
+    display:inline-block;
+    vertical-align:middle;
+    margin-left:auto;
+	box-shadow:inset 0px 1px 3px 0px #91b8b3;
+	background:linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
+	background-color:#768d87;
+	border-radius:5px;
+	border:1px solid #566963;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:13px;
+	font-weight:bold;
+    padding : 0px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #2b665e;
+}
 
-.class_whole_page{
-    display:flex;
-    flex-direction:column;
-    background-color:lightgray !important;
-    width:10;
-    padding:10;
-    margin:10;
+.my_button{
+	font-weight:bold;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #2b665e;
+    margin :15px 0px 0px 0px;
+}
+
+.my_button_2{
+    margin-right:auto;
+	font-weight:bold;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #2b665e;
+    margin :0px;
 }
