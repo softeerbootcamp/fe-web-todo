@@ -100,7 +100,7 @@ const columnEvent = () => {
       cardRemoveClickEventHandler(e);
     });
   });
-  const removeBtnEl = document.querySelectorAll(".card-remove-btn-wrapper");
+  const removeBtnEl = document.querySelectorAll(".columns-wrapper");
   removeBtnEl.forEach((removeBtn) => {
     removeBtn.addEventListener("mouseover", (e) => {
       cardRemoveHoverEventHandler(e);
