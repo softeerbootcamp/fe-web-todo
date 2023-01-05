@@ -10,7 +10,7 @@ export const column = {
 };
 
 export const state = {
-  columns: [column, column],
+  columns: [],
   history: [],
 };
 
@@ -61,7 +61,7 @@ export const getColumnComponent = (column) => {
                   </div>
                 </div>
                 <div class="todo-list-column-button-container">
-                  <button class="column-btn">
+                  <button class="column-btn column-btn-plus">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="14"
@@ -72,11 +72,10 @@ export const getColumnComponent = (column) => {
                       <path
                         d="M0.105713 7.53033L0.105713 6.46967H6.46967V0.105713H7.53033V6.46967H13.8943V7.53033H7.53033V13.8943H6.46967V7.53033H0.105713Z"
                         fill="#BDBDBD"
-                        class="column-btn-plus"
                       />
                     </svg>
                   </button>
-                  <button class="column-btn">
+                  <button class="column-btn column-btn-x">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="12"
@@ -87,7 +86,6 @@ export const getColumnComponent = (column) => {
                       <path
                         d="M1.5 11.25L0.75 10.5L5.25 6L0.75 1.5L1.5 0.75L6 5.25L10.5 0.75L11.25 1.5L6.75 6L11.25 10.5L10.5 11.25L6 6.75L1.5 11.25Z"
                         fill="#BDBDBD"
-                        class="column-btn-x"
                       />
                     </svg>
                   </button>
@@ -106,6 +104,25 @@ export const updateToDoListUI = (state) => {
     ''
   );
   todoListBodyContainer.innerHTML = todoListBodyContents;
+
+  const btnDeleteColumns = document.querySelectorAll('.column-btn-x');
+  btnDeleteColumns.forEach((btnDeleteColumn) => {
+    btnDeleteColumn.addEventListener('click', (e) => {
+      const idx = nthChild(btnDeleteColumns, e.currentTarget);
+      deleteColumn(state, idx);
+      updateToDoListUI(state);
+    });
+  });
+};
+
+const nthChild = (arr, target) => {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === target) return i;
+  }
+};
+
+const deleteColumn = (state, idx) => {
+  state.columns.splice(idx, 1);
 };
 
 export const addNewColumn = (state) => {

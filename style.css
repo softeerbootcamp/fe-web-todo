@@ -110,10 +110,10 @@ menu {
 .column-btn {
   margin: 10px;
 }
-.column-btn:hover .column-btn-plus {
+.column-btn-plus:hover path {
   fill: #0075de;
 }
-.column-btn:hover .column-btn-x {
+.column-btn-x:hover path {
   fill: #ff4343;
 }
 
