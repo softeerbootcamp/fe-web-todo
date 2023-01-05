@@ -88,6 +88,8 @@ const addWholeColumnClickEventHandler = (e) => {
   console.log("here!");
 };
 
+
+
 const checkLogCount = () => {
   if (document.querySelectorAll(".log-card-wrapper").length > 6) {
     document.querySelectorAll(".log-card-wrapper")[0].remove();
