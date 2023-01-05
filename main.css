@@ -200,9 +200,57 @@ main {
     border: solid #FF4343;
 }
 
-.box_deletion .box_delete_button{
+.box_deletion .box_delete_button {
     background-color: #FFEEEC
 }
 
 /* Side menu */
 
+.sidebar {
+    /* TODO: display none should be changed with js */
+    /*display: none;*/
+    position: fixed;
+    background-color: #FFFFFF;
+    box-shadow: rgba(204, 204, 204, 0.5);
+    width: 25%;
+    height: 100%;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    padding: 40px;
+}
+
+#sidebar_close_button {
+    /*margin-bottom: 16px;*/
+    float: right;
+}
+
+.sidebar_block {
+    padding: 16px;
+    margin-top: 24px;
+    /*margin-bottom: 16px;*/
+    display: flex;
+}
+
+.sidebar_block_emoji {
+    font-size: 40px;
+    margin-top: 0;
+    margin-right: 16px;
+}
+
+.sidebar_block_name {
+    font-size: 16px;
+    margin: 0;
+}
+
+.sidebar_block_text {
+    font-size: 16px;
+    margin-top: 8px;
+    margin-bottom: 0;
+}
+
+.sidebar_block_time {
+    font-size: 14px;
+    color: #828282;
+    margin-top: 8px;
+}
