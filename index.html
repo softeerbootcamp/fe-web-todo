@@ -5,12 +5,13 @@
     <link rel = "stylesheet" href = "css/style.css" type="text/css"/>
     <style>
         #Title{
-            font-size : 1.7em;
-            padding : 20px;
+            font-size : 2.5em;
+            padding : 40px;
+            padding-left : 8px;
         }
         TodoList{
             display : inline-block;
-            font-size : 1.3em;
+            font-size : 1.2em;
             margin-right : 0;
             font-weight : bold;
 
@@ -22,13 +23,13 @@
             margin-right: 0;
             font-weight: bold;
             padding-bottom: 10px;
-            padding-top : 10px;
+            padding-top : 20px;
         }
         ul1{
             vertical-align: top;
             margin:10px;
         }
-        #flex{
+        .flex{
             display : flex;
             flex-direction: row;
             flex-wrap : wrap;
@@ -40,27 +41,67 @@
             border : solid;
             border-color : white;
             background-color : white;
-            border-radius : 10px;
-            padding-right : 20px;
+            border-radius : 5px;
+            padding-right : 150px;
             padding-left : 10px;
+
         }
         #author_by_web{
             font-size : 5px;
             color : gray;
+            padding-top : 10px;
+            padding-bottom : 10px;
         }
         li{
             list-style:none;
+            padding-top : 5px;
+            padding-bottom : 5px;
+        }
+        .flex_between{
+            width : 20vw;
+            display : flex;
+            flex-direction : row;
+            flex-wrap : wrap;
+            justify-content : space-between;
+        }
+        /* #button_add{
+
+        }
+        #button_erase{
+
+        } */
+        #circle{
+            width:30px;
+            height : 30px;
+            background-color : gray;
+            border-color : gray;
+            border-radius : 50%;
+            margin-left : 10px;
+            text-align : center;
+            line-height : 30px;
+            color : black;
+            margin-bottom : 0px;
         }
     </style>
     </head>
-    <body style="background-color: rgb(235, 235, 235); padding-left:10vw" ;>
+    <body style="background-color: rgb(245, 245, 245); padding-left:10vw" ;>
         <div>
             <div>
                 <div id="Title">TO-DO LIST</div>
             </div>
 
-            <div id="flex">
-                <ul1><TodoList>해야할 일</TodoList>
+            <div class="flex">
+                <ul1>
+                    <div class="flex_between">
+                        <div class="flex">
+                            <TodoList>해야할 일</TodoList>
+                            <div id="circle">2</div>
+                        </div>
+                        <div class="flex">
+                            <button id = "button_add">+</button>
+                            <button id = "button_erase">x</button>
+                        </div>
+                    </div>
                     <ul><TodoItem>GitHub 공부하기</TodoItem>
                         <li>add, commit, push</li>
                         <div id = "author_by_web">author by web</div>
@@ -71,13 +112,33 @@
                         <div id = "author_by_web">author by web</div>
                     </ul>
                 </ul1>
-                <ul1><TodoList>하고 있는 일</TodoList>
+                <ul1>
+                    <div class="flex_between">
+                        <div class="flex">
+                            <TodoList>하고 있는 일</TodoList>
+                            <div id="circle">1</div>
+                        </div>
+                        <div class="flex">
+                            <button id = "button_add">+</button>
+                            <button id = "button_erase">x</button>
+                        </div>
+                    </div>
                     <ul><TodoItem>HTML/CSS 공부하기</TodoItem>
                         <li>input 태그 실습</li>
                         <div id = "author_by_web">author by web</div>
                     </ul>
                 </ul1>
-                <ul1><TodoList>완료한 일</TodoList>
+                <ul1>
+                    <div class="flex_between">
+                        <div class="flex">
+                            <TodoList>완료한 일</TodoList>
+                            <div id="circle">0</div>
+                        </div>
+                        <div class="flex">
+                            <button id = "button_add">+</button>
+                            <button id = "button_erase">x</button>
+                        </div>
+                    </div>
 
                 </ul>
             </div>
