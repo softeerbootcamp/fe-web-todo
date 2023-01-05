@@ -44,9 +44,11 @@ p {
 
 #_header{
     display:flex;
+    /* justify-content: center; */
+    justify-content:space-between;
     width:100%;
     padding:15px;
-    font-size:20px;
+    font-size:24px;
     margin:0;
 }
 
@@ -60,36 +62,40 @@ p {
     justify-content:space-between;
     width:200px;
     padding:0px 15px 0px 15px;
-    font-size:15px;
+    font-size:18px;
     margin:10;
 }
 
 #_elem_header{
     display:flex;
     justify-content:space-between;
-    font-size:14px;
+    font-size:18px;
     width:180px;
 }
 
 .top_button {
-    display:inline-block;
-    vertical-align:middle;
+    display:flex;
     background-color:transparent;
     border-color: transparent;
-    margin-left:auto;
 	font-size:30px;
     padding : 0px;
+    cursor:pointer;
+    margin : -7px 5% 0px 0px;
 	text-decoration:none;
+    justify-content: center;
 }
 
 .my_button{
-	font-weight:bold;
-	text-decoration:none;
+    display:flex;
     background-color:transparent;
     border-color: transparent;
-    font-size:20px;
+    font-size:30px;
     font-weight: lighter;
+    cursor:pointer;
+    /* padding:0px; */
     margin :20px 0px 0px 0px;
+    line-height:30px;
+    text-align:center;
 }
 
 .my_button_2{
@@ -98,6 +104,7 @@ p {
     border-color: transparent;
 	font-weight:lighter;
 	text-decoration:none;
-	text-shadow:0px -1px 0px #2b665e;
+    justify-content: center;
+    cursor:pointer;
     margin :-5px;
 }
