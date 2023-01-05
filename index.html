@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="main-container">
+      <section class="todo-list-container">
+        <nav class="todo-list-header-container">
+          <div class="todo-list-header-text">TO-DO LIST</div>
+          <button class="todo-list-header-button">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="17"
+              height="11"
+              viewBox="0 0 17 11"
+              fill="none"
+            >
+              <path
+                d="M0 1V3.8147e-06H17V1H0ZM17 5V6H0V5H17ZM0 10H17V11H0V10Z"
+                fill="#010101"
+              />
+            </svg>
+          </button>
+        </nav>
+        <main class="todo-list-body-container">
+          <div class="todo-list-column-container">
+            <div class="todo-list-column-header-container">
+              <div class="todo-list-column-left">
+                <div class="todo-list-column-header-text">해야할 일</div>
+                <div class="todo-list-column-count-container">
+                  <div class="todo-list-count">1</div>
+                </div>
+              </div>
+              <div class="todo-list-column-button-container">
+                <button class="column-btn">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 14 14"
+                    fill="none"
+                  >
+                    <path
+                      d="M0.105713 7.53033L0.105713 6.46967H6.46967V0.105713H7.53033V6.46967H13.8943V7.53033H7.53033V13.8943H6.46967V7.53033H0.105713Z"
+                      fill="#BDBDBD"
+                      class="column-btn-plus"
+                    />
+                  </svg>
+                </button>
+                <button class="column-btn">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="12"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                  >
+                    <path
+                      d="M1.5 11.25L0.75 10.5L5.25 6L0.75 1.5L1.5 0.75L6 5.25L10.5 0.75L11.25 1.5L6.75 6L11.25 10.5L10.5 11.25L6 6.75L1.5 11.25Z"
+                      fill="#BDBDBD"
+                      class="column-btn-x"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="todo-list-contents-container content-delete">
+              <div class="todo-list-contents-header-container">
+                <div class="todo-list-contents-header-text">
+                  github 공부하기
+                </div>
+                <button>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="12"
+                    height="12"
+                    viewBox="0 0 12 12"
+                    fill="none"
+                  >
+                    <path
+                      d="M1.5 11.25L0.75 10.5L5.25 6L0.75 1.5L1.5 0.75L6 5.25L10.5 0.75L11.25 1.5L6.75 6L11.25 10.5L10.5 11.25L6 6.75L1.5 11.25Z"
+                      fill="#828282"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <ul class="todo-list-contents-desc-container">
+                <li>github 공부내용</li>
+                <li>github 공부내용</li>
+              </ul>
+              <div class="todo-list-contents-footer">author by web</div>
+            </div>
+
+            <div class="todo-list-contents-container dragging" draggable="true">
+              <div class="todo-list-contents-header-container">
+                <div class="todo-list-contents-header-text">
+                  github 공부하기
+                </div>
+                <button><img src="./asset/btn-x-darker.svg" /></button>
+              </div>
+              <ul class="todo-list-contents-desc-container">
+                <li>github 공부내용</li>
+                <li>github 공부내용</li>
+              </ul>
+              <div class="todo-list-contents-footer">author by web</div>
+            </div>
+
+            <div class="todo-list-contents-container content-dragging">
+              <div class="todo-list-contents-header-container">
+                <div class="todo-list-contents-header-text">
+                  github 공부하기
+                </div>
+                <button><img src="./asset/btn-x-darker.svg" /></button>
+              </div>
+              <ul class="todo-list-contents-desc-container">
+                <li>github 공부내용</li>
+                <li>github 공부내용</li>
+              </ul>
+              <div class="todo-list-contents-footer">author by web</div>
+            </div>
+          </div>
+        </main>
+      </section>
+      <menu class="sidebar-hidden">
+        <div class="history-container">
+          <div class="menu-button-container">
+            <button id="btn-history-close">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="12"
+                height="12"
+                viewBox="0 0 12 12"
+                fill="none"
+              >
+                <path
+                  d="M1.5 11.25L0.75 10.5L5.25 6L0.75 1.5L1.5 0.75L6 5.25L10.5 0.75L11.25 1.5L6.75 6L11.25 10.5L10.5 11.25L6 6.75L1.5 11.25Z"
+                  fill="#828282"
+                />
+              </svg>
+            </button>
+          </div>
+          <ul class="menu-history-container">
+            <li>
+              <img src="./asset/user-img.svg" />
+              <div class="history-content-container">
+                <div class="history-content-id">@sam</div>
+                <div class="history-content-desc">
+                  HTML/CSS공부하기를 해야할 일에서 하고 있는 일로
+                  이동하였습니다.
+                </div>
+                <div class="history-content-time">1분 전</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </menu>
+      <button class="fab">+</button>
+      <div class="overlay"></div>
+      <div class="modal">
+        <div class="modal-text">선택한 카드를 삭제할까요?</div>
+        <div class="modal-btn-container">
+          <button class="btn btn-normal">a</button>
+          <button class="btn btn-accent">b</button>
+        </div>
+      </div>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
