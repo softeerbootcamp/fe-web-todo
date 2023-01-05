@@ -48,22 +48,25 @@ section{
     text-decoration: dashed;
 }
 
-.button{
+button{
     margin-left: auto;
     border:none;
     background-color:inherit;
     color: gray;
+    justify-content: flex-end;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 .add:hover{
     color: dodgerblue;
 }
 
-.delete:hover{
+.delete:hover, .delete-lst:hover{
     color: salmon;
 }
 
-.todolist-items:has(.delete:hover){
+.todolist-items:has(.delete-lst:hover){
     border: 1px salmon solid;
     background-color: mistyrose;
 }
@@ -95,10 +98,4 @@ ul{
 
 .todolist-items-header{
     display: flex;
-}
-
-button{
-    justify-content: flex-end;
-    cursor: pointer;
-    text-decoration: none;
 }
