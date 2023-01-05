@@ -221,14 +221,12 @@ main {
 }
 
 #sidebar_close_button {
-    /*margin-bottom: 16px;*/
     float: right;
 }
 
 .sidebar_block {
     padding: 16px;
     margin-top: 24px;
-    /*margin-bottom: 16px;*/
     display: flex;
 }
 
@@ -253,4 +251,28 @@ main {
     font-size: 14px;
     color: #828282;
     margin-top: 8px;
+}
+
+/* Popup view */
+
+.popup {
+    background-color: white;
+    width: 25%;
+    /*height: 10%;*/
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 24px;
+}
+
+.popup_text {
+    font-size: 18px;
+    margin-top: 0;
+}
+
+/* TODO: change name to something else */
+.temp {
+    margin-left: 100px;
+    margin-bottom: 0;
 }
