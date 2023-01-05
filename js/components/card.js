@@ -26,4 +26,21 @@ const cardWrapper = ({ tittle, text }) => {
     </div>`;
 };
 
-export { newCardWrapper, cardWrapper };
+const newColumn = ({ id = "none", title = "냉무" }) => {
+  return `
+  <div class="column-wrapper" id="${id}">
+    <div class="column-header-wrapper">
+      <div class="column-header-left-wrapper">
+        <h2 class="column-header-tittle">${title}</h2>
+        <span class="column-header-num">0</span>
+      </div>
+      <div class="column-header-right-wrapper">
+        <button class="column-add-btn"></button>
+        <button class="column-remove-btn"></button>
+      </div>
+    </div>
+  </div>
+  `;
+};
+
+export { newCardWrapper, cardWrapper, newColumn };

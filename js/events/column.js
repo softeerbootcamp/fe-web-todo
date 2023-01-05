@@ -1,5 +1,5 @@
 import { log } from "../components/log.js";
-import { newCardWrapper, cardWrapper } from "../components/card.js";
+import { newCardWrapper, cardWrapper, newColumn } from "../components/card.js";
 import { deleteNode, getTargetChild, addClsssName } from "../utils/utils.js";
 
 const columnAddBtnClickEventHandler = (e) => {
@@ -82,6 +82,12 @@ const cardRemoveClickEventHandler = (e) => {
   }
 };
 
+const addWholeColumnClickEventHandler = (e) => {
+  const colNode = document.querySelector(".columns-wrapper");
+  colNode.innerHTML += newColumn({ id: "0", title: "냉무" });
+  console.log("here!");
+};
+
 const checkLogCount = () => {
   if (document.querySelectorAll(".log-card-wrapper").length > 6) {
     document.querySelectorAll(".log-card-wrapper")[0].remove();
@@ -109,6 +115,8 @@ const columnEvent = () => {
       cardRemoveOutEvenetHandler(e);
     });
   });
+  const columns = document.querySelector(".add-column-btn-wrapper");
+  columns.addEventListener("click", addWholeColumnClickEventHandler);
 };
 
 const logBtnClickEvent = () => {
