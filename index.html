@@ -2,39 +2,84 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="main.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"
-    />
+    <title>Todo List</title>
+    <link rel="stylesheet" href="style.module.css" />
   </head>
   <body>
-    <div id="main-container">
-      <div id="header">
-        <div class="header-left">TODO LIST</div>
-        <button class="header-right-button">temp button</button>
+    <header>
+      <div class="header-wrapper">
+        <h1>TO-DO LIST</h1>
+        <button class="chat-menu-btn"></button>
+        <div class="log-wrapper"></div>
       </div>
-      <div id="todo-container">
-        <div class="todo-todo">
-          <div class="todo-todo-header">
-            <div class="todo-text-wrapper">
-              <span class="toto-todo-main">해야할 일</span>
-              <span class="todo-item-num">2</span>
+    </header>
+    <main>
+      <div class="columns-wrapper">
+        <div class="column-wrapper" id="to-dos">
+          <div class="column-header-wrapper">
+            <div class="column-header-left-wrapper">
+              <h2 class="column-header-tittle">해야할 일</h2>
+              <span class="column-header-num">0</span>
             </div>
-            <div class="todo-button-wrapper">
-              <button>+</button>
-              <button>-</button>
+            <div class="column-header-right-wrapper">
+              <button class="column-add-btn"></button>
+              <button class="column-remove-btn"></button>
             </div>
           </div>
-          <div>github 공부하기</div>
         </div>
-        <div class="todo-doing"></div>
-        <div class="todo-done"></div>
-        <div class="todo-empty"></div>
+
+        <div class="column-wrapper" id="to-dos-ongoing">
+          <div class="column-header-wrapper">
+            <div class="column-header-left-wrapper">
+              <h2 class="column-header-tittle">진행중인 일</h2>
+              <span class="column-header-num">0</span>
+            </div>
+            <div class="column-header-right-wrapper">
+              <button class="column-add-btn"></button>
+              <button class="column-remove-btn"></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="column-wrapper" id="to-dos-done">
+          <div class="column-header-wrapper">
+            <div class="column-header-left-wrapper">
+              <h2 class="column-header-tittle">완료된 일</h2>
+              <span class="column-header-num">1</span>
+            </div>
+            <div class="column-header-right-wrapper">
+              <button class="column-add-btn"></button>
+              <button class="column-remove-btn"></button>
+            </div>
+          </div>
+
+          <div class="card-wrapper" id="B">
+            <div class="card-header-wrapper">
+              <h3 class="card-tittle">card tittle</h3>
+              <button class="card-remove-btn"></button>
+            </div>
+            <div class="card-text-wrapper">
+              <p class="card-text">add, commit, push</p>
+            </div>
+            <div class="card-footer-wrapper">
+              <p class="card-footer-text">footer</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="modal-wrapper">
+      <div class="modal-text-wrapper">
+        <span class="modal-text">선택한 카드를 삭제할까요?</span>
+      </div>
+      <div class="modal-btn-wrapper">
+        <button class="modal-cancel-btn">취소</button>
+        <button class="modal-remove-btn">삭제</button>
       </div>
     </div>
+
+    <script src="./js/init.js"></script>
   </body>
 </html>
