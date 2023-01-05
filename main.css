@@ -2,6 +2,8 @@
 
 body {
     background-color: #E5E5E5;
+    padding-left: 80px;
+    padding-right: 80px;
 }
 
 p {
@@ -18,24 +20,26 @@ button {
 header {
     height: 112px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
 }
 
 #header_title {
     display: inline-block;
-    padding: 0 0 0 80px;
+    /*padding: 0 0 0 80px;*/
 }
 
 #header_menu_button {
-    display: inline-block;
-    margin-right: 80px;
+    /*display: inline-block;*/
+    margin-right: 40px;
+    background-color: #E5E5E5;
 }
 
 /* Main */
 main {
     display: flex;
     position: relative;
+    width: 75%;
 }
 
 .section {
@@ -79,10 +83,6 @@ main {
     margin-left: 16px;
     float: right;
     background-color: #E5E5E5;
-}
-
-#section1 {
-    margin-left: 80px;
 }
 
 .number_box {
@@ -187,3 +187,22 @@ main {
     margin-left: 8px;
     border-radius: 6px;
 }
+
+/* Deletion box */
+
+.box_deletion {
+    background-color: #FFEEEC;
+    padding: 0 16px 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 30px rgba(224, 224, 224, 0.3);
+    border-radius: 6px;
+    border-width: 0 1px;
+    border: solid #FF4343;
+}
+
+.box_deletion .box_delete_button{
+    background-color: #FFEEEC
+}
+
+/* Side menu */
+
