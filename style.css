@@ -1,0 +1,58 @@
+
+.class_todo_elem{
+    display:flex;
+    flex-direction:column;
+    padding : 0px 10px 10px 10px;
+}
+
+div#id_todo_elem{
+    background-color:white;
+    width:200px;
+    padding:20px 10px;
+    margin:2%;
+    font-size:12px;
+    border-radius:10px;
+}
+
+
+div#id_todo_elem_header{
+    display:flex;
+    justify-content:space-between;
+}
+
+div#id_header{
+    background-color:white;
+    width:200px;
+    padding:15px 15px 0px 15px;
+    margin:0;
+}
+
+div#id_list_header{
+    display:flex;
+    justify-content:space-between;
+    background-color:rgb(239, 230, 230);
+    width:200px;
+    padding:0px 15px 0px 15px;
+    font-size:12px;
+    margin:10;
+}
+
+
+.class_todo_table{
+    display:flex;
+    background-color:rgb(239, 230, 230);
+    width:90%;
+    padding:0px;
+    margin:0;
+    border:1px solid rgb(239, 230, 230);
+}
+
+
+.class_whole_page{
+    display:flex;
+    flex-direction:column;
+    background-color:lightgray !important;
+    width:10;
+    padding:10;
+    margin:10;
+}
