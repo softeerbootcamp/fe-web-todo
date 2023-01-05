@@ -35,24 +35,39 @@ section{
 
 .buttons{
     margin-left: auto;
+    color: lightgray;
+    text-decoration: dashed;
 }
 
 .button{
     margin-left: auto;
     border:none;
     background-color:inherit;
+    color: gray;
+}
+
+.add:hover{
+    color: dodgerblue;
+}
+
+.delete:hover{
+    color: salmon;
+}
+
+.todolist-items:has(.delete:hover){
+    border: 1px salmon solid;
+    background-color: mistyrose;
 }
 
 .list-count{
     border-radius: 50%;
-    border: 1px solid black;
-    background-color: lightgray;
+    background-color: gray;
     display: inline-block;
     width: 20px;
     height: 20px;
     font-weight: bold;
     text-align: center;
-    padding: 1px;
+    padding: 5px;
     line-height: 100%;
 }
 
