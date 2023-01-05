@@ -1,0 +1,208 @@
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: #F5F5F7;
+}
+header {
+    font-family: 'Lato', sans-serif;
+    background-color: #F5F5F7; 
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    height: 70px;
+    left: 0px;
+    top: 0px;
+}
+.site-title {    
+    width: 171px;
+    height: 46px;
+    left: 80px;
+    top: 33px;
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    color: #010101;
+    padding-top: 20px;
+    padding-left: 40px;
+}
+
+.menu-button{
+    border: none;
+    background: none;
+}
+
+.menu-button svg{
+    padding-top: 50px;
+    margin-right: 50px;
+    float: right;
+    background: none;
+    border: none;
+}
+
+.menu-button svg:hover > path {
+    fill: rgb(227, 122, 10);
+}
+  
+.column-container {
+    display: flex;  
+    flex-direction: row; 
+    align-items: flex-start; 
+    width: 100%;
+    margin: 10px 10px auto 10px;
+    padding: 30px;
+    flex-grow: 0;
+}
+
+.havetodo-container{
+    padding: 16px;
+    margin-right: 20px;
+    width: 300px;
+    height: max-content;
+    box-shadow: 0px 1px 30px rgba(224, 224, 224, 0.3);
+    border-radius: 6px;
+    order: 1;
+}
+
+.doing-container{
+    padding: 16px;
+    margin-right: 20px;
+    width: 300px;
+    height: max-content;
+    box-shadow: 0px 1px 30px rgba(224, 224, 224, 0.3);
+    border-radius: 6px;
+    order: 2;
+}
+
+.done-container{
+    padding: 16px;
+    width: 300px;
+    height: max-content;
+    box-shadow: 0px 1px 30px rgba(224, 224, 224, 0.3);
+    border-radius: 6px;
+    order: 3;
+}
+
+.container-title{
+    width: 300px;
+    height: 26px;
+    padding-bottom: 10px;
+    font-family: 'Noto Sans KR';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    color: #010101;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.count-todo{
+    width: 26px;
+    height: 26px;
+    font-weight: 700;
+    font-size: 14px;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    color: #010101;
+    border-radius: 15px;
+    background-color:rgb(163, 160, 160);    
+}
+
+.count-doing{
+    width: 26px;
+    height: 26px;
+    font-weight: 700;
+    font-size: 14px;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    color: #010101;
+    border-radius: 15px;
+    background-color:rgb(163, 160, 160);    
+}
+
+.count-done{
+    width: 26px;
+    height: 26px;
+    font-weight: 700;
+    font-size: 14px;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    color: #010101;
+    border-radius: 15px;
+    background-color:rgb(163, 160, 160);    
+}
+
+.plus-x-button{  
+    display: flex;
+    flex-direction: row;
+    margin: 0 0 0 auto;
+}
+
+.plus-button{
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+    justify-content: center;
+    background: none;
+    border-radius: 20px;
+    border: none;
+}
+
+.x-button{
+    width: 25px;
+    height: 25px;
+    justify-content: center;
+    background: none;
+    border-radius: 20px;
+    border: none;
+}
+
+.plus-button:hover {
+    background-color: #f9d2b2;
+    color: #333;
+}
+
+.x-button:hover {
+    background-color: #f9d2b2;
+    color: #333;
+}
+
+.todolist{
+    display: flex;
+    flex-direction:column;
+    align-items: flex-start;
+    padding: 16px;
+    margin-bottom: 10px;
+    width: auto;
+    height: 108px;
+    background: #FFFFFF;
+    border-radius: 6px;
+}
+
+.list-title{
+    width: 252px;
+    height: 23px;
+    font-weight: 700;
+    font-size: 16px;
+    color: #010101;
+    padding-bottom: 10px;
+}
+
+.caption{
+    width: 252px;
+    height: 20px;
+    font-size: 14px;
+    color: #010101;
+}
