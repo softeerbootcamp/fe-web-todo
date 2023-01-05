@@ -117,4 +117,4 @@ const logBtnClickEvent = () => {
   });
 };
 
-export { columnEvent };
+export { columnEvent, logBtnClickEvent };

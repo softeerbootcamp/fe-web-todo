@@ -79,9 +79,14 @@ button:hover {
 }
 
 .chat-menu-btn {
+  background-image: url("./assets/normal_cancel_btn.svg");
+  height: 13px;
+  width: 13px;
+  z-index: 2;
+}
+
+.chat-menu-btn .hidden {
   background-image: url("./assets/right_menu.svg");
-  height: 11px;
-  width: 17px;
 }
 
 .column-add-btn {
@@ -221,37 +226,57 @@ button:hover {
 
 .log-wrapper {
   position: absolute;
-  top: 40px;
-  right: 40px;
+  top: 0;
+  right: 1px;
   display: flex;
-  flex-direction: column-reverse;
-  width: 20%;
-  height: 800px;
+  align-items: center;
+  flex-direction: column;
+  width: 600px;
+  height: 969px;
   padding: 40px;
-  z-index: -1;
+  padding-top: 150px;
+  z-index: 1;
+  background-color: white;
+  display: block;
+}
+
+.log-wrapper.hidden {
   display: none;
 }
 
 .log-card-wrapper {
   display: flex;
-  width: 320px;
-  height: 130px;
+  margin: 25px;
+  width: 244px;
+  height: 80px;
 }
 
 .log-image-wrapper {
-  width: 15%;
-  height: 60px;
-  padding: 15px;
+  width: 40px;
+  height: 40px;
   font-size: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.log-image-wrapper > img {
+  width: 100%;
+  height: 100%;
 }
 
 .log-text-wrapper {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
   width: 100%;
-  height: calc(100%-15px);
-  padding: 15px;
+  height: 80px;
+  margin-left: 40px;
+}
+
+.log-text-wrapper > * {
+  margin: 5px;
 }
 
 .modal-display {
