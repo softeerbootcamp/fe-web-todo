@@ -182,8 +182,8 @@ main {
 .box_addition_confirm {
     flex: 1;
     height: 40px;
-    background-color: #86C6FF;
-    color: rgba(255, 255, 255, 0.4);
+    background-color: #0075DE;
+    color: white;
     margin-left: 8px;
     border-radius: 6px;
 }
@@ -255,6 +255,15 @@ main {
 
 /* Popup view */
 
+#popup_overlay {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
 .popup {
     background-color: white;
     width: 25%;
@@ -264,6 +273,7 @@ main {
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 24px;
+    border-radius: 6px;
 }
 
 .popup_text {
@@ -271,8 +281,28 @@ main {
     margin-top: 0;
 }
 
-/* TODO: change name to something else */
-.temp {
+.box_deletion_popup_buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 16px;
     margin-left: 100px;
     margin-bottom: 0;
+}
+
+.box_deletion_popup_cancel {
+    flex: 1;
+    height: 40px;
+    background-color: #E0E0E0;
+    color: #828282;
+    border-radius: 6px;
+}
+
+.box_deletion_popup_confirm {
+    flex: 1;
+    height: 40px;
+    background-color: #0075DE;
+    color: white;
+    margin-left: 8px;
+    border-radius: 6px;
 }
