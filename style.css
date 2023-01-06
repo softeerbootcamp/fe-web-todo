@@ -96,16 +96,18 @@ header h1{
 h1 i{
     margin-left: auto;
     margin-right: 10vw;
+    cursor: pointer;
 }
 
 .todolist{
     display: flex;
     justify-content: flex-start;
     padding-left: 30px;
+    position: relative;
 }
 
 section{
-    width: 25vw;
+    width: 23vw;
     margin: 0 10px;
 }
 
@@ -187,10 +189,10 @@ ul{
     border: solid 1px dodgerblue;
     opacity: 0.4;
     margin-bottom: 10px;
-    padding: 2px;
     list-style: none;
     background-color: whitesmoke;
     display: flex;
+    padding: 20px;
 }
 
 input{
@@ -199,13 +201,27 @@ input{
     background-color: inherit;
 }
 
+.input-title{
+    font-weight: var(--weight-bold);
+    font-size: var(--font-regular);
+    margin: 5px 0;
+}
+
+.input-contents{
+    font-size: var(--font-regular);
+	font-weight: var(--font-regular);
+    margin: 5px 0;
+}
+
 .input-items button{
-    width: 30%;
-    justify-content: space-around;
+    width: 50%;
+    padding: 15px 20px;
+    justify-content: space-between;
+    margin: 5px 0;
 }
 
 .register-button{
-    background-color: dodgerblue;
+    background-color: blue;
     color: var(--color-light-white);
     opacity: 1;
 }
@@ -213,4 +229,35 @@ input{
 .register-button:disabled{
     opacity: 0.3;
     cursor: default;
+}
+
+.notification-menu{
+    display: none;
+    background-color: var(--color-white);
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    padding: 20px;
+}
+
+.delete-notification-menu{
+    display: flex;
+    margin-left: auto;
+}
+
+.notification-menu-items{
+    border-radius: var(--size-border-radius);
+    margin: 0 5px;
+    list-style: none;
+    background-color: #D5F1E2;
+    padding: 20px;
+}
+
+.notification-menu-items p{
+    margin: 5px 0;
+}
+
+.notification-menu-items-time{
+    color: var(--color-light-grey);
 }

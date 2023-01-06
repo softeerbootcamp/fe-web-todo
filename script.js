@@ -27,11 +27,12 @@ add_btn.forEach(item=>{
     item.addEventListener('click',()=>{
         const input_items = document.querySelector('.input-items');
         // 만약 입력중인 상자가 있었다면 상자 지움
-        if(input_items)
+        if(input_items){
             input_items.remove();
-        else{
-            const child = item.parentNode.parentNode.parentNode.childNodes[3];
-        // console.log(child);
+            return;
+        }
+
+        const child = item.parentNode.parentNode.parentNode.childNodes[3];
         const lst_item = document.createElement("li");
         const newForm = document.createElement('form');
 
@@ -42,7 +43,7 @@ add_btn.forEach(item=>{
         input_title.setAttribute('name','title');
         input_title.addEventListener('change',onChange);
 
-	    const input_contents = document.createElement('input');
+        const input_contents = document.createElement('input');
         input_contents.setAttribute("type", "text");
         input_contents.setAttribute("placeholder", "내용을 입력하세요");
         input_contents.setAttribute('maxlength', 500);
@@ -72,14 +73,15 @@ add_btn.forEach(item=>{
 
         lst_item.className = 'input-items';
         lst_item.setAttribute("tabindex",'-1');
-        lst_item.addEventListener("blur", ()=>{
-            lst_item.remove();})
+
+        // 취소버튼
         cancle_button.addEventListener('click',()=>{
             lst_item.remove();})
-        register_button.addEventListener('mousedown',(e)=>{
+
+        // 등록버튼
+        register_button.addEventListener('mousedown',()=>{
             const title = input_title.value;
             const contents = input_contents.value;
-            console.log(title,contents);
             if(!title){
                 alert('no title');
                 return;
@@ -89,11 +91,19 @@ add_btn.forEach(item=>{
                 return;
             }
             const new_item = make_new_lst(title,contents);
-            console.log(new_item);
             item.parentNode.parentNode.parentNode.childNodes[3].prepend(new_item);
+            lst_item.remove();
         })
+
+        // focusout 이벤트
+        lst_item.addEventListener("blur", ()=>{
+            setTimeout(()=>{
+                if(lst_item)
+            lst_item.remove();
+            },0)
+        })
+
         child.prepend(lst_item);
-        }
     })
 })
 
@@ -115,7 +125,6 @@ const make_new_lst = (title, contents)=>{
 
     const item_contents = document.createElement("p");
     item_contents.innerHTML = contents;
-
     delete_btn.addEventListener('click',()=>{
         const deleteOption = confirm("선택한 카드를 삭제할까요?");
         if(deleteOption)
@@ -130,3 +139,13 @@ const make_new_lst = (title, contents)=>{
     item.appendChild(item_contents);
     return item;
 }
+
+const changeNotificationMode = ()=>{
+    const notification_menu = document.querySelector('.notification-menu')
+    notification_menu.style.display = notification_menu.style.display == 'none' ? 'block' : 'none';
+}
+
+//popupbar 메뉴 보이기와 숨기기
+document.querySelector('.fa-bars').addEventListener('click',changeNotificationMode)
+document.querySelector('.delete-notification-menu').addEventListener('click',changeNotificationMode);
+
