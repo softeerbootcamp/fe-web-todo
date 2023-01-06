@@ -2,10 +2,32 @@ import Component from "../../core/Component.js";
 import Notification from "../../models/Notification.js"
 
 class NotificationCard extends Component {
+    initialize() {
+        this.state = {
+            timeDeltaMin: this.calcDeltaMin()
+        }
+        this.refreshAuto();
+    }
+
+    refreshAuto() {
+        const isConnected = this.$target.isConnected;
+        if (isConnected) {
+            setTimeout(() => {
+                this.setState({ timeDeltaMin: this.calcDeltaMin() })
+                this.refreshAuto();
+            }, 60000);
+        }
+    }
+
+    calcDeltaMin() {
+        const { notification } = this.props;
+        return Math.floor((Date.now() - notification.timestamp) / 60000);
+    }
+
     template() {
         const { notification } = this.props;
+        const { timeDeltaMin } = { ...this.state };
         const spanInner = this.getSpanInnerText(notification);
-        const timeDeltaMin = notification.calcDeltaMin();
         return `
         <div>🥳</div>
         <div>

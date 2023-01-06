@@ -6,10 +6,6 @@ class Notification {
     action;
     timestamp;
 
-    calcDeltaMin() {
-        return Math.floor((Date.now() - this.timestamp) / 60000);
-    }
-
     static Builder = class {
         #notification = new Notification();
         author(p) {
