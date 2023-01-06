@@ -6,129 +6,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/todo.css">
-    <link rel="stylesheet" href="css/addbtn.css">
-    <link rel="stylesheet" href="css/icons.css">
-    <script src="js/navbar.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+        * { font-family: 'Noto Sans KR', sans-serif; }
+    </style>
 </head>
 <body>
-<header>
-    <h1>TO-DO LIST</h1>
-    <button class="menu-button-black" onclick="openNav()"></button>
-    <nav id="navbar">
-        <header>
-            <button class="close-button-black" onclick="closeNav()"></button>
-        </header>
-        <div>
-            <div>🥳</div>
-            <div>
-                <h4>@randomlee</h4>
-                <span>뭐뭐뭐를 <b>무뭐뭐로</b> 이동했습니다. 뭐뭐뭐를 무뭐뭐로 이동했습니다. 뭐뭐뭐를 무뭐뭐로 이동했습니다.</span>
-                <p>1분 전</p>
-            </div>
-        </div>
-        <div>
-            <div>🥳</div>
-            <div>
-                <h4>@randomlee</h4>
-                <span>뭐뭐뭐를 무뭐뭐로 이동했습니다.</span>
-                <p>1분 전</p>
-            </div>
-        </div>
-        <div>
-            <div>🥳</div>
-            <div>
-                <h4>@randomlee</h4>
-                <span>뭐뭐뭐를 무뭐뭐로 이동했습니다.</span>
-                <p>1분 전</p>
-            </div>
-        </div>
-    </nav>
-</header>
-<button class="add-button-white"></button>
-<div class="todo-container">
-    <div class="todo-col">
-        <header>
-            <div>
-                <h4>해야할 일</h4>
-                <div class="count-wrapper">
-                    <h4 class="count">2</h4>
-                </div>
-            </div>
-            <div>
-                <button class="add-button-black"></button>
-                <button class="close-button-black"></button>
-            </div>
-        </header>
-        <article>
-            <ul class="todo-col-body">
-                <li class="todo-card adding">
-                    <header>
-                        <input type="text" placeholder="제목을 입력하세요">
-                    </header>
-                    <textarea placeholder="내용을 입력하세요"></textarea>
-                    <footer>
-                        <div>
-                            <button>취소</button>
-                            <button disabled>등록</button>
-                        </div>
-                    </footer>
-                </li>
-                <li class="todo-card">
-                    <header>
-                        <h4 class="title">Github 공부하기</h4>
-                        <button class="close-button-black"></button>
-                    </header>
-                    <pre>asdasdasdasda
-asdasdasdsd</pre>
-                    <footer>
-                        <p>author by web</p>
-                    </footer>
-                </li>
-            </ul>
-        </article>
-    </div>
-    <div class="todo-col">
-        <header>
-            <div>
-                <h4>해야할 일</h4>
-                <div class="count-wrapper">
-                    <h4 class="count">2</h4>
-                </div>
-            </div>
-            <div>
-                <button class="add-button-black"></button>
-                <button class="close-button-black"></button>
-            </div>
-        </header>
-        <article>
-            <ul class="todo-col-body deleting">
-                <li class="todo-card">
-                    <header>
-                        <h4 class="title">Github 공부하기</h4>
-                        <button class="close-button-black"></button>
-                    </header>
-                    <pre>asdasdasdasda
-asdasdasdsd</pre>
-                    <footer>
-                        <p>author by web</p>
-                    </footer>
-                </li>
-                <li class="todo-card">
-                    <header>
-                        <h4 class="title">Github 공부하기</h4>
-                        <button class="close-button-black"></button>
-                    </header>
-                    <pre>asdasdasdasda
-asdasdasdsd</pre>
-                    <footer>
-                        <p>author by web</p>
-                    </footer>
-                </li>
-            </ul>
-        </article>
-    </div>
-</div>
+<div data-component="App"></div>
+<script src="src/main.js" type="module"></script>
 </body>
 </html>
