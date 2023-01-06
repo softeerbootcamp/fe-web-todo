@@ -1,10 +1,14 @@
-import { updateToDoListUI, State, dummyState, card } from './store.js';
+import { State } from './store.js';
 import { addNewColumn } from './View/ColumnView.js';
 import { modalHide } from './Components/Modal.js';
-import { getDeletingCard, revertDeletingState } from './Components/Card.js';
+import {
+  getDeletingCard,
+  revertDeletingState,
+  cardCountingUpdate,
+} from './Components/Card.js';
 import { getCardIdxFromCard, getColumnIdxFromCard } from './util.js';
 const state = new State();
-const $ = (select) => document.querySelector(select);
+const $ = select => document.querySelector(select);
 
 const btnHistoryTab = $('.todo-list-header-button');
 const menu = $('menu');
@@ -41,6 +45,7 @@ btnModalDeleteAccent.addEventListener('click', () => {
   const cardIdx = getCardIdxFromCard(deletingCard);
   deletingCard.remove();
   state.deleteCard(columnIdx, cardIdx);
+  cardCountingUpdate(state, columnIdx);
   modalHide();
 });
 

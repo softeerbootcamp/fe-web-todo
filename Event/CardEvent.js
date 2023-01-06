@@ -1,4 +1,8 @@
-import { getCardComponent, pendingCardToColumn } from '../Components/Card.js';
+import {
+  getCardComponent,
+  pendingCardToColumn,
+  cardCountingUpdate,
+} from '../Components/Card.js';
 import { modalShow } from '../Components/Modal.js';
 export const attachNewCardEvent = (newCardComponent, state, idx) => {
   const btnCancel = newCardComponent.querySelector('.btn-normal');
@@ -29,13 +33,11 @@ export const attachNewCardEvent = (newCardComponent, state, idx) => {
     state.toggleAddingState(idx);
     state.addCardData(idx, cardData);
 
-    const countingCard = document.querySelectorAll('.todo-list-count');
-    const columnCountComponent = countingCard[idx];
-    columnCountComponent.textContent = state.getNumOfCards(idx);
+    cardCountingUpdate(state, idx);
   });
 };
 
-const attachCardEvent = (cardComponent) => {
+const attachCardEvent = cardComponent => {
   const btnCancel = cardComponent.querySelector('.btn-card-x');
 
   btnCancel.addEventListener('click', () => {

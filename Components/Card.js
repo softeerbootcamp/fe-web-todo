@@ -1,9 +1,12 @@
-import { attachNewCardEvent } from '../Event/CardEvent.js';
 export const pendingCardToColumn = (cardComponent, columnComponent) => {
   const columnHeaderComponent = columnComponent.firstElementChild;
   columnHeaderComponent.insertAfter(cardComponent);
 };
-
+export const cardCountingUpdate = (state, columnIdx) => {
+  const countingCard = document.querySelectorAll('.todo-list-count');
+  const columnCountComponent = countingCard[columnIdx];
+  columnCountComponent.textContent = state.getNumOfCards(columnIdx);
+};
 export const getNewCardComponent = () => {
   const node = document.createElement('div');
   node.classList.add('todo-list-contents-container');
@@ -26,7 +29,7 @@ export const getNewCardComponent = () => {
   return node;
 };
 
-export const getCardComponent = (cardData) => {
+export const getCardComponent = cardData => {
   const node = document.createElement('div');
   const datails =
     cardData.details?.reduce((acc, cur) => acc + `<li>${cur}</li>`, '') || '';
