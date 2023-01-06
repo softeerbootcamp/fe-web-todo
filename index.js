@@ -1,7 +1,13 @@
-import { updateToDoListUI, State } from './store.js';
+import { updateToDoListUI, State, dummyState, card } from './store.js';
 import { addNewColumn } from './View/ColumnView.js';
+import { modalHide } from './Components/Modal.js';
+import {
+  getNewCardComponent,
+  pendingCardToColumn,
+  getCardComponent,
+} from './Components/Card.js';
 const state = new State();
-const $ = select => document.querySelector(select);
+const $ = (select) => document.querySelector(select);
 
 const btnHistoryTab = $('.todo-list-header-button');
 const menu = $('menu');
@@ -18,4 +24,13 @@ btnHistoryClose.addEventListener('click', () => {
 const btnFAB = $('.fab');
 btnFAB.addEventListener('click', addNewColumn.bind(null, state));
 
+const overlay = $('.overlay');
+overlay.addEventListener('click', modalHide);
+
+// const col = addNewColumn(state);
+// const dummyCardComponent = getCardComponent(card);
+// const dummyNewCardComponent = getNewCardComponent();
+// const dummyCardComponent = getCardComponent(card);
+// pendingCardToColumn(dummyCardComponent, col);
+// pendingCardToColumn(dummyNewCardComponent, col);
 // updateToDoListUI(state);

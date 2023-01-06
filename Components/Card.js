@@ -1,3 +1,9 @@
+import { attachNewCardEvent } from '../Event/CardEvent.js';
+export const pendingCardToColumn = (cardComponent, columnComponent) => {
+  const columnHeaderComponent = columnComponent.firstElementChild;
+  columnHeaderComponent.insertAfter(cardComponent);
+};
+
 export const getNewCardComponent = () => {
   const node = document.createElement('div');
   node.classList.add('todo-list-contents-container');
@@ -20,16 +26,17 @@ export const getNewCardComponent = () => {
   return node;
 };
 
-export const getCardComponent = cardData => {
+export const getCardComponent = (cardData) => {
+  const node = document.createElement('div');
   const datails =
     cardData.details?.reduce((acc, cur) => acc + `<li>${cur}</li>`, '') || '';
-  return `
-    <div class="todo-list-contents-container">
-              <div class="todo-list-contents-header-container">
+  node.classList.add('todo-list-contents-container');
+  node.innerHTML = `
+                <div class="todo-list-contents-header-container">
                 <div class="todo-list-contents-header-text">
                   ${cardData.title}
                 </div>
-                <button>
+                <button class="btn-card-x">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="12"
@@ -48,6 +55,6 @@ export const getCardComponent = cardData => {
               ${datails}
               </ul>
               <div class="todo-list-contents-footer">${cardData.footer}</div>
-            </div>
-    `;
+  `;
+  return node;
 };

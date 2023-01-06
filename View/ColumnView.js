@@ -1,13 +1,16 @@
 import { getColumnComponent } from '../Components/Column.js';
-import { getNewCardComponent } from '../Components/Card.js';
-
+import {
+  getNewCardComponent,
+  pendingCardToColumn,
+} from '../Components/Card.js';
+import { attachNewCardEvent } from '../Event/CardEvent.js';
 const nthChild = (arr, target) => {
   for (let i = 0; i < arr.length; i++) {
     if (arr[i] === target) return i;
   }
 };
 
-export const addNewColumn = state => {
+export const addNewColumn = (state) => {
   const bodyContainer = document.querySelector('.todo-list-body-container');
   const columnData = {
     title: '제목 없음',
@@ -18,6 +21,7 @@ export const addNewColumn = state => {
   bodyContainer.prepend(columnComponent);
   state.addColumn(columnData);
   attachColumnEvent(state, columnComponent);
+  return columnComponent;
 };
 
 const attachColumnEvent = (state, columnComponent) => {
@@ -40,14 +44,9 @@ const attachColumnEvent = (state, columnComponent) => {
       newCard.remove();
     }
     if (!addingState) {
-      if (columnComponent.childElementCount === 1) {
-        columnComponent.append(getNewCardComponent());
-      } else {
-        columnComponent.insertBefore(
-          getNewCardComponent(),
-          newCard.nextSibling
-        );
-      }
+      const newCardComponent = getNewCardComponent();
+      pendingCardToColumn(newCardComponent, columnComponent);
+      attachNewCardEvent(newCardComponent, state, idx);
     }
     state.toggleAddingState(idx);
   });
