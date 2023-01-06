@@ -2,7 +2,7 @@ body {
   background-color: #f5f5f7;
   position: relative;
   margin: 0;
-  height: 960px;
+  height: 886px;
 }
 
 header {
@@ -256,10 +256,6 @@ button:hover {
   width: 40px;
   height: 40px;
   font-size: 28px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
 }
 
 .log-image-wrapper > img {
@@ -287,8 +283,8 @@ button:hover {
 .modal-wrapper {
   display: none;
   position: absolute;
-  top: calc(50% + 200px);
-  left: calc(50% - 130px);
+  top: calc(50% - 100px);
+  left: calc(50% - 150px);
   width: 400px;
   height: 130px;
   padding: 4px;
