@@ -61,7 +61,7 @@
                                 <input type="text" id="caption-input" class="todo-caption-input" name="todo-caption-input" placeholder="내용을 입력하세요."> </input>
                             </div>
                             <div class="modal-button">
-                                <button type="button" class="cancel-button"> 취소 </button>
+                                <button type="button" id="cancel-button" class="todo-cancel-button"> 취소 </button>
                                 <button type="button" id = "add-button" class="todo-add-button"> 등록 </button>                    
                             </div>
                         </section>
@@ -109,22 +109,24 @@
                             <div class="list-title-modal" id="list-title-modal-doing">
                                 <input type="text" id="title-input" class="doing-title-input" placeholder="제목을 입력하세요."> </input>
                             </div>
+                            <form>
                             <div class="caption-modal" id="caption-modal-doing">
-                                <input type="text" id="caption-input" class="doing-caption-input" placeholder="내용을 입력하세요."> </input>
+                                <input name="a" type="text" id="caption-input" class="doing-caption-input" placeholder="내용을 입력하세요."> </input>
                             </div>
                             <div class="modal-button">
-                                <button type="button" class="cancel-button"> 취소 </button>
-                                <button type="button" id = "add-button" class="doing-add-button"> 등록 </button>                    
+                                <button type="button" id="cancel-button" class="doing-cancel-button"> 취소 </button>
+                                <button type="submit" id = "add-button" class="doing-add-button"> 등록 </button>                    
                             </div>
+                            </form>
                         </section>
                     </div> 
                 </div>
                 
                 <section class="todolist" id="todolist-doing">
-                    <div class="list-title">
+                    <div class="list-title" id="list-title-doing">
                         HTML/CSS 공부하기
                     </div>
-                    <div class="caption">
+                    <div class="caption" id="caption-doing">
                         input 태그 실습
                     </div>
                 </section>
@@ -156,7 +158,7 @@
                                 <input type="text" id="caption-input" class="done-caption-input" placeholder="내용을 입력하세요."> </input>
                             </div>
                             <div class="modal-button">
-                                <button type="button" class="cancel-button"> 취소 </button>
+                                <button type="button" id="cancel-button" class="done-cancel-button"> 취소 </button>
                                 <button type="button" id = "add-button" class="done-add-button"> 등록 </button>                    
                             </div>
                         </section>

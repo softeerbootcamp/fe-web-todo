@@ -233,7 +233,7 @@ header {
     margin-bottom: 10px;
 }
 
-.cancel-button{
+#cancel-button{
     width: 135px;
     align-items: flex-start;
     padding: 10px;
