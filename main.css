@@ -1,23 +1,22 @@
 /* Global */
 
 body {
-    background-color: #E5E5E5;
+    width: 70%;
+    min-width: 800px;
+    margin: 0;
+    padding-right: 160px;
     padding-left: 80px;
-    padding-right: 80px;
+    background-color: #E5E5E5;
 }
 
-p {
-    font-family: "Noto Sans KR", serif;
-}
-
-input {
+p, input {
     font-family: "Noto Sans KR", serif;
 }
 
 button {
+    display: inline;
     border: none;
     background-color: white;
-    display: inline;
 }
 
 input {
@@ -25,64 +24,61 @@ input {
 }
 
 textarea {
-    border-style: hidden;
     resize: none;
+    border-style: hidden;
 }
 
 /* Header */
 header {
-    height: 112px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    height: 112px;
 }
 
 #header_title {
     display: inline-block;
-    /*padding: 0 0 0 80px;*/
 }
 
 #header_menu_button {
-    /*display: inline-block;*/
-    margin-right: 40px;
+    /*margin-right: 120px;*/
     background-color: #E5E5E5;
 }
 
 /* Main */
 main {
-    display: flex;
     position: relative;
-    width: 75%;
+    display: flex;
+    /*width: 75%;*/
 }
 
 .section {
+    flex: 1;
     width: 300px;
     margin: 8px;
-    flex: 1;
 }
 
 .section_header {
     display: flex;
-    height: 32px;
-    /*justify-content: space-between;*/
     align-items: center;
+    height: 32px;
     margin: 0 0 16px 0;
 }
 
 .section_header_text {
-    display: inline-block;
     font-size: 18px;
     font-weight: 700;
+    display: inline-block;
     margin-left: 8px;
 }
 
 .number_box {
+    display: inline-block;
     width: 26px;
     height: 26px;
-    background-color: #BDBDBD;
-    border-radius: 50%;
-    display: inline-block;
     margin-left: 16px;
+    border-radius: 50%;
+    background-color: #BDBDBD;
 }
 
 .section_add_button {
@@ -93,30 +89,31 @@ main {
 
 .section_delete_button {
     display: inline-block;
-    margin-left: 16px;
     float: right;
+    margin-left: 16px;
     background-color: #E5E5E5;
 }
 
 .number_box {
-    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 24px;
     height: 24px;
-    background: #BDBDBD;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     margin-left: 8px;
+    border-radius: 50%;
+    background: #BDBDBD;
 }
 
 /* Default box */
 
 .box {
-    background-color: white;
-    padding: 0 16px 16px;
+    min-width: 200px;
     margin-bottom: 16px;
-    box-shadow: 0 1px 30px rgba(224, 224, 224, 0.3);
+    padding: 0 16px 16px;
     border-radius: 6px;
+    background-color: white;
+    box-shadow: 0 1px 30px rgba(224, 224, 224, 0.3);
 }
 
 .box_title {
@@ -151,22 +148,20 @@ main {
 /* Addition box */
 
 .box_addition {
-    background-color: white;
-    padding: 0 16px 16px;
+    min-width: 200px;
     margin-bottom: 16px;
-    box-shadow: 0 1px 30px rgba(224, 224, 224, 0.3);
-    border-radius: 6px;
-    border-width: 0 1px;
+    padding: 16px;
     border: solid #0075DE;
+    border-width: 0 1px;
+    border-radius: 6px;
+    background-color: white;
+    box-shadow: 0 1px 30px rgba(224, 224, 224, 0.3);
 }
 
 .box_addition_title {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 16px;
     font-size: 16px;
     font-weight: 700;
+    margin: 0;
 }
 
 .box_addition_text {
@@ -186,30 +181,31 @@ main {
 .box_addition_cancel {
     flex: 1;
     height: 40px;
-    background-color: #E0E0E0;
     color: #828282;
     border-radius: 6px;
+    background-color: #E0E0E0;
 }
 
 .box_addition_confirm {
     flex: 1;
     height: 40px;
-    background-color: #0075DE;
-    color: white;
     margin-left: 8px;
+    color: white;
     border-radius: 6px;
+    background-color: #0075DE;
 }
 
 /* Deletion box */
 
 .box_deletion {
-    background-color: #FFEEEC;
-    padding: 0 16px 16px;
+    min-width: 200px;
     margin-bottom: 16px;
-    box-shadow: 0 1px 30px rgba(224, 224, 224, 0.3);
-    border-radius: 6px;
-    border-width: 0 1px;
+    padding: 0 16px 16px;
     border: solid #FF4343;
+    border-width: 0 1px;
+    border-radius: 6px;
+    background-color: #FFEEEC;
+    box-shadow: 0 1px 30px rgba(224, 224, 224, 0.3);
 }
 
 .box_deletion .box_delete_button {
@@ -222,14 +218,14 @@ main {
     /* TODO: display none should be changed with js */
     /*display: none;*/
     position: fixed;
-    background-color: #FFFFFF;
-    box-shadow: rgba(204, 204, 204, 0.5);
-    width: 25%;
-    height: 100%;
     z-index: 1;
     top: 0;
     right: 0;
+    width: 25%;
+    height: 100%;
     padding: 40px;
+    background-color: #FFFFFF;
+    box-shadow: rgba(204, 204, 204, 0.5);
 }
 
 #sidebar_close_button {
@@ -237,9 +233,9 @@ main {
 }
 
 .sidebar_block {
-    padding: 16px;
-    margin-top: 24px;
     display: flex;
+    margin-top: 24px;
+    padding: 16px;
 }
 
 .sidebar_block_emoji {
@@ -261,31 +257,31 @@ main {
 
 .sidebar_block_time {
     font-size: 14px;
-    color: #828282;
     margin-top: 8px;
+    color: #828282;
 }
 
 /* Popup view */
 
 #popup_overlay {
-    height: 100%;
-    width: 100%;
     position: absolute;
     top: 0;
     left: 0;
+    width: 100%;
+    height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
 }
 
 .popup {
-    background-color: white;
-    width: 25%;
-    /*height: 10%;*/
     position: fixed;
     top: 50%;
+    /*height: 10%;*/
     left: 50%;
-    transform: translate(-50%, -50%);
+    width: 25%;
     padding: 24px;
+    transform: translate(-50%, -50%);
     border-radius: 6px;
+    background-color: white;
 }
 
 .popup_text {
@@ -298,23 +294,23 @@ main {
     align-items: center;
     justify-content: space-between;
     margin-top: 16px;
-    margin-left: 100px;
     margin-bottom: 0;
+    margin-left: 100px;
 }
 
 .box_deletion_popup_cancel {
     flex: 1;
     height: 40px;
-    background-color: #E0E0E0;
     color: #828282;
     border-radius: 6px;
+    background-color: #E0E0E0;
 }
 
 .box_deletion_popup_confirm {
     flex: 1;
     height: 40px;
-    background-color: #0075DE;
-    color: white;
     margin-left: 8px;
+    color: white;
     border-radius: 6px;
+    background-color: #0075DE;
 }
