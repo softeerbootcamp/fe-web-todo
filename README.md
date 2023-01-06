@@ -1,4 +1,19 @@
 # fe-web-todo
 
-todos라는 component.
-매개 변수로 "어떤 리스트에 추가할 건지, 내용,
+```
+html 메인 프레임
+body
+  header - 제목, 메뉴바
+  main
+    section - 해야할 일
+      header
+      article  s
+    section - 하고 있는 일
+      header
+      article
+    section - 완료한 일
+      header
+      article
+  div-modal
+
+```
