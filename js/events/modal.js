@@ -15,7 +15,7 @@ const modalEvent = () => {
 const removeBtnClickEventHandler = () => {
   const modalWrapperEl = document.querySelector(".modal-wrapper");
   const focusedCard = document.querySelector(".focused");
-  const removedData = getTargetChild(focusedCard, "card-text").textContent;
+  const removedData = getTargetChild(focusedCard, "card-tittle").textContent;
   const bodyEl = document.querySelector(".modal-display");
   const wrapperEl = document.querySelector(".clicked");
   const columnWrapper = getTargetParentByClassName(

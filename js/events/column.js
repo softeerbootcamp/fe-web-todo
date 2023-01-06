@@ -50,7 +50,7 @@ const cardAddBtnClickEventHandler = (e) => {
     const columnName = targetColumn.querySelector("h2");
     document.querySelector(".log-wrapper").innerHTML += log(
       columnName.innerHTML,
-      newCardInfor.text,
+      newCardInfor.tittle,
       "add"
     );
     checkLogCount(targetColumn);
