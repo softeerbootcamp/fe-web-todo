@@ -27,6 +27,9 @@ class State {
   getNumOfCards(columnIdx) {
     return this.#columns[columnIdx].cards.length;
   }
+  deleteCard(columnIdx, cardIdx) {
+    this.#columns[columnIdx].cards.splice(cardIdx, 1);
+  }
 }
 export { State };
 

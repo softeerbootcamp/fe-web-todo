@@ -1,14 +1,10 @@
 import { getColumnComponent } from '../Components/Column.js';
+import { nthChild } from '../util.js';
 import {
   getNewCardComponent,
   pendingCardToColumn,
 } from '../Components/Card.js';
 import { attachNewCardEvent } from '../Event/CardEvent.js';
-const nthChild = (arr, target) => {
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] === target) return i;
-  }
-};
 
 export const addNewColumn = (state) => {
   const bodyContainer = document.querySelector('.todo-list-body-container');
