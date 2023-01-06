@@ -1,0 +1,30 @@
+body {
+    background-color: #F5F5F7;
+    overflow-x: hidden;
+}
+
+.hidden.card-frame {
+    display: none;
+}
+
+main {
+    width: 90vw;
+    height: 100vh;
+    margin:0 auto;
+}
+
+main > article {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 75%;
+    height: 80%;
+}
+
+main > article > section {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    width: 30%;
+}

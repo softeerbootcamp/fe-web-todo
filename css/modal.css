@@ -1,0 +1,65 @@
+section#modal-area {
+    display: none;
+    position: absolute;
+    top: 0;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(147, 147, 149, 0.5);
+    transition: 1s
+}
+
+section#modal-area > div#modal-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 2vw 1vw;
+    background-color: #fff;
+    width: 24vw;
+    height: 10vh;
+    opacity: 1;
+}
+
+section#modal-area > div#modal-form > span {
+    height: 40%;
+    font-size: 2vh;
+}
+
+section#modal-area > div#modal-form > div {
+    display: flex;
+    flex-direction: row;
+    justify-content:end;
+    align-items: center;
+    height: 40%;
+}
+
+section#modal-area > div#modal-form > div > button {
+    border: none;
+    cursor: pointer;
+    margin-left: 0.5vw;
+    width: 40%;
+    padding: 0.6vw;
+    border-radius: .3vw;
+    font-size: 1.7vh;
+}
+
+section#modal-area > div#modal-form > div > button#modal-cancel-button {
+    color: #828282;
+    background-color: #e0e0e0;
+}
+
+section#modal-area > div#modal-form > div > button#modal-cancel-button:hover {
+    color: #fff;
+    background-color: #828282;
+}
+
+section#modal-area > div#modal-form > div > button#modal-delete-button {
+    color: #fff;
+    background-color: #86c5fe;
+}
+
+section#modal-area > div#modal-form > div > button#modal-delete-button:hover {
+    color: #fff;
+    background-color: #0175DE;
+}
