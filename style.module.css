@@ -274,6 +274,10 @@ button:hover {
   background-color: #818183;
 }
 
+.modal-display {
+  background-color: #818183;
+}
+
 .modal-wrapper {
   display: none;
   position: absolute;
