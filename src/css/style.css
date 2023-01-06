@@ -2,6 +2,8 @@ body {
   background-color: #f5f5f7;
   font-family: 'Noto Sans KR', sans-serif;
   box-sizing: border-box;
+  height: 100vh;
+  overflow-x: hidden;
 }
 
 body > header {
@@ -25,6 +27,10 @@ body > header {
   font-size: 18px;
 }
 
+.hide {
+  transform: translateX(100%);
+}
+
 .notice {
   display: block;
   position: absolute;
@@ -46,16 +52,20 @@ body > header {
   gap: 20px;
 }
 
-.hide {
-  transform: translateX(100%);
-}
-
 main {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
   padding: 20px 80px;
   width: 75%;
+  min-width: 400px;
   gap: 2%;
+}
+
+main > section {
+  flex-grow: 1;
+  min-width: 300px;
+  max-width: 350px;
 }
 
 main .top-box {
@@ -86,7 +96,7 @@ main .top-box {
   cursor: pointer;
 }
 
-.delete-active {
+.buttons > .button-delete:hover {
   color: #ff4343;
 }
 
@@ -98,15 +108,40 @@ article {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  overflow-y: scroll;
+  max-height: calc(100vh - 250px);
+  padding-bottom: 80px;
+
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+article::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
 }
 
 article > .card {
   background-color: #fff;
   box-shadow: 0px 1px 30px rgba(224, 224, 224, 0.3);
   border-radius: 6px;
+  border: 1px solid #fff;
   padding: 16px;
   display: flex;
   justify-content: space-between;
+}
+
+article > .card-form {
+  border: 1px solid #0075de;
+  /* animation: appear 0.3s ease-in-out; */
+}
+
+@keyframes appear {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
 }
 
 article > .drag {
@@ -115,11 +150,6 @@ article > .drag {
     0px 2px 4px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(2px);
   opacity: 0.5;
-}
-
-article > .card-deletable {
-  border: 1px solid #ff4343;
-  background-color: #ffeeec;
 }
 
 .card > .content {
@@ -144,18 +174,19 @@ article > .card-deletable {
   color: #bdbdbd;
 }
 
-.button > .button-delete {
+.button > .card-button-delete {
   color: #828282;
   font-size: 18px;
   cursor: pointer;
 }
 
-.button > .button-delete {
+.button > .card-button-delete:hover {
   color: #ff4343;
 }
 
-.card-form {
-  border: 1px solid #0075de;
+article > .card-deletable {
+  border: 1px solid #ff4343;
+  background-color: #ffeeec;
 }
 
 input {
@@ -209,6 +240,10 @@ input:disabled {
   background-color: rgba(0, 0, 0, 0.4);
   display: flex;
   align-items: center;
+  display: none;
+}
+.block {
+  display: flex;
 }
 
 .modal-background > .modal {
@@ -227,7 +262,7 @@ input:disabled {
 }
 
 .plus-button {
-  position: absolute;
+  position: fixed;
   width: 64px;
   height: 64px;
   border-radius: 50%;
