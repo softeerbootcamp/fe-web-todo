@@ -8,6 +8,17 @@ import {
   checkLogCount,
 } from "../utils/utils.js";
 
+const changeColumnNameEventHandler = (e) => {
+  if (e.target.className === "column-header-title") {
+    console.log("hi");
+    const targetColumn = e.target.closest("column-wrapper");
+    const currentName = e.target.innerHTML;
+    //modal을 새로 띄울것인지?
+    console.log(targetColumn, currentName);
+    console.log("hi");
+  }
+};
+
 const columnAddBtnClickEventHandler = (e) => {
   if (e.target.className === "column-add-btn") {
     const targetColumn = getTargetParentByClassName(e.target, "column-wrapper");
@@ -116,17 +127,22 @@ const columnEvent = () => {
       deleteWholeColumnClickEventHandler(e);
     });
   });
-  const removeBtnEl = document.querySelectorAll(".columns-wrapper");
-  removeBtnEl.forEach((removeBtn) => {
+  columnsWrapperEl.forEach((removeBtn) => {
     removeBtn.addEventListener("mouseover", (e) => {
       cardRemoveHoverEventHandler(e);
     });
   });
-  removeBtnEl.forEach((removeBtn) => {
+  columnsWrapperEl.forEach((removeBtn) => {
     removeBtn.addEventListener("mouseout", (e) => {
       cardRemoveOutEvenetHandler(e);
     });
   });
+  columnsWrapperEl.forEach((elem) => {
+    elem.addEventListener("dbclick", (e) => {
+      changeColumnNameEventHandler(e);
+    });
+  });
+
   const columns = document.querySelector(".add-column-btn-wrapper");
   columns.addEventListener("click", addWholeColumnClickEventHandler);
 };

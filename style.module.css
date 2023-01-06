@@ -242,7 +242,7 @@ button:hover {
 .log-card-wrapper {
   display: flex;
   margin: 25px;
-  width: 244px;
+  width: 500px;
   height: 80px;
 }
 
@@ -261,17 +261,13 @@ button:hover {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 100%;
+  width: 300px;
   height: 80px;
   margin-left: 40px;
 }
 
 .log-text-wrapper > * {
   margin: 5px;
-}
-
-.modal-display {
-  background-color: #818183;
 }
 
 .modal-display {
