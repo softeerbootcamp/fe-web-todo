@@ -1,5 +1,5 @@
 import { getColumnComponent } from '../Components/Column.js';
-import { nthChild } from '../util.js';
+import { getColumnIdxFromColumn } from '../util.js';
 import {
   getNewCardComponent,
   pendingCardToColumn,
@@ -22,28 +22,22 @@ export const addNewColumn = (state) => {
 
 const attachColumnEvent = (state, columnComponent) => {
   const btnDeleteColumn = columnComponent.querySelector('.column-btn-x');
+  const columnIdx = getColumnIdxFromColumn(columnComponent);
   btnDeleteColumn.addEventListener('click', () => {
-    const btnDeleteColumns = document.querySelectorAll('.column-btn-x');
-    const idx = nthChild(btnDeleteColumns, btnDeleteColumn);
-    state.deleteColumn(idx);
+    state.deleteColumn(columnIdx);
     columnComponent.remove();
   });
 
   const btnAddCard = columnComponent.querySelector('.column-btn-plus');
   btnAddCard.addEventListener('click', () => {
-    const btnAddCards = document.querySelectorAll('.column-btn-plus');
-    const idx = nthChild(btnAddCards, btnAddCard);
-
-    const addingState = state.getAddingCardState(idx);
+    const addingState = state.getAddingCardState(columnIdx);
     const newCard = columnComponent.firstChild.nextElementSibling;
-    if (addingState) {
-      newCard.remove();
-    }
+    if (addingState) newCard.remove();
     if (!addingState) {
       const newCardComponent = getNewCardComponent();
       pendingCardToColumn(newCardComponent, columnComponent);
-      attachNewCardEvent(newCardComponent, state, idx);
+      attachNewCardEvent(newCardComponent, state, columnIdx);
     }
-    state.toggleAddingState(idx);
+    state.toggleAddingState(columnIdx);
   });
 };

@@ -37,15 +37,9 @@ export const attachNewCardEvent = (newCardComponent, state, idx) => {
 
 const attachCardEvent = (cardComponent) => {
   const btnCancel = cardComponent.querySelector('.btn-card-x');
-  // btnCancel.addEventListener('mouseover', () => {
-  //   cardComponent.classList.add('content-delete');
-  // });
-  // btnCancel.addEventListener('mouseout', () => {
-  //   cardComponent.classList.remove('content-delete');
-  // });
+
   btnCancel.addEventListener('click', () => {
     cardComponent.classList.add('content-delete');
-    //modal show
     modalShow();
   });
 };

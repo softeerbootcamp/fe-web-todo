@@ -1,5 +1,10 @@
 import { getCardComponent } from './Card.js';
-export const getColumnComponent = column => {
+const columnData = {
+  title: '제목 없음',
+  cards: [],
+  addingState: false,
+};
+export const getColumnComponent = (column = columnData) => {
   const cards = column.cards.reduce(
     (acc, cur) => acc + getCardComponent(cur),
     ''

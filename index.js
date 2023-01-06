@@ -2,11 +2,6 @@ import { updateToDoListUI, State, dummyState, card } from './store.js';
 import { addNewColumn } from './View/ColumnView.js';
 import { modalHide } from './Components/Modal.js';
 import { getDeletingCard, revertDeletingState } from './Components/Card.js';
-import {
-  getNewCardComponent,
-  pendingCardToColumn,
-  getCardComponent,
-} from './Components/Card.js';
 import { getCardIdxFromCard, getColumnIdxFromCard } from './util.js';
 const state = new State();
 const $ = (select) => document.querySelector(select);
@@ -47,13 +42,6 @@ btnModalDeleteAccent.addEventListener('click', () => {
   deletingCard.remove();
   state.deleteCard(columnIdx, cardIdx);
   modalHide();
-  console.log(state.getState());
 });
 
-// const col = addNewColumn(state);
-// const dummyCardComponent = getCardComponent(card);
-// const dummyNewCardComponent = getNewCardComponent();
-// const dummyCardComponent = getCardComponent(card);
-// pendingCardToColumn(dummyCardComponent, col);
-// pendingCardToColumn(dummyNewCardComponent, col);
 // updateToDoListUI(state);
