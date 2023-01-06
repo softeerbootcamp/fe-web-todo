@@ -4,6 +4,7 @@
   "description": "",
   "main": "add.js",
   "scripts": {
+    "type":"commonjs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
