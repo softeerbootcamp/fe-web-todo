@@ -1,5 +1,5 @@
 const todos =  [ {
-	'name' : '자바스크립트 공부하기', 
+	'name' : 'GitHub 등록하기', 
 	'tags' : ['programming', 'javascript'],
 	'status' : 'todo',
 	'id' : 1
@@ -30,5 +30,12 @@ const todos =  [ {
 }
 ]
 
-const pi = todos.filter( tmp => tmp.status === 'todo').length;
-document.getElementById("total_number").innerHTML = "<br>" + pi;
+const todo = todos.filter( tmp => tmp.status === 'todo').length;
+document.getElementById("total_number_todo").innerHTML = "<br>" + todo;
+
+const doing = todos.filter( tmp => tmp.status === 'doing').length;
+document.getElementById("total_number_doing").innerHTML = "<br>" + doing;
+
+const done = todos.filter( tmp => tmp.status === 'done').length;
+document.getElementById("total_number_done").innerHTML = "<br>" + done;
+
