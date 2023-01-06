@@ -1,0 +1,19 @@
+[data-component="NotificationCard"] {
+    display: flex;
+    width: 300px;
+}
+
+[data-component="NotificationCard"] > div:first-child {
+    margin-right: 10px;
+    font-size: xx-large;
+}
+
+[data-component="NotificationCard"] h4 {
+    margin: 0 0 10px 0;
+    font-weight: lighter;
+}
+
+[data-component="NotificationCard"] p {
+    font-size: small;
+    font-weight: lighter;
+}

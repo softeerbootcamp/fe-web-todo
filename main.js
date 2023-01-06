@@ -1,4 +1,4 @@
-import App from "./App.js";
+import App from "./src/App.js";
 
 const $appTarget = document.querySelector('[data-component="App"]');
 

@@ -1,8 +1,8 @@
-export default class Component {
+class Component {
     $target;
     props;
     state;
-    constructor($target, props) {
+    constructor($target, props = {}) {
         this.$target = $target;
         this.props = props;
         this.initialize();
@@ -33,3 +33,5 @@ export default class Component {
         this.mounted();
     }
 }
+
+export default Component;

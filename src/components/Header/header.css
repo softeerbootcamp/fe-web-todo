@@ -1,0 +1,59 @@
+[data-component="Header"] {
+    padding: 30px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+[data-component="Header"] > h1 {
+    font-weight: normal;
+    margin: 0;
+}
+
+#sidebar_open_btn {
+    background: transparent;
+    width: 50px;
+    height: 50px;
+    border: none;
+    padding: 0;
+}
+
+.sidebar-opened {
+    width: 400px !important;
+}
+
+#sidebar {
+    width: 0;
+    background: white;
+    box-shadow: 0 0 4px rgba(204, 204, 204, 0.5), 0 2px 4px rgba(0, 0, 0, 0.25);
+    height: 100%;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    right: 0;
+    transition: 0.5s;
+    overflow-x: hidden;
+}
+
+#sidebar header {
+    text-align: right;
+    margin: 50px 50px 10px 0;
+    width: 350px;
+}
+
+#sidebar_close_btn {
+    background: transparent;
+    width: 30px;
+    height: 30px;
+    border: none;
+}
+
+#sidebar > * {
+    margin: 20px 50px;
+    overflow-x: hidden;
+}
+
+#sidebar ul {
+    list-style: none;
+    padding: 0;
+}
