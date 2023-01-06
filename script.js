@@ -13,14 +13,25 @@ const input_data={
     'contents': ''
 }
 
+//add에서 input값 받는 함수
 const onChange = (e)=>{
     input_data[e.target.name] = e.target.value;
     const register_button = document.querySelector('.register-button');
-    if(register_button)
-        register_button.disabled = input_data['title'] && input_data['contents'] ? false : true;
+    const input_items = document.querySelector('.input-items');
+    if(!register_button)
+        return;
+    const register_status = input_data['title'] && input_data['contents'];
+    if(register_status){
+        register_button.disabled = false;
+        input_items.style.opacity = 1;
+        return;
+    }
+    register_button.disabled = true;
+    input_items.style.opacity = 0.4;
+
 }
 
-
+//add 버튼 기능
 const add_btn = document.querySelectorAll(".add");
 
 add_btn.forEach(item=>{
@@ -60,7 +71,7 @@ add_btn.forEach(item=>{
         register_button.innerHTML = "등록";
         register_button.disabled = true;
         const buttons = document.createElement("div");
-        cancle_button.className = 'delete-button';
+        cancle_button.className = 'cancel-button';
         register_button.className = 'register-button';
         buttons.appendChild(cancle_button);
         buttons.appendChild(register_button);
@@ -76,30 +87,26 @@ add_btn.forEach(item=>{
 
         // 취소버튼
         cancle_button.addEventListener('click',()=>{
+            input_data['title'] ='';
+            input_data['contents']  = '';
             lst_item.remove();})
 
         // 등록버튼
         register_button.addEventListener('mousedown',()=>{
-            const title = input_title.value;
-            const contents = input_contents.value;
-            if(!title){
-                alert('no title');
-                return;
-            }
-            if(!contents){
-                alert('no contents');
-                return;
-            }
-            const new_item = make_new_lst(title,contents);
+            const new_item = make_new_lst(input_data['title'], input_data['contents']);
             item.parentNode.parentNode.parentNode.childNodes[3].prepend(new_item);
+            input_data['title'] ='';
+            input_data['contents'] = '';
             lst_item.remove();
         })
 
         // focusout 이벤트
         lst_item.addEventListener("blur", ()=>{
             setTimeout(()=>{
+                input_data['title'] ='';
+                input_data['contents'] = '';
                 if(lst_item)
-            lst_item.remove();
+                    lst_item.remove();
             },0)
         })
 
@@ -142,7 +149,7 @@ const make_new_lst = (title, contents)=>{
 
 const changeNotificationMode = ()=>{
     const notification_menu = document.querySelector('.notification-menu')
-    notification_menu.style.display = notification_menu.style.display == 'none' ? 'block' : 'none';
+    notification_menu.classList.toggle('act');
 }
 
 //popupbar 메뉴 보이기와 숨기기

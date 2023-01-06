@@ -142,14 +142,18 @@ button{
 .buttons button{
     line-height: 100%;
     padding: 10px;
+    transition: transform 0.7s;
 }
+
 
 .add:hover{
     color: dodgerblue;
+    transform: scale(1.4);
 }
 
-.delete:hover, .delete-lst:hover{
+.delete:hover, .delete-lst:hover, .delete-notification-menu:hover{
     color: salmon;
+    transform: scale(1.1);
 }
 
 .todolist-items:has(.delete-lst:hover){
@@ -218,10 +222,15 @@ input{
     padding: 15px 20px;
     justify-content: space-between;
     margin: 5px 0;
+    border-radius: var(--size-border-radius);
+}
+
+.cancel-button{
+    background-color: var(--color-light-white);
 }
 
 .register-button{
-    background-color: blue;
+    background-color: dodgerblue;
     color: var(--color-light-white);
     opacity: 1;
 }
@@ -232,13 +241,22 @@ input{
 }
 
 .notification-menu{
-    display: none;
+    visibility: hidden;
     background-color: var(--color-white);
-    position: fixed;
-    right: 0;
-    top: 0;
+    width: 30vw;
     height: 100vh;
+    position: fixed;
+    right: -30vw;
+    top: 0;
     padding: 20px;
+    overflow: scroll;
+    transition: all 0.7s ease-in-out;
+    margin-right: 0;
+}
+
+.act{
+    right: 0;
+    visibility: visible;
 }
 
 .delete-notification-menu{
