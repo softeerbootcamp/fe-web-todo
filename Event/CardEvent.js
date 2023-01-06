@@ -1,4 +1,5 @@
 import { getCardComponent, pendingCardToColumn } from '../Components/Card.js';
+import { modalShow } from '../Components/Modal.js';
 export const attachNewCardEvent = (newCardComponent, state, idx) => {
   const btnCancel = newCardComponent.querySelector('.btn-normal');
   const btnAccent = newCardComponent.querySelector('.btn-accent');
@@ -22,6 +23,7 @@ export const attachNewCardEvent = (newCardComponent, state, idx) => {
       footer: 'author by web',
     };
     const cardComponent = getCardComponent(cardData);
+    attachCardEvent(cardComponent);
     pendingCardToColumn(cardComponent, columnComponent);
     newCardComponent.remove();
     state.toggleAddingState(idx);
@@ -30,5 +32,19 @@ export const attachNewCardEvent = (newCardComponent, state, idx) => {
     const countingCard = document.querySelectorAll('.todo-list-count');
     const columnCountComponent = countingCard[idx];
     columnCountComponent.textContent = state.getNumOfCards(idx);
+  });
+};
+
+const attachCardEvent = (cardComponent) => {
+  const btnCancel = cardComponent.querySelector('.btn-card-x');
+  btnCancel.addEventListener('mouseover', () => {
+    cardComponent.classList.add('content-delete');
+  });
+  btnCancel.addEventListener('mouseout', () => {
+    cardComponent.classList.remove('content-delete');
+  });
+  btnCancel.addEventListener('click', () => {
+    //modal show
+    modalShow();
   });
 };

@@ -36,7 +36,7 @@ export const getCardComponent = (cardData) => {
                 <div class="todo-list-contents-header-text">
                   ${cardData.title}
                 </div>
-                <button>
+                <button class="btn-card-x">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="12"

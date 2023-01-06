@@ -1,5 +1,6 @@
 import { updateToDoListUI, State, dummyState, card } from './store.js';
 import { addNewColumn } from './View/ColumnView.js';
+import { modalHide } from './Components/Modal.js';
 import {
   getNewCardComponent,
   pendingCardToColumn,
@@ -22,6 +23,9 @@ btnHistoryClose.addEventListener('click', () => {
 //column 늘리기
 const btnFAB = $('.fab');
 btnFAB.addEventListener('click', addNewColumn.bind(null, state));
+
+const overlay = $('.overlay');
+overlay.addEventListener('click', modalHide);
 
 // const col = addNewColumn(state);
 // const dummyCardComponent = getCardComponent(card);
