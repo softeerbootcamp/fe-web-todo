@@ -79,15 +79,60 @@ button{
     color : gray;
 }
 .plus_todo{
+    display : flex;
+    flex-direction: row;
     width : 400px;
     height : 100px;
     display :flex;
     flex-direction : column;
     text-align : left;
     border : solid;
-    border-color : white;
+    border-color : blue;
     background-color : white;
     border-radius : 5px;
     padding : 10px;
     margin : 10px;
+}
+.plus_button_cancel{
+    background-color: gray;
+    margin : 10px;
+    width : 130px;
+    height : 50px;
+    border : none;
+    border-radius : 10px;
+    font-size : 20px;
+    color : white;
+}
+.plus_button_join{
+    background-color: skyblue;
+    margin : 10px;
+    width : 130px;
+    height : 50px;
+    border : none;
+    border-radius : 10px;
+    font-size : 20px;
+    color : white;
+    
+}
+.plus_button_between{
+    display : flex;
+    flex-direction : row;
+    flex-wrap : wrap;
+    justify-content : space-between;
+}
+.input_title{
+    border : "none";
+    border-right : 0px;
+    border-top : 0px;
+    border-left : 0px;
+    border-bottom : 0px;
+    border-color : white;
+}
+.input_context{
+    border : "none";
+    border-right : 0px;
+    border-top : 0px;
+    border-left : 0px;
+    border-bottom : 0px;
+    border-color : white;
 }

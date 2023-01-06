@@ -8,28 +8,7 @@
             content: "\00d7";
         }
     </style>
-    <script>
-        function top_erase(){
-            console.log("erase!")
-        }
-        function top_id_erase(){
-            console.log("id_erase!")
-        }
-        function top_plus(){
-            let putarea = document.getElementById('todo_thing');
-            
-            let unit = document.createElement('div')
-            unit.setAttribute('class','plus_todo')
-            let inputtext1 = document.createElement('input');
-            let inputtext2 = document.createElement('input');
-
-            unit.appendChild(inputtext1)
-            unit.appendChild(inputtext2)
-
-            putarea.appendChild(unit);
-            console.log("ㅎ");
-        }
-    </script>
+    <script src = './plus.js'></script>
     </head>
     <body style="background-color: rgb(245, 245, 245); padding-left:10vw" ;>
         <div>
