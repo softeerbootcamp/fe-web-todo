@@ -58,3 +58,13 @@ export const getCardComponent = (cardData) => {
   `;
   return node;
 };
+
+export const revertDeletingState = () => {
+  const deletingCard = getDeletingCard();
+  deletingCard.classList.remove('content-delete');
+};
+
+export const getDeletingCard = () => {
+  const card = document.querySelector('.content-delete');
+  return card;
+};
