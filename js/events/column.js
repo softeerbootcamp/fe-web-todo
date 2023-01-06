@@ -1,11 +1,18 @@
 import { log } from "../components/log.js";
 import { newCardWrapper, cardWrapper, newColumn } from "../components/card.js";
-import { deleteNode, getTargetChild, addClsssName } from "../utils/utils.js";
+import {
+  deleteNode,
+  getTargetChild,
+  addClsssName,
+  getTargetParentByClassName,
+  checkLogCount,
+} from "../utils/utils.js";
 
 const columnAddBtnClickEventHandler = (e) => {
   if (e.target.className === "column-add-btn") {
+    const targetColumn = getTargetParentByClassName(e.target, "column-wrapper");
     addClsssName(e.target, "active");
-    e.currentTarget.innerHTML += newCardWrapper({ id: "newCardInput" });
+    targetColumn.innerHTML += newCardWrapper({ id: "newCardInput" });
     const addBtn = document.querySelector(".column-add-btn");
     addBtn.classList.add("active");
   }
@@ -18,6 +25,7 @@ const cardAddBtnClickEventHandler = (e) => {
       text: null,
       columnID: null,
     };
+    const targetColumn = getTargetParentByClassName(e.target, "column-wrapper");
     const newCardInputEl = document.querySelector("#newCardInput");
     const newInputData = [...newCardInputEl.children]
       .filter((v) => v.tagName === "INPUT")
@@ -29,7 +37,7 @@ const cardAddBtnClickEventHandler = (e) => {
     document.querySelectorAll(".column-add-btn").forEach((v) => {
       if (v.classList.contains("active")) v.classList.remove("active");
     });
-    e.currentTarget.innerHTML += cardWrapper(newCardInfor);
+    targetColumn.innerHTML += cardWrapper(newCardInfor);
     deleteNode("#newCardInput");
 
     const cardWrapperNum = [...e.currentTarget.children].filter(
@@ -39,11 +47,13 @@ const cardAddBtnClickEventHandler = (e) => {
       cardWrapperNum;
 
     // add log
+    const columnName = targetColumn.querySelector("h2");
     document.querySelector(".log-wrapper").innerHTML += log(
+      columnName.innerHTML,
       newCardInfor.text,
       "add"
     );
-    checkLogCount();
+    checkLogCount(targetColumn);
   }
 };
 
@@ -75,6 +85,7 @@ const cardRemoveClickEventHandler = (e) => {
     const cardNode = e.target.closest(".card-wrapper");
     const modalWrapperEl = document.querySelector(".modal-wrapper");
     const bodyEl = document.body;
+
     cardNode.classList.add("focused");
     cardNode.classList.add("clicked");
     modalWrapperEl.classList.add("active");
@@ -85,25 +96,24 @@ const cardRemoveClickEventHandler = (e) => {
 const addWholeColumnClickEventHandler = (e) => {
   const colNode = document.querySelector(".columns-wrapper");
   colNode.innerHTML += newColumn({ id: "0", title: "냉무" });
-  console.log("here!");
 };
 
-
-
-const checkLogCount = () => {
-  if (document.querySelectorAll(".log-card-wrapper").length > 6) {
-    document.querySelectorAll(".log-card-wrapper")[0].remove();
+const deleteWholeColumnClickEventHandler = (e) => {
+  if (e.target.className === "column-remove-btn") {
+    const targetColumn = getTargetParentByClassName(e.target, "column-wrapper");
+    targetColumn.remove();
   }
 };
 
 const columnEvent = () => {
-  const columnsWrapperEl = document.querySelectorAll(".column-wrapper");
+  const columnsWrapperEl = document.querySelectorAll(".columns-wrapper");
   columnsWrapperEl.forEach((columnWrapper) => {
     columnWrapper.addEventListener("click", (e) => {
       columnAddBtnClickEventHandler(e);
       cardAddBtnClickEventHandler(e);
       cardCancelBtnClickEventHandler(e);
       cardRemoveClickEventHandler(e);
+      deleteWholeColumnClickEventHandler(e);
     });
   });
   const removeBtnEl = document.querySelectorAll(".columns-wrapper");

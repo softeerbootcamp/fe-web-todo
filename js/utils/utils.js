@@ -37,4 +37,17 @@ const addClsssName = (node, className) => {
   node.classList.add(className);
 };
 
-export { getTargetParentByClassName, deleteNode, addClsssName, getTargetChild };
+const checkLogCount = (targetColumn) => {
+  const elements = targetColumn.querySelectorAll(".card-wrapper");
+  targetColumn.querySelector(".column-header-num").innerHTML = elements
+    ? elements.length
+    : 0;
+};
+
+export {
+  getTargetParentByClassName,
+  deleteNode,
+  addClsssName,
+  getTargetChild,
+  checkLogCount,
+};

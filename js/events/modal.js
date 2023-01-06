@@ -1,4 +1,8 @@
-import { getTargetChild } from "../utils/utils.js";
+import {
+  getTargetChild,
+  checkLogCount,
+  getTargetParentByClassName,
+} from "../utils/utils.js";
 import { log } from "../components/log.js";
 
 const modalEvent = () => {
@@ -14,7 +18,12 @@ const removeBtnClickEventHandler = () => {
   const removedData = getTargetChild(focusedCard, "card-text").textContent;
   const bodyEl = document.querySelector(".modal-display");
   const wrapperEl = document.querySelector(".clicked");
+  const columnWrapper = getTargetParentByClassName(
+    focusedCard,
+    "column-wrapper"
+  );
   document.querySelector(".log-wrapper").innerHTML += log(
+    getTargetChild(columnWrapper, "column-header-tittle").innerHTML,
     removedData,
     "remove"
   );
@@ -22,6 +31,8 @@ const removeBtnClickEventHandler = () => {
   focusedCard.remove();
   modalWrapperEl.classList.remove("active");
   wrapperEl.classList.remove("clicked");
+
+  checkLogCount(columnWrapper);
 };
 
 const cancelBtnClickEventHandler = () => {
