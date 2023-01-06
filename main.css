@@ -28,6 +28,30 @@ textarea {
     border-style: hidden;
 }
 
+.button_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 16px;
+}
+
+.grey_button {
+    flex: 1;
+    height: 40px;
+    color: #828282;
+    border-radius: 6px;
+    background-color: #E0E0E0;
+}
+
+.blue_button {
+    flex: 1;
+    height: 40px;
+    margin-left: 8px;
+    color: white;
+    border-radius: 6px;
+    background-color: #0075DE;
+}
+
 /* Header */
 header {
     display: flex;
@@ -148,64 +172,23 @@ main {
 /* Addition box */
 
 .box_addition {
-    min-width: 200px;
-    margin-bottom: 16px;
     padding: 16px;
     border: solid #0075DE;
-    border-width: 0 1px;
-    border-radius: 6px;
-    background-color: white;
-    box-shadow: 0 1px 30px rgba(224, 224, 224, 0.3);
 }
 
 .box_addition_title {
-    font-size: 16px;
-    font-weight: 700;
     margin: 0;
 }
 
 .box_addition_text {
-    font-size: 14px;
     margin-top: 16px;
-    margin-bottom: 0;
-
-}
-
-.box_addition_buttons {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 16px;
-}
-
-.box_addition_cancel {
-    flex: 1;
-    height: 40px;
-    color: #828282;
-    border-radius: 6px;
-    background-color: #E0E0E0;
-}
-
-.box_addition_confirm {
-    flex: 1;
-    height: 40px;
-    margin-left: 8px;
-    color: white;
-    border-radius: 6px;
-    background-color: #0075DE;
 }
 
 /* Deletion box */
 
 .box_deletion {
-    min-width: 200px;
-    margin-bottom: 16px;
-    padding: 0 16px 16px;
     border: solid #FF4343;
-    border-width: 0 1px;
-    border-radius: 6px;
     background-color: #FFEEEC;
-    box-shadow: 0 1px 30px rgba(224, 224, 224, 0.3);
 }
 
 .box_deletion .box_delete_button {
@@ -289,28 +272,7 @@ main {
     margin-top: 0;
 }
 
-.box_deletion_popup_buttons {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 16px;
+#box_deletion_popup_buttons {
     margin-bottom: 0;
     margin-left: 100px;
-}
-
-.box_deletion_popup_cancel {
-    flex: 1;
-    height: 40px;
-    color: #828282;
-    border-radius: 6px;
-    background-color: #E0E0E0;
-}
-
-.box_deletion_popup_confirm {
-    flex: 1;
-    height: 40px;
-    margin-left: 8px;
-    color: white;
-    border-radius: 6px;
-    background-color: #0075DE;
 }
