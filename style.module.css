@@ -71,31 +71,26 @@ button {
   border: none;
 }
 
-/* button:focus {
-  outline: none;
-} */
-
 button:hover {
   cursor: pointer;
 }
 
 .chat-menu-btn {
-  background-image: url("./assets/normal_cancel_btn.svg");
+  background-image: url("./assets/right_menu.svg");
   height: 13px;
   width: 13px;
   z-index: 2;
-}
-
-.chat-menu-btn .hidden {
-  background-image: url("./assets/right_menu.svg");
 }
 
 .column-add-btn {
   background-image: url("./assets/normal_add_btn.svg");
   height: 13px;
   width: 13px;
-  /* background-color: #f5f5f7; */
   color: red;
+}
+
+.chat-menu-btn.hidden {
+  background-image: url("./assets/normal_cancel_btn.svg");
 }
 
 .column-add-btn:hover {
@@ -110,7 +105,6 @@ button:hover {
   background-image: url("./assets/normal_cancel_btn.svg");
   width: 11px;
   height: 11px;
-  /* background-color: #f5f5f7; */
 }
 
 .log-close-btn {
@@ -336,7 +330,6 @@ button:hover {
   bottom: 40px;
   width: 64px;
   height: 64px;
-  border: 1px solid blue;
   border-radius: 50%;
   background: #0075de;
   box-shadow: 0px 0px 4px rgba(204, 204, 204, 0.5),

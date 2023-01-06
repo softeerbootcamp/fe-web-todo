@@ -134,6 +134,7 @@ const columnEvent = () => {
 const logBtnClickEvent = () => {
   document.querySelector(".chat-menu-btn").addEventListener("click", () => {
     document.querySelector(".log-wrapper").classList.toggle("hidden");
+    document.querySelector(".chat-menu-btn").classList.toggle("hidden");
   });
 };
 
