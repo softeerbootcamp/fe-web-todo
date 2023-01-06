@@ -204,3 +204,13 @@ input{
     justify-content: space-around;
 }
 
+.register-button{
+    background-color: dodgerblue;
+    color: var(--color-light-white);
+    opacity: 1;
+}
+
+.register-button:disabled{
+    opacity: 0.3;
+    cursor: default;
+}

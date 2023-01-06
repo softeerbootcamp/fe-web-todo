@@ -8,6 +8,19 @@ delete_btn.forEach(item=>{
     })
 })
 
+const input_data={
+    'title': '',
+    'contents': ''
+}
+
+const onChange = (e)=>{
+    input_data[e.target.name] = e.target.value;
+    const register_button = document.querySelector('.register-button');
+    if(register_button)
+        register_button.disabled = input_data['title'] && input_data['contents'] ? false : true;
+}
+
+
 const add_btn = document.querySelectorAll(".add");
 
 add_btn.forEach(item=>{
@@ -26,11 +39,15 @@ add_btn.forEach(item=>{
         input_title.setAttribute("type", "text");
         input_title.setAttribute("placeholder", "제목을 입력하세요");
         input_title.setAttribute('maxlength',500);
+        input_title.setAttribute('name','title');
+        input_title.addEventListener('change',onChange);
 
 	    const input_contents = document.createElement('input');
         input_contents.setAttribute("type", "text");
         input_contents.setAttribute("placeholder", "내용을 입력하세요");
         input_contents.setAttribute('maxlength', 500);
+        input_contents.setAttribute('name','contents');
+        input_contents.addEventListener('change',onChange);
         input_title.className = 'input-title';
         input_contents.className = 'input-contents';
 
@@ -40,6 +57,7 @@ add_btn.forEach(item=>{
         const register_button = document.createElement("button");
         register_button.setAttribute('type','button');
         register_button.innerHTML = "등록";
+        register_button.disabled = true;
         const buttons = document.createElement("div");
         cancle_button.className = 'delete-button';
         register_button.className = 'register-button';
@@ -55,7 +73,6 @@ add_btn.forEach(item=>{
         lst_item.className = 'input-items';
         lst_item.setAttribute("tabindex",'-1');
         lst_item.addEventListener("blur", ()=>{
-            lst_item.removeAttribute('tabindex');
             lst_item.remove();})
         cancle_button.addEventListener('click',()=>{
             lst_item.remove();})
@@ -71,7 +88,6 @@ add_btn.forEach(item=>{
                 alert('no contents');
                 return;
             }
-            console.log("title",title,"contents",contents);
             const new_item = make_new_lst(title,contents);
             console.log(new_item);
             item.parentNode.parentNode.parentNode.childNodes[3].prepend(new_item);
@@ -112,6 +128,5 @@ const make_new_lst = (title, contents)=>{
 
     item.appendChild(todolist_items_header);
     item.appendChild(item_contents);
-    console.log("item",item);
     return item;
 }
