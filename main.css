@@ -10,10 +10,23 @@ p {
     font-family: "Noto Sans KR", serif;
 }
 
+input {
+    font-family: "Noto Sans KR", serif;
+}
+
 button {
     border: none;
     background-color: white;
     display: inline;
+}
+
+input {
+    border-style: hidden;
+}
+
+textarea {
+    border-style: hidden;
+    resize: none;
 }
 
 /* Header */
@@ -151,17 +164,16 @@ main {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 48px;
+    margin-top: 16px;
     font-size: 16px;
     font-weight: 700;
-    color: #828282;
 }
 
 .box_addition_text {
     font-size: 14px;
-    margin-top: 0;
+    margin-top: 16px;
     margin-bottom: 0;
-    color: #828282;
+
 }
 
 .box_addition_buttons {
