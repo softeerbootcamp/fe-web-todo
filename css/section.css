@@ -30,7 +30,6 @@
 }
 
 .ColumnList{
-    display: float;
     margin-right: 2%;
     float: left;
     flex-direction: column;
@@ -44,7 +43,6 @@
     font-size: 18px;
     line-height: 26px;
 
-    margin: 0px 0px 20px 0px;
     padding: auto;
 
     display: flex;
@@ -122,6 +120,7 @@
     flex-direction: row;
     align-items: flex-start;
     padding: 16px;
+    margin: 20px 0px 20px 0px;
 
     width: 308px;
     height: 108px;
@@ -189,5 +188,111 @@
     
     flex: none;
     order: 2;
+    flex-grow: 0;
+}
+
+.ColumnList > div.NewCard{
+    display: block;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 16px;
+    margin: 20px 0px 20px 0px;
+    
+    width: 308px;
+    height: 139px;
+    
+    background: #FFFFFF;
+    
+    border: 1px solid #0075DE;
+    
+    box-shadow: 0px 1px 30px rgba(224, 224, 224, 0.3);
+    border-radius: 6px;
+}
+
+.ColumnList > div.NewCard > div.CardTitle > input{
+    width: 276px;
+    height: 23px;
+    
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 23px;
+    margin: 0px 0px 10px 0px;
+    
+    color: #010101;
+    border: none;
+    
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.ColumnList > div.NewCard > div.CardBody > textarea{
+    width: 276px;
+    height: 56px;
+    
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0px 0px 10px 0px;
+    
+    border: none;
+    
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.ColumnList > div.NewCard > div.CardButton{
+    display: flex;
+}
+
+.ColumnList > div.NewCard > div.CardButton > button.CardCancel{
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 10px;
+    
+    width: 134px;
+    height: 40px;
+    
+    background: #E0E0E0;
+    border-radius: 6px;
+    cursor: pointer;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+
+    color: #828282;
+    
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.ColumnList > div.NewCard > div.CardButton > button.CardRegister{
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 10px;
+    
+    width: 134px;
+    height: 40px;
+    
+    margin-left: auto;
+    background: #86C6FF;
+    border-radius: 6px;
+    cursor: default;
+
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+
+    color: rgba(255, 255, 255, 0.4);
+    
+    flex: none;
+    order: 1;
     flex-grow: 0;
 }

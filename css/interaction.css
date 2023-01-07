@@ -14,3 +14,11 @@
     background: #FFEEEC;
     border: 1px solid #FF4343;
 }
+
+.ColumnList > div.NewCard > div.CardTitle > input::placeholder{
+    color: #828282;
+}
+
+.ColumnList > div.NewCard > div.CardBody > input::placeholder{
+    color: #828282;
+}
