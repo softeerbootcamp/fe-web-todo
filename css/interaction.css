@@ -1,0 +1,16 @@
+.ColumnSection > div.ColumnList > div.ColumnHead > div.ButtonGroup > i.fa-plus:hover{
+    color: #0075de;
+}
+
+.ColumnSection > div.ColumnList > div.ColumnHead > div.ButtonGroup > i.fa-xmark:hover{
+    color: #ff4343;
+}
+
+.ColumnList > div.ColumnCards > div.CardTitle > i.fa-xmark:hover{
+    color: #ff4343;
+}
+
+.ColumnList > div.ColumnCards:has(i.fa-xmark:hover){
+    background: #FFEEEC;
+    border: 1px solid #FF4343;
+}

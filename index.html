@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style> @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400&display=swap'); </style>
+
+    <title>TO-DO WEB</title>
+
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/section.css" />
+    <link rel="stylesheet" href="css/interaction.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/55809f1341.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="TitleSection">
+        <h1 class="MainTitle">TO-DO LIST</h1>
+        <i class="fa-solid fa-bars MenuButton"></i>
+    </div>
+
+    <div class="ColumnSection">
+        <div class="ColumnList">
+            <div class="ColumnHead">
+                <div class="ColumnTitle">해야할 일<span class="CardCount">2</span></div>
+                <div class="ButtonGroup">
+                    <i class="fa-solid fa-plus"></i>
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+            <div class="ColumnCards" draggable="true">
+                <div class="CardTitle">Github 공부하기<i class="fa-solid fa-xmark"></i></div>
+                <div class="CardBody">add, commit, push</div>
+                <div class="CardAuthor">author by web</div>
+            </div>
+        </div>
+        <div class="ColumnList">
+            <div class="ColumnHead">
+                <div class="ColumnTitle">하고있는 일<span class="CardCount">2</span></div>
+                <div class="ButtonGroup">
+                    <i class="fa-solid fa-plus"></i>
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+            <div class="ColumnCards" draggable="true">
+                <div class="CardTitle">Github 공부하기<i class="fa-solid fa-xmark"></i></div>
+                <div class="CardBody">add, commit, push</div>
+                <div class="CardAuthor">author by web</div>
+            </div>
+        </div>
+        <div class="ColumnList">
+            <div class="ColumnHead">
+                <div class="ColumnTitle">완료한 일<span class="CardCount">2</span></div>
+                <div class="ButtonGroup">
+                    <i class="fa-solid fa-plus"></i>
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+            </div>
+            <div class="ColumnCards" draggable="true">
+                <div class="CardTitle">Github 공부하기<i class="fa-solid fa-xmark"></i></div>
+                <div class="CardBody">add, commit, push</div>
+                <div class="CardAuthor">author by web</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
