@@ -41,7 +41,7 @@ section > h3 > .column-btn-area > i {
 }
 
 #column-add-btn {
-    position: absolute;
+    position: fixed;
     right: 5%;
     bottom: 5%;
     padding:0 0.8vw;
