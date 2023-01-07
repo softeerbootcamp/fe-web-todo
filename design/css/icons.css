@@ -1,0 +1,13 @@
+.menu-button-black {
+    background: transparent url("../img/icon-menu-black.svg") no-repeat center;
+}
+.close-button-black {
+    background: transparent url("../img/icon-close-black.svg") no-repeat center;
+}
+.add-button-white {
+    background: #0075DE url("../img/icon-plus-white.svg") no-repeat center;
+}
+
+.add-button-black {
+    background: #0075DE url("../img/icon-plus-black.svg") no-repeat center;
+}

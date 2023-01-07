@@ -1,0 +1,7 @@
+@import url("./src/components/Header/header.css");
+@import url("./src/components/NotificationCard/notificationcard.css");
+
+body {
+    background-color: #F5F5F7;
+    font-family: 'Noto Sans KR', sans-serif;
+}
