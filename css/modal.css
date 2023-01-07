@@ -1,0 +1,63 @@
+#modal-section {
+    position: absolute;
+    /* display: flex; */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    right: 0;
+    top: -10vh;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(147, 147, 149, 0.5);
+}
+
+#modal-frame {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding:0 2vw;
+    opacity: 1;
+    height: 16vh;
+    width: 20vw;
+    background-color: #fff;
+}
+
+#modal-header {
+    color:#000;
+    opacity: 1;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+#modal-btn-area {
+    margin-left: 6vw;
+}
+
+#modal-btn-area > button {
+    border: none;
+    cursor: pointer;
+    width: 6vw;
+    height: 3vh;
+}
+
+#modal-btn-area > button#card-cancel-btn {
+    color: #B1B1B1;
+    background-color: #E0E0E0;
+}
+
+#modal-btn-area > button#card-cancel-btn:hover {
+    color: #E0E0E0;
+    background-color: #B1B1B1;
+    outline: 0.2vh solid #B1B1B1;
+}
+
+#modal-btn-area > button#card-delete-btn {
+    color: #fff;
+    background-color: #0175DE;
+}
+
+#modal-btn-area > button#card-delete-btn:hover {
+    color: #fff;
+    background-color: #0175FF;
+    outline: 0.2vh solid #0175FF;
+}
