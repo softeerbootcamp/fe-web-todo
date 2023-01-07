@@ -30,3 +30,7 @@ button:active {
     outline: none;
     box-shadow: none;
 }
+
+textarea:focus{
+    outline: none;
+}

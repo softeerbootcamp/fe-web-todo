@@ -22,3 +22,8 @@
 .ColumnList > div.NewCard > div.CardBody > input::placeholder{
     color: #828282;
 }
+
+.ColumnList > div.NewCard > div.CardButton > button.CardCancel:hover{
+    background: #828282;
+    color: #ffffff;
+}
