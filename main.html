@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>조재현 fe-web-todo</title>
+    <link href="main.css" rel="stylesheet">
+</head>
+<body>
+<header>
+    <h1 id="header_title">TO-DO LIST</h1>
+    <button id="header_menu_button" type="button">
+        <img alt="menu" src="Icon/icon_menu.png">
+    </button>
+</header>
+
+<main>
+    <div class="section" id="section1">
+        <div class="section_header">
+            <p class="section_header_text">해야할 일</p>
+            <div class="number_box">2</div>
+            <button class="section_add_button" type="button">
+                <img alt="section_add" src="Icon/icon_plus_dim.png">
+            </button>
+            <button class="section_delete_button" type="button">
+                <img alt="section_delete" src="Icon/icon_close_dim.png">
+            </button>
+        </div>
+        <div class="section_main">
+            <div class="box">
+                <div class="box_title">
+                    <p class="box_title_text">GitHub 공부하기</p>
+                    <button class="box_delete_button" type="button">
+                        <img alt="close" src="Icon/icon_box_close.png">
+                    </button>
+                </div>
+                <p class="box_main_text">add, commit, push</p>
+                <p class="box_author_text">author by web</p>
+            </div>
+            <div class="box">
+                <div class="box_title">
+                    <p class="box_title_text">블로그에 포스팅할 것</p>
+                    <button class="box_delete_button" type="button">
+                        <img alt="close" src="Icon/icon_box_close.png">
+                    </button>
+                </div>
+                <p class="box_main_text">* Github 공부내용 *모던 자바스크립트 1장 공부내용</p>
+                <p class="box_author_text">author by web</p>
+            </div>
+        </div>
+    </div>
+    <div class="section" id="section2">
+        <div class="section_header">
+            <p class="section_header_text">하고 있는 일</p>
+            <div class="number_box">1</div>
+            <button class="section_add_button" type="button">
+                <img alt="section_add" src="Icon/icon_plus_blue.png">
+            </button>
+            <button class="section_delete_button" type="button">
+                <img alt="section_delete" src="Icon/icon_close_dim.png">
+            </button>
+        </div>
+        <div class="section_main">
+            <div class="box box_addition">
+                <label>
+                    <input class="box_title_text box_addition_title" placeholder="제목을 입력하세요" type="text">
+                </label>
+                <label>
+                    <textarea class="box_main_text box_addition_text" placeholder="내용을 입력하세요" rows="1"></textarea>
+                </label>
+                <div class="button_container">
+                    <button class="grey_button">취소</button>
+                    <button class="blue_button">등록</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section" id="section3">
+        <div class="section_header">
+            <p class="section_header_text">완료한 일</p>
+            <div class="number_box">1</div>
+            <button class="section_add_button" type="button">
+                <img alt="section_add" src="Icon/icon_plus_dim.png">
+            </button>
+            <button class="section_delete_button" type="button">
+                <img alt="section_delete" src="Icon/icon_close_dim.png">
+            </button>
+        </div>
+        <div class="section_main">
+            <div class="box box_deletion">
+                <div class="box_title">
+                    <p class="box_title_text">GitHub 공부하기</p>
+                    <button class="box_delete_button" type="button">
+                        <img alt="close" src="Icon/icon_close_red.png">
+                    </button>
+                </div>
+                <p class="box_main_text">add, commit, push</p>
+                <p class="box_author_text">author by web</p>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Sidebar -->
+<!--
+<div id="sidebar" class="sidebar">
+    <button type="button" id="sidebar_close_button">
+        <img src="Icon/icon_close.png" alt="menu">
+    </button>
+    <div class="sidebar_block">
+        <p class="sidebar_block_emoji">🥳</p>
+        <div class="sidebar_block_text_container">
+            <p class="sidebar_block_name">@sam</p>
+            <p class="sidebar_block_text">HTML/CSS 공부하기를 해야할 일에서 하고 있는 일로 이동하였습니다.</p>
+            <p class="sidebar_block_time">1분 전</p>
+        </div>
+    </div>
+    <div class="sidebar_block">
+        <p class="sidebar_block_emoji">🥳</p>
+        <div class="sidebar_block_text_container">
+            <p class="sidebar_block_name">@sam</p>
+            <p class="sidebar_block_text">HTML/CSS 공부하기를 해야할 일에서 하고 있는 일로 이동하였습니다.</p>
+            <p class="sidebar_block_time">1분 전</p>
+        </div>
+    </div>
+    <div class="sidebar_block">
+        <p class="sidebar_block_emoji">🥳</p>
+        <div class="sidebar_block_text_container">
+            <p class="sidebar_block_name">@sam</p>
+            <p class="sidebar_block_text">HTML/CSS 공부하기를 해야할 일에서 하고 있는 일로 이동하였습니다.</p>
+            <p class="sidebar_block_time">1분 전</p>
+        </div>
+    </div>
+    <div class="sidebar_block">
+        <p class="sidebar_block_emoji">🥳</p>
+        <div class="sidebar_block_text_container">
+            <p class="sidebar_block_name">@sam</p>
+            <p class="sidebar_block_text">HTML/CSS 공부하기를 해야할 일에서 하고 있는 일로 이동하였습니다.</p>
+            <p class="sidebar_block_time">1분 전</p>
+        </div>
+    </div>
+</div>
+-->
+
+<!-- Popup -->
+<!-- <div id="popup_overlay">
+    <div id="popup" class="popup">
+        <p class="popup_text">선택한 카드를 삭제할까요?</p>
+        <div class="button_container" id="box_deletion_popup_buttons">
+            <button class="grey_button">취소</button>
+            <button class="blue_button">삭제</button>
+        </div>
+    </div>
+</div> -->
+
+</body>
+</html>

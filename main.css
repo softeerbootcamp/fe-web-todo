@@ -1,0 +1,278 @@
+/* Global */
+
+body {
+    width: 70%;
+    min-width: 800px;
+    margin: 0;
+    padding-right: 160px;
+    padding-left: 80px;
+    background-color: #E5E5E5;
+}
+
+p, input {
+    font-family: "Noto Sans KR", serif;
+}
+
+button {
+    display: inline;
+    border: none;
+    background-color: white;
+}
+
+input {
+    border-style: hidden;
+}
+
+textarea {
+    resize: none;
+    border-style: hidden;
+}
+
+.button_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 16px;
+}
+
+.grey_button {
+    flex: 1;
+    height: 40px;
+    color: #828282;
+    border-radius: 6px;
+    background-color: #E0E0E0;
+}
+
+.blue_button {
+    flex: 1;
+    height: 40px;
+    margin-left: 8px;
+    color: white;
+    border-radius: 6px;
+    background-color: #0075DE;
+}
+
+/* Header */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 112px;
+}
+
+#header_title {
+    display: inline-block;
+}
+
+#header_menu_button {
+    /*margin-right: 120px;*/
+    background-color: #E5E5E5;
+}
+
+/* Main */
+main {
+    position: relative;
+    display: flex;
+    /*width: 75%;*/
+}
+
+.section {
+    flex: 1;
+    width: 300px;
+    margin: 8px;
+}
+
+.section_header {
+    display: flex;
+    align-items: center;
+    height: 32px;
+    margin: 0 0 16px 0;
+}
+
+.section_header_text {
+    font-size: 18px;
+    font-weight: 700;
+    display: inline-block;
+    margin-left: 8px;
+}
+
+.number_box {
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    margin-left: 16px;
+    border-radius: 50%;
+    background-color: #BDBDBD;
+}
+
+.section_add_button {
+    display: inline-block;
+    margin-left: auto;
+    background-color: #E5E5E5;
+}
+
+.section_delete_button {
+    display: inline-block;
+    float: right;
+    margin-left: 16px;
+    background-color: #E5E5E5;
+}
+
+.number_box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    margin-left: 8px;
+    border-radius: 50%;
+    background: #BDBDBD;
+}
+
+/* Default box */
+
+.box {
+    min-width: 200px;
+    margin-bottom: 16px;
+    padding: 0 16px 16px;
+    border-radius: 6px;
+    background-color: white;
+    box-shadow: 0 1px 30px rgba(224, 224, 224, 0.3);
+}
+
+.box_title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 48px;
+}
+
+.box_delete_button {
+    float: right;
+}
+
+.box_title_text {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.box_main_text {
+    font-size: 14px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.box_author_text {
+    font-size: 12px;
+    margin-top: 8px;
+    margin-bottom: 0;
+    color: #BDBDBD;
+}
+
+/* Addition box */
+
+.box_addition {
+    padding: 16px;
+    border: solid #0075DE;
+}
+
+.box_addition_title {
+    margin: 0;
+}
+
+.box_addition_text {
+    margin-top: 16px;
+}
+
+/* Deletion box */
+
+.box_deletion {
+    border: solid #FF4343;
+    background-color: #FFEEEC;
+}
+
+.box_deletion .box_delete_button {
+    background-color: #FFEEEC
+}
+
+/* Side menu */
+
+.sidebar {
+    /* TODO: display none should be changed with js */
+    /*display: none;*/
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    width: 25%;
+    height: 100%;
+    padding: 40px;
+    background-color: #FFFFFF;
+    box-shadow: rgba(204, 204, 204, 0.5);
+}
+
+#sidebar_close_button {
+    float: right;
+}
+
+.sidebar_block {
+    display: flex;
+    margin-top: 24px;
+    padding: 16px;
+}
+
+.sidebar_block_emoji {
+    font-size: 40px;
+    margin-top: 0;
+    margin-right: 16px;
+}
+
+.sidebar_block_name {
+    font-size: 16px;
+    margin: 0;
+}
+
+.sidebar_block_text {
+    font-size: 16px;
+    margin-top: 8px;
+    margin-bottom: 0;
+}
+
+.sidebar_block_time {
+    font-size: 14px;
+    margin-top: 8px;
+    color: #828282;
+}
+
+/* Popup view */
+
+#popup_overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup {
+    position: fixed;
+    top: 50%;
+    /*height: 10%;*/
+    left: 50%;
+    width: 25%;
+    padding: 24px;
+    transform: translate(-50%, -50%);
+    border-radius: 6px;
+    background-color: white;
+}
+
+.popup_text {
+    font-size: 18px;
+    margin-top: 0;
+}
+
+#box_deletion_popup_buttons {
+    margin-bottom: 0;
+    margin-left: 100px;
+}
