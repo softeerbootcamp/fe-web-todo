@@ -1,0 +1,19 @@
+{
+  "name": "fe-web-todo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/beni1026/fe-web-todo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/beni1026/fe-web-todo/issues"
+  },
+  "homepage": "https://github.com/beni1026/fe-web-todo#readme"
+}

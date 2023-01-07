@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <link rel="stylesheet" href="./src/css/reset.css" />
+    <link rel="stylesheet" href="./src/css/style.css" />
+    <title>TODO</title>
+  </head>
+  <body>
+    <header>
+      TO-DO LIST
+      <span class="material-symbols-outlined menu">menu</span>
+      <!-- 메뉴 클릭시 나오는 알림 창 -->
+      <div class="notice hide">
+        <span class="material-symbols-outlined close"> close </span>
+        <div class="notice-cards">
+          <div class="card">
+            <div class="emoji">🥰</div>
+            <div class="content">
+              <div class="middle-text">@sam</div>
+              <div class="big-text">
+                HTML/CSS공부하기를 해야할 일에서 하고 있는 일로 이동하였습니다.
+              </div>
+              <div class="small-text">1분 전</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="emoji">🥰</div>
+            <div class="content">
+              <div class="middle-text">@sam</div>
+              <div class="big-text">
+                HTML/CSS공부하기를 해야할 일에서 하고 있는 일로 이동하였습니다.
+              </div>
+              <div class="small-text">1분 전</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="left">
+        <header class="top-box">
+          <div class="title">
+            <div class="text">해야할 일</div>
+            <div class="notice-circle">2</div>
+          </div>
+          <div class="buttons">
+            <span class="button-add material-symbols-outlined"> add </span>
+            <span class="button-delete material-symbols-outlined"> close </span>
+          </div>
+        </header>
+        <article class="left">
+          <!-- 일반 카드 -->
+          <div class="card" draggable="true">
+            <div class="content">
+              <div class="big-text">Github 공부하기</div>
+              <div class="middle-text">add, commit, push</div>
+              <div class="small-text">author by web</div>
+            </div>
+            <div class="button">
+              <span class="card-button-delete material-symbols-outlined">
+                close
+              </span>
+            </div>
+          </div>
+          <!-- 일반 카드 -->
+          <div class="card" draggable="true">
+            <div class="content">
+              <div class="big-text">Github 공부하기</div>
+              <div class="middle-text">add, commit, push</div>
+              <div class="small-text">author by web</div>
+            </div>
+            <div class="button">
+              <span class="card-button-delete material-symbols-outlined">
+                close
+              </span>
+            </div>
+          </div>
+          <!-- 일반 카드 -->
+          <div class="card" draggable="true">
+            <div class="content">
+              <div class="big-text">Github 공부하기</div>
+              <div class="middle-text">add, commit, push</div>
+              <div class="small-text">author by web</div>
+            </div>
+            <div class="button">
+              <span class="card-button-delete material-symbols-outlined">
+                close
+              </span>
+            </div>
+          </div>
+        </article>
+      </section>
+      <section class="middle">
+        <header class="top-box">
+          <div class="title">
+            <div class="text">하고 있는 일</div>
+            <div class="notice-circle">1</div>
+          </div>
+          <div class="buttons">
+            <span class="button-add material-symbols-outlined"> add </span>
+            <span class="button-delete material-symbols-outlined"> close </span>
+          </div>
+        </header>
+        <article>
+          <!-- 폼 타입 카드 활성화 -->
+          <form class="card card-form" draggable="true">
+            <div class="content">
+              <input placeholder="제목을 입력하세요" class="big-text" />
+              <input placeholder="내용을 입력하세요" class="middle-text" />
+              <div class="card-buttons">
+                <button class="cancel">취소</button>
+                <button class="enroll">등록</button>
+              </div>
+            </div>
+          </form>
+          <!-- 폼 타입 카드 비활성화-->
+          <form class="card card-form" draggable="true">
+            <div class="content">
+              <input
+                disabled
+                placeholder="제목을 입력하세요"
+                class="big-text text-disabled"
+              />
+              <input
+                disabled
+                placeholder="내용을 입력하세요"
+                class="middle-text text-disabled"
+              />
+              <div class="card-buttons">
+                <button disabled class="cancel cancel-disabled">취소</button>
+                <button disabled class="enroll enroll-disabled">등록</button>
+              </div>
+            </div>
+          </form>
+        </article>
+      </section>
+      <section class="right">
+        <header class="top-box">
+          <div class="title">
+            <div class="text">완료한 일</div>
+            <div class="notice-circle">1</div>
+          </div>
+          <div class="buttons">
+            <span class="button-add material-symbols-outlined"> add </span>
+            <span class="button-delete delete-active material-symbols-outlined">
+              close
+            </span>
+          </div>
+        </header>
+        <article></article>
+      </section>
+    </main>
+    <div class="modal-background">
+      <div class="modal">
+        <div>선택할 카드를 삭제할까요?</div>
+        <div class="card-buttons">
+          <button class="modal-cancel cancel">취소</button>
+          <button class="modal-delete enroll">삭제</button>
+        </div>
+      </div>
+    </div>
+    <div class="plus-button">
+      <span class="material-symbols-outlined big-add"> add </span>
+    </div>
+    <script src="./src/js/index.js" type="module"></script>
+    <script src="./src/js/header.js" type="module"></script>
+    <script src="./src/js/todos/todos.js" type="module"></script>
+  </body>
+</html>
