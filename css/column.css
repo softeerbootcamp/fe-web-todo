@@ -1,0 +1,113 @@
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 20vw;
+    height: 85vh;
+}
+
+section > h3 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding:0 1vw;
+    width: calc(100% - 2vw);
+    height: 6vh;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+/* 카드 개수 */
+section > h3 > span {
+    margin-left: 1vw;
+    background-color: #BDBDBD;
+    padding: 0.25vw 0.5vw;
+    border-radius: 50%;
+}
+
+section > h3 > .column-btn-area {
+    position: absolute;
+    right: 1vw;
+}
+
+section > h3 > .column-btn-area > i {
+    cursor: pointer;
+    margin:0 0.5vw;
+}
+
+.card-add-btn:hover {
+    color:#3E95E3;
+}
+
+#column-add-btn {
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
+    padding:0 0.8vw;
+    border: none;
+    cursor: pointer;
+    font-size: 3rem;
+    font-weight: 300;
+    box-shadow: 0 0.5vh 1vh 0 gray;
+    color: #fff;
+    border-radius: 50%;
+    background-color: #0175DE;
+}
+
+#column-add-btn:focus {
+    outline: none;
+}
+
+.column-delete-btn:hover {
+    color: #FF4D4D;
+}
+
+/* card */
+section > article {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.card-frame {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 85%;
+    height: 15%;
+    margin-bottom: 1vh;
+    padding: 1.5vh 1vw;
+    background-color: white;
+}
+
+.card-frame > h3 {
+    position: relative;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.card-frame > h3 > i {
+    position: absolute;
+    cursor: pointer;
+    right: 0.5vw;
+    font-size: 1.3rem;
+    color: #D0D0D0;
+}
+
+.card-frame > h3 > i:hover {
+    color: #FF4D4D;
+}
+
+.card-frame > h4 {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.card-frame > h5 {
+    font-size: 0.9rem;
+    color: #CDCDCD;
+}

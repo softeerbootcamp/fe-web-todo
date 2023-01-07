@@ -10,15 +10,38 @@
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/header.css">
+    <link rel="stylesheet" href="./css/column.css">
 
     <!-- fontAwesome -->
     <script src="https://kit.fontawesome.com/53b577849a.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <!-- header -->
     <header>
         <h1>To-Do List</h1>
         <i class="fa-solid fa-bars"></i>
     </header>
-    <main>main</main>
+    <!-- main -->
+    <main>
+        <section>
+            <h3>해야할 일
+                <span>2</span>
+                <div class="column-btn-area">
+                    <i class="card-add-btn fa-solid fa-plus"></i>
+                    <i class="column-delete-btn fa-solid fa-xmark"></i>
+                </div>
+            </h3>
+            <article>
+                <div class="card-frame">
+                    <h3 class="card-title">Github 공부하기
+                        <i class="fa-solid fa-xmark"></i>
+                    </h3>
+                    <h4 class="card-content">add, commit, push</h4>
+                    <h5 class="card-author">author by web</h5>
+                </div>
+            </article>
+        </section>
+        <button id="column-add-btn">+</button>
+    </main>
 </body>
 </html>

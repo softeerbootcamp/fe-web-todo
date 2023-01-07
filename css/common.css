@@ -3,6 +3,7 @@ body {
 }
 
 main {
+    position: relative;
     margin-top: 10vh;
-    padding:4vh 2vw 0;
+    padding: 4vh 2vw 0;
 }
