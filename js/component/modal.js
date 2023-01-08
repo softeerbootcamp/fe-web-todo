@@ -1,3 +1,4 @@
+import { validateStatus } from "../json_data/json_data.js";
 import { addColumn } from "./column.js"
 
 let chosenCard = "";
@@ -43,10 +44,17 @@ modalCancelBtn.addEventListener("click", () => { turnOffModal(); })
 // column add modal 버튼들 이벤트 추가
 columnAddModalCancelBtn.addEventListener("click", () => { turnOffColumnAddModal(); })
 columnAddModalAcceptBtn.addEventListener("click", () => {
-    turnOffColumnAddModal();
-
     let inputBox = document.querySelector("#column-add-input");
-    addColumn(inputBox.value);
+    
+    // 중복되는 status가 없을 경우에만 column 추가
+    if(validateStatus(inputBox.value)) {
+        addColumn(inputBox.value);
+        turnOffColumnAddModal();
+    }
+    else {
+        inputBox.value = "";
+        alert("이미 존재하는 status 입니다.")
+    }
 })
 
 export { setCard, modalSection, turnOnModal, turnOnColumnAddModal }

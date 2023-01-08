@@ -46,6 +46,16 @@ function addJSONData(status, title, content) {
     sectionLength.innerHTML = JSON_DATA[status].length
 }
 
+function validateStatus(status) {
+    for(let i=0;i<statusName.length;i++) {
+        if(statusName[i] == status) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
 function addStatus(newStatus) {
     let newStatusIndex = statusList.length
     statusList[newStatusIndex] = statusList[newStatusIndex - 1] + 1;
@@ -54,5 +64,5 @@ function addStatus(newStatus) {
     JSON_DATA[newStatusIndex] = []
 }
 
-export { statusList, statusName, TODO, DOING, DONE, JSON_DATA, addJSONData, addStatus
+export { statusList, statusName, TODO, DOING, DONE, JSON_DATA, addJSONData, addStatus, validateStatus
 }
