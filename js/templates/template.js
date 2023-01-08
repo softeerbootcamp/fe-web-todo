@@ -43,4 +43,20 @@ function cardTemplate(cardTitle, cardContent, cardAuthor="author by web") {
     return cardDom;
 }
 
+function newCardTemplate() {
+    let newCardDom = document.createComment("div");
+    newCardDom.classList.add("new-card-frame");
+
+    newCardDom.innerHTML = `
+        <input type="text" placeholder="제목을 입력하세요">
+        <textarea cols="30" rows="20" placeholder="내용을 입력하세요"></textarea>
+        <div class="new-card-button-area">
+            <button id="new-card-cancel-btn">취소</button>
+            <button id="new-card-register-btn">등록</button>
+        </div>
+    `
+
+    return newCardDom;
+}
+
 export { columnTemplate, cardTemplate }

@@ -81,6 +81,7 @@ section > article {
     height: 15%;
     margin-bottom: 1vh;
     padding: 1.5vh 1vw;
+    border-radius: 1vh;
     background-color: white;
 }
 
@@ -110,4 +111,69 @@ section > article {
 .card-frame > h5 {
     font-size: 0.9rem;
     color: #CDCDCD;
+}
+
+/* new card form */
+.new-card-frame {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 85%;
+    height: 20%;
+    margin-bottom: 1vh;
+    padding: 1.5vh 1vw;
+    border-radius: 1vh;
+    background-color: white;
+}
+
+.new-card-frame > input, textarea {
+    border:none;
+    outline: none;
+}
+
+.new-card-frame > input {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1vh;
+}
+
+.new-card-frame > textarea {
+    font-size: 1.1rem;
+    resize: none;
+}
+
+.new-card-button-area {
+    display: flex;
+    justify-content: space-evenly;
+    height: 40%;
+    line-height: 3;
+}
+
+.new-card-button-area > button {
+    cursor:pointer;
+    border: none;
+    border-radius: 0.5vh;
+    padding: 0.8vh 0;
+    font-size: 1rem;
+    width: 45%;
+}
+
+.new-card-button-area > button#new-card-cancel-btn {
+    color: #828282;
+    background-color: #e0e0e0;
+}
+
+.new-card-button-area > button#new-card-cancel-btn:hover {
+    color: #fff;
+    background-color: #828282;
+}
+
+.new-card-button-area > button#new-card-register-btn {
+    color: rgba(255, 255, 255, 0.4);
+    background-color: #86c6ff;
+}
+
+.new-card-button-area > button#new-card-register-btn:hover {
+    color: #fff;
+    background-color: #0075de;
 }

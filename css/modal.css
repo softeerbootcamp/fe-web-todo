@@ -19,6 +19,7 @@
     opacity: 1;
     height: 16vh;
     width: 20vw;
+    border-radius: 1vh;
     background-color: #fff;
 }
 
@@ -36,6 +37,7 @@
 #modal-btn-area > button {
     border: none;
     cursor: pointer;
+    border-radius: 0.5vh;
     width: 6vw;
     height: 3vh;
 }
