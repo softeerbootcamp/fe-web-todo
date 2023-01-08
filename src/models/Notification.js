@@ -5,35 +5,43 @@ class Notification {
     to;
     action;
     timestamp;
+    id;
 
     static Builder = class {
-        #notification = new Notification();
-        author(p) {
-            this.#notification.author = p;
+        #obj = new Notification();
+        addTodo(author, name, to) {
+            this.#obj.action = Notification.actionTypes.add;
+            this.#obj.author = author;
+            this.#obj.name = name;
+            this.#obj.to = to;
             return this;
         }
-        name(p) {
-            this.#notification.name = p;
+        moveTodo(author, name, from, to) {
+            this.#obj.action = Notification.actionTypes.move;
+            this.#obj.author = author;
+            this.#obj.name = name;
+            this.#obj.from = from;
+            this.#obj.to = to;
             return this;
         }
-        from(p) {
-            this.#notification.from = p;
+        updateTodo(author, name, from) {
+            this.#obj.action = Notification.actionTypes.update;
+            this.#obj.author = author;
+            this.#obj.name = name;
+            this.#obj.from = from;
             return this;
         }
-        to(p) {
-            this.#notification.to = p;
-            return this;
-        }
-        action(p) {
-            this.#notification.action = p;
-            return this;
-        }
-        timestamp(p) {
-            this.#notification.timestamp = p;
+        deleteTodo(author, name, from) {
+            this.#obj.action = Notification.actionTypes.delete;
+            this.#obj.author = author;
+            this.#obj.name = name;
+            this.#obj.from = from;
             return this;
         }
         build() {
-            return this.#notification
+            this.#obj.id = Date.now();
+            this.#obj.timestamp = Date.now();
+            return this.#obj;
         }
     }
 

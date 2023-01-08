@@ -1,10 +1,21 @@
 import Component from "../../core/Component.js";
 import NotificationCard from "../NotificationCard/NotificationCard.js";
+import TodoDatabase from "../../persistance/TodoDatabase.js";
 
 class Header extends Component {
     initialize() {
+        this.state = {
+            notificationIds: TodoDatabase.findAllNotificationIds()
+        }
         this.addEvent('click', '#sidebar_open_btn', this.openSidebar.bind(this));
         this.addEvent('click', '#sidebar_close_btn', this.closeSidebar.bind(this));
+        TodoDatabase.setNotificationListener(this.addNotification.bind(this));
+    }
+
+    addNotification(notification) {
+        const newNotificationIds = [ ...this.state.notificationIds ];
+        newNotificationIds.push(notification.id);
+        this.setState({ ...this.state, notificationIds: newNotificationIds });
     }
 
     openSidebar() {
@@ -18,7 +29,6 @@ class Header extends Component {
     }
 
     template() {
-        const { notifications } = this.props;
         return `
         <h1>TO-DO LIST</h1>
         <button id="sidebar_open_btn">
@@ -35,7 +45,7 @@ class Header extends Component {
                 </button>            
             </header>
             <ul>
-            ${notifications.map((_, idx) => 
+            ${this.state.notificationIds.map((_, idx) => 
                 `<li data-component="NotificationCard" data-index="${idx}"></li>`
             ).join('')}       
             </ul>
@@ -44,11 +54,11 @@ class Header extends Component {
     }
 
     mounted() {
-        const { notifications } = this.props;
         const $notificationCards = this.$target.querySelectorAll('[data-component="NotificationCard"]');
         $notificationCards.forEach($notificationCard => {
             const idx = parseInt($notificationCard.dataset.index);
-            const notification = notifications[idx];
+            const notificationId = this.state.notificationIds[idx];
+            const notification = TodoDatabase.findNotificationById(notificationId)
             new NotificationCard($notificationCard, { notification });
         });
     }

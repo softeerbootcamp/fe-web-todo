@@ -1,6 +1,7 @@
 [data-component="NotificationCard"] {
     display: flex;
     width: 300px;
+    margin-bottom: 10px;
 }
 
 [data-component="NotificationCard"] > div:first-child {

@@ -1,0 +1,52 @@
+[data-component="TodoHolder"] {
+    margin: 0 20px 100px 0;
+    width: 250px;
+}
+
+.todoholder-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.todoholder-colinfo {
+    display: flex;
+    align-items: baseline;
+}
+
+.todoholder-header h4 {
+    height: 20px;
+    font-weight: 700;
+    line-height: 20px;
+    margin: -2px 0 0 0;
+}
+
+.count-circle {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    background: #BDBDBD;
+    border-radius: 50%;
+    margin-left: 10px;
+    baseline-shift: 10px;
+}
+
+.todoholder-headerbtn-wrapper {
+    width: 40px;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add-todo-btn, .delete-column-btn {
+    display: contents;
+    background: transparent;
+    border: none;
+}
+
+* {
+    /*outline: 1px solid gray;*/
+}

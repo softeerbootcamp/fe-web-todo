@@ -1,0 +1,11 @@
+body {
+    background-color: #F5F5F7;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+[data-component="App"] #article {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 5%;
+}
