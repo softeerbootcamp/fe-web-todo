@@ -55,8 +55,8 @@ section > h3 > .column-btn-area > i {
     background-color: #0175DE;
 }
 
-#column-add-btn:focus {
-    outline: none;
+#column-add-btn:hover {
+    outline: 0.2vh solid #0175DE;
 }
 
 .column-delete-btn:hover {

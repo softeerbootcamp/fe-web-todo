@@ -16,12 +16,16 @@
 
     <!-- fontAwesome -->
     <script src="https://kit.fontawesome.com/53b577849a.js" crossorigin="anonymous"></script>
+
+    <!-- js --> 
+    <script defer type="module" src="./js/common.js"></script>
+    <script defer type="module" src="./js/menu.js"></script>
 </head>
 <body>
     <!-- header -->
     <header>
         <h1>To-Do List</h1>
-        <i class="fa-solid fa-bars"></i>
+        <i class="fa-solid fa-bars" id="menu-open-btn"></i>
     </header>
     <!-- main -->
     <main>
@@ -48,7 +52,7 @@
         <aside id="menu">
             <section id="menu-frame">
                 <div id="menu-header">
-                    <i class="fa-solid fa-xmark"></i>
+                    <i class="fa-solid fa-xmark" id="menu-close-btn"></i>
                 </div>
                 <div id="menu-content">
                     <div class="log-frame">
