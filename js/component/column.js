@@ -1,4 +1,4 @@
-import { columnTemplate } from "./templates/template.js";
+import { columnTemplate } from "../templates/template.js";
 
 const mainTag = document.querySelector("main");
 const columnAddBtn = document.querySelector("#column-add-btn");

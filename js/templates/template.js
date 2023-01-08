@@ -1,8 +1,8 @@
-import { columnDeleteEvent } from "../column.js";
+import { columnDeleteEvent } from "../component/column.js";
 import { cardAddEvent, cardDeleteEvent, 
     newCardCancelEvent, newCardRegisterEvent,
     resizeCardByInputBox
- } from "../card.js";
+ } from "../component/card.js";
 
 function columnTemplate(columnTitle, cardCount = 0) {
     let columnNode = document.createElement("section");

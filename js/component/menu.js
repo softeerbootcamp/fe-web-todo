@@ -1,4 +1,4 @@
-import { changeCSS } from "./common.js"
+import { changeCSS } from "../common.js"
 
 const menuBar = document.querySelector("#menu");
 const menuOpenBtn = document.querySelector("#menu-open-btn");

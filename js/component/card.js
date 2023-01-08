@@ -1,7 +1,7 @@
 import { CARD_BTN_ORIGINAL, CARD_OUTLINE_ORIGINAL, CARD_BACKGROUND_ORIGINAL,
-    CARD_BTN_HOVER, CARD_OUTLINE_HOVER, CARD_BACKGROUND_HOVER, } from "./common.js";
+    CARD_BTN_HOVER, CARD_OUTLINE_HOVER, CARD_BACKGROUND_HOVER, } from "../common.js";
 import { setCard, turnOnModal } from "./modal.js";
-import { cardTemplate, newCardTemplate } from "./templates/template.js";
+import { cardTemplate, newCardTemplate } from "../templates/template.js";
 
 function parseContent(string) {
     let stringArray = string.split("\n");
