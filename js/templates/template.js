@@ -1,5 +1,6 @@
 import { columnDeleteEvent } from "../column.js";
-import { cardAddEvent, cardDeleteEvent } from "../card.js";
+import { cardAddEvent, cardDeleteEvent, 
+    newCardCancelEvent, newCardRegisterEvent } from "../card.js";
 
 function columnTemplate(columnTitle, cardCount = 0) {
     let columnNode = document.createElement("section");
@@ -57,8 +58,12 @@ function newCardTemplate() {
         </div>
     `
 
-    const newCancelBtn = newCardDom.children[2].children[0]
-    const newRegisterBtn = newCardDom.children[2].children[1]
+    const newCancelBtn = newCardDom.children[2].children[0];
+    const newRegisterBtn = newCardDom.children[2].children[1];
+
+    // 등록 카드 폼의 버튼에 이벤트 추가
+    newCardCancelEvent(newCancelBtn, newCardDom);
+    newCardRegisterEvent(newRegisterBtn, newCardDom);
 
     return newCardDom;
 }

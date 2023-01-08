@@ -32,4 +32,21 @@ function cardDeleteEvent(btn, currentCard) {
     })
 }
 
-export { cardAddEvent, cardDeleteEvent }
+function newCardCancelEvent(btn, currentCard) {
+    btn.addEventListener("click", () => {
+        currentCard.remove()
+    })
+}
+
+function newCardRegisterEvent(btn, currentCard) {
+    btn.addEventListener("click", () => {
+        let title = currentCard.children[0].value;
+        let content = currentCard.children[1].value ;
+        let newCard = cardTemplate(title, content);
+
+        currentCard.after(newCard);
+        currentCard.remove()
+    })
+}
+
+export { cardAddEvent, cardDeleteEvent, newCardCancelEvent, newCardRegisterEvent }
