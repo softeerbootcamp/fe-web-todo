@@ -1,4 +1,5 @@
-import { columnDeleteEvent, cardAddEvent, cardDeleteEvent } from "../column.js";
+import { columnDeleteEvent } from "../column.js";
+import { cardAddEvent, cardDeleteEvent } from "../card.js";
 
 function columnTemplate(columnTitle, cardCount = 0) {
     let columnNode = document.createElement("section");
@@ -55,6 +56,9 @@ function newCardTemplate() {
             <button id="new-card-register-btn">등록</button>
         </div>
     `
+
+    const newCancelBtn = newCardDom.children[2].children[0]
+    const newRegisterBtn = newCardDom.children[2].children[1]
 
     return newCardDom;
 }

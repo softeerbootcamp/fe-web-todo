@@ -156,6 +156,10 @@ section > article {
     width: 45%;
 }
 
+.new-card-button-area > button:focus {
+    outline: none;
+}
+
 .new-card-button-area > button#new-card-cancel-btn {
     color: #828282;
     background-color: #e0e0e0;
