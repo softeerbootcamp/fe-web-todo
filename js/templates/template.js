@@ -44,7 +44,7 @@ function cardTemplate(cardTitle, cardContent, cardAuthor="author by web") {
 }
 
 function newCardTemplate() {
-    let newCardDom = document.createComment("div");
+    let newCardDom = document.createElement("div");
     newCardDom.classList.add("new-card-frame");
 
     newCardDom.innerHTML = `
@@ -59,4 +59,4 @@ function newCardTemplate() {
     return newCardDom;
 }
 
-export { columnTemplate, cardTemplate }
+export { columnTemplate, cardTemplate, newCardTemplate }

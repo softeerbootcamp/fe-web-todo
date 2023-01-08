@@ -1,4 +1,4 @@
-import { columnTemplate, cardTemplate } from "./templates/template.js";
+import { columnTemplate, cardTemplate, newCardTemplate } from "./templates/template.js";
 import { setCard, turnOnModal } from "./modal.js";
 import { CARD_BTN_ORIGINAL, CARD_OUTLINE_ORIGINAL, CARD_BACKGROUND_ORIGINAL,
     CARD_BTN_HOVER, CARD_OUTLINE_HOVER, CARD_BACKGROUND_HOVER, } from "./common.js"
@@ -14,7 +14,8 @@ function columnDeleteEvent(btn, column) {
 
 function cardAddEvent(btn, currentColumn) {
     btn.addEventListener("click", () => {
-        currentColumn.appendChild(cardTemplate("no title", "no content"));
+        currentColumn.appendChild(newCardTemplate())
+        // currentColumn.appendChild(cardTemplate("no title", "no content"));
     })
 }
 

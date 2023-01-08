@@ -8,6 +8,8 @@ header {
     padding:0 2vw;
     height: 10vh;
     box-shadow: 0 0 0.3rem 0 gray;
+    background-color: #F5F5F7;
+    z-index: 10;
 }
 
 header > h1 {
