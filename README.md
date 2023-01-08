@@ -1,6 +1,6 @@
 # fe-web-todo
 문경덕님의 branch입니다.
-추후 수정할 것!
+추후 수정할 것! (지금은 메모지 용도로 활용 중)
 
 <br>
 
@@ -20,3 +20,8 @@ css 속성 작성 요령 <br>
 할 일
 - reset.css에서 사용하지 않는 태그는 불 필요하게 컴파일되지 않도록 지우기
 - column 삭제 -> json_data 연동
+
+내일 작업 순서
+1️⃣ column delete 데이터 반영
+2️⃣ card drag 이벤트 추가
+3️⃣ menu bar 데이터 연동
