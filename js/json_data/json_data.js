@@ -13,13 +13,13 @@ JSON_DATA[TODO] = [
         title: "github 공부하기",
         content: "add, commit, push",
         author: "author by web",
-        date: "2022.01.01"
+        date: "Sun Jan 03 2023 00:00:00 GMT+0900 (한국 표준시)"
     },
     {
         title: "블로그에 포스팅할 것",
         content: "github 공부 내용",
         author: "author by web",
-        date: "2022.01.02"
+        date: "Sun Jan 02 2023 00:00:00 GMT+0900 (한국 표준시)"
     },
 ]
 
@@ -28,8 +28,23 @@ JSON_DATA[DOING] = [
         title: "HTML/CSS 공부하기",
         content: "input 태그 실습",
         author: "author by web",
-        date: "2022.01.03"
+        date: "Sun Jan 03 2023 00:00:00 GMT+0900 (한국 표준시)"
     }
 ]
 
-export { statusList, statusName, TODO, DOING, DONE, JSON_DATA }
+function addJSONData(status, title, content) {
+    JSON_DATA[status].push({
+        title,
+        content,
+        author: "author by web",
+        date: new Date()
+    })
+
+    let currentSection = document.querySelectorAll("article")[status].parentElement
+    let sectionLength = currentSection.children[0].children[0]
+    
+    sectionLength.innerHTML = JSON_DATA[status].length
+}
+
+export { statusList, statusName, TODO, DOING, DONE, JSON_DATA, addJSONData
+}

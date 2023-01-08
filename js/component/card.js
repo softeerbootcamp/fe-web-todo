@@ -2,6 +2,8 @@ import { CARD_BTN_ORIGINAL, CARD_OUTLINE_ORIGINAL, CARD_BACKGROUND_ORIGINAL,
     CARD_BTN_HOVER, CARD_OUTLINE_HOVER, CARD_BACKGROUND_HOVER, } from "../common.js";
 import { setCard, turnOnModal } from "./modal.js";
 import { cardTemplate, newCardTemplate } from "../templates/template.js";
+import { findColumnStatus } from "./column.js"
+import { addJSONData } from "../json_data/json_data.js"; 
 
 function parseContent(string) {
     let stringArray = string.split("\n");
@@ -49,8 +51,13 @@ function newCardRegisterEvent(btn, currentCard) {
         let content = currentCard.children[1].value ;
         let newCard = cardTemplate(title, parseContent(content));
 
+        // 카드 배치 후 카드 등록 폼 제거
         currentCard.after(newCard);
         currentCard.remove()
+
+        // 데이터 반영
+        let currentStatus = findColumnStatus(newCard)
+        addJSONData(currentStatus, title, content)
     })
 }
 
