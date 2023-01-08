@@ -3,7 +3,7 @@ import { setCard, turnOnModal } from "./modal.js";
 import { CARD_BTN_ORIGINAL, CARD_OUTLINE_ORIGINAL, CARD_BACKGROUND_ORIGINAL,
     CARD_BTN_HOVER, CARD_OUTLINE_HOVER, CARD_BACKGROUND_HOVER, } from "./common.js"
 
-const cardArea = document.querySelector("main");
+const mainTag = document.querySelector("main");
 const columnAddBtn = document.querySelector("#column-add-btn");
 
 function columnDeleteEvent(btn, column) {
@@ -43,10 +43,10 @@ function cardDeleteEvent(btn, currentCard) {
 // fab 버튼에 column add event 추가
 columnAddBtn.addEventListener("click", () => {
     let newColumn = columnTemplate("제목 없음");
-    cardArea.appendChild(newColumn);
+    mainTag.appendChild(newColumn);
 
     // column으로 smooth하게 스크롤 이동
     newColumn.scrollIntoView({behavior:'smooth'});
 })
 
-export { columnDeleteEvent, cardAddEvent, cardDeleteEvent }
+export { mainTag, columnDeleteEvent, cardAddEvent, cardDeleteEvent }

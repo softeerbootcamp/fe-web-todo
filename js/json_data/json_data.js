@@ -5,6 +5,7 @@ const DONE = 2
 
 // 리스트로 관리하는 이유? state가 추가될 수도 있음!
 let statusList = [TODO, DOING, DONE]
+let statusName = ["해야 할 일", "하고 있는 일", "완료한 일"]
 let JSON_DATA = [[], [], []]
 
 JSON_DATA[TODO] = [
@@ -31,4 +32,4 @@ JSON_DATA[DOING] = [
     }
 ]
 
-export { statusList, TODO, DOING, DONE, JSON_DATA }
+export { statusList, statusName, TODO, DOING, DONE, JSON_DATA }

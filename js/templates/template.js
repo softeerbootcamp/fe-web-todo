@@ -1,11 +1,11 @@
 import { columnDeleteEvent, cardAddEvent, cardDeleteEvent } from "../column.js";
 
-function columnTemplate(columnTitle) {
+function columnTemplate(columnTitle, cardCount = 0) {
     let columnNode = document.createElement("section");
 
     columnNode.innerHTML = `
             <h3>${columnTitle}
-                <span>0</span>
+                <span>${cardCount}</span>
                 <div class="column-btn-area">
                     <i class="card-add-btn fa-solid fa-plus"></i>
                     <i class="column-delete-btn fa-solid fa-xmark"></i>
