@@ -3,6 +3,11 @@ import { CARD_BTN_ORIGINAL, CARD_OUTLINE_ORIGINAL, CARD_BACKGROUND_ORIGINAL,
 import { setCard, turnOnModal } from "./modal.js";
 import { cardTemplate, newCardTemplate } from "./templates/template.js";
 
+function parseContent(string) {
+    let stringArray = string.split("\n");
+    return stringArray.join("<br>");
+}
+
 function cardAddEvent(btn, currentColumn) {
     btn.addEventListener("click", () => {
         currentColumn.appendChild(newCardTemplate())
@@ -42,11 +47,24 @@ function newCardRegisterEvent(btn, currentCard) {
     btn.addEventListener("click", () => {
         let title = currentCard.children[0].value;
         let content = currentCard.children[1].value ;
-        let newCard = cardTemplate(title, content);
+        let newCard = cardTemplate(title, parseContent(content));
 
         currentCard.after(newCard);
         currentCard.remove()
     })
 }
 
-export { cardAddEvent, cardDeleteEvent, newCardCancelEvent, newCardRegisterEvent }
+function resizeCardByInputBox(inputBox, currentCard) {
+    let scrollHeight = 0
+    let cardHeight = 18
+
+    inputBox.addEventListener("input", () => {
+        if(inputBox.scrollHeight != scrollHeight) {
+            cardHeight += 2.5
+            currentCard.style.height = cardHeight + "vh";
+            scrollHeight = inputBox.scrollHeight
+        }
+    })
+}
+
+export { cardAddEvent, cardDeleteEvent, newCardCancelEvent, newCardRegisterEvent, resizeCardByInputBox }

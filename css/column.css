@@ -76,7 +76,6 @@ section > article {
     flex-direction: column;
     justify-content: space-evenly;
     width: 85%;
-    height: 10vh;
     margin-bottom: 1vh;
     padding: 1.5vh 1vw;
     border-radius: 1vh;
@@ -143,7 +142,7 @@ section > article {
 .new-card-button-area {
     display: flex;
     justify-content: space-evenly;
-    height: 40%;
+    height: 5vh;
     line-height: 3;
 }
 
