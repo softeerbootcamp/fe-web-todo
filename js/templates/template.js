@@ -27,6 +27,7 @@ function columnTemplate(columnTitle) {
 function cardTemplate(cardTitle, cardContent, cardAuthor="author by web") {
     let cardDom = document.createElement("div");
     cardDom.classList.add("card-frame")
+    cardDom.setAttribute("draggable", true)
 
     cardDom.innerHTML = `
         <h3 class="card-title">${cardTitle}
