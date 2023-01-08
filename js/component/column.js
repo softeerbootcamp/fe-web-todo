@@ -1,5 +1,6 @@
 import { columnTemplate } from "../templates/template.js";
-import { statusName } from "../json_data/json_data.js";
+import { statusName, addStatus } from "../json_data/json_data.js";
+import { turnOnColumnAddModal } from "./modal.js";
 
 const mainTag = document.querySelector("main");
 const columnAddBtn = document.querySelector("#column-add-btn");
@@ -10,19 +11,26 @@ function columnDeleteEvent(btn, column) {
     })
 }
 
-// fab 버튼에 column add event 추가
-columnAddBtn.addEventListener("click", () => {
-    let newColumn = columnTemplate("제목 없음");
+function addColumn(columnName = "제목 없음") {
+    let newColumn = columnTemplate(columnName);
     mainTag.appendChild(newColumn);
+
+    // data 영역에도 status 추가
+    addStatus(columnName)
 
     // column으로 smooth하게 스크롤 이동
     newColumn.scrollIntoView({behavior:'smooth'});
+}
+
+// fab 버튼에 column add event 추가
+columnAddBtn.addEventListener("click", () => {
+    turnOnColumnAddModal();
 })
 
 function findCardHeaderName(card) {
     let currentSection = card.parentElement.parentElement;
     let header = currentSection.children[0].innerHTML
-    
+
     return header.split("\n")[0]
 }
 
@@ -37,4 +45,4 @@ function findColumnStatus(card) {
     return -1;
 }
 
-export { mainTag, columnDeleteEvent, findColumnStatus }
+export { mainTag, columnDeleteEvent, findColumnStatus, addColumn }

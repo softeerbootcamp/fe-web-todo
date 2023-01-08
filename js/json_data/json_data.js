@@ -46,5 +46,13 @@ function addJSONData(status, title, content) {
     sectionLength.innerHTML = JSON_DATA[status].length
 }
 
-export { statusList, statusName, TODO, DOING, DONE, JSON_DATA, addJSONData
+function addStatus(newStatus) {
+    let newStatusIndex = statusList.length
+    statusList[newStatusIndex] = statusList[newStatusIndex - 1] + 1;
+    statusName[newStatusIndex] = newStatus
+
+    JSON_DATA[newStatusIndex] = []
+}
+
+export { statusList, statusName, TODO, DOING, DONE, JSON_DATA, addJSONData, addStatus
 }

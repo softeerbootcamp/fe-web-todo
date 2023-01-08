@@ -63,3 +63,70 @@
     background-color: #0175FF;
     outline: 0.2vh solid #0175FF;
 }
+
+/* column add modal */
+#column-add-modal-section {
+    position: absolute;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    top: -10vh;
+    z-index: 5;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(147, 147, 149, 0.5);
+}
+
+#column-add-modal-frame {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding:0 2vw;
+    opacity: 1;
+    height: 16vh;
+    width: 20vw;
+    border-radius: 1vh;
+    background-color: #fff;
+}
+
+#column-add-modal-frame > input {
+    outline: none;
+    border: none;
+}
+
+#column-add-modal-btn-area {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#column-add-modal-btn-area > button {
+    border: none;
+    cursor: pointer;
+    border-radius: 0.5vh;
+    width: 40%;
+    height: 3vh;
+}
+
+#column-add-cancel-btn {
+    color: #B1B1B1;
+    background-color: #E0E0E0;
+}
+
+#column-add-cancel-btn:hover {
+    color: #E0E0E0;
+    background-color: #B1B1B1;
+    outline: 0.2vh solid #B1B1B1;
+}
+
+#column-add-accept-btn {
+    color: #fff;
+    background-color: #0175DE;
+}
+
+#column-add-accept-btn:hover {
+    color: #fff;
+    background-color: #0175FF;
+    outline: 0.2vh solid #0175FF;
+}
