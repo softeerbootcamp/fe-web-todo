@@ -21,7 +21,7 @@ css 속성 작성 요령 <br>
 - reset.css에서 사용하지 않는 태그는 불 필요하게 컴파일되지 않도록 지우기
 - column 삭제 -> json_data 연동
 
-내일 작업 순서
-1️⃣ column delete 데이터 반영
-2️⃣ card drag 이벤트 추가
-3️⃣ menu bar 데이터 연동
+내일 작업 순서 <br>
+1️⃣ column delete 데이터 반영 <br>
+2️⃣ card drag 이벤트 추가 <br>
+3️⃣ menu bar 데이터 연동 <br>
