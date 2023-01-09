@@ -15,7 +15,7 @@ const modalEvent = () => {
 const removeBtnClickEventHandler = () => {
   const modalWrapperEl = document.querySelector(".modal-wrapper");
   const focusedCard = document.querySelector(".focused");
-  const removedData = getTargetChild(focusedCard, "card-tittle").textContent;
+  const removedData = getTargetChild(focusedCard, "card-title").textContent;
   const bodyEl = document.querySelector(".modal-display");
   const wrapperEl = document.querySelector(".clicked");
   const columnWrapper = getTargetParentByClassName(
@@ -23,7 +23,7 @@ const removeBtnClickEventHandler = () => {
     "column-wrapper"
   );
   document.querySelector(".log-wrapper").innerHTML += log(
-    getTargetChild(columnWrapper, "column-header-tittle").innerHTML,
+    getTargetChild(columnWrapper, "column-header-title").innerHTML,
     removedData,
     "remove"
   );
