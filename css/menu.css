@@ -12,11 +12,21 @@
 
 #menu-frame {
     position: relative;
+    padding: 0 1vw;
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -ms-overflow-style: none;  /* IE and Edgge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Chrome, Safari, Opera */
+#menu-frame::-webkit-scrollbar {
+    display: none;
 }
 
 #menu-header {

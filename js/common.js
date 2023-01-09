@@ -37,4 +37,5 @@ function findHeaderLengthByCard(card) {
 export {
     CARD_BTN_ORIGINAL, CARD_OUTLINE_ORIGINAL, CARD_BACKGROUND_ORIGINAL,
     CARD_BTN_HOVER, CARD_OUTLINE_HOVER, CARD_BACKGROUND_HOVER, CARD_DELETE_BTN_ORIGINAL,
-    changeCSS, addChildAfterParent, findHeaderLengthByCard, findCardTitle }
+    changeCSS, addChildAfterParent, findHeaderLengthByCard, findCardTitle 
+}
