@@ -75,13 +75,14 @@ const TodoDatabase = {
             .map(todo => todo.id);
     },
     addNewTodo(columnId, name, description) {
-        database.todos.unshift({
+        const todo = {
             author: getUser(),
             name,
             description,
             columnId,
             id: Date.now()
-        });
+        };
+        database.todos.unshift(todo);
         const { name:columnName } = database.columns.find(column => column.id === columnId);
         const notification = {
             author: getUser(),
@@ -94,6 +95,7 @@ const TodoDatabase = {
         };
         database.notifications.unshift(notification);
         this.notify(notification);
+        return todo.id;
     }
 }
 

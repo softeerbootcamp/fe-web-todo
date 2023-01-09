@@ -6,13 +6,15 @@ import TodoAddForm from "../TodoAddForm/TodoAddForm.js";
 
 class TodoHolder extends Component {
     initialize() {
+        const { columnId } = this.props;
+        const todoIds = TodoDatabase.findTodoIdsByColumnId(columnId);
         this.state = {
-            columnId: this.props.columnId
+            todoIds: todoIds
         }
         this.addEvent('click', '.add-todo-btn', this.addClick.bind(this));
     }
 
-    addClick(e) {
+    addClick() {
         const $addForm = this.$target.querySelector('[data-component="TodoAddForm"]');
         const checked = !$addForm.toggleAttribute('hidden');
         const $button = this.$target.querySelector('.add-todo-btn');
@@ -20,8 +22,7 @@ class TodoHolder extends Component {
     }
 
     template() {
-        const { columnId } = this.state;
-        const todoIds = TodoDatabase.findTodoIdsByColumnId(columnId);
+        const { todoIds } = this.state;
         return `
         <div class="todoholder-header">
             <div class="todoholder-colinfo">
@@ -78,15 +79,15 @@ class TodoHolder extends Component {
     }
 
     addTodo(name, description) {
-        const { columnId } = this.state;
-        TodoDatabase.addNewTodo(columnId, name, description);
-        this.setState({ columnId });
+        const { columnId } = this.props;
+        const newTodoId = TodoDatabase.addNewTodo(columnId, name, description);
+        const newTodoIds = [ newTodoId, ...this.state.todoIds ];
+        this.setState({ todoIds: newTodoIds });
     }
 
     updateColumnName(newName) {
-        const { columnId } = this.state;
+        const { columnId } = this.props;
         TodoDatabase.updateColumnNameById(columnId, newName);
-        this.setState({ columnId });
     }
 }
 
