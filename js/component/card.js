@@ -5,6 +5,8 @@ import { cardTemplate, newCardTemplate } from "../templates/template.js";
 import { findColumnStatus } from "./column.js"
 import { addJSONData } from "../json_data/json_data.js"; 
 import { makeCardDragEvent } from "../drag/addDragEvent.js";
+import { menuAdd } from "./menu.js";
+import { findCardHeaderName } from "../component/column.js"
 
 function parseContent(string) {
     let stringArray = string.split("\n");
@@ -56,6 +58,10 @@ function newCardRegisterEvent(btn, currentCard) {
         let content = currentCard.children[1].value ;
         let newCard = cardTemplate(title, parseContent(content));
 
+        // 메뉴에 반영
+        menuAdd(title, findCardHeaderName(currentCard));
+
+        // drag 이벤트 추가
         makeCardDragEvent(newCard);
 
         // 카드 배치 후 카드 등록 폼 제거

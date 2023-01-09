@@ -48,4 +48,4 @@ function findColumnStatus(card) {
     return -1;
 }
 
-export { mainTag, columnDeleteEvent, findColumnStatus, addColumn }
+export { mainTag, columnDeleteEvent, findColumnStatus, addColumn, findCardHeaderName }
