@@ -4,6 +4,7 @@ import { cardAddEvent, cardDeleteEvent,
     resizeCardByInputBox
 } from "../component/card.js";
 import { dragIDManager } from "../drag/dragIDManager.js";
+import { makeShadedNode } from "../drag/dragEffect.js";
 
 function columnTemplate(columnTitle, cardCount = 0) {
     let columnNode = document.createElement("section");
@@ -22,6 +23,13 @@ function columnTemplate(columnTitle, cardCount = 0) {
 
     let cardAddBtn = columnNode.children[0].children[1].children[0];
     let columnDeleteBtn = columnNode.children[0].children[1].children[1];
+    let header = columnNode.children[0]
+
+    header.addEventListener("dragover", (event) => {
+        let article = header.parentElement.children[1];
+        event.preventDefault();
+        article.appendChild(makeShadedNode());
+    })
 
     columnDeleteEvent(columnDeleteBtn, columnNode); // column 제거 이벤트
     cardAddEvent(cardAddBtn, columnNode.children[1]); // card 추가 이벤트

@@ -23,9 +23,11 @@ function cardDeleteEvent(btn, currentCard) {
         turnOnModal(); 
     })
 
+    
     btn.addEventListener("mouseover", () => {
         currentCard.style.transition = "0.5s"
         currentCard.style.marginTop = "-0.5vh";
+        currentCard.style.marginBottom = "1.5vh";
         btn.style.color = CARD_BTN_HOVER;
         currentCard.style.outline = CARD_OUTLINE_HOVER;
         currentCard.style.backgroundColor = CARD_BACKGROUND_HOVER;
@@ -33,6 +35,7 @@ function cardDeleteEvent(btn, currentCard) {
 
     btn.addEventListener("mouseleave", () => {
         currentCard.style.marginTop = "0vh";
+        currentCard.style.marginBottom = "1vh";
         btn.style.color = CARD_BTN_ORIGINAL;
         currentCard.style.outline = CARD_OUTLINE_ORIGINAL;
         currentCard.style.backgroundColor = CARD_BACKGROUND_ORIGINAL;

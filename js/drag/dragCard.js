@@ -11,7 +11,7 @@ function dragOverCard(parentDom, event) {
     addChildAfterParent(parentDom, makeShadedNode())
 }
 
-function dropCard(parentDom) {
+function dropCard(parentDom, event) {
     addChildAfterParent(parentDom, makeLightNode());
 }
 

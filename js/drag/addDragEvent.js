@@ -11,12 +11,12 @@ function makeCardDragEvent(cardDom) {
         dragOverCard(cardDom, event)
     })
 
-    cardDom.addEventListener("drop", (event) => {
-        dropCard(cardDom, event)
+    cardDom.addEventListener("dragend", (event) => {
+        makeLightNode();
     })
 
-    cardDom.addEventListener("dragend", () => {
-        makeLightNode();
+    cardDom.addEventListener("drop", (event) => {
+        dropCard(cardDom, event)
     })
 }
 
