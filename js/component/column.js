@@ -1,5 +1,5 @@
 import { columnTemplate } from "../templates/template.js";
-import { statusName, addStatus } from "../json_data/json_data.js";
+import { statusName, addStatus, deleteStatus } from "../json_data/json_data.js";
 import { turnOnColumnAddModal } from "./modal.js";
 
 const mainTag = document.querySelector("main");
@@ -7,6 +7,9 @@ const columnAddBtn = document.querySelector("#column-add-btn");
 
 function columnDeleteEvent(btn, column) {
     btn.addEventListener("click", () => {
+        let status = column.children[0].innerHTML.split("\n")[0]
+        
+        deleteStatus(status)
         column.remove();
     })
 }

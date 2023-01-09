@@ -37,3 +37,11 @@
 ##### 1️⃣ column delete 데이터 반영
 ##### 2️⃣ card drag 이벤트 추가
 ##### 3️⃣ menu bar 데이터 연동
+
+# 2주차 과제
+##### Todo 삭제, 편집
+##### 메뉴
+##### Drag & Drop
+##### prototype 활용한 객체 1개 이상
+##### ES classes 활용 객체 1개 이상
+##### querySelector 구현

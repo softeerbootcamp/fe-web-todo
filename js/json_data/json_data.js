@@ -64,5 +64,15 @@ function addStatus(newStatus) {
     JSON_DATA[newStatusIndex] = []
 }
 
-export { statusList, statusName, TODO, DOING, DONE, JSON_DATA, addJSONData, addStatus, validateStatus
+function deleteStatus(status) {
+    let statusIndex = statusName.indexOf(status)
+    
+    // 삭제
+    JSON_DATA.splice(statusIndex, 1)
+    statusList.splice(statusIndex, 1)
+    statusName.splice(statusIndex, 1)
+}
+
+export { statusList, statusName, TODO, DOING, DONE, JSON_DATA, 
+    addJSONData, addStatus, validateStatus, deleteStatus
 }
