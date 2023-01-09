@@ -9,6 +9,67 @@ const delete_data={
     contents : null
 }
 
+const todos_status=['todo','doing','done'];
+
+const todos = [
+    {
+        Status : 'todo',
+        Title : 'Git hub 공부하기',
+        Contents: 'add , commit , push'
+    },
+    {
+        Status : 'todo',
+        Title : 'Git hub 블로그에 포스팅할 것',
+        Contents: '* Git hub 공부내용\n* 모던 자바스크립트 1장 공부 내용'
+    },
+    {
+        Status : 'doing',
+        Title : '모던 자바스크립트 예제 실습',
+        Contents: 'input 태그'
+    }
+]
+
+const render = () =>{
+    const todolist = document.querySelector('.todolist');
+
+    const sections = todolist.querySelector('section')
+
+    //status에 따라 section 생성
+    todos_status.map(status => {
+        const items = todos.filter(item=>item.Status===status);
+        const parent_element = `
+        <section class = "${status}">
+            <div class = "todo-header">
+                <h2>${status} </h2>
+                <div class="list-count">${items.length}</div>
+                <div class="buttons">
+                    <button class="add"><i class="fa-solid fa-plus"></i></button>
+                    <button class="delete"><i class="fa-solid fa-x"></i></button>
+                </div>
+            </div> 
+            <ul class = "todolist-item">
+                ${items.map(item=> `<li class = "todolist-items" draggable="true">
+                                    <div class="todolist-items-header">
+                                        <h3>${item.Title}</h3>
+                                        <button class="delete-lst"><i class="fa-solid fa-x"></i></button> 
+                                    </div>
+                                    <p style={white-space: pre-line;}>${item.Contents}</p> 
+                        </li class = "todolist-items">
+                    `).join('')}
+            </ul>
+        </section>`
+    todolist.insertAdjacentHTML('beforeend',parent_element);
+    // const parent = document.querySelector(`.${status} .todolist-item`);
+    //각각의 스테이터스에 해당하는 리스트들 생성
+    ;
+    /**
+     * todo 개행 처리
+     *  */ 
+    })
+}
+
+render();
+
 //모달창 설정
 //취소 버튼
 const modal = document.querySelector('.modal');
@@ -38,6 +99,7 @@ delete_btn.forEach(item=>{
 //add에서 input값 받는 함수
 const onChange = (e)=>{
     input_data[e.target.name] = e.target.value;
+    console.log(e.target);
     const register_button = document.querySelector('.register-button');
     const input_items = document.querySelector('.input-items');
     if(!register_button)
@@ -65,7 +127,21 @@ add_btn.forEach(item=>{
             return;
         }
 
-        const child = item.parentNode.parentNode.parentNode.childNodes[3];
+        const child = item.closest('section').querySelector('ul');
+
+        const input_new_element =`
+            <li class = 'input-items' , tabindex = -1>
+                <form>
+                    <textarea class = 'input-title' type = 'text' placeholder = '제목을 입력하세요' maxlength = 500 name = 'title' 'onchange' = 'onChange()'></textarea>
+                    <textarea class = 'input-contents' type = 'text' placeholder = '내용을 입력하세요' maxlength = 500 name = 'contents' 'onchange' = onChange'></textarea>
+                    <div class = 'buttons'>
+                        <button type ='button' class = 'cancel-button'>취소</>
+                        <button type ='button' class = 'register-button' disabled>등록</>
+                    </div>
+                </form>
+            </li>
+        `;
+
         const lst_item = document.createElement("li");
         const newForm = document.createElement('form');
 
@@ -115,11 +191,17 @@ add_btn.forEach(item=>{
 
         // 등록버튼
         register_button.addEventListener('mousedown',()=>{
-            const new_item = make_new_lst(input_data['title'], input_data['contents']);
-            item.parentNode.parentNode.parentNode.childNodes[3].prepend(new_item);
+            // const new_item = make_new_lst(input_data['title'], input_data['contents']);
+            // item.parentNode.parentNode.parentNode.childNodes[3].prepend(new_item);
+            todos.unshift({
+                Status:item.closest('section').className,
+                Title:input_data['title'],
+                Contents:input_data['contents']});
+            console.log(todos);
             input_data['title'] ='';
             input_data['contents'] = '';
             lst_item.remove();
+            render();
         })
 
         // focusout 이벤트
@@ -132,8 +214,37 @@ add_btn.forEach(item=>{
             },0)
         })
 
-        child.prepend(lst_item);
-        input_title.focus();
+        child.insertAdjacentHTML('beforebegin',input_new_element);
+
+        document.querySelector('.input-items').querySelector('.cancel-button').addEventListener('click',(e)=>{
+            console.log(e.target);
+            input_data['title'] ='';
+            input_data['contents']  = '';
+            document.querySelector('.input-items').remove();});
+
+        document.querySelector('.input-items').querySelector('.register-button').addEventListener('mousedown',()=>{
+            todos.unshift({
+                Status:item.closest('section').className,
+                Title:input_data['title'],
+                Contents:input_data['contents']});
+            console.log(todos);
+            input_data['title'] ='';
+            input_data['contents'] = '';
+            document.querySelector('.input-items').remove()
+            render();
+        });
+
+        document.querySelector('.input-items').addEventListener("blur", ()=>{
+            setTimeout(()=>{
+                input_data['title'] ='';
+                input_data['contents'] = '';
+                document.querySelector('.input-items').remove();
+            },0)
+        })
+
+
+        // child.prepend(lst_item);
+        // input_title.focus();
     })
 })
 
@@ -177,3 +288,4 @@ const changeNotificationMode = ()=>{
 //popupbar 메뉴 보이기와 숨기기
 document.querySelector('.fa-bars').addEventListener('click',changeNotificationMode)
 document.querySelector('.delete-notification-menu').addEventListener('click',changeNotificationMode);
+

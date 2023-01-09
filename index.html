@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;1,600;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="https://kit.fontawesome.com/4d499a68c2.js" crossorigin="anonymous"></script>
-    <script src ="script.js"></script>
+    <script defer src ="script.js"></script>
 </head>
 <body>
     <header>
@@ -16,64 +16,6 @@
     </header>
 
     <div class="todolist">
-        <section class = "todo">
-            <div class = "todo-header">
-                <h2>해야할 일 </h2>
-                <div class="list-count">1</div>
-                <div class="buttons">
-                    <button class="add"><i class="fa-solid fa-plus"></i></button>
-                    <button class="delete"><i class="fa-solid fa-x"></i></button>
-                </div>
-            </div> 
-            <ul class = "todolist-item">
-                <li class = "todolist-items" draggable="true">
-                    <div class="todolist-items-header">
-                        <h3>Git hub 공부하기</h3>
-                        <button class="delete-lst"><i class="fa-solid fa-x"></i></button> 
-                    </div>
-                    <p>add, commit, push</p> 
-                </li class = "todolist-items">
-                <li class = "todolist-items">
-                    <div class="todolist-items-header">
-                        <h3>블로그에 포스팅할 것</h3>
-                        <button class="delete-lst"><i class="fa-solid fa-x"></i></button> 
-                    </div>
-                    <p>* Git hub 공부내용</p>
-                    <p>* 모던 자바스크립트 1장 공부 내용</p>
-                </li>
-            </ul>
-        </section>
-        <section class = "doing">
-            <div class = "todo-header">
-                <h2>하고있는 일</h2>
-                <div class="list-count">1</div>
-                <div class= "buttons">
-                    <button class="add"><i class="fa-solid fa-plus"></i></button>
-                    <button class="delete"><i class="fa-solid fa-x"></i></button>
-                </div>
-            </div> 
-            <ul class = "todolist-item">
-                <li class = "todolist-items">
-                    <div class="todolist-items-header">
-                        <h3>모던 자바스크립트 예제 실습</h3>
-                        <button class="delete-lst"><i class="fa-solid fa-x"></i></button> 
-                    </div>
-                    <p>input 태그</p>
-                </li class = "todolist-items">
-            </ul>
-        </section>
-        <section class = "done">
-            <div class = "todo-header">
-                <h2>완료한 일</h2>
-                <span class="list-count">1</span>
-                <div class= "buttons">
-                    <button class="add"><i class="fa-solid fa-plus"></i></button>
-                    <button class="delete"><i class="fa-solid fa-x"></i></button>
-                </div>
-            </div> 
-            <ul class = "todolist-item">
-            </ul>
-        </section>
         <section class = "notification-menu">
             <button class="delete-notification-menu"><i class="fa-solid fa-x"></i></button> 
             <ul>
@@ -135,5 +77,7 @@
             </div>
         </div>
     </div>
+
+    <span class="plus-column"><i class="fa-solid fa-plus"></i></span>
 </body>
 </html>

@@ -83,6 +83,7 @@ p{
 	font-weight: var(--font-regular);
 	color: var(--color-black);
 	margin: 4px 0;
+    word-wrap:break-word;
 }
 
 h1,h2,h3,p{
@@ -107,14 +108,17 @@ h1 i{
     display: flex;
     justify-content: flex-start;
     padding-left: 30px;
+    padding-right: 20vw;
     position: relative;
     flex-wrap: wrap;
 }
 
 section{
-    width: 23vw;
+    /* width: 23vw; */
     min-width:110px;
     margin: 0 10px;
+    flex-grow: 1;
+    flex-shrink: 0;
 }
 
 .todo-header {
@@ -173,9 +177,10 @@ button{
     background-color: gray;
     display: flex;
     width: 40px;
+    height: 40px;
     font-weight: bold;
     justify-content: center;
-    padding: 10px;
+    align-items: center;
 }
 
 ul{
@@ -209,7 +214,7 @@ ul{
 textarea{
     width: 80%;
     height: 15%;
-    resize: vertical;
+    resize: none;
     border: none;
     background-color: inherit;
 }
@@ -306,9 +311,9 @@ textarea{
 
 .modal-body{
     position: absolute;
-    top: 20vw;
-    left: 60vh;
-
+    top: 50%;
+    left: 50%;
+    transform : translate(-50%,-50%);
     width: 20vw;
     background-color: white;
 
@@ -318,14 +323,24 @@ textarea{
 
 .modal-body .buttons{
     margin-top: 20px;
-    display: flex;
-    justify-content: end;
+    text-align: right;
 }
 
 .modal-body .cancel-button, .modal-body .register-button{
     width: 40%;
 }
 
-.modal-body .register-button{
-    margin-left: 5px;
+.plus-column{
+    position: fixed;
+    top: 80vh;
+    left: 90vw;
+    border-radius: 50%;
+    width: 5vw;
+    height: 5vw;
+    background-color: var(--color-blue);
+    color: var(--color-light-white);
+    font-size: var(--font-medium);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
