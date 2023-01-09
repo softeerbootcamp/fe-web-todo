@@ -1,7 +1,7 @@
 import { columnDeleteEvent } from "../component/column.js";
 import { cardAddEvent, cardDeleteEvent, 
     newCardCancelEvent, newCardRegisterEvent,
-    resizeCardByInputBox
+    resizeCardByInputBox, addDoubleClickEventToCard
 } from "../component/card.js";
 import { dragIDManager } from "../drag/dragIDManager.js";
 import { makeShadedNode } from "../drag/dragEffect.js";
@@ -61,6 +61,9 @@ function cardTemplate(cardTitle, cardContent, cardAuthor="author by web") {
         <h5 class="card-author">${cardAuthor}</h5>
     `;
 
+    // 더블 클릭 이벤트 추가
+    addDoubleClickEventToCard(cardDom)
+
     let cardDeleteBtn = cardDom.children[0].children[0]
     cardDeleteEvent(cardDeleteBtn, cardDom)
 
@@ -68,13 +71,13 @@ function cardTemplate(cardTitle, cardContent, cardAuthor="author by web") {
 }
 
 // 카드 등록 폼의 템플릿을 반환합니다.
-function newCardTemplate() {
+function newCardTemplate(title = "", content = "", isUpdated=false) {
     let newCardDom = document.createElement("div");
     newCardDom.classList.add("new-card-frame");
 
     newCardDom.innerHTML = `
-        <input type="text" placeholder="제목을 입력하세요">
-        <textarea cols="30" rows="20" maxlength="500" placeholder="내용을 입력하세요"></textarea>
+        <input type="text" placeholder="제목을 입력하세요" value=${title}>
+        <textarea cols="30" rows="20" maxlength="500" placeholder="내용을 입력하세요">${content}</textarea>
         <div class="new-card-button-area">
             <button id="new-card-cancel-btn">취소</button>
             <button id="new-card-register-btn" disabled>등록</button>
@@ -87,7 +90,7 @@ function newCardTemplate() {
 
     // 등록 카드 폼의 버튼에 이벤트 추가
     newCardCancelEvent(newCancelBtn, newCardDom);
-    newCardRegisterEvent(newRegisterBtn, newCardDom);
+    newCardRegisterEvent(newRegisterBtn, newCardDom, isUpdated);
     resizeCardByInputBox(textArea, newCardDom);
 
     return newCardDom;
@@ -157,7 +160,28 @@ function menuLogMoveTemplate(title, prevStatus, nextStatus, emotion, author) {
     return menuFrame;
 }
  
+// 메뉴 로그 템플릿을 반환합니다. (update)
+function menuLogUpdateTemplate(title, status, emotion, author) {
+    let menuFrame = document.createElement("div");
+    menuFrame.classList.add("log-frame");
+
+    menuFrame.innerHTML = `
+        <div class="log-emotion-area">${emotion}</div>
+        <div class="log-content-area">
+            <h4 class="log-author">${author}</h4>
+            <h4 class="log-content">
+                <strong>${statusName[status]}</strong>의
+                <strong>${title}</strong>
+                을/를 수정하였습니다.
+            </h4>
+            <h5>1분전</h5>
+        </div>
+    `
+
+    return menuFrame;
+}
+
 export {
     columnTemplate, cardTemplate, newCardTemplate, 
-    menuLogAddTemplate, menuLogDeleteTemplate, menuLogMoveTemplate
+    menuLogAddTemplate, menuLogDeleteTemplate, menuLogMoveTemplate, menuLogUpdateTemplate
 }

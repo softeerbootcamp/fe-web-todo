@@ -1,11 +1,11 @@
 import { CARD_BTN_ORIGINAL, CARD_OUTLINE_ORIGINAL, CARD_BACKGROUND_ORIGINAL,
-    CARD_BTN_HOVER, CARD_OUTLINE_HOVER, CARD_BACKGROUND_HOVER, CARD_DELETE_BTN_ORIGINAL } from "../common.js";
+    CARD_BTN_HOVER, CARD_OUTLINE_HOVER, CARD_BACKGROUND_HOVER, CARD_DELETE_BTN_ORIGINAL, findCardTitle, findCardContent } from "../common.js";
 import { setCard, turnOnModal } from "./modal.js";
 import { cardTemplate, newCardTemplate } from "../templates/template.js";
 import { findColumnStatusByCard } from "./column.js"
-import { addJSONData } from "../json_data/json_data.js"; 
+import { addJSONData, deleteJSONData } from "../json_data/json_data.js"; 
 import { makeCardDragEvent } from "../drag/addDragEvent.js";
-import { menuLogAdd, menuLogDelete } from "./menu.js";
+import { menuLogAdd, menuLogUpdate } from "./menu.js";
 import { findCardHeaderName } from "../component/column.js"
 
 let registering = false;
@@ -57,7 +57,7 @@ function newCardCancelEvent(btn, currentCard) {
 }
 
 // 새로운 카드를 생성하는 이벤트를 등록합니다.
-function newCardRegisterEvent(btn, currentCard) {
+function newCardRegisterEvent(btn, currentCard, isUpdated) {
     btn.addEventListener("click", () => {
         registering = false;
 
@@ -66,7 +66,9 @@ function newCardRegisterEvent(btn, currentCard) {
         let newCard = cardTemplate(title, parseContent(content));
 
         // 메뉴에 반영
-        menuLogAdd(title, findCardHeaderName(currentCard));
+        isUpdated ?
+                menuLogUpdate(title, findColumnStatusByCard(currentCard)):
+                menuLogAdd(title, findCardHeaderName(currentCard));
 
         // drag 이벤트 추가
         makeCardDragEvent(newCard);
@@ -85,12 +87,13 @@ function newCardRegisterEvent(btn, currentCard) {
 function resizeCardByInputBox(inputBox, currentCard) {
     let scrollHeight = 0
     let cardHeight = 18
-
-    let cardRegisterCancelBtn = currentCard.children[2].children[0];
     let cardRegisterAccpetBtn = currentCard.children[2].children[1];
 
+    inputBox.value ?
+                cardRegisterAccpetBtn.disabled = false  :
+                cardRegisterAccpetBtn.disabled = true;
+
     inputBox.addEventListener("input", () => {
-        console.log(cardRegisterAccpetBtn)
         if(inputBox.scrollHeight != scrollHeight) {
             cardHeight += 2.5
             currentCard.style.height = cardHeight + "vh";
@@ -109,4 +112,27 @@ function parseContent(string) {
     return stringArray.join("<br>");
 }
 
-export { cardAddEvent, cardDeleteEvent, newCardCancelEvent, newCardRegisterEvent, resizeCardByInputBox }
+function cardToRegisterForm(card) {
+    let title = findCardTitle(card);
+    let content = findCardContent(card);
+    let status = findColumnStatusByCard(card);
+
+    // JSON 반영
+    deleteJSONData(status, title);
+
+    card.before(newCardTemplate(title, content, true));
+    card.remove();
+}
+
+// 카드에 더블 클릭 이벤트를 추가해줍니다.
+function addDoubleClickEventToCard(card) {
+    card.addEventListener("dblclick", () => {
+        cardToRegisterForm(card);
+    })
+}
+
+export { 
+    cardAddEvent, cardDeleteEvent, 
+    newCardCancelEvent, newCardRegisterEvent, resizeCardByInputBox,
+    addDoubleClickEventToCard
+ }

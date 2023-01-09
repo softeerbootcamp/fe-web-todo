@@ -1,5 +1,7 @@
 import { changeCSS } from "../common.js"
-import { menuLogAddTemplate, menuLogDeleteTemplate, menuLogMoveTemplate } from "../templates/template.js";
+import { 
+    menuLogAddTemplate, menuLogDeleteTemplate, menuLogMoveTemplate, menuLogUpdateTemplate
+} from "../templates/template.js";
 
 const menuBar = document.querySelector("#menu");
 const menuOpenBtn = document.querySelector("#menu-open-btn");
@@ -28,4 +30,8 @@ function menuLogMove(title, prevStatus, nextStatus, emotion="🥳", author="@sam
     menuContent.prepend(menuLogMoveTemplate(title, prevStatus, nextStatus, emotion, author))
 }
 
-export { menuLogAdd, menuLogDelete, menuLogMove }
+function menuLogUpdate(title, status, emotion="🥳", author="@sam") {
+    menuContent.prepend(menuLogUpdateTemplate(title, status, emotion, author));
+}
+
+export { menuLogAdd, menuLogDelete, menuLogMove, menuLogUpdate }
