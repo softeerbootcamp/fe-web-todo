@@ -77,7 +77,7 @@ function newCardTemplate() {
         <textarea cols="30" rows="20" maxlength="500" placeholder="내용을 입력하세요"></textarea>
         <div class="new-card-button-area">
             <button id="new-card-cancel-btn">취소</button>
-            <button id="new-card-register-btn">등록</button>
+            <button id="new-card-register-btn" disabled>등록</button>
         </div>
     `
 

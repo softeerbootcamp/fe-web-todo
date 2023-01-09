@@ -59,6 +59,8 @@ function newCardCancelEvent(btn, currentCard) {
 // 새로운 카드를 생성하는 이벤트를 등록합니다.
 function newCardRegisterEvent(btn, currentCard) {
     btn.addEventListener("click", () => {
+        registering = false;
+
         let title = currentCard.children[0].value;
         let content = currentCard.children[1].value ;
         let newCard = cardTemplate(title, parseContent(content));
@@ -84,12 +86,20 @@ function resizeCardByInputBox(inputBox, currentCard) {
     let scrollHeight = 0
     let cardHeight = 18
 
+    let cardRegisterCancelBtn = currentCard.children[2].children[0];
+    let cardRegisterAccpetBtn = currentCard.children[2].children[1];
+
     inputBox.addEventListener("input", () => {
+        console.log(cardRegisterAccpetBtn)
         if(inputBox.scrollHeight != scrollHeight) {
             cardHeight += 2.5
             currentCard.style.height = cardHeight + "vh";
             scrollHeight = inputBox.scrollHeight
         }
+
+        inputBox.value ?
+                cardRegisterAccpetBtn.disabled = false  :
+                cardRegisterAccpetBtn.disabled = true;
     })
 }
 

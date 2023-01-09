@@ -171,12 +171,22 @@ section > article {
     background-color: #828282;
 }
 
+.new-card-button-area > button#new-card-cancel-btn:disabled {
+    color: #828282;
+    background-color: #e0e0e0;
+}
+
 .new-card-button-area > button#new-card-register-btn {
-    color: rgba(255, 255, 255, 0.4);
-    background-color: #86c6ff;
+    color: #fff;
+    background-color: #0075de;
 }
 
 .new-card-button-area > button#new-card-register-btn:hover {
     color: #fff;
     background-color: #0075de;
+}
+
+.new-card-button-area > button#new-card-register-btn:disabled {
+    color: rgba(255, 255, 255, 0.4);
+    background-color: #86c6ff;
 }
