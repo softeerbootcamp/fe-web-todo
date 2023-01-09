@@ -89,7 +89,7 @@ function newCardTemplate() {
     return newCardDom;
 }
 
-function menuTemplate(content, status, emotion="🥳", author="@sam") {
+function menuLogAddTemplate(content, status, emotion="🥳", author="@sam") {
     let menuFrame = document.createElement("div");
     menuFrame.classList.add("log-frame");
 
@@ -108,5 +108,28 @@ function menuTemplate(content, status, emotion="🥳", author="@sam") {
 
     return menuFrame;
 }
+
+function menuLogDeleteTemplate(content, status, emotion="🥳", author="@sam") {
+    let menuFrame = document.createElement("div");
+    menuFrame.classList.add("log-frame");
+
+    menuFrame.innerHTML = `
+        <div class="log-emotion-area">${emotion}</div>
+        <div class="log-content-area">
+            <h4 class="log-author">${author}</h4>
+            <h4 class="log-content">
+                <strong>${status}</strong>에서
+                <strong>${content}</strong>
+                를 삭제하였습니다.
+            </h4>
+            <h5>1분전</h5>
+        </div>
+    `
+
+    return menuFrame;
+}
  
-export { columnTemplate, cardTemplate, newCardTemplate, menuTemplate }
+export {
+    columnTemplate, cardTemplate, newCardTemplate, 
+    menuLogAddTemplate, menuLogDeleteTemplate
+}

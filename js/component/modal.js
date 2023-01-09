@@ -1,5 +1,7 @@
-import { validateStatus } from "../json_data/json_data.js";
+import { validateStatus, statusName } from "../json_data/json_data.js";
 import { addColumn } from "./column.js"
+import { findColumnStatus } from "./column.js";
+import { menuLogDelete } from "./menu.js";
 
 let chosenCard = "";
 
@@ -36,7 +38,16 @@ function setCard(cardDom) {
 // card modal 버튼들 이벤트 추가
 modalDeleteBtn.addEventListener("click", () => {
     turnOffModal();
+    
+    let status = findColumnStatus(chosenCard);
+    let title = chosenCard.children[0].textContent
+    
+    // menu 삭제 log 남기기
+    console.log(status, title)
+    menuLogDelete(title, statusName[status]);
+
     chosenCard.remove();
+
 })
 
 modalCancelBtn.addEventListener("click", () => { turnOffModal(); })

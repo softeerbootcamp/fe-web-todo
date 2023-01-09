@@ -1,5 +1,5 @@
 import { changeCSS } from "../common.js"
-import { menuTemplate } from "../templates/template.js";
+import { menuLogAddTemplate, menuLogDeleteTemplate } from "../templates/template.js";
 
 const menuBar = document.querySelector("#menu");
 const menuOpenBtn = document.querySelector("#menu-open-btn");
@@ -11,10 +11,12 @@ const menuContent = document.getElementById("menu-content")
 menuOpenBtn.addEventListener("click", () => { changeCSS(menuBar, "right", 0) })
 menuCloseBtn.addEventListener("click", () => { changeCSS(menuBar, "right", "-30vw") })
 
-function menuAdd(title, status, emotion="🥳", author="@sam") {
-    let menuFrame = menuTemplate(title, status, emotion, author);
-
-    menuContent.prepend(menuFrame);
+function menuLogAdd(title, status, emotion="🥳", author="@sam") {
+    menuContent.prepend(menuLogAddTemplate(title, status, emotion, author));
 }
 
-export { menuAdd }
+function menuLogDelete(title, status, emotion="🥳", author="@sam") {
+    menuContent.prepend(menuLogDeleteTemplate(title, status, emotion, author))
+}
+
+export { menuLogAdd, menuLogDelete }

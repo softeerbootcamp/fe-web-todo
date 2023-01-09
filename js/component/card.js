@@ -5,7 +5,7 @@ import { cardTemplate, newCardTemplate } from "../templates/template.js";
 import { findColumnStatus } from "./column.js"
 import { addJSONData } from "../json_data/json_data.js"; 
 import { makeCardDragEvent } from "../drag/addDragEvent.js";
-import { menuAdd } from "./menu.js";
+import { menuLogAdd, menuLogDelete } from "./menu.js";
 import { findCardHeaderName } from "../component/column.js"
 
 function parseContent(string) {
@@ -22,7 +22,7 @@ function cardAddEvent(btn, currentColumn) {
 function cardDeleteEvent(btn, currentCard) {
     btn.addEventListener("click", () => {
         setCard(currentCard)
-        turnOnModal(); 
+        turnOnModal();
     })
 
     let xBtn = currentCard.children[0].children[0]
@@ -59,7 +59,7 @@ function newCardRegisterEvent(btn, currentCard) {
         let newCard = cardTemplate(title, parseContent(content));
 
         // 메뉴에 반영
-        menuAdd(title, findCardHeaderName(currentCard));
+        menuLogAdd(title, findCardHeaderName(currentCard));
 
         // drag 이벤트 추가
         makeCardDragEvent(newCard);
