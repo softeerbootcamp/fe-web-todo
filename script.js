@@ -1,17 +1,39 @@
 const delete_btn = document.querySelectorAll(".delete-lst");
 
-delete_btn.forEach(item=>{
-    item.addEventListener('click',()=>{
-        const deleteOption = confirm("선택한 카드를 삭제할까요?");
-        if(deleteOption)
-            item.parentNode.parentNode.remove();
-    })
-})
-
 const input_data={
     'title': '',
     'contents': ''
 }
+
+const delete_data={
+    contents : null
+}
+
+//모달창 설정
+//취소 버튼
+const modal = document.querySelector('.modal');
+const modal_delete_btn = modal.querySelector('.cancel-button');
+const modal_register_btn = modal.querySelector('.register-button');
+
+modal_delete_btn.addEventListener('click',(e)=>{
+    modal.classList.toggle('act');
+})
+
+modal_register_btn.addEventListener('click',(e)=>{
+    // item.parentNode.parentNode.remove();
+    console.log('delete_data',delete_data.contents);
+    delete_data.contents.remove();
+    delete_data.contents = null;
+    modal.classList.toggle('act');
+})
+
+//delete 누르면 모달창
+delete_btn.forEach(item=>{
+    item.addEventListener('click',()=>{
+        modal.classList.toggle('act');
+        delete_data.contents = item.parentNode.parentNode;
+    })
+})
 
 //add에서 input값 받는 함수
 const onChange = (e)=>{
@@ -47,14 +69,14 @@ add_btn.forEach(item=>{
         const lst_item = document.createElement("li");
         const newForm = document.createElement('form');
 
-        const input_title = document.createElement('input');
+        const input_title = document.createElement('textarea');
         input_title.setAttribute("type", "text");
         input_title.setAttribute("placeholder", "제목을 입력하세요");
         input_title.setAttribute('maxlength',500);
         input_title.setAttribute('name','title');
         input_title.addEventListener('change',onChange);
 
-        const input_contents = document.createElement('input');
+        const input_contents = document.createElement('textarea');
         input_contents.setAttribute("type", "text");
         input_contents.setAttribute("placeholder", "내용을 입력하세요");
         input_contents.setAttribute('maxlength', 500);
@@ -111,6 +133,7 @@ add_btn.forEach(item=>{
         })
 
         child.prepend(lst_item);
+        input_title.focus();
     })
 })
 
@@ -133,9 +156,8 @@ const make_new_lst = (title, contents)=>{
     const item_contents = document.createElement("p");
     item_contents.innerHTML = contents;
     delete_btn.addEventListener('click',()=>{
-        const deleteOption = confirm("선택한 카드를 삭제할까요?");
-        if(deleteOption)
-        delete_btn.parentNode.parentNode.remove();
+        modal.classList.toggle('act');
+        delete_data.contents = delete_btn.parentNode.parentNode;
     })
 
     todolist_items_header.appendChild(item_title);
@@ -155,4 +177,3 @@ const changeNotificationMode = ()=>{
 //popupbar 메뉴 보이기와 숨기기
 document.querySelector('.fa-bars').addEventListener('click',changeNotificationMode)
 document.querySelector('.delete-notification-menu').addEventListener('click',changeNotificationMode);
-

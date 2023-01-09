@@ -85,6 +85,10 @@ p{
 	margin: 4px 0;
 }
 
+h1,h2,h3,p{
+    word-break:break-all;
+}
+
 header{
     padding-left: 50px;
 }
@@ -104,10 +108,12 @@ h1 i{
     justify-content: flex-start;
     padding-left: 30px;
     position: relative;
+    flex-wrap: wrap;
 }
 
 section{
     width: 23vw;
+    min-width:110px;
     margin: 0 10px;
 }
 
@@ -137,6 +143,7 @@ button{
     cursor: pointer;
     text-decoration: none;
 	outline: none;
+    border-radius: var(--size-border-radius);
 }
 
 .buttons button{
@@ -164,11 +171,11 @@ button{
 .list-count{
     border-radius: 50%;
     background-color: gray;
-    display: inline-block;
+    display: flex;
     width: 40px;
     font-weight: bold;
-    text-align: center;
-    padding: 5px;
+    justify-content: center;
+    padding: 10px;
 }
 
 ul{
@@ -199,8 +206,10 @@ ul{
     padding: 20px;
 }
 
-input{
+textarea{
     width: 80%;
+    height: 15%;
+    resize: vertical;
     border: none;
     background-color: inherit;
 }
@@ -221,7 +230,7 @@ input{
     width: 50%;
     padding: 15px 20px;
     justify-content: space-between;
-    margin: 5px 0;
+    margin: 5px  0 0 0;
     border-radius: var(--size-border-radius);
 }
 
@@ -278,4 +287,47 @@ input{
 
 .notification-menu-items-time{
     color: var(--color-light-grey);
+}
+
+.modal{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--color-dark-grey);
+    /* opacity: 0.3; */
+    background-color: rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+}
+
+.modal.act{
+    visibility: visible;
+}
+
+.modal-body{
+    position: absolute;
+    top: 20vw;
+    left: 60vh;
+
+    width: 20vw;
+    background-color: white;
+
+    padding: 10px 20px;
+    border-radius: var(--size-border-radius);
+}
+
+.modal-body .buttons{
+    margin-top: 20px;
+    display: flex;
+    justify-content: end;
+}
+
+.modal-body .cancel-button, .modal-body .register-button{
+    width: 40%;
+}
+
+.modal-body .register-button{
+    margin-left: 5px;
 }
