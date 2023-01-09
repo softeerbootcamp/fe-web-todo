@@ -39,6 +39,7 @@
 }
 
 .ColumnList > div.ColumnHead{
+    width: 348px;
     font-weight: 700;
     font-size: 18px;
     line-height: 26px;
@@ -108,11 +109,13 @@
 
 .ColumnList > div.ColumnHead > div.ButtonGroup > i.fa-plus{
     margin-left: auto;
+    cursor: pointer;
 }
 
 .ColumnList > div.ColumnHead > div.ButtonGroup > i.fa-xmark{
     margin-left: 20px;
     margin-right: 20px;
+    cursor: pointer;
 }
 
 .ColumnList > div.ColumnCards{
@@ -192,7 +195,7 @@
 }
 
 .ColumnList > div.NewCard{
-    display: block;
+    display: none;
     flex-direction: row;
     align-items: flex-start;
     padding: 16px;
@@ -282,18 +285,211 @@
     height: 40px;
     
     margin-left: auto;
-    background: #86C6FF;
+    background: #0075DE;
     border-radius: 6px;
-    cursor: default;
+    cursor: pointer;
 
     font-weight: 700;
     font-size: 14px;
     line-height: 20px;
     text-align: center;
 
-    color: rgba(255, 255, 255, 0.4);
+    color: #FFFFFF;
     
     flex: none;
     order: 1;
+    flex-grow: 0;
+}
+
+.Modal{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: none;
+
+    background: rgba(1, 1, 1, 0.4);
+}
+
+.Modal > div.ModalAlert {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 24px;
+    gap: 24px;
+    
+    position: absolute;
+    width: 400px;
+    height: 138px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    
+    background: #FFFFFF;
+    /* up */
+    
+    box-shadow: 0px 0px 4px rgba(204, 204, 204, 0.5), 0px 2px 4px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(2px);
+    /* Note: backdrop-filter has minimal browser support */
+    
+    border-radius: 6px;
+}
+
+.Modal > div.ModalAlert > div.ModalMessage{
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 26px;
+
+    color: #010101;
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.Modal > div.ModalAlert > div.ModalButton{
+    display: block;
+    text-align: end;
+}
+
+.Modal > div.ModalAlert > div.ModalButton > button.ModalCancel{
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 10px;
+    
+    width: 134px;
+    height: 40px;
+    
+    background: #E0E0E0;
+    border-radius: 6px;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    cursor: pointer;
+    
+    color: #828282;
+    
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.Modal > div.ModalAlert > div.ModalButton > button.ModalDelete{
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 10px;
+    margin-left: 10px;
+    
+    width: 134px;
+    height: 40px;
+    
+    background: #0075DE;
+    border-radius: 6px;
+
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    cursor: pointer;
+    
+    color: #FFFFFF;
+    
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.SideMenu{
+    position: absolute;
+    width: 452px;
+    height: 100%;
+    left: 100%;
+    top: 0%;
+    transform: translate(-100%, 0%);
+    
+    background: #FFFFFF;
+    
+    box-shadow: 0px 0px 4px rgba(204, 204, 204, 0.5), 0px 2px 4px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(2px);
+}
+
+.SideMenu > div.MenuHead{
+    display: flex;
+    margin: 10% 10% 2% 10%;
+}
+
+.SideMenu > div.MenuHead > i.fa-xmark{
+    margin-left: auto;
+    color: #010101;
+    cursor: pointer;
+}
+
+.SideMenu > div.MenuLog{
+    display: block;
+    margin: 0% 10% 0% 10%;
+}
+
+.SideMenu > div.MenuLog > div.LogCard{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 16px;
+    gap: 16px;
+    
+    height: 137px;
+    
+    background: #FFFFFF;
+    
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.SideMenu > div.MenuLog > div.LogCard > span.SmileIcon{
+    font-size: xx-large;
+}
+
+.SideMenu > div.MenuLog > div.LogCard > div.LogContent > div.CardUser{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 23px;
+    
+    color: #010101;
+    
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.SideMenu > div.MenuLog > div.LogCard > div.LogContent > div.CardBody{
+    margin: 2% 0% 2% 0%;
+
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 23px;
+    
+    color: #010101;
+    
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.SideMenu > div.MenuLog > div.LogCard > div.LogContent > div.CardTime{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    
+    color: #828282;
+    
+    flex: none;
+    order: 2;
     flex-grow: 0;
 }

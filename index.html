@@ -16,12 +16,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400&display=swap" rel="stylesheet">
 
+    <script src="javascript/sidemenu.js"></script>
+    <script src="javascript/card.js"></script>
+    <script src="javascript/modal.js"></script>
     <script src="https://kit.fontawesome.com/55809f1341.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <div class="Modal">
+        <div class="ModalAlert">
+            <div class="ModalMessage">선택한 카드를 삭제할까요?</div>
+            <div class="ModalButton"><button class="ModalCancel">취소</button><button class="ModalDelete">삭제</button></div>
+        </div>
+    </div>
+
     <div class="TitleSection">
         <h1 class="MainTitle">TO-DO LIST</h1>
-        <i class="fa-solid fa-bars MenuButton"></i>
+        <i class="fa-solid fa-bars MenuButton" onclick="SideMenuShow()"></i>
     </div>
 
     <div class="ColumnSection">
@@ -29,17 +39,17 @@
             <div class="ColumnHead">
                 <div class="ColumnTitle">해야할 일<span class="CardCount">2</span></div>
                 <div class="ButtonGroup">
-                    <i class="fa-solid fa-plus"></i>
+                    <i class="fa-solid fa-plus" onclick="RegisterFormShow()"></i>
                     <i class="fa-solid fa-xmark"></i>
                 </div>
             </div>
             <div class="NewCard">
                 <div class="CardTitle"><input type="text" placeholder="제목을 입력하세요"></input></div>
-                <div class="CardBody"><textarea type="text" placeholder="내용을 입력하세요" maxlength="500"></textarea></div>
-                <div class="CardButton"><button class="CardCancel">취소</button><button class="CardRegister">등록</button></div>
+                <div class="CardBody"><textarea type="text" placeholder="내용을 입력하세요" maxlength="500" id="CardInput" onkeydown="CardHeightAdjust(this)" onkeyup="CardHeightAdjust(this)"></textarea></div>
+                <div class="CardButton"><button class="CardCancel" onclick="RegisterFormShow()">취소</button><button class="CardRegister" disabled="false">등록</button></div>
             </div>
             <div class="ColumnCards" draggable="true">
-                <div class="CardTitle">Github 공부하기<i class="fa-solid fa-xmark"></i></div>
+                <div class="CardTitle">Github 공부하기<i class="fa-solid fa-xmark" style="cursor:pointer"></i></div>
                 <div class="CardBody">add, commit, push</div>
                 <div class="CardAuthor">author by web</div>
             </div>
@@ -51,16 +61,11 @@
         </div>
         <div class="ColumnList">
             <div class="ColumnHead">
-                <div class="ColumnTitle">하고있는 일<span class="CardCount">2</span></div>
+                <div class="ColumnTitle">하고있는 일<span class="CardCount">1</span></div>
                 <div class="ButtonGroup">
                     <i class="fa-solid fa-plus"></i>
                     <i class="fa-solid fa-xmark"></i>
                 </div>
-            </div>
-            <div class="NewCard" style="display:none">
-                <div class="CardTitle"><input type="text" placeholder="제목을 입력하세요"></input></div>
-                <div class="CardBody"><textarea type="text" placeholder="내용을 입력하세요" maxlength="500"></textarea></div>
-                <div class="CardButton"><button class="CardCancel">취소</button><button class="CardRegister">등록</button></div>
             </div>
             <div class="ColumnCards" draggable="true">
                 <div class="CardTitle">Github 공부하기<i class="fa-solid fa-xmark"></i></div>
@@ -70,23 +75,46 @@
         </div>
         <div class="ColumnList">
             <div class="ColumnHead">
-                <div class="ColumnTitle">완료한 일<span class="CardCount">2</span></div>
+                <div class="ColumnTitle">완료한 일<span class="CardCount">0</span></div>
                 <div class="ButtonGroup">
                     <i class="fa-solid fa-plus"></i>
                     <i class="fa-solid fa-xmark"></i>
                 </div>
-            </div>
-            <div class="NewCard" style="display:none">
-                <div class="CardTitle"><input type="text" placeholder="제목을 입력하세요"></input></div>
-                <div class="CardBody"><textarea type="text" placeholder="내용을 입력하세요" maxlength="500"></textarea></div>
-                <div class="CardButton"><button class="CardCancel">취소</button><button class="CardRegister">등록</button></div>
-            </div>
-            <div class="ColumnCards" draggable="true">
-                <div class="CardTitle">Github 공부하기<i class="fa-solid fa-xmark"></i></div>
-                <div class="CardBody">add, commit, push</div>
-                <div class="CardAuthor">author by web</div>
             </div>
         </div>
     </div>
+
+    <div class="SideMenu">
+        <div class="MenuHead"><i class="fa-solid fa-xmark" onclick="SideMenuShow()"></i></div>
+        <div class="MenuLog">
+            <div class="LogCard">
+                <span class="SmileIcon">🥳</span>
+                <div class="LogContent">
+                    <div class="CardUser">@sam</div>
+                    <div class="CardBody">HTML/CSS공부하기를 해야할 일에서 하고 있는 일로 이동하였습니다.</div>
+                    <div class="CardTime">1분 전</div>
+                </div>
+            </div>
+            <div class="LogCard">
+                <span class="SmileIcon">🥳</span>
+                <div class="LogContent">
+                    <div class="CardUser">@sam</div>
+                    <div class="CardBody">HTML/CSS공부하기를 해야할 일에서 하고 있는 일로 이동하였습니다.</div>
+                    <div class="CardTime">1분 전</div>
+                </div>
+            </div>
+            <div class="LogCard">
+                <span class="SmileIcon">🥳</span>
+                <div class="LogContent">
+                    <div class="CardUser">@sam</div>
+                    <div class="CardBody">HTML/CSS공부하기를 해야할 일에서 하고 있는 일로 이동하였습니다.</div>
+                    <div class="CardTime">1분 전</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        
+      </script>
 </body>
 </html>
