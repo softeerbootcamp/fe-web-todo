@@ -1,0 +1,24 @@
+TodoList = {
+    "해야할 일": [
+      {
+        "Title":"GitHub 공부하기",
+        "Body":"add, commit, push",
+        "Authro":"web",
+        "Date":1673253006929
+      },
+      {
+        "Title":"블로그에 포스팅할 것",
+        "Body":"GitHub 공부내용\n모던 자바스크립트 1장 공부내용",
+        "Authro":"web",
+        "Date":1673253088447
+      }
+    ],
+    "하는중인 일": [
+      {
+        "Title":"GitHub 공부하기",
+        "Body":"add, commit, push",
+        "Authro":"web",
+        "Date":1673253006929
+      }
+    ]
+}

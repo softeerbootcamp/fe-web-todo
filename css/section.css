@@ -80,7 +80,7 @@
     width: 26px;
     height: 26px;
     
-    background: #BDBDBD;
+    background: #bdbdbd;
     border-radius: 20px;
     margin-left: 8px;
     
@@ -118,7 +118,14 @@
     cursor: pointer;
 }
 
-.ColumnList > div.ColumnCards{
+.ColumnList > div.CardSection{
+    display: block;
+    align-items: flex-start;
+    height: 640px;
+    overflow-y: auto;
+}
+
+.ColumnList > div.CardSection > div.ColumnCards{
     display: block;
     flex-direction: row;
     align-items: flex-start;
@@ -138,7 +145,7 @@
     flex-grow: 0;
 }
 
-.ColumnList > div.ColumnCards > div.CardTitle{
+.ColumnList > div.CardSection > div.ColumnCards > div.CardTitle{
     height: 23px;
     display: flex;
 
@@ -153,14 +160,15 @@
     flex-grow: 0;
 }
 
-.ColumnList > div.ColumnCards > div.CardTitle > i.fa-xmark{
+.ColumnList > div.CardSection > div.ColumnCards > div.CardTitle > i.fa-xmark{
     display: flex;
     margin-left: auto;
     align-items: flex-start;
     color: #828282;
+    cursor: pointer;
 }
 
-.ColumnList > div.ColumnCards > div.CardBody{
+.ColumnList > div.CardSection > div.ColumnCards > div.CardBody{
     width: 252px;
     height: 70px;
     display: flex;
@@ -178,7 +186,7 @@
     flex-grow: 0;
 }
 
-.ColumnList > div.ColumnCards > div.CardAuthor{
+.ColumnList > div.CardSection > div.ColumnCards > div.CardAuthor{
     width: 252px;
     height: 17px;
     display: flex;
@@ -199,7 +207,25 @@
     flex-direction: row;
     align-items: flex-start;
     padding: 16px;
-    margin: 20px 0px 20px 0px;
+    margin: 20px 0px 10px 0px;
+    
+    width: 308px;
+    height: 139px;
+    
+    background: #FFFFFF;
+    
+    border: 1px solid #0075DE;
+    
+    box-shadow: 0px 1px 30px rgba(224, 224, 224, 0.3);
+    border-radius: 6px;
+}
+
+.ColumnList > div.CardSection > div.NewCard{
+    display: block;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 16px;
+    margin: 20px 0px 10px 0px;
     
     width: 308px;
     height: 139px;
@@ -213,6 +239,23 @@
 }
 
 .ColumnList > div.NewCard > div.CardTitle > input{
+    width: 276px;
+    height: 23px;
+    
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 23px;
+    margin: 0px 0px 10px 0px;
+    
+    color: #010101;
+    border: none;
+    
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.ColumnList > div.CardSection > div.NewCard > div.CardTitle > input{
     width: 276px;
     height: 23px;
     
@@ -246,7 +289,28 @@
     flex-grow: 0;
 }
 
+.ColumnList > div.CardSection > div.NewCard > div.CardBody > textarea{
+    width: 276px;
+    height: 48px;
+    
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0px 0px 10px 0px;
+    
+    border: none;
+    resize: none;
+    
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
 .ColumnList > div.NewCard > div.CardButton{
+    display: flex;
+}
+
+.ColumnList > div.CardSection > div.NewCard > div.CardButton{
     display: flex;
 }
 
@@ -275,7 +339,58 @@
     flex-grow: 0;
 }
 
+.ColumnList > div.CardSection > div.NewCard > div.CardButton > button.CardCancel{
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 10px;
+    
+    width: 134px;
+    height: 40px;
+    
+    background: #E0E0E0;
+    border-radius: 6px;
+    cursor: pointer;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+
+    color: #828282;
+    
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
 .ColumnList > div.NewCard > div.CardButton > button.CardRegister{
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 10px;
+    
+    width: 134px;
+    height: 40px;
+    
+    margin-left: auto;
+    background: #0075DE;
+    border-radius: 6px;
+    cursor: pointer;
+
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+
+    color: #FFFFFF;
+    
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.ColumnList > div.CardSection > div.NewCard > div.CardButton > button.CardRegister{
     flex-direction: row;
     align-items: flex-start;
     padding: 10px;

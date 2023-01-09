@@ -1,23 +1,24 @@
 const body = document.body;
+const modal = document.getElementsByClassName('Modal')[0];
 
-const modal = document.querySelector('.Modal');
-const btnOpenPopup = document.querySelector('.btn-open-popup');
-
-
-
-btnOpenPopup.addEventListener('click', () => {
-    modal.classList.toggle('show');
-  
-    if (modal.classList.contains('show')) {
-        body.style.overflow = 'hidden';
-    }
-});
-  
 modal.addEventListener('click', (event) => {
     if (event.target === modal) {
-        modal.classList.toggle('show');
-        if (!modal.classList.contains('show')) {
-            body.style.overflow = 'auto';
-        }
+        modal.style.display = 'none';
+        body.style.overflow = 'auto';
     }
 });
+
+function ModalAlert(obj){
+    modal.style.display = 'block';
+
+    if (modal.style.display == 'block') {
+        body.style.overflow = 'hidden';
+    }
+
+    const TargetCard = obj.parentElement.parentElement;
+}
+
+function ModalExit(){
+    modal.style.display = 'none';
+    body.style.overflow = 'auto';
+}
