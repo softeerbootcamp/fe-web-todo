@@ -46,6 +46,17 @@ function addJSONData(status, title, content) {
     sectionLength.innerHTML = JSON_DATA[status].length
 }
 
+function deleteJSONData(status, title) {
+    let dataList = JSON_DATA[status]
+
+    for(let i=0;i<dataList.length;i++) {
+        if(dataList[i].title == title) {
+            dataList.splice(i, 1);
+            break;
+        }
+    }
+}
+
 function validateStatus(status) {
     for(let i=0;i<statusName.length;i++) {
         if(statusName[i] == status) {
@@ -74,5 +85,6 @@ function deleteStatus(status) {
 }
 
 export { statusList, statusName, TODO, DOING, DONE, JSON_DATA, 
-    addJSONData, addStatus, validateStatus, deleteStatus
+    addJSONData, deleteJSONData,
+    addStatus, validateStatus, deleteStatus
 }

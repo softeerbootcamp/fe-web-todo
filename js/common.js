@@ -17,7 +17,14 @@ function addChildAfterParent(parentNode, childNode) {
     parentNode.after(childNode)
 }
 
+function findHeaderLengthByCard(card) {
+    let cardSection = card.parentElement.parentElement
+    let findHeader = cardSection.children[0].children[0]
+
+    return findHeader;
+}
+
 export {
     CARD_BTN_ORIGINAL, CARD_OUTLINE_ORIGINAL, CARD_BACKGROUND_ORIGINAL,
     CARD_BTN_HOVER, CARD_OUTLINE_HOVER, CARD_BACKGROUND_HOVER, CARD_DELETE_BTN_ORIGINAL,
-    changeCSS, addChildAfterParent }
+    changeCSS, addChildAfterParent, findHeaderLengthByCard }

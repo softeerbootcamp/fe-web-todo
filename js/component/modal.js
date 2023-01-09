@@ -1,7 +1,7 @@
-import { validateStatus, statusName } from "../json_data/json_data.js";
-import { addColumn } from "./column.js"
-import { findColumnStatus } from "./column.js";
+import { validateStatus, statusName, deleteJSONData } from "../json_data/json_data.js";
+import { addColumn, findColumnStatus } from "./column.js";
 import { menuLogDelete } from "./menu.js";
+import { findHeaderLengthByCard } from "../common.js";
 
 let chosenCard = "";
 
@@ -40,14 +40,19 @@ modalDeleteBtn.addEventListener("click", () => {
     turnOffModal();
     
     let status = findColumnStatus(chosenCard);
-    let title = chosenCard.children[0].textContent
-    
+    let title = chosenCard.children[0].textContent.split("\n")[0]
+
     // menu 삭제 log 남기기
-    console.log(status, title)
     menuLogDelete(title, statusName[status]);
 
-    chosenCard.remove();
+    // column에 길이 반영
+    let span = findHeaderLengthByCard(chosenCard)
+    span.innerHTML = span.innerHTML - 1
 
+    // 로컬 data 반영
+    deleteJSONData(status, title);
+
+    chosenCard.remove();
 })
 
 modalCancelBtn.addEventListener("click", () => { turnOffModal(); })
