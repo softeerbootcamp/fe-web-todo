@@ -34,7 +34,7 @@
 <hr>
 
 ## 1월 9일 작업 순서
-##### 1️⃣ column delete 데이터 반영
+##### 1️⃣ column delete 데이터 반영 ✅
 ##### 2️⃣ card drag 이벤트 추가
 ##### 3️⃣ menu bar 데이터 연동
 
@@ -43,5 +43,5 @@
 ##### 메뉴
 ##### Drag & Drop
 ##### prototype 활용한 객체 1개 이상
-##### ES classes 활용 객체 1개 이상
+##### ES classes 활용 객체 1개 이상 -> dragIDManager에 구현
 ##### querySelector 구현

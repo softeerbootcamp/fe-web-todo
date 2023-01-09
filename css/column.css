@@ -4,6 +4,7 @@ section {
     justify-content: flex-start;
     align-items: center;
     width: 20vw;
+    height: 80vh;
 }
 
 section > h3 {
@@ -69,6 +70,7 @@ section > article {
     justify-content: flex-start;
     align-items: center;
     width: 100%;
+    height: 100%;
 }
 
 .card-frame {

@@ -4,6 +4,7 @@ import { setCard, turnOnModal } from "./modal.js";
 import { cardTemplate, newCardTemplate } from "../templates/template.js";
 import { findColumnStatus } from "./column.js"
 import { addJSONData } from "../json_data/json_data.js"; 
+import { makeCardDragEvent } from "../drag/addDragEvent.js";
 
 function parseContent(string) {
     let stringArray = string.split("\n");
@@ -12,8 +13,7 @@ function parseContent(string) {
 
 function cardAddEvent(btn, currentColumn) {
     btn.addEventListener("click", () => {
-        currentColumn.appendChild(newCardTemplate())
-        // currentColumn.appendChild(cardTemplate("no title", "no content"));
+        currentColumn.prepend(newCardTemplate());
     })
 }
 
@@ -50,6 +50,8 @@ function newCardRegisterEvent(btn, currentCard) {
         let title = currentCard.children[0].value;
         let content = currentCard.children[1].value ;
         let newCard = cardTemplate(title, parseContent(content));
+
+        makeCardDragEvent(newCard);
 
         // 카드 배치 후 카드 등록 폼 제거
         currentCard.after(newCard);

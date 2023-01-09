@@ -2,7 +2,8 @@ import { columnDeleteEvent } from "../component/column.js";
 import { cardAddEvent, cardDeleteEvent, 
     newCardCancelEvent, newCardRegisterEvent,
     resizeCardByInputBox
- } from "../component/card.js";
+} from "../component/card.js";
+import { dragIDManager } from "../drag/dragIDManager.js";
 
 function columnTemplate(columnTitle, cardCount = 0) {
     let columnNode = document.createElement("section");
@@ -32,6 +33,7 @@ function cardTemplate(cardTitle, cardContent, cardAuthor="author by web") {
     let cardDom = document.createElement("div");
     cardDom.classList.add("card-frame")
     cardDom.setAttribute("draggable", true)
+    cardDom.setAttribute("id", dragIDManager.getNewID())  // drag 이벤트를 위해 카드에 ID 부여
 
     cardDom.innerHTML = `
         <h3 class="card-title">${cardTitle}

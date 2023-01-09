@@ -11,7 +11,11 @@ function changeCSS(target, key, value) {
     target.style[key] = value
 }
 
+function addChildAfterParent(parentNode, childNode) {
+    parentNode.after(childNode)
+}
+
 export {
     CARD_BTN_ORIGINAL, CARD_OUTLINE_ORIGINAL, CARD_BACKGROUND_ORIGINAL,
     CARD_BTN_HOVER, CARD_OUTLINE_HOVER, CARD_BACKGROUND_HOVER,
-    changeCSS }
+    changeCSS, addChildAfterParent }
