@@ -1,7 +1,13 @@
 #Title{
     font-size : 2.5em;
-    padding : 40px;
     padding-left : 8px;
+}
+.Title_part{
+    padding : 40px;
+    display : flex;
+    flex-direction : row;
+    justify-content : space-between;
+
 }
 TodoList{
     display : inline-block;
@@ -19,7 +25,8 @@ TodoItem{
     padding-bottom: 10px;
     padding-top : 20px;
 }
-ul1{
+main_ul{
+    width : 400px;
     display : flex;
     flex-direction : column;
     vertical-align: top;
@@ -29,6 +36,14 @@ ul1{
     display : flex;
     flex-direction: row;
     flex-wrap : wrap;
+
+}
+.flex_between{
+    width : 250px;
+    display : flex;
+    flex-direction : row;
+    flex-wrap : wrap;
+    justify-content : space-between;
 }
 ul{
     display :flex;
@@ -41,7 +56,7 @@ ul{
     padding-left : 10px;
 
 }
-#author_by_web{
+.author_by_web{
     font-size : 5px;
     color : gray;
     padding-top : 10px;
@@ -52,14 +67,7 @@ li{
     padding-top : 5px;
     padding-bottom : 5px;
 }
-.flex_between{
-    width : 350px;
-    display : flex;
-    flex-direction : row;
-    flex-wrap : wrap;
-    justify-content : space-between;
-}
-#circle{
+.circle{
     width:30px;
     height : 30px;
     background-color : gray;
@@ -71,6 +79,27 @@ li{
     color : black;
     margin-bottom : 5px;
 }
+.circle_side{
+    position : absolute;
+    right : 50px;
+    bottom : 50px;
+    width:75px;
+    height : 75px;
+    background-color : blue;
+    border-color : blue;
+    border-radius : 50%;
+    align-items : center;
+    text-align : center;
+
+}
+.circle_side_plus{
+    right : 62px;
+    bottom :47.5px;
+    position : absolute;
+    color:white;
+    font-size : 80px;
+
+}
 button{
     background-color : none;
     background : transparent;
@@ -81,7 +110,7 @@ button{
 .plus_todo{
     display : flex;
     flex-direction: row;
-    width : 400px;
+    width : 100%;
     height : 100px;
     display :flex;
     flex-direction : column;
@@ -91,12 +120,11 @@ button{
     background-color : white;
     border-radius : 5px;
     padding : 10px;
-    margin : 10px;
 }
 .plus_button_cancel{
     background-color: gray;
     margin : 10px;
-    width : 130px;
+    width : 40%;
     height : 50px;
     border : none;
     border-radius : 10px;
@@ -106,7 +134,7 @@ button{
 .plus_button_join{
     background-color: skyblue;
     margin : 10px;
-    width : 130px;
+    width : 40%;
     height : 50px;
     border : none;
     border-radius : 10px;
@@ -135,4 +163,47 @@ button{
     border-left : 0px;
     border-bottom : 0px;
     border-color : white;
+}
+unit{
+    margin : 10px;
+}
+
+
+input[id="icon"] {
+    display:none;
+} 
+
+body{
+    height:5000px;
+}
+
+input[id="icon"] + label{
+    position: relative;
+    display:block;
+    width:60px;
+    height:40px;
+    cursor : pointer;
+} 
+
+input[id="icon"] + label > span {
+    position: absolute;
+    display:block;
+    width:100%;
+    height:5px;
+    border-radius:30px;
+    background:#000;
+    transition: all 0.35s;  
+    z-index:2;
+
+}
+input[id="icon"] + label > span:nth-child(1) {
+    top:0px;
+}
+
+input[id="icon"] + label > span:nth-child(2) {
+    top:50%;
+    transform: translateY(-50%);
+}
+input[id="icon"] + label > span:nth-child(3) {
+    bottom:0px;
 }

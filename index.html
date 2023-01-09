@@ -8,78 +8,60 @@
             content: "\00d7";
         }
     </style>
-    <script src = './plus.js'></script>
+
     </head>
+    <button style="cursor:pointer">
+        <div class = "circle_side" ></div>
+        <div class = "circle_side_plus">+</div>
+    </button>
     <body style="background-color: rgb(245, 245, 245); padding-left:10vw" ;>
         <div>
-            <div>
-                <div id="Title">TO-DO LIST</div>
+            <div class = "Title_part">
+                <div>
+                    <div id="Title">TO-DO LIST</div>
+                </div>
+                <div>
+                    <input type = "checkbox" id = "icon">
+                    <label for = "icon">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </label>
+                </div>
             </div>
 
-            <div class="flex_row">
-                <ul1>
-                    <div class="flex_between"  id = "todo_thing">
-                        <div class="flex_row">
-                            <TodoList>해야할 일</TodoList>
-                            <div id="circle">2</div>
-                        </div>
-                        <div class="flex_row">
-                            <button onclick = "top_plus()">+</button>
-                            <button id = "button_x" onclick ="top_erase()"></button>
-                        </div>
-                    </div>
-                    <ul id = "unit">
-                        <div class="flex_between">
-                            <TodoItem>GitHub 공부하기</TodoItem>
-                            <button id = "button_x"></button>
-                        </div>
-                        <li>add, commit, push</li>
-                        <div id = "author_by_web">author by web</div>
-                    </ul>
-                    <ul>
-                        <div class="flex_between">
-                            <TodoItem>블로그에 포스팅할 것</TodoItem>
-                            <button id = "button_x"></button>
-                        </div>
-                        <li>* GitHub 공부내용</li>
-                        <li>* 모던 스크립트 1장 공부내용</li>
-                        <div id = "author_by_web">author by web</div>
-                    </ul>
-                </ul1>
-                <ul1>
-                    <div class="flex_between">
-                        <div class="flex_row">
-                            <TodoList>하고 있는 일</TodoList>
-                            <div id="circle">1</div>
-                        </div>
-                        <div class="flex_row">
-                            <button onclick = "top_plus()">+</button>
-                            <button id = "button_x" onclick ="top_erase()"></button>
-                        </div>
-                    </div>
-                    <ul>
-                        <div class="flex_between">
-                            <TodoItem>HTML/CSS 공부하기</TodoItem>
-                            <button id = "button_x"></button>
-                        </div>
-                        <li>input 태그 실습</li>
-                        <div id = "author_by_web">author by web</div>
-                    </ul>
-                </ul1>
-                <ul1>
-                    <div class="flex_between">
-                        <div class="flex_row">
-                            <TodoList>완료한 일</TodoList>
-                            <div id="circle">0</div>
-                        </div>
-                        <div class="flex_row">
-                            <button onclick = "top_plus()">+</button>
-                            <button id = "button_x" onclick ="top_erase()"></button>
-                        </div>
-                    </div>
-
-                </ul>
+                <div class="flex_row" id = "main">
             </div>
         </div>
+
+
+         <template class="template-list">
+            <div class="flex_between"  id = "todo_thing">
+                <div class="flex_row">
+                    <TodoList class = "list_name"></TodoList>
+                    <div class="circle"></div>
+                </div>
+                <div class="flex_row">
+                    <button id = "button_plus">+</button>
+                    <button id = "button_x"></button>
+                </div>
+            </div>
+         </template>
+
+         <template class="template-item">
+            <ul>
+                <div class="flex_between">
+                    <TodoItem class = "item_name"></TodoItem>
+                    <button id = "button_x"></button>
+                </div>
+                <li class = "item_tag"></li>
+                <div class = "author_by_web">author by web</div>
+            </ul>
+         </template>
     </body>
+
+    <script type = "module" src = './plus.js'></script>
+    <script type = "module" src = './data.js'></script>
+    <script type = "module" src = './initialize.js'></script>
+    <script type = "module" src = './initialize_list.js'></script>
 </html>

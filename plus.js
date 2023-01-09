@@ -1,14 +1,13 @@
 let cond = false;
+let id = 0;
 
 function top_erase(){
-    console.log("erase!")
+
 }
 function top_id_erase(){
     console.log("id_erase!")
 }
 function make_button(){
-    let putarea = document.getElementById('todo_thing');
-
     let unit = document.createElement('div')
     unit.setAttribute('class','plus_todo')
     //input title, input context
@@ -20,6 +19,7 @@ function make_button(){
 
     inputtext1.setAttribute('class','input_title')
     inputtext2.setAttribute('class','input_context')
+    
     unit.appendChild(inputtext1)
     unit.appendChild(inputtext2)
 
@@ -37,8 +37,9 @@ function make_button(){
     button1.setAttribute('class','plus_button_cancel');
     button2.setAttribute('class','plus_button_join');
 
-    button1.setAttribute('onclick',`top_plus_cancel()`);
-
+    button1.setAttribute('id','plus_button_cancel');
+    button2.setAttribute('id','plus_button_join');
+    
     button_container.appendChild(button1);
     button_container.appendChild(button2);
 
@@ -47,10 +48,26 @@ function make_button(){
     return unit;
 }
 function top_plus(){
+
     cond = !cond;
     let putarea = document.getElementById('todo_thing');
 
-    unit = make_button();
+    let unit = make_button();
+
+    window.onload = function(){
+        var item_plus_cancel = document.getElementById("plus_button_cancel");
+        console.log(item_plus_cancel)
+        item_plus_cancel.addEventListener('click',function(event){
+            console.log('취소?')
+        
+        });
+
+        var item_plus_registration = document.getElementById("plus_button_join");
+        item_plus_registration.addEventListener('click',function(event){
+            console.log('등록?')
+        
+        });
+    }
 
     if(cond){
         putarea.appendChild(unit);
@@ -60,9 +77,11 @@ function top_plus(){
         putarea.removeChild(erase_unit);
     }
 }
-function top_plus_cancel(){
-    let putarea = document.getElementById('todo_thing');
-    unit = putarea.childNodes;
-    putarea.removeChild(unit[unit.length-1]);
-    cond = false;
+
+window.onload = function(){
+    var item_plus = document.getElementById("button_plus");
+    item_plus.addEventListener('click',function(event){
+        top_plus();
+    });
+    
 }
