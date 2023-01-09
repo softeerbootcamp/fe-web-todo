@@ -8,17 +8,14 @@ import { makeCardDragEvent } from "../drag/addDragEvent.js";
 import { menuLogAdd, menuLogDelete } from "./menu.js";
 import { findCardHeaderName } from "../component/column.js"
 
-function parseContent(string) {
-    let stringArray = string.split("\n");
-    return stringArray.join("<br>");
-}
-
+// 버튼에 카드 생성 이벤트를 등록합니다.
 function cardAddEvent(btn, currentColumn) {
     btn.addEventListener("click", () => {
         currentColumn.prepend(newCardTemplate());
     })
 }
 
+// 버튼에 카드 삭제 이벤트를 등록합니다.
 function cardDeleteEvent(btn, currentCard) {
     btn.addEventListener("click", () => {
         setCard(currentCard)
@@ -46,12 +43,14 @@ function cardDeleteEvent(btn, currentCard) {
     })
 }
 
+// 새로운 카드 등록을 취소하는 이벤트를 등록합니다.
 function newCardCancelEvent(btn, currentCard) {
     btn.addEventListener("click", () => {
         currentCard.remove()
     })
 }
 
+// 새로운 카드를 생성하는 이벤트를 등록합니다.
 function newCardRegisterEvent(btn, currentCard) {
     btn.addEventListener("click", () => {
         let title = currentCard.children[0].value;
@@ -74,6 +73,7 @@ function newCardRegisterEvent(btn, currentCard) {
     })
 }
 
+// 새로운 카드를 생성할 때, 사용자의 입력에 따라 카드의 크기를 조절해줍니다.
 function resizeCardByInputBox(inputBox, currentCard) {
     let scrollHeight = 0
     let cardHeight = 18
@@ -85,6 +85,12 @@ function resizeCardByInputBox(inputBox, currentCard) {
             scrollHeight = inputBox.scrollHeight
         }
     })
+}
+
+// 새로운 카드를 등록할 때, 개행을 기준으로 문자열을 나누어줍니다.
+function parseContent(string) {
+    let stringArray = string.split("\n");
+    return stringArray.join("<br>");
 }
 
 export { cardAddEvent, cardDeleteEvent, newCardCancelEvent, newCardRegisterEvent, resizeCardByInputBox }

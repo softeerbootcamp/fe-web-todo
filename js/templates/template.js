@@ -7,6 +7,7 @@ import { dragIDManager } from "../drag/dragIDManager.js";
 import { makeShadedNode } from "../drag/dragEffect.js";
 import { statusName } from "../json_data/json_data.js";
 
+// column 템플릿을 반환합니다.
 function columnTemplate(columnTitle, cardCount = 0) {
     let columnNode = document.createElement("section");
 
@@ -45,6 +46,7 @@ function columnTemplate(columnTitle, cardCount = 0) {
     return columnNode;
 }
 
+// 카드 템플릿을 반환합니다.
 function cardTemplate(cardTitle, cardContent, cardAuthor="author by web") {
     let cardDom = document.createElement("div");
     cardDom.classList.add("card-frame")
@@ -65,6 +67,7 @@ function cardTemplate(cardTitle, cardContent, cardAuthor="author by web") {
     return cardDom;
 }
 
+// 카드 등록 폼의 템플릿을 반환합니다.
 function newCardTemplate() {
     let newCardDom = document.createElement("div");
     newCardDom.classList.add("new-card-frame");
@@ -90,6 +93,7 @@ function newCardTemplate() {
     return newCardDom;
 }
 
+// 메뉴 로그 템플릿을 반환합니다. (add)
 function menuLogAddTemplate(content, status, emotion, author) {
     let menuFrame = document.createElement("div");
     menuFrame.classList.add("log-frame");
@@ -110,6 +114,7 @@ function menuLogAddTemplate(content, status, emotion, author) {
     return menuFrame;
 }
 
+// 메뉴 로그 템플릿을 반환합니다. (delete)
 function menuLogDeleteTemplate(content, status, emotion, author) {
     let menuFrame = document.createElement("div");
     menuFrame.classList.add("log-frame");
@@ -130,6 +135,7 @@ function menuLogDeleteTemplate(content, status, emotion, author) {
     return menuFrame;
 }
 
+// 메뉴 로그 템플릿을 반환합니다. (move)
 function menuLogMoveTemplate(title, prevStatus, nextStatus, emotion, author) {
     let menuFrame = document.createElement("div");
     menuFrame.classList.add("log-frame");

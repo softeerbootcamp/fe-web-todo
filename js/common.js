@@ -8,15 +8,17 @@ const CARD_OUTLINE_HOVER = "0.2vh solid " + CARD_BTN_HOVER;
 const CARD_BACKGROUND_HOVER = "#FFEEEC";
 
 
-// (target)의 css (key)를 (value)로 바꿈
+// (target)의 css (key)를 (value)로 바꿉니다.
 function changeCSS(target, key, value) {
     target.style[key] = value
 }
 
+// parentNode 다음에 childNode를 추가합니다.
 function addChildAfterParent(parentNode, childNode) {
     parentNode.after(childNode)
 }
 
+// 카드의 제목을 찾아줍니다.
 function findCardTitle(card) {
     const cardContent = card.children[0].innerHTML;
     const cardTitle = cardContent.split("\n")[0];
@@ -24,6 +26,7 @@ function findCardTitle(card) {
     return cardTitle;
 }
 
+// 카드가 속한 Column의 길이를 반환합니다.
 function findHeaderLengthByCard(card) {
     let cardSection = card.parentElement.parentElement
     let findHeader = cardSection.children[0].children[0]

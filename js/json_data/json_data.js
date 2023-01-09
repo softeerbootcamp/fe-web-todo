@@ -32,6 +32,9 @@ JSON_DATA[DOING] = [
     }
 ]
 
+JSON_DATA[DONE] = []
+
+// 새로운 JSON 데이터를 추가합니다.
 function addJSONData(status, title, content) {
     JSON_DATA[status].push({
         title,
@@ -46,6 +49,7 @@ function addJSONData(status, title, content) {
     sectionLength.innerHTML = JSON_DATA[status].length
 }
 
+// 해당하는 JSON 데이터를 삭제합니다.
 function deleteJSONData(status, title) {
     let dataList = JSON_DATA[status]
 
@@ -57,6 +61,7 @@ function deleteJSONData(status, title) {
     }
 }
 
+// 새롭게 생성될 status의 이름 타당성 여부를 반환합니다.
 function validateStatus(status) {
     for(let i=0;i<statusName.length;i++) {
         if(statusName[i] == status) {
@@ -67,6 +72,8 @@ function validateStatus(status) {
     return true;
 }
 
+// 새로운 status를 추가합니다.
+// 호출 시기 : column 생성 이후
 function addStatus(newStatus) {
     let newStatusIndex = statusList.length
     statusList[newStatusIndex] = statusList[newStatusIndex - 1] + 1;
@@ -75,6 +82,8 @@ function addStatus(newStatus) {
     JSON_DATA[newStatusIndex] = []
 }
 
+// 해당하는 status를 삭제합니다.
+// 호출 시기 : column 삭제 이후 
 function deleteStatus(status) {
     let statusIndex = statusName.indexOf(status)
     

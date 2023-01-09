@@ -15,22 +15,27 @@ const columnAddModal = document.querySelector("#column-add-modal-section");
 const columnAddModalCancelBtn = document.querySelector("#column-add-cancel-btn");
 const columnAddModalAcceptBtn = document.querySelector("#column-add-accept-btn");
 
+// 카드 삭제 관련 모달을 띄워줍니다.
 function turnOnModal() {
     modalSection.style.display = "flex";
 }
 
+// 카드 삭제 관련 모달을 숨겨줍니다.
 function turnOffModal() {
     modalSection.style.display = "none";
 }
 
+// column 추가 관련 모달을 띄워줍니다.
 function turnOnColumnAddModal() {
     columnAddModal.style.display = "flex";
 }
 
+// column 추가 관련 모달을 숨겨줍니다.
 function turnOffColumnAddModal() {
     columnAddModal.style.display = "none";
 }
 
+// 현재 drag 중인 카드 정보를 저장합니다.
 function setCard(cardDom) {
     chosenCard = cardDom;
 }
