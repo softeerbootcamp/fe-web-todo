@@ -5,6 +5,7 @@ import { cardAddEvent, cardDeleteEvent,
 } from "../component/card.js";
 import { dragIDManager } from "../drag/dragIDManager.js";
 import { makeShadedNode } from "../drag/dragEffect.js";
+import { statusName } from "../json_data/json_data.js";
 
 function columnTemplate(columnTitle, cardCount = 0) {
     let columnNode = document.createElement("section");
@@ -89,7 +90,7 @@ function newCardTemplate() {
     return newCardDom;
 }
 
-function menuLogAddTemplate(content, status, emotion="🥳", author="@sam") {
+function menuLogAddTemplate(content, status, emotion, author) {
     let menuFrame = document.createElement("div");
     menuFrame.classList.add("log-frame");
 
@@ -109,7 +110,7 @@ function menuLogAddTemplate(content, status, emotion="🥳", author="@sam") {
     return menuFrame;
 }
 
-function menuLogDeleteTemplate(content, status, emotion="🥳", author="@sam") {
+function menuLogDeleteTemplate(content, status, emotion, author) {
     let menuFrame = document.createElement("div");
     menuFrame.classList.add("log-frame");
 
@@ -128,8 +129,29 @@ function menuLogDeleteTemplate(content, status, emotion="🥳", author="@sam") {
 
     return menuFrame;
 }
+
+function menuLogMoveTemplate(title, prevStatus, nextStatus, emotion, author) {
+    let menuFrame = document.createElement("div");
+    menuFrame.classList.add("log-frame");
+
+    menuFrame.innerHTML = `
+        <div class="log-emotion-area">${emotion}</div>
+        <div class="log-content-area">
+            <h4 class="log-author">${author}</h4>
+            <h4 class="log-content">
+                <strong>${title}</strong>을
+                <strong>${statusName[prevStatus]}</strong>에서
+                <strong>${statusName[nextStatus]}</strong>
+                로 이동하였습니다.
+            </h4>
+            <h5>1분전</h5>
+        </div>
+    `
+
+    return menuFrame;
+}
  
 export {
     columnTemplate, cardTemplate, newCardTemplate, 
-    menuLogAddTemplate, menuLogDeleteTemplate
+    menuLogAddTemplate, menuLogDeleteTemplate, menuLogMoveTemplate
 }

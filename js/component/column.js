@@ -38,7 +38,7 @@ function findCardHeaderName(card) {
 }
 
 // card가 속한 column의 status 번호를 알려주는 함수
-function findColumnStatus(card) {
+function findColumnStatusByCard(card) {
     let headerName = findCardHeaderName(card)
 
     for(let i=0;i<statusName.length;i++) {
@@ -48,4 +48,4 @@ function findColumnStatus(card) {
     return -1;
 }
 
-export { mainTag, columnDeleteEvent, findColumnStatus, addColumn, findCardHeaderName }
+export { mainTag, columnDeleteEvent, findColumnStatusByCard, addColumn, findCardHeaderName }

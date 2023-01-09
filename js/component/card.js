@@ -2,7 +2,7 @@ import { CARD_BTN_ORIGINAL, CARD_OUTLINE_ORIGINAL, CARD_BACKGROUND_ORIGINAL,
     CARD_BTN_HOVER, CARD_OUTLINE_HOVER, CARD_BACKGROUND_HOVER, CARD_DELETE_BTN_ORIGINAL } from "../common.js";
 import { setCard, turnOnModal } from "./modal.js";
 import { cardTemplate, newCardTemplate } from "../templates/template.js";
-import { findColumnStatus } from "./column.js"
+import { findColumnStatusByCard } from "./column.js"
 import { addJSONData } from "../json_data/json_data.js"; 
 import { makeCardDragEvent } from "../drag/addDragEvent.js";
 import { menuLogAdd, menuLogDelete } from "./menu.js";
@@ -69,7 +69,7 @@ function newCardRegisterEvent(btn, currentCard) {
         currentCard.remove()
 
         // 데이터 반영
-        let currentStatus = findColumnStatus(newCard)
+        let currentStatus = findColumnStatusByCard(newCard)
         addJSONData(currentStatus, title, content)
     })
 }
