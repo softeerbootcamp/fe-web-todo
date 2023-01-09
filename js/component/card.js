@@ -1,5 +1,5 @@
 import { CARD_BTN_ORIGINAL, CARD_OUTLINE_ORIGINAL, CARD_BACKGROUND_ORIGINAL,
-    CARD_BTN_HOVER, CARD_OUTLINE_HOVER, CARD_BACKGROUND_HOVER, } from "../common.js";
+    CARD_BTN_HOVER, CARD_OUTLINE_HOVER, CARD_BACKGROUND_HOVER, CARD_DELETE_BTN_ORIGINAL } from "../common.js";
 import { setCard, turnOnModal } from "./modal.js";
 import { cardTemplate, newCardTemplate } from "../templates/template.js";
 import { findColumnStatus } from "./column.js"
@@ -23,6 +23,7 @@ function cardDeleteEvent(btn, currentCard) {
         turnOnModal(); 
     })
 
+    let xBtn = currentCard.children[0].children[0]
     
     btn.addEventListener("mouseover", () => {
         currentCard.style.transition = "0.5s"
@@ -37,6 +38,7 @@ function cardDeleteEvent(btn, currentCard) {
         currentCard.style.marginTop = "0vh";
         currentCard.style.marginBottom = "1vh";
         btn.style.color = CARD_BTN_ORIGINAL;
+        xBtn.style.color = CARD_DELETE_BTN_ORIGINAL;
         currentCard.style.outline = CARD_OUTLINE_ORIGINAL;
         currentCard.style.backgroundColor = CARD_BACKGROUND_ORIGINAL;
     })

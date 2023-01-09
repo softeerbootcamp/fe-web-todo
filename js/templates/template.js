@@ -24,9 +24,16 @@ function columnTemplate(columnTitle, cardCount = 0) {
     let cardAddBtn = columnNode.children[0].children[1].children[0];
     let columnDeleteBtn = columnNode.children[0].children[1].children[1];
     let header = columnNode.children[0]
+    let article = header.parentElement.children[1];
 
     header.addEventListener("dragover", (event) => {
-        let article = header.parentElement.children[1];
+        event.preventDefault();
+        article.prepend(makeShadedNode());
+    })
+
+    article.addEventListener("dragover", (event) => {
+        if(article.children.length) { return; }
+        
         event.preventDefault();
         article.appendChild(makeShadedNode());
     })
