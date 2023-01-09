@@ -1,6 +1,7 @@
 body {
     background-color: #F5F5F7;
     font-family: 'Noto Sans KR', sans-serif;
+    overflow: hidden;
 }
 
 [data-component="App"] #article {
@@ -8,4 +9,8 @@ body {
     display: flex;
     flex-wrap: wrap;
     padding: 0 5%;
+}
+
+* {
+    user-select: none;
 }

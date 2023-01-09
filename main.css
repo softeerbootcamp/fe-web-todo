@@ -2,6 +2,7 @@
 @import url("./src/components/NotificationCard/notificationcard.css");
 @import url("./src/components/AddColumnButton/addcolumnbutton.css");
 @import url("./src/components/TodoHolder/todoholder.css");
+@import url("./src/components/DoubleClickInput/doubleclickinput.css");
 @import url("./src/app.css");
 
 body {
