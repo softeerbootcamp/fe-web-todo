@@ -62,23 +62,20 @@ function newCardCancelEvent(btn, currentCard, prevCard, isUpdated) {
                 findCardContent(prevCard)
             )
         }
+
         currentCard.remove()
     })
 }
 
 // 새로운 카드를 생성하는 이벤트를 등록합니다.
-function newCardRegisterEvent(btn, currentCard, isUpdated) {
+function newCardRegisterEvent(btn, currentCard, prevCard, isUpdated) {
     btn.addEventListener("click", () => {
+
         registering = false;
 
         let title = currentCard.children[0].value;
         let content = currentCard.children[1].value ;
         let newCard = cardTemplate(title, parseContent(content));
-
-        // 메뉴에 반영
-        isUpdated ?
-                menuLogUpdate(title, findColumnStatusByCard(currentCard)):
-                menuLogAdd(title, findCardHeaderName(currentCard));
 
         // drag 이벤트 추가
         makeCardDragEvent(newCard);
@@ -90,6 +87,17 @@ function newCardRegisterEvent(btn, currentCard, isUpdated) {
         // 데이터 반영
         let currentStatus = findColumnStatusByCard(newCard)
         addJSONData(currentStatus, title, content)
+
+        // 메뉴 update
+        if(isUpdated) {
+            menuLogUpdate(title, findColumnStatusByCard(currentCard));
+            prevCard.remove();
+            currentCard.remove();
+        }
+        // 메뉴 add
+        else {
+            menuLogAdd(title, findCardHeaderName(currentCard));
+        }
     })
 }
 

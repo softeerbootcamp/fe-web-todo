@@ -90,7 +90,7 @@ function newCardTemplate(title = "", content = "", prevCard="", isUpdated=false)
 
     // 등록 카드 폼의 버튼에 이벤트 추가
     newCardCancelEvent(newCancelBtn, newCardDom, prevCard, isUpdated);
-    newCardRegisterEvent(newRegisterBtn, newCardDom, isUpdated);
+    newCardRegisterEvent(newRegisterBtn, newCardDom, prevCard, isUpdated);
     resizeCardByInputBox(textArea, newCardDom);
 
     return newCardDom;
