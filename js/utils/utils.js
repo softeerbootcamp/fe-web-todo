@@ -1,3 +1,5 @@
+import { store } from "../init.js";
+
 const getTargetParentByClassName = (node, className) => {
   if (node) {
     let current = node;
@@ -37,12 +39,30 @@ const addClsssName = (node, className) => {
   node.classList.add(className);
 };
 
-const checkLogCount = (targetColumn) => {
-  const elements = targetColumn.querySelectorAll(".card-wrapper");
-  targetColumn.querySelector(".column-header-num").innerHTML = elements
-    ? elements.length
-    : 0;
+const checkLogCount = (targetColumn, columnId) => {
+  const activeList = store.getStandingList(columnId);
+  const activeListNum = activeList.filter(
+    (elem) => elem.status === true
+  ).length;
+  const targetChild = getTargetChild(targetColumn, "column-header-num");
+  targetChild.innerHTML = activeListNum;
 };
+
+const traverse = (node, selector) => {
+  if (node === null) return;
+  if (node.classList.contains(selector)) {
+    return node;
+  }
+  for (let child in node.child) {
+    traverse(child);
+  }
+};
+
+const myQuerySelector = (selector) => {
+  if (selector === null) return;
+};
+
+const myQuerySelectorAll = () => {};
 
 export {
   getTargetParentByClassName,

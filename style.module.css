@@ -194,11 +194,13 @@ button:hover {
   background-color: #e0e0e0;
 }
 
-.card-add-btn {
+.card-add-btn,
+.card-fix-add-btn {
   background-color: #86c6ff;
 }
 
-.card-add-btn:hover {
+.card-add-btn:hover,
+.card-fix-add-btn:hover {
   background-color: #0075de;
 }
 
@@ -216,6 +218,23 @@ button:hover {
 }
 
 .new-card-wrapper > input {
+  border: none;
+}
+
+.card-wrapper.fixing {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 266px;
+  height: 102px;
+  padding: 16px;
+  border-radius: 5px;
+  border: #0075de solid 1px;
+  background-color: #fff;
+  margin: 10px 0;
+}
+
+.card-wrapper.fixing > input {
   border: none;
 }
 
