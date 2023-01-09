@@ -1,17 +1,18 @@
 import Component from "../../core/Component.js";
 import TodoDatabase from "../../persistance/TodoDatabase.js";
+import TodoCard from "../TodoCard/TodoCard.js";
 
 class TodoHolder extends Component {
     template() {
         const { columnId } = this.props;
-        const todos = TodoDatabase.findTodosByColumnId(columnId);
+        const todoIds = TodoDatabase.findTodoIdsByColumnId(columnId);
         const column = TodoDatabase.findColumnById(columnId);
         return `
         <div class="todoholder-header">
             <div class="todoholder-colinfo">
                 <h4>${column.name}</h4>
                 <div class="count-circle">
-                    <h4>${todos.length}</h4>
+                    <h4>${todoIds.length}</h4>
                 </div>
             </div>
             <div class="todoholder-headerbtn-wrapper">
@@ -28,11 +29,19 @@ class TodoHolder extends Component {
             </div>
         </div>
         <article>
-        ${todos.map(todo => `
-            <div style="width: 250px">${todo.name}</div>
+        ${todoIds.map(todoId => `
+           <div data-component="TodoCard" data-todo-id="${todoId}"></div>
         `).join('')}
         </article>
         `
+    }
+
+    mounted() {
+        const $todoCards = this.$target.querySelectorAll(`[data-component="TodoCard"]`);
+        $todoCards.forEach($todoCard => {
+            const todoId = parseInt($todoCard.dataset.todoId);
+            new TodoCard($todoCard, { todoId });
+        });
     }
 }
 

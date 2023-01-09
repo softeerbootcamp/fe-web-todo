@@ -1,33 +1,37 @@
 import Component from "../../core/Component.js";
 import Notification from "../../models/Notification.js"
+import TodoDatabase from "../../persistance/TodoDatabase.js";
 
 class NotificationCard extends Component {
     initialize() {
+        const { notificationId } = this.props;
+        const notification = TodoDatabase.findNotificationById(notificationId);
         this.state = {
-            timeDeltaMin: this.calcDeltaMin()
+            timeDeltaMin: NotificationCard.calcDeltaMin(notification),
+            notification
         }
         this.refreshAuto();
     }
 
     refreshAuto() {
         const isConnected = this.$target.isConnected;
+        const { notification } = this.state;
         if (isConnected) {
             setTimeout(() => {
-                this.setState({ timeDeltaMin: this.calcDeltaMin() })
+                this.setState({ timeDeltaMin:
+                        NotificationCard.calcDeltaMin(notification) });
                 this.refreshAuto();
             }, 60000);
         }
     }
 
-    calcDeltaMin() {
-        const { notification } = this.props;
+    static calcDeltaMin(notification) {
         return Math.floor((Date.now() - notification.timestamp) / 60000);
     }
 
     template() {
-        const { notification } = this.props;
-        const { timeDeltaMin } = { ...this.state };
-        const spanInner = this.getSpanInnerText(notification);
+        const { timeDeltaMin, notification } = { ...this.state };
+        const spanInner = this.getSpanInnerText();
         return `
         <div>🥳</div>
         <div>
@@ -38,8 +42,9 @@ class NotificationCard extends Component {
         `;
     }
 
-    getSpanInnerText(notification) {
+    getSpanInnerText() {
         const actionTypes = Notification.actionTypes;
+        const { notification } = this.state;
         let spanInner;
         switch (notification.action) {
             case actionTypes.add:

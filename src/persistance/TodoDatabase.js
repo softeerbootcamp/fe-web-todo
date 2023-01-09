@@ -1,20 +1,6 @@
 import Column from "../models/Column.js";
 import Todo from "../models/Todo.js";
 
-const dummyTodo = { ...new Todo(), ...{
-    author: "randomlee",
-    name: "test",
-    description: "test test, test \n test test \n test! \n test!",
-    columnId: 0,
-    id: 0
-}};
-
-const dummyColumn = { ...new Column(), ...{
-    name: "Test Col",
-    id: 0,
-    todoIds: [0, 1, 2, 3]
-}};
-
 const database = {
     notifications: [
         {
@@ -80,8 +66,9 @@ const TodoDatabase = {
     findTodoById(todoId) {
         return database.todos.find(todo => todo.id === todoId);
     },
-    findTodosByColumnId(columnId) {
-        return database.todos.filter(todo => todo.columnId === columnId);
+    findTodoIdsByColumnId(columnId) {
+        return database.todos.filter(todo => todo.columnId === columnId)
+            .map(todo => todo.id);
     }
 }
 

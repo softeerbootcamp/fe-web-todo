@@ -45,8 +45,8 @@ class Header extends Component {
                 </button>            
             </header>
             <ul>
-            ${this.state.notificationIds.map((_, idx) => 
-                `<li data-component="NotificationCard" data-index="${idx}"></li>`
+            ${this.state.notificationIds.map(notificationId => 
+                `<li data-component="NotificationCard" data-notification-id="${notificationId}"></li>`
             ).join('')}       
             </ul>
         </div>
@@ -56,10 +56,8 @@ class Header extends Component {
     mounted() {
         const $notificationCards = this.$target.querySelectorAll('[data-component="NotificationCard"]');
         $notificationCards.forEach($notificationCard => {
-            const idx = parseInt($notificationCard.dataset.index);
-            const notificationId = this.state.notificationIds[idx];
-            const notification = TodoDatabase.findNotificationById(notificationId)
-            new NotificationCard($notificationCard, { notification });
+            const notificationId = parseInt($notificationCard.dataset.notificationId);
+            new NotificationCard($notificationCard, { notificationId });
         });
     }
 }
