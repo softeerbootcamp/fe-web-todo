@@ -105,7 +105,7 @@ function menuLogAddTemplate(content, status, emotion, author) {
             <h4 class="log-content">
                 <strong>${status}</strong>에 
                 <strong>${content}</strong>
-                를 등록하였습니다.
+                을/를 등록하였습니다.
             </h4>
             <h5>1분전</h5>
         </div>
@@ -126,7 +126,7 @@ function menuLogDeleteTemplate(content, status, emotion, author) {
             <h4 class="log-content">
                 <strong>${status}</strong>에서
                 <strong>${content}</strong>
-                를 삭제하였습니다.
+                을/를 삭제하였습니다.
             </h4>
             <h5>1분전</h5>
         </div>
@@ -145,7 +145,7 @@ function menuLogMoveTemplate(title, prevStatus, nextStatus, emotion, author) {
         <div class="log-content-area">
             <h4 class="log-author">${author}</h4>
             <h4 class="log-content">
-                <strong>${title}</strong>을
+                <strong>${title}</strong>을/를
                 <strong>${statusName[prevStatus]}</strong>에서
                 <strong>${statusName[nextStatus]}</strong>
                 로 이동하였습니다.

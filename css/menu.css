@@ -30,10 +30,10 @@
 }
 
 #menu-header {
-    width: 100%;
+    width: calc(100% - 1vw);
     background-color: blue;
     position: relative;
-    margin-bottom: 2vh;
+    margin-bottom: 3vh;
 }
 
 #menu-header > i {
@@ -43,7 +43,8 @@
 }
 
 #menu-content {
-    width: calc(100% - 3vw);
+    width: calc(100% - 1vw);
+    margin-right: 3vw;
 }
 
 /* log-frame */
