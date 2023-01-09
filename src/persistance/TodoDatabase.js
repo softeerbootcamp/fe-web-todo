@@ -1,6 +1,3 @@
-import Column from "../models/Column.js";
-import Todo from "../models/Todo.js";
-
 const database = {
     notifications: [
         {
@@ -30,7 +27,9 @@ const database = {
     ]
 };
 
-
+const getUser = () => {
+    return `randomlee`;
+}
 
 const TodoDatabase = {
     notify(notification) {
@@ -53,6 +52,11 @@ const TodoDatabase = {
     findColumnById(columnId) {
         return database.columns.find(column => column.id === columnId);
     },
+    updateColumnNameById(columnId, newName) {
+        const column = database.columns.find(column => column.id === columnId);
+        column.name = newName;
+        return true;
+    },
     addNewColumn() {
         const column = { name: "New Column", id: Date.now() };
         database.columns.push(column);
@@ -69,6 +73,27 @@ const TodoDatabase = {
     findTodoIdsByColumnId(columnId) {
         return database.todos.filter(todo => todo.columnId === columnId)
             .map(todo => todo.id);
+    },
+    addNewTodo(columnId, name, description) {
+        database.todos.unshift({
+            author: getUser(),
+            name,
+            description,
+            columnId,
+            id: Date.now()
+        });
+        const { name:columnName } = database.columns.find(column => column.id === columnId);
+        const notification = {
+            author: getUser(),
+            name: name,
+            from: '',
+            to: columnName,
+            action: '등록',
+            timestamp: Date.now(),
+            id: Date.now()
+        };
+        database.notifications.unshift(notification);
+        this.notify(notification);
     }
 }
 

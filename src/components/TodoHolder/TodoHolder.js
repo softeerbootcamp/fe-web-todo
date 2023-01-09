@@ -2,21 +2,25 @@ import Component from "../../core/Component.js";
 import TodoDatabase from "../../persistance/TodoDatabase.js";
 import TodoCard from "../TodoCard/TodoCard.js";
 import DoubleClickInput from "../DoubleClickInput/DoubleClickInput.js";
+import TodoAddForm from "../TodoAddForm/TodoAddForm.js";
 
 class TodoHolder extends Component {
     initialize() {
+        this.state = {
+            columnId: this.props.columnId
+        }
         this.addEvent('click', '.add-todo-btn', this.addClick.bind(this));
     }
 
     addClick(e) {
-        const $addForm = this.$target.querySelector('.todoholder-add-form');
+        const $addForm = this.$target.querySelector('[data-component="TodoAddForm"]');
         const checked = !$addForm.toggleAttribute('hidden');
-        const $button = e.target.closest('button');
+        const $button = this.$target.querySelector('.add-todo-btn');
         $button.style.fill = checked ? '#0075DE' : '#010101';
     }
 
     template() {
-        const { columnId } = this.props;
+        const { columnId } = this.state;
         const todoIds = TodoDatabase.findTodoIdsByColumnId(columnId);
         return `
         <div class="todoholder-header">
@@ -40,14 +44,7 @@ class TodoHolder extends Component {
             </div>
         </div>
         <article>
-        <div class="todoholder-add-form" hidden>
-            <input type="text" placeholder="제목을 입력하세요">
-            <textarea placeholder="내용을 입력하세요"></textarea>
-            <div>
-                <button>취소</button>
-                <button disabled>등록</button>
-            </div>
-        </div>
+        <div data-component="TodoAddForm" hidden></div>
         ${todoIds.map(todoId => `
            <div data-component="TodoCard" data-todo-id="${todoId}"></div>
         `).join('')}
@@ -63,7 +60,14 @@ class TodoHolder extends Component {
         new DoubleClickInput($doubleClickInput, {
             value: column.name,
             placeholder: '칼럼 이름을 입력하세요',
-            onValueChanged: console.log
+            onValueChanged: this.updateColumnName.bind(this)
+        });
+
+        const $todoAddForm = this.$target.querySelector('[data-component="TodoAddForm"]');
+        const addTodo = this.addTodo.bind(this);
+        new TodoAddForm($todoAddForm, {
+            addTodo,
+            addCancel: this.addClick.bind(this)
         });
 
         const $todoCards = this.$target.querySelectorAll(`[data-component="TodoCard"]`);
@@ -71,6 +75,18 @@ class TodoHolder extends Component {
             const todoId = parseInt($todoCard.dataset.todoId);
             new TodoCard($todoCard, { todoId });
         });
+    }
+
+    addTodo(name, description) {
+        const { columnId } = this.state;
+        TodoDatabase.addNewTodo(columnId, name, description);
+        this.setState({ columnId });
+    }
+
+    updateColumnName(newName) {
+        const { columnId } = this.state;
+        TodoDatabase.updateColumnNameById(columnId, newName);
+        this.setState({ columnId });
     }
 }
 

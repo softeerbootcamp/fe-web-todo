@@ -14,7 +14,7 @@ class Header extends Component {
 
     addNotification(notification) {
         const newNotificationIds = [ ...this.state.notificationIds ];
-        newNotificationIds.push(notification.id);
+        newNotificationIds.unshift(notification.id);
         this.setState({ ...this.state, notificationIds: newNotificationIds });
     }
 
