@@ -50,8 +50,18 @@ function cardDeleteEvent(btn, currentCard) {
 }
 
 // 새로운 카드 등록을 취소하는 이벤트를 등록합니다.
-function newCardCancelEvent(btn, currentCard) {
+function newCardCancelEvent(btn, currentCard, prevCard, isUpdated) {
     btn.addEventListener("click", () => {
+        if(isUpdated) {
+            prevCard.style.display = "block";
+
+            // json 데이터 복구
+            addJSONData(
+                findColumnStatusByCard(prevCard),
+                findCardTitle(prevCard),
+                findCardContent(prevCard)
+            )
+        }
         currentCard.remove()
     })
 }
@@ -75,7 +85,7 @@ function newCardRegisterEvent(btn, currentCard, isUpdated) {
 
         // 카드 배치 후 카드 등록 폼 제거
         currentCard.after(newCard);
-        currentCard.remove()
+        currentCard.style.display = "none";
 
         // 데이터 반영
         let currentStatus = findColumnStatusByCard(newCard)
@@ -120,8 +130,8 @@ function cardToRegisterForm(card) {
     // JSON 반영
     deleteJSONData(status, title);
 
-    card.before(newCardTemplate(title, content, true));
-    card.remove();
+    card.before(newCardTemplate(title, content, card, true));
+    card.style.display = "none";
 }
 
 // 카드에 더블 클릭 이벤트를 추가해줍니다.

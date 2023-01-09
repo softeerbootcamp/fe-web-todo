@@ -71,7 +71,7 @@ function cardTemplate(cardTitle, cardContent, cardAuthor="author by web") {
 }
 
 // 카드 등록 폼의 템플릿을 반환합니다.
-function newCardTemplate(title = "", content = "", isUpdated=false) {
+function newCardTemplate(title = "", content = "", prevCard="", isUpdated=false) {
     let newCardDom = document.createElement("div");
     newCardDom.classList.add("new-card-frame");
 
@@ -89,7 +89,7 @@ function newCardTemplate(title = "", content = "", isUpdated=false) {
     const textArea = newCardDom.children[1]
 
     // 등록 카드 폼의 버튼에 이벤트 추가
-    newCardCancelEvent(newCancelBtn, newCardDom);
+    newCardCancelEvent(newCancelBtn, newCardDom, prevCard, isUpdated);
     newCardRegisterEvent(newRegisterBtn, newCardDom, isUpdated);
     resizeCardByInputBox(textArea, newCardDom);
 
