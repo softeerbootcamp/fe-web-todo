@@ -50,12 +50,3 @@
 .Modal > div.ModalAlert > div.ModalButton > button.ModalDelete:hover{
     background: #00529B;
 }
-
-@keyframes SideMenuAnimation {
-    from {
-        width: 0px;
-    }
-    to {
-        width: 452px;
-    }
-}

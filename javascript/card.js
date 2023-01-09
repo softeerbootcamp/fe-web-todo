@@ -1,4 +1,4 @@
-//for card register, edit, and delete (+ input box & new card form height change)
+//for card register, edit, and delete
 function RegisterFormShow(){
     const CardForm = document.getElementsByClassName('NewCard')[0];
     

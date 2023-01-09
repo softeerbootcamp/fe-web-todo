@@ -2,10 +2,12 @@
 function SideMenuShow(){
     const SideMenu = document.getElementsByClassName('SideMenu')[0];
 
-    if(SideMenu.style.width != '452px'){
-        SideMenu.style.width = '452px';
+    if(SideMenu.style.visibility != 'visible'){
+        SideMenu.style.right = '0%';
+        SideMenu.style.visibility = 'visible';
     }
     else{
-        SideMenu.style.width = '0px';
+        SideMenu.style.visibility = 'hidden';
+        SideMenu.style.right = '-25%';
     }
 }

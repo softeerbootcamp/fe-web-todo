@@ -407,12 +407,13 @@
 }
 
 .SideMenu{
-    position: absolute;
-    width: 452px;
+    position: fixed;
+    visibility: hidden;
+    width: 25%;
     height: 100%;
-    left: 100%;
     top: 0%;
-    transform: translate(-100%, 0%);
+    right: -25%;
+    transition: all 1s ease-in-out;
     
     background: #FFFFFF;
     
@@ -433,6 +434,11 @@
 
 .SideMenu > div.MenuLog{
     display: block;
+    width: auto;
+    height: 80%;
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: auto;
     margin: 0% 10% 0% 10%;
 }
 
