@@ -1,3 +1,6 @@
+import { findCardTitle, findCardContent } from "../common.js"
+import { updateColumnLength } from "../component/column.js"
+
 // 새로운 상태값이 입력되면? statusList의 길이 값을 대입해주면 된다!
 const TODO = 0
 const DOING = 1
@@ -43,10 +46,7 @@ function addJSONData(status, title, content) {
         date: new Date()
     })
 
-    let currentSection = document.querySelectorAll("article")[status].parentElement
-    let sectionLength = currentSection.children[0].children[0]
-    
-    sectionLength.innerHTML = JSON_DATA[status].length
+    updateColumnLength(status);
 }
 
 // 해당하는 JSON 데이터를 삭제합니다.
@@ -57,6 +57,22 @@ function deleteJSONData(status, title) {
         if(dataList[i].title == title) {
             dataList.splice(i, 1);
             break;
+        }
+    }
+
+    updateColumnLength(status);
+}
+
+function moveJSONData(prevStatus, nextStatus, card) {
+    let title = findCardTitle(card);
+    let content = findCardContent(card);
+
+    for(let i=0;i<JSON_DATA[prevStatus].length;i++) {
+        if(JSON_DATA[prevStatus][i].title == title) {
+            addJSONData(nextStatus, title, content);
+            deleteJSONData(prevStatus, title);
+
+            return;
         }
     }
 }
@@ -94,6 +110,6 @@ function deleteStatus(status) {
 }
 
 export { statusList, statusName, TODO, DOING, DONE, JSON_DATA, 
-    addJSONData, deleteJSONData,
-    addStatus, validateStatus, deleteStatus
+    addJSONData, deleteJSONData, validateStatus,
+    addStatus, deleteStatus, moveJSONData
 }

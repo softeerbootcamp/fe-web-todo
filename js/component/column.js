@@ -1,5 +1,5 @@
 import { columnTemplate } from "../templates/template.js";
-import { statusName, addStatus, deleteStatus } from "../json_data/json_data.js";
+import { statusName, addStatus, deleteStatus, JSON_DATA } from "../json_data/json_data.js";
 import { turnOnColumnAddModal } from "./modal.js";
 
 const mainTag = document.querySelector("main");
@@ -40,6 +40,12 @@ function findCardHeaderName(card) {
     return header.split("\n")[0]
 }
 
+function updateColumnLength(status) {
+    let currentSection = document.querySelectorAll("article")[status].parentElement
+    let sectionLength = currentSection.children[0].children[0]
+    sectionLength.innerHTML = JSON_DATA[status].length
+}
+
 // 카드가 속한 column의 status 번호를 반환합니다.
 function findColumnStatusByCard(card) {
     let headerName = findCardHeaderName(card)
@@ -51,4 +57,4 @@ function findColumnStatusByCard(card) {
     return -1;
 }
 
-export { mainTag, columnDeleteEvent, findColumnStatusByCard, addColumn, findCardHeaderName }
+export { mainTag, columnDeleteEvent, findColumnStatusByCard, addColumn, findCardHeaderName, updateColumnLength }
