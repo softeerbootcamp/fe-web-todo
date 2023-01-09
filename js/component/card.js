@@ -8,10 +8,16 @@ import { makeCardDragEvent } from "../drag/addDragEvent.js";
 import { menuLogAdd, menuLogDelete } from "./menu.js";
 import { findCardHeaderName } from "../component/column.js"
 
-// 버튼에 카드 생성 이벤트를 등록합니다.
+let registering = false;
+
+// 버튼이 클릭되면 카드 등록 폼이 보여지도록 이벤트를 등록합니다.
 function cardAddEvent(btn, currentColumn) {
     btn.addEventListener("click", () => {
-        currentColumn.prepend(newCardTemplate());
+        registering ? 
+                currentColumn.children[0].remove() :    
+                currentColumn.prepend(newCardTemplate());
+
+        registering = !registering;
     })
 }
 
