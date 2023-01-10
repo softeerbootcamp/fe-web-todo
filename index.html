@@ -4,13 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="./css/main.css">
     <title>TODOs</title>
-    <script defer src="sidebar.js"></script>
-    <script defer src="utils/add_func.js"></script>
-    <script defer src="utils/textarea_height.js"></script>
-    <script defer src="utils/add_cancle_func.js"></script>
-    <script defer src="init_values.js"></script>
+    <script defer src="./js/textarea_height.js"></script>
 </head>
 <header class="header">
     <h1>TO-DO LIST</h1>
@@ -20,83 +16,48 @@
 </header>
 
 <body>
-    <div class="body_main">
+    <ul class="body_main">
         <!-- 해야할 일 -->
-        <div class="status">
-            <div class="status_title">
-                <div class="status_name">
-                    <span id="asd">해야할 일</span>
-                    <div class="status_count">2</div>
+        <li class="category_column ">
+            <div class="category_header">
+                <div class="category_name">
+                    <span>해야할 일</span>
+                    <div class="category_count">2</div>
                 </div>
-                <div class="status_icons">
-                    <!-- <input type="checkbox" id="todo_addicon">
-                    <label for="todo_addicon">
-                        <img id src="./icons/add_icon.svg" alt="">
-                    </label> -->
-                    <div class="addicons" id="todo_addicon">
-                        <img src="./icons/add_icon.svg" alt="">
-                    
-                    </div>
-                    <div class="closeicons" id="todo_closeicon">
-                        <img src="./icons/close_icon.svg" alt="">
-                    
-                    </div>
-                    <!-- <input type="checkbox" id="todo_closeicon">
-                    <label for="todo_closeicon">
-                        <img src="./icons/close_icon.svg" alt="">
-                    </label> -->
+                <div class="category_header_icons">
+                    <img class="category_addicons" src="./icons/category_add_icon.svg" alt="">
+                    <img class="category_closeicons" src="./icons/close_icon.svg" alt="">
                 </div>
             </div>
-            <ol class="status_list todo" id="todo_list">
-                <!-- 리스트 -->
-            </ol>
-        </div>
-        <!-- 하고 있는 일 -->
+            <ul class="work_box_list">
+                
+            </ul>
+        </li>
+        <!-- 해야할 일 -->
+        <li class="category_column ">
+            <div class="category_header">
+                <div class="category_name">
+                    <span>해야할 일22</span>
+                    <div class="category_count">2</div>
+                </div>
+                <div class="category_header_icons">
+                    <img class="category_addicons" src="./icons/category_add_icon.svg" alt="">
+                    <img class="category_closeicons" src="./icons/close_icon.svg" alt="">
+                </div>
+            </div>
+            <ul class="work_box_list">
+                
+            </ul>
+        </li>
 
-        <div class="status">
-            <div class="status_title doing">
-                <div class="status_name">
-                    <span>하고 있는 일</span>
-                    <div class="status_count">1</div>
-                </div>
-                <div class="status_icons">
-                    <input type="checkbox" id="doing_addicon">
-                    <label for="doing_addicon">
-                        <img id src="./icons/add_icon.svg" alt="">
-                    </label>
-                    <input type="checkbox" id="doing_closeicon">
-                    <label for="doing_closeicon">
-                        <img src="./icons/close_icon.svg" alt="">
-                    </label>
-                </div>
-            </div>
-            <ol class="status_list doing" id="doing_list">
-                <!-- 리스트 -->
-            </ol>
+    </ul>
+    <div class="modal">
+        <div class="modal_body">
+            <input type="text" class="work_box_title_input " placeholder="제목을 입력하세요">
         </div>
-
-        <!-- 완료한 일 -->
-        <div class="status">
-            <div class="status_title done">
-                <div class="status_name">
-                    <span>완료한 일 </span>
-                    <div class="status_count">0</div>
-                </div>
-                <div class="status_icons">
-                    <input type="checkbox" id="done_addicon">
-                    <label for="done_addicon">
-                        <img id src="./icons/add_icon.svg" alt="">
-                    </label>
-                    <input type="checkbox" id="done_closeicon">
-                    <label for="done_closeicon">
-                        <img src="./icons/close_icon.svg" alt="">
-                    </label>
-                </div>
-            </div>
-            <ol class="status_list done" id="done_list">
-                <!-- 리스트 -->
-            </ol>
-        </div>
+    </div>
+    <div class="floating_btn">
+        <img id="floating_add_icon" src="./icons/add_icon.svg" alt="">
     </div>
     <div>
         <nav id="sidebar">
@@ -111,4 +72,5 @@
     </div>
 </body>
 
+<script type="module" src="./js/main.js"></script>
 </html>
