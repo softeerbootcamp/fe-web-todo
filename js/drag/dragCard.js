@@ -1,21 +1,18 @@
-import {makeShadedNode, makeLightNode, addChildToParent} from "./dragEffect.js";
-import {manager} from "./dragIDManager.js";
-import { cardCounts } from "../card.js"
+import { dragIDManager } from "./dragIDManager.js";
+import { addChildAfterParent } from "../common.js";
+import { makeShadedNode, makeLightNode } from "./dragEffect.js";
 
-function dragCard(parentNode, event) {
-    manager.setID(event.target.id)
-    addChildToParent(parentNode, makeShadedNode())
+function dragCard(event) {
+    dragIDManager.setCurrentCardID(event.target.id)
 }
 
-function dragOverCard(parentNode, event) {
+function dragOverCard(parentDom, event) {
     event.preventDefault();
-    parentNode.after(makeShadedNode())
-    cardCounts();
+    addChildAfterParent(parentDom, makeShadedNode())
 }
 
-function dropCard(parentNode) {
-    let child = makeLightNode();
-    addChildToParent(parentNode, child)
+function dropCard(parentDom, event) {
+    addChildAfterParent(parentDom, makeLightNode());
 }
 
 export { dragCard, dragOverCard, dropCard }

@@ -1,23 +1,22 @@
-class IDManger {
-    #ID
+class DragIDManager {
+    #ID = 0
+    movedCardID = 0
 
-    setID(newID) {
-        this.#ID = newID
+    setCurrentCardID(cardID) {
+        this.movedCardID = cardID
     }
 
-    getID() {
+    getCurrentCardID() {
+        return this.movedCardID
+    }
+
+    getNewID() {
+        this.#ID += 1
+        
         return this.#ID
-    }
-
-    // id 부여 방식 현재는 임시
-    // 추후 수정 필요
-    id = 100
-    giveCardID() {
-        this.id += 1
-        return this.id;
     }
 }
 
-const manager = new IDManger();
+const dragIDManager = new DragIDManager();
 
-export {manager}
+export { dragIDManager }

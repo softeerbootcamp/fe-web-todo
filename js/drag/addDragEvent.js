@@ -1,39 +1,42 @@
-import { makeLightNode } from "./dragEffect.js";
-import { dragCard, dragOverCard, dropCard } from "./dragCard.js";
+import { findColumnStatusByCard } from "../component/column.js";
+import { dragCard, dragOverCard, dropCard } from "./dragCard.js"
+import { makeLightNode } from "./dragEffect.js"
+import { menuLogMove } from "../component/menu.js";
+import { findCardTitle } from "../common.js";
+import { moveJSONData } from "../json_data/json_data.js";
+
+let dragStartStatus = "";
+let dragEndStatus = "";
 
 function makeCardDragEvent(cardDom) {
     cardDom.addEventListener("dragstart", (event) => {
-        dragCard(cardDom, event)
+        dragStartStatus = findColumnStatusByCard(cardDom)
+        dragCard(event)
     })
 
     cardDom.addEventListener("dragover", (event) => {
         dragOverCard(cardDom, event)
     })
 
+    cardDom.addEventListener("dragend", (event) => {
+        // 이동 완료된 column의 status 계산
+        dragEndStatus = findColumnStatusByCard(cardDom);
+
+        // menu에 이동 로그 남기기
+        menuLogMove(findCardTitle(cardDom), dragStartStatus, dragEndStatus);
+
+        // json 데이터 이동 반영
+        moveJSONData(dragStartStatus, dragEndStatus, cardDom);
+
+        makeLightNode();
+    })
+
     cardDom.addEventListener("drop", (event) => {
         dropCard(cardDom, event)
     })
-
-    cardDom.addEventListener("dragend", () => {
-        makeLightNode();
-    })
 }
 
-let cards = document.querySelectorAll(".card-frame");
-let sectionHeaders = document.querySelectorAll(".section-header")
-
-cards.forEach((card) => {
-    makeCardDragEvent(card)
-})
-
-sectionHeaders.forEach((sectionHeader) => {
-    sectionHeader.addEventListener("dragover", (event) => {
-        dragOverCard(sectionHeader, event)
-    })
-
-    sectionHeader.addEventListener("drop", () => {
-        dropCard(sectionHeader)
-    })
-})
-
-export { makeCardDragEvent }
+export { 
+    dragStartStatus, dragEndStatus,
+    makeCardDragEvent
+}

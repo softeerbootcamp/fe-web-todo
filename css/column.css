@@ -1,0 +1,204 @@
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 20vw;
+    height: 80vh;
+}
+
+section > h3 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding:0 1vw;
+    width: calc(100% - 2vw);
+    height: 6vh;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+section > h3 > input {
+    font-weight: 700;
+    font-size: 1.2rem;
+    border: none;
+    background-color: #F5F5F7;
+}
+
+section > h3 > input:focus {
+    outline: 0.2vh solid rgb(60, 78, 254);
+    box-shadow: 0.2vh 0.2vh 0.2vh 0.2vh rgb(60, 78, 254, 0.5);
+}
+
+/* 카드 개수 */
+section > h3 > span {
+    margin-left: 1vw;
+    background-color: #BDBDBD;
+    padding: 0.25vw 0.5vw;
+    border-radius: 50%;
+}
+
+section > h3 > .column-btn-area {
+    position: absolute;
+    right: 1vw;
+}
+
+section > h3 > .column-btn-area > i {
+    cursor: pointer;
+    margin:0 0.5vw;
+}
+
+.card-add-btn:hover {
+    color:#3E95E3;
+}
+
+#column-add-btn {
+    position: fixed;
+    right: 5%;
+    bottom: 5%;
+    padding:0 0.8vw;
+    border: none;
+    cursor: pointer;
+    font-size: 3rem;
+    font-weight: 300;
+    box-shadow: 0 0.5vh 1vh 0 gray;
+    color: #fff;
+    border-radius: 50%;
+    background-color: #0175DE;
+}
+
+#column-add-btn:hover {
+    outline: 0.2vh solid #0175DE;
+}
+
+.column-delete-btn:hover {
+    color: #FF4D4D;
+}
+
+/* card */
+section > article {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.card-frame {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 85%;
+    margin-bottom: 1vh;
+    padding: 1.5vh 1vw;
+    border-radius: 1vh;
+    background-color: white;
+}
+
+.card-frame > h3 {
+    position: relative;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.card-frame > h3 > i {
+    position: absolute;
+    cursor: pointer;
+    right: 0.5vw;
+    font-size: 1.3rem;
+    color: #D0D0D0;
+}
+
+.card-frame > h3 > i:hover {
+    color: #FF4D4D;
+}
+
+.card-frame > h4 {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.card-frame > h5 {
+    font-size: 0.9rem;
+    color: #CDCDCD;
+}
+
+/* new card form */
+.new-card-frame {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 85%;
+    height: 18vh;
+    margin-bottom: 1vh;
+    padding: 1.5vh 1vw;
+    border-radius: 1vh;
+    background-color: white;
+}
+
+.new-card-frame > input, textarea {
+    border:none;
+    outline: none;
+}
+
+.new-card-frame > input {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1vh;
+}
+
+.new-card-frame > textarea {
+    font-size: 1.1rem;
+    resize: none;
+}
+
+.new-card-button-area {
+    display: flex;
+    justify-content: space-evenly;
+    height: 5vh;
+    line-height: 3;
+}
+
+.new-card-button-area > button {
+    cursor:pointer;
+    border: none;
+    border-radius: 0.5vh;
+    padding: 0.8vh 0;
+    font-size: 1rem;
+    width: 45%;
+}
+
+.new-card-button-area > button:focus {
+    outline: none;
+}
+
+.new-card-button-area > button#new-card-cancel-btn {
+    color: #828282;
+    background-color: #e0e0e0;
+}
+
+.new-card-button-area > button#new-card-cancel-btn:hover {
+    color: #fff;
+    background-color: #828282;
+}
+
+.new-card-button-area > button#new-card-cancel-btn:disabled {
+    color: #828282;
+    background-color: #e0e0e0;
+}
+
+.new-card-button-area > button#new-card-register-btn {
+    color: #fff;
+    background-color: #0075de;
+}
+
+.new-card-button-area > button#new-card-register-btn:hover {
+    color: #fff;
+    background-color: #0075de;
+}
+
+.new-card-button-area > button#new-card-register-btn:disabled {
+    color: rgba(255, 255, 255, 0.4);
+    background-color: #86c6ff;
+}

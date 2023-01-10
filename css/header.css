@@ -1,16 +1,22 @@
 header {
+    position: fixed;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    top: 0;
+    width: 96vw;
     padding:0 2vw;
-    height: 16vh;
-    font-size: 6vh;
+    height: 10vh;
+    box-shadow: 0 0 0.3rem 0 gray;
+    background-color: #F5F5F7;
+    z-index: 3;
 }
 
 header > h1 {
-    display: inline;
+    font-size: 3rem;
 }
 
 header > i {
     cursor: pointer;
+    font-size: 2rem;
 }
