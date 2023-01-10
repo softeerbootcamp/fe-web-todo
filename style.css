@@ -1,0 +1,182 @@
+@font-face {
+    font-family: 'OTWelcomeRA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/OTWelcomeRA.woff2') format('woff2');
+    font-weight: lighter;
+    font-style: normal;
+}
+
+body{
+    background-color:rgb(239, 230, 230);
+    font-family: 'OTWelcomeRA';
+}
+
+h2{
+    font-size:15px;
+    margin-right:6px;
+}
+
+ul {
+    list-style: none;
+    padding: 0px;
+    display: flex;
+}
+
+li.icon {
+    flex-basis: 25%;
+}
+ 
+p {
+    font-size:15px;
+    color:grey;
+}
+
+._col_elem{
+    display:flex;
+    flex-direction:column;
+    background-color:white;
+    width:200px;
+    padding:20px 10px;
+    margin:2%;
+    font-size:12px;
+    border-radius:10px;
+}
+
+._row_elem{
+    display:flex;
+    flex-direction:column;
+    padding : 0px 10px 10px 10px;
+}
+
+#_header{
+    display:flex;
+    /* justify-content: center; */
+    justify-content:space-between;
+    width:100%;
+    height:10%;
+    padding:15px;
+    font-size:24px;
+    margin:0;
+}
+
+._todo_table{
+    display:flex;
+    flex-direction:row;
+}
+
+._col_header{
+    display:flex;
+    justify-content:space-between;
+    text-align:center;
+    width:200px;
+    padding:0px 15px 0px 15px;
+}
+
+#_elem_header{
+    display:flex;
+    justify-content:space-between;
+    font-size:15px;
+    width:180px;
+}
+
+.top_button {
+    display:flex;
+    background-color:transparent;
+    border-color: transparent;
+	font-size:30px;
+    padding : 0px;
+    cursor:pointer;
+    margin : -5px 5% 0px 0px;
+	text-decoration:none;
+    justify-content: center;
+}
+
+.my_button_remove_list{
+    background-color:transparent;
+    border-color: transparent;
+    color : grey;
+    font-size:15px;
+    margin-top:0px;
+    margin-left : -5px;
+    margin-right: -5px;
+    cursor:pointer;
+}
+
+.my_button_add_list{
+    background-color:transparent;
+    border-color: transparent;
+    color : grey;
+    font-size:15px;
+    margin-top:10px;
+    margin-left : -5px;
+    margin-right: -5px;
+    cursor:pointer;
+}
+
+.my_button_delete{
+    margin-right:auto;    
+    background-color:transparent;
+    border-color: transparent;
+    color : lightgrey;
+	font-weight:lighter;
+	text-decoration:none;
+    justify-content: center;
+    cursor:pointer;
+    margin :-5px;
+}
+
+.circle{
+    position:relative;
+    margin-right:auto;
+    background-color: gray;
+    display:inline-block;
+    border-radius: 90%;
+    width:15px;
+    height:15px;
+    padding:5px;
+    margin-top:9px;
+    text-align:center;
+}
+
+.total_num{
+    font-size:14px;
+    padding-right:0px;
+}
+
+.side_menu {
+    z-index:2;
+    visibility: hidden;
+    position:absolute;
+    display:inline-block;
+    background-color:white;
+    width:40%;
+    height:100%;
+    margin-left:60%;
+    margin-top:0px;
+    font-size:12px;
+}
+
+.menu_close_button {
+    background-color:transparent;
+    border-color: transparent;
+    color : lightgrey;
+	font-size:40px;
+	text-decoration:none;
+    justify-content: center;
+    cursor:pointer;
+    margin-left:80%;
+}
+
+.column_add_button {
+    position:absolute;
+    z-index:1;
+    width:50px;
+    height:50px;
+    margin-left:90%;
+    margin-top:800px;
+    background-color: rgb(109, 109, 188);
+    border-radius: 50%;
+    border-color: transparent;
+    color:white;
+    font-size:30px;
+    cursor:pointer;
+}
