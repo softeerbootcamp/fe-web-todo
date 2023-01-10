@@ -1,39 +1,10 @@
-const input_data={
-    'title': '',
-    'contents': ''
-}
-
-const delete_data={
-    Status : null,
-    Title : null,
-    Contents: null
-}
-
-const todos_status=['todo','doing','done'];
-
-const todos = [
-    {
-        Status : 'todo',
-        Title : 'Git hub 공부하기',
-        Contents: 'add , commit , push'
-    },
-    {
-        Status : 'todo',
-        Title : 'Git hub 블로그에 포스팅할 것',
-        Contents: '* Git hub 공부내용 * 모던 자바스크립트 1장 공부 내용'
-    },
-    {
-        Status : 'doing',
-        Title : '모던 자바스크립트 예제 실습',
-        Contents: 'input 태그'
-    }
-]
+import { input_data, delete_data, todos_status, todos} from "./store.js";
 
 //임시 id 나중에 UUID로 바꾸고 싶음
 let id = 1;
 
 const render = () =>{
-    const todolist = document.querySelector('.todolist');
+    let todolist = document.querySelector('.todolist');
 
     todolist.innerHTML='';
 
@@ -79,7 +50,6 @@ modal_delete_btn.addEventListener('click',(e)=>{
 })
 
 modal_register_btn.addEventListener('click',(e)=>{
-    console.log('delete_data',delete_data.contents);
     todos.splice(todos.findIndex(e => e.Status === delete_data.Status && e.Title === delete_data.Title && e.Contents === delete_data.Contents),1);
     modal.classList.toggle('act');
     render();
@@ -184,10 +154,6 @@ const make_new_lst = (title, contents)=>{
         <p>${contents}</p>
         </li>
     `
-    // delete_btn.addEventListener('click',()=>{
-    //     modal.classList.toggle('act');
-    //     delete_data.contents = delete_btn.parentNode.parentNode;
-    // })
     return item;
 }
 
@@ -215,5 +181,4 @@ const storeDeletedItem = (id)=>{
     delete_data.Status = toBedeleted.closest('section').className;
     delete_data.Title = toBedeleted.querySelector('h3').innerText;
     delete_data.Contents = toBedeleted.querySelector('p').innerText;
-    console.log(delete_data);
 }
