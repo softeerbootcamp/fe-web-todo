@@ -57,7 +57,7 @@ class NotificationCard extends Component {
                 spanInner = `<b>${notification.name}</b>을 <b>${notification.from}</b>에서 <b>${notification.to}</b>으로 이동하였습니다.`
                 break;
             case actionTypes.update:
-                spanInner = `<b>${notification.from}</b>의 <b>${notification.name}</b>을 수정하였습니다.`
+                spanInner = `<b>${notification.from}</b>를 <b>${notification.to}</b>으로 수정하였습니다.`
                 break;
         }
         return spanInner;

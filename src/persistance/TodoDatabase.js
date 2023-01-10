@@ -41,16 +41,24 @@ const TodoDatabase = {
         this.notificationListener = callback;
     },
     findAllNotificationIds() {
-        return database.notifications.map(notification => notification.id);
+        return [
+            ...database.notifications.map(notification => notification.id)
+        ];
     },
     findNotificationById(notificationId) {
-        return database.notifications.find(notification => notification.id === notificationId);
+        return {
+            ...database.notifications.find(notification => notification.id === notificationId)
+        };
     },
     findAllColumnIds() {
-        return database.columns.map(column => column.id);
+        return [
+            ...database.columns.map(column => column.id)
+        ];
     },
     findColumnById(columnId) {
-        return database.columns.find(column => column.id === columnId);
+        return {
+            ...database.columns.find(column => column.id === columnId)
+        };
     },
     updateColumnNameById(columnId, newName) {
         const column = database.columns.find(column => column.id === columnId);
@@ -96,6 +104,22 @@ const TodoDatabase = {
         database.notifications.unshift(notification);
         this.notify(notification);
         return todo.id;
+    },
+    updateTodo({ id, name, description }) {
+        const originTodo = database.todos.find(todo => todo.id === id);
+        const originName = originTodo.name;
+        originTodo.name = name;
+        originTodo.description = description;
+        const notification = {
+            author: getUser(),
+            name: '',
+            from: originName,
+            to: name,
+            action: '수정',
+            timestamp: Date.now(),
+            id: Date.now()
+        };
+        this.notify(notification);
     }
 }
 
