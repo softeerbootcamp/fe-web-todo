@@ -1,6 +1,5 @@
 [data-component="App"] #article {
-    /*margin-top: 110px;*/
-    width: 100%;
+    width: 90%;
     display: flex;
     flex-wrap: wrap;
     padding: 0 5%;

@@ -6,6 +6,7 @@
     position: sticky;
     top: 0;
     background: linear-gradient(#F5F5F7 80%, transparent);
+    z-index: 10;
 }
 
 [data-component="Header"] > h1 {
@@ -31,7 +32,6 @@
     background: white;
     box-shadow: 0 0 4px rgba(204, 204, 204, 0.5), 0 2px 4px rgba(0, 0, 0, 0.25);
     position: fixed;
-    z-index: 999;
     top: 0;
     right: 0;
     transition: 0.5s;
