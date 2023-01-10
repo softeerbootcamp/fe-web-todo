@@ -1,4 +1,4 @@
-import { columnTemplate } from "../templates/template.js";
+import { columnTemplate, headerTitleTemplate } from "../templates/template.js";
 import { statusName, addStatus, deleteStatus, JSON_DATA } from "../json_data/json_data.js";
 import { turnOnColumnAddModal } from "./modal.js";
 
@@ -57,4 +57,29 @@ function findColumnStatusByCard(card) {
     return -1;
 }
 
-export { mainTag, columnDeleteEvent, findColumnStatusByCard, addColumn, findCardHeaderName, updateColumnLength }
+// column의 header에 더블 클릭 이벤트를 추가합니다.
+function headerDoubleClickEvent(headerDom) {
+    headerDom.addEventListener("dblclick", () => {
+        let headerTitle = headerDom.innerHTML.split("\n")[0];
+        let headerInputTemplate = headerTitleTemplate(headerTitle, headerDom);
+
+        headerDom.after(headerInputTemplate)
+        headerDom.style.display = "none";
+    })
+}
+
+function inputFocusOutEvent(inputDom, originalTitle, originalHeaderDom) {
+    inputDom.addEventListener("focusout", ()=> {
+        originalHeaderDom.innerHTML = originalHeaderDom.innerHTML.replace(originalTitle, inputDom.value);
+        originalHeaderDom.style.display = "flex";
+
+        inputDom.parentElement.remove();
+    })
+}
+
+export { 
+    mainTag, 
+    columnDeleteEvent, findColumnStatusByCard, addColumn, 
+    findCardHeaderName, updateColumnLength,
+    headerDoubleClickEvent, inputFocusOutEvent
+}

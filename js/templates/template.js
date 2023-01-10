@@ -1,4 +1,4 @@
-import { columnDeleteEvent } from "../component/column.js";
+import { columnDeleteEvent, headerDoubleClickEvent, inputFocusOutEvent } from "../component/column.js";
 import { cardAddEvent, cardDeleteEvent, 
     newCardCancelEvent, newCardRegisterEvent,
     resizeCardByInputBox, addDoubleClickEventToCard
@@ -42,6 +42,7 @@ function columnTemplate(columnTitle, cardCount = 0) {
 
     columnDeleteEvent(columnDeleteBtn, columnNode); // column 제거 이벤트
     cardAddEvent(cardAddBtn, columnNode.children[1]); // card 추가 이벤트
+    headerDoubleClickEvent(header);  // 헤더 더블 클릭 이벤트
 
     return columnNode;
 }
@@ -181,7 +182,31 @@ function menuLogUpdateTemplate(title, status, emotion, author) {
     return menuFrame;
 }
 
+function headerTitleTemplate(title, originalHeaderDom) {
+    const headerDom = document.createElement("h3");
+    const inputDom = document.createElement("input")
+    
+    inputDom.setAttribute("type", "text");
+    inputDom.setAttribute("placeholder", "제목을 입력해주세요.");
+    inputDom.setAttribute("maxlength", "50");
+    inputDom.value = title;
+    
+    // setTimeout 주는 이유? 
+    // JS 스레드 작업 역량에 따라서 inputDom 생성이 완료되기 이전에 focus가 호출될 수 있음!
+    // setTimeout 함수를 호출해주면 setTimeout 함수를 해석하는 동안에 보통 inputDom이 생성되는 것 같음! (이게 delay 값을 0 주어도 괜찮은 이유)
+    setTimeout(() => {
+        inputDom.focus();
+    }, 0)
+
+    inputFocusOutEvent(inputDom, title, originalHeaderDom);  // input 박스에 포커스 아웃 이벤트 추가
+
+    headerDom.appendChild(inputDom);
+
+    return headerDom;
+}
+
 export {
     columnTemplate, cardTemplate, newCardTemplate, 
-    menuLogAddTemplate, menuLogDeleteTemplate, menuLogMoveTemplate, menuLogUpdateTemplate
+    menuLogAddTemplate, menuLogDeleteTemplate, menuLogMoveTemplate, menuLogUpdateTemplate,
+    headerTitleTemplate
 }

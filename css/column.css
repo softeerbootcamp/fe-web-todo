@@ -18,6 +18,17 @@ section > h3 {
     font-weight: 700;
 }
 
+section > h3 > input {
+    font-weight: 700;
+    font-size: 1.2rem;
+    border: none;
+    background-color: #F5F5F7;
+}
+
+section > h3 > input:focus {
+    outline: 0.2vh solid blue;
+}
+
 /* 카드 개수 */
 section > h3 > span {
     margin-left: 1vw;
