@@ -50,7 +50,7 @@ function CardModifyingCancel(obj){
     }
     obj.parentElement.parentElement.className='ColumnCards';
     obj.parentElement.parentElement.draggable=true;
-    obj.parentElement.parentElement.style.height=(parseInt(obj.parentElement.parentElement.style.height) - 60) + 'px';
+    obj.parentElement.parentElement.style.height='';
     obj.parentElement.parentElement.innerHTML=`<div class="CardTitle">${BeforeTitle}<i class="fa-solid fa-xmark" onclick="ModalAlert(this)"></i></div>
                                                 <div class="CardBody">${BeforeBody}</div>
                                                 <div class="CardAuthor">author by web</div>`;
@@ -59,12 +59,13 @@ function CardModifyingCancel(obj){
 
 function CardModifyingYes(obj){
     let NewTitle=obj.parentElement.parentElement.getElementsByClassName('TitleInput')[0].value;
-    let NewBody=obj.parentElement.parentElement.getElementsByClassName('CardInput')[0].value.replace(/\n\n/g,"").replace(/\r\n|\n|\r/g,"<br>* ");
+    let NewBody=obj.parentElement.parentElement.getElementsByClassName('CardInput')[0].value.trim().replace(/\n\n/g,"").replace(/\r\n|\n|\r/g,"<br>* ");
     if((/<br>/).test(NewBody)){
         NewBody = '* ' + NewBody;
     }
     obj.parentElement.parentElement.className='ColumnCards';
     obj.parentElement.parentElement.draggable=true;
+    obj.parentElement.parentElement.style.height='';
     obj.parentElement.parentElement.innerHTML=`<div class="CardTitle">${NewTitle}<i class="fa-solid fa-xmark" onclick="ModalAlert(this)"></i></div>
                                                 <div class="CardBody">${NewBody}</div>
                                                 <div class="CardAuthor">author by web</div>`;
