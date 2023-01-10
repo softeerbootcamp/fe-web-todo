@@ -3,12 +3,16 @@ import {initialize_list} from './initialize_list.js'
 
 function initialize_modal(){
     let modal_input_location = document.getElementById('main');
-    let templates = document.getElementsByClassName('todo_plus_modal')[0];
-    let input_modal = document.importNode(templates.content,true);
+    let modal_templates = document.getElementsByClassName('todo_plus_modal')[0];
+    let input_modal = document.importNode(modal_templates.content,true);
     modal_input_location.appendChild(input_modal)
-    document.getElementById('modal').style.display = "none"
+
+    let modal_itself = document.getElementById('modal');
+    modal_itself.style.display = "none"
+
 }
 
+//우측 하단 + 이벤트리스너
 const button = document.getElementById('plus_list');
 button.addEventListener('click',(event) =>{
     document.getElementById('modal').style.display = ""
@@ -30,6 +34,7 @@ function directly_add_list(){
         document.getElementById('modal').style.display = "none"
     
 }
+
 function onload_function(){
     let modal_close = document.getElementById('modal_close');
     modal_close.addEventListener('click',(event)=>{

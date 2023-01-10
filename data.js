@@ -1,3 +1,4 @@
+
 let list = [
 {
     name : '해야할 일'
@@ -8,7 +9,7 @@ let list = [
     name : '완료한 일'
 }
 ]
-const item = [
+let item = [
     {
         name : 'GitHub 공부하기',
         tag : ['add,commit,push'],

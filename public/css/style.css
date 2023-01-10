@@ -47,7 +47,6 @@ ul{
     border : solid;
     border-color : white;
     background-color : white;
-    border-radius : 5px;
     padding-left : 10px;
 
 }
@@ -106,7 +105,7 @@ button{
     display : flex;
     flex-direction: row;
     width : 100%;
-    height : 100px;
+    height : 100%;
     display :flex;
     flex-direction : column;
     text-align : left;
@@ -115,8 +114,10 @@ button{
     background-color : white;
     border-radius : 5px;
     padding : 10px;
+    padding-left : 10px;
+    margin-right : -16px;
 }
-.plus_button_cancel{
+.plus_item_cancel{
     background-color: gray;
     margin : 10px;
     width : 40%;
@@ -126,7 +127,7 @@ button{
     font-size : 20px;
     color : white;
 }
-.plus_button_join{
+.plus_item_join{
     background-color: skyblue;
     margin : 10px;
     width : 40%;
@@ -208,18 +209,20 @@ input[id="icon"] + label > span:nth-child(3) {
     height: 100%;
     width: 100%;
 }
-.modalconent {
+.modalcontent {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     background: #fff;
-    width: 80%;
+    width:200px;
+    height : 100px;
     padding: 20px;
 }
 .modal_input{
     display : flex;
     flex-direction: column;
+
 }
 .modal_button{
     display : flex;
@@ -229,4 +232,33 @@ input[id="icon"] + label > span:nth-child(3) {
 }
 .initialize_item_here{
     padding-right : 15px;
+}
+#modal_plus{
+    background-color: gray;
+    margin : 10px;
+    width : 50%;
+    height : 100%;
+    border : none;
+    border-radius : 10px;
+    font-size : 20px;
+    color : white;
+}
+#modal_close{
+    background-color: skyblue;
+    margin : 10px;
+    width : 50%;
+    height : 100%;
+    border : none;
+    border-radius : 10px;
+    font-size : 20px;
+    color : white;
+}
+#item_plus_name{
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: solid 2px #1E90FF;
+    border-radius: 5px;
+    font-size: 16px;
+    resize: both;
 }
