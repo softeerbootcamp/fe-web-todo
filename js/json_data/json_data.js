@@ -109,7 +109,18 @@ function deleteStatus(status) {
     statusName.splice(statusIndex, 1)
 }
 
+// status의 이름을 바꾸어 줍니다.
+function updateStatusName(prevName, nextName) {
+    for(let i=0;i<statusName.length;i++) {
+        if(statusName[i] == prevName) {
+            statusName[i] = nextName;
+            break;
+        }
+    }
+}
+
 export { statusList, statusName, TODO, DOING, DONE, JSON_DATA, 
     addJSONData, deleteJSONData, validateStatus,
-    addStatus, deleteStatus, moveJSONData
+    addStatus, deleteStatus, moveJSONData,
+    updateStatusName
 }

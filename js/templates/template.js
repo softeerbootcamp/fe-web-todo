@@ -198,7 +198,7 @@ function headerTitleTemplate(title, originalHeaderDom) {
         inputDom.focus();
     }, 0)
 
-    inputFocusOutEvent(inputDom, title, originalHeaderDom);  // input 박스에 포커스 아웃 이벤트 추가
+    inputFocusOutEvent(inputDom, title, originalHeaderDom);  // input에 포커스 아웃 이벤트 추가
 
     headerDom.appendChild(inputDom);
 

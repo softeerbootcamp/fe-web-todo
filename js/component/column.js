@@ -1,5 +1,5 @@
 import { columnTemplate, headerTitleTemplate } from "../templates/template.js";
-import { statusName, addStatus, deleteStatus, JSON_DATA } from "../json_data/json_data.js";
+import { statusName, addStatus, deleteStatus, JSON_DATA, updateStatusName } from "../json_data/json_data.js";
 import { turnOnColumnAddModal } from "./modal.js";
 
 const mainTag = document.querySelector("main");
@@ -70,9 +70,12 @@ function headerDoubleClickEvent(headerDom) {
 
 function inputFocusOutEvent(inputDom, originalTitle, originalHeaderDom) {
     inputDom.addEventListener("focusout", ()=> {
-        originalHeaderDom.innerHTML = originalHeaderDom.innerHTML.replace(originalTitle, inputDom.value);
+        const newTitle = inputDom.value;
+
+        originalHeaderDom.innerHTML = originalHeaderDom.innerHTML.replace(originalTitle, newTitle);
         originalHeaderDom.style.display = "flex";
 
+        updateStatusName(originalTitle, inputDom.value);
         inputDom.parentElement.remove();
     })
 }
