@@ -11,16 +11,46 @@ const getTargetParentByClassName = (node, className) => {
   }
 };
 
-const getTargetChild = (start = document.body, target) => {
+const elementSeparator = (attr) => {
+  const firstChar = attr.charAt(0);
+  const sliced = attr.slice(1);
+  if (firstChar === ".") return { toFind: "class", attr: sliced };
+  if (firstChar === "#") return { toFind: "id", attr: sliced };
+  return { toFind: "tagName", attr };
+};
+
+const getElems = (start = document.body, attributes) => {
+  const { toFind, attr } = elementSeparator(attributes);
+  const elementsArr = [];
   const queue = [start];
   const visited = {};
   visited[start] = true;
-
   while (queue.length) {
-    for (let i = 0; i < queue.length; i++) {
+    for (let i = 0; i < queue.length; i = i + 1) {
       const parent = queue.shift();
-      for (const child of parent.childNodes) {
-        if (String(child.className).includes(target)) return child;
+      for (const child of parent.children) {
+        if (String(child.getAttribute(toFind)).includes(attr))
+          elementsArr.push(child);
+        else {
+          visited[child] = true;
+          queue.push(child);
+        }
+      }
+    }
+  }
+  return elementsArr.length === 0 ? null : elementsArr;
+};
+
+const getElem = (start = document.body, attributes) => {
+  const { toFind, attr } = elementSeparator(attributes);
+  const queue = [start];
+  const visited = {};
+  visited[start] = true;
+  while (queue.length) {
+    for (let i = 0; i < queue.length; i = i + 1) {
+      const parent = queue.shift();
+      for (const child of parent.children) {
+        if (String(child.getAttribute(toFind)).includes(attr)) return child;
         else {
           visited[child] = true;
           queue.push(child);
@@ -44,30 +74,15 @@ const checkLogCount = (targetColumn, columnId) => {
   const activeListNum = activeList.filter(
     (elem) => elem.status === true
   ).length;
-  const targetChild = getTargetChild(targetColumn, "column-header-num");
+  const targetChild = getElem(targetColumn, ".column-header-num");
   targetChild.innerHTML = activeListNum;
 };
-
-const traverse = (node, selector) => {
-  if (node === null) return;
-  if (node.classList.contains(selector)) {
-    return node;
-  }
-  for (let child in node.child) {
-    traverse(child);
-  }
-};
-
-const myQuerySelector = (selector) => {
-  if (selector === null) return;
-};
-
-const myQuerySelectorAll = () => {};
 
 export {
   getTargetParentByClassName,
   deleteNode,
   addClsssName,
-  getTargetChild,
   checkLogCount,
+  getElem,
+  getElems,
 };
