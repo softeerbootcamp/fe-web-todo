@@ -26,7 +26,8 @@ section > h3 > input {
 }
 
 section > h3 > input:focus {
-    outline: 0.2vh solid blue;
+    outline: 0.2vh solid rgb(60, 78, 254);
+    box-shadow: 0.2vh 0.2vh 0.2vh 0.2vh rgb(60, 78, 254, 0.5);
 }
 
 /* 카드 개수 */

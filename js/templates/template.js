@@ -188,7 +188,7 @@ function headerTitleTemplate(title, originalHeaderDom) {
     
     inputDom.setAttribute("type", "text");
     inputDom.setAttribute("placeholder", "제목을 입력해주세요.");
-    inputDom.setAttribute("maxlength", "50");
+    inputDom.setAttribute("maxlength", "10");
     inputDom.value = title;
     
     // setTimeout 주는 이유? 
