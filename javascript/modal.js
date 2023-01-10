@@ -14,8 +14,6 @@ function ModalAlert(obj){
     if (modal.style.display == 'block') {
         body.style.overflow = 'hidden';
     }
-
-    const TargetCard = obj.parentElement.parentElement;
 }
 
 function ModalExit(){

@@ -19,13 +19,8 @@
     <script src="javascript/sidemenu.js"></script>
     <script defer src="javascript/card.js"></script>
     <script defer src="javascript/modal.js"></script>
+    <script defer src="javascript/columns.js"></script>
     <script src="https://kit.fontawesome.com/55809f1341.js" crossorigin="anonymous"></script>
-
-    <script src="json/CardLog.json" type="text/javascript"></script>
-    <script>
-        let testData = JSON.parse(JSON.stringify(TodoList));
-        console.log(testData);
-    </script>
 </head>
 <body>
     <div class="Modal">
@@ -51,8 +46,8 @@
             </div>
             <div class="NewCard">
                 <div class="CardTitle"><input type="text" placeholder="제목을 입력하세요" class="TitleInput"></input></div>
-                <div class="CardBody"><textarea type="text" placeholder="내용을 입력하세요" maxlength="500" id="CardInput" onkeydown="CardHeightAdjust(this)" onkeyup="CardHeightAdjust(this)"></textarea></div>
-                <div class="CardButton"><button class="CardCancel" onclick="RegisterFormShow(this)">취소</button><button class="CardRegister" disabled="false">등록</button></div>
+                <div class="CardBody"><textarea type="text" placeholder="내용을 입력하세요" maxlength="500" class="CardInput" onkeydown="CardHeightAdjust(this)" onkeyup="CardHeightAdjust(this)"></textarea></div>
+                <div class="CardButton"><button class="CardCancel" onclick="RegisterFormShow(this)">취소</button><button class="CardRegister" disabled="false" onclick="CardMaking(this)">등록</button></div>
             </div>
             <div class="CardSection">
                 <div class="ColumnCards" draggable="true" ondblclick="CardModifying(this)">
@@ -77,8 +72,8 @@
             </div>
             <div class="NewCard">
                 <div class="CardTitle"><input type="text" placeholder="제목을 입력하세요" class="TitleInput"></input></div>
-                <div class="CardBody"><textarea type="text" placeholder="내용을 입력하세요" maxlength="500" id="CardInput" onkeydown="CardHeightAdjust(this)" onkeyup="CardHeightAdjust(this)"></textarea></div>
-                <div class="CardButton"><button class="CardCancel" onclick="RegisterFormShow(this)">취소</button><button class="CardRegister" disabled="false">등록</button></div>
+                <div class="CardBody"><textarea type="text" placeholder="내용을 입력하세요" maxlength="500" class="CardInput" onkeydown="CardHeightAdjust(this)" onkeyup="CardHeightAdjust(this)"></textarea></div>
+                <div class="CardButton"><button class="CardCancel" onclick="RegisterFormShow(this)">취소</button><button class="CardRegister" disabled="false" onclick="CardMaking(this)">등록</button></div>
             </div>
             <div class="CardSection">
                 <div class="ColumnCards" draggable="true" ondblclick="CardModifying(this)">
@@ -98,8 +93,8 @@
             </div>
             <div class="NewCard">
                 <div class="CardTitle"><input type="text" placeholder="제목을 입력하세요" class="TitleInput"></input></div>
-                <div class="CardBody"><textarea type="text" placeholder="내용을 입력하세요" maxlength="500" id="CardInput" onkeydown="CardHeightAdjust(this)" onkeyup="CardHeightAdjust(this)"></textarea></div>
-                <div class="CardButton"><button class="CardCancel" onclick="RegisterFormShow(this)">취소</button><button class="CardRegister" disabled="false">등록</button></div>
+                <div class="CardBody"><textarea type="text" placeholder="내용을 입력하세요" maxlength="500" class="CardInput" onkeydown="CardHeightAdjust(this)" onkeyup="CardHeightAdjust(this)"></textarea></div>
+                <div class="CardButton"><button class="CardCancel" onclick="RegisterFormShow(this)">취소</button><button class="CardRegister" disabled="false" onclick="CardMaking(this)">등록</button></div>
             </div>
             <div class="CardSection">
             </div>
