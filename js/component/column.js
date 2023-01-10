@@ -1,5 +1,5 @@
 import { columnTemplate, headerTitleTemplate } from "../templates/template.js";
-import { statusName, addStatus, deleteStatus, JSON_DATA, updateStatusName } from "../json_data/json_data.js";
+import { statusName, addStatus, deleteStatus, JSON_DATA, updateStatusName, validateNewName } from "../json_data/json_data.js";
 import { turnOnColumnAddModal } from "./modal.js";
 
 const mainTag = document.querySelector("main");
@@ -72,11 +72,23 @@ function inputFocusOutEvent(inputDom, originalTitle, originalHeaderDom) {
     inputDom.addEventListener("focusout", ()=> {
         const newTitle = inputDom.value;
 
-        originalHeaderDom.innerHTML = originalHeaderDom.innerHTML.replace(originalTitle, newTitle);
-        originalHeaderDom.style.display = "flex";
+        // 새로 바뀐 이름 중복 검사
+        if(validateNewName(originalTitle, newTitle)) {
+            originalHeaderDom.innerHTML = originalHeaderDom.innerHTML.replace(originalTitle, newTitle);
+            originalHeaderDom.style.display = "flex";
 
-        updateStatusName(originalTitle, inputDom.value);
-        inputDom.parentElement.remove();
+            updateStatusName(originalTitle, inputDom.value);
+            inputDom.parentElement.remove();
+        }
+        else {
+            alert("이미 존재하는 이름입니다.");
+            inputDom.value = "";
+            
+            setTimeout(()=>{
+                inputDom.focus();
+            })
+
+        }
     })
 }
 

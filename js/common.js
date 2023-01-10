@@ -25,6 +25,7 @@ function findCardTitle(card) {
     return cardTitle;
 }
 
+// 카드의 내용을 찾아줍니다.
 function findCardContent(card) {
     return card.children[1].innerHTML;
 }

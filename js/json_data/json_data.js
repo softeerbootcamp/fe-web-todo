@@ -78,9 +78,20 @@ function moveJSONData(prevStatus, nextStatus, card) {
 }
 
 // 새롭게 생성될 status의 이름 타당성 여부를 반환합니다.
-function validateStatus(status) {
+function validateStatus(name) {
     for(let i=0;i<statusName.length;i++) {
-        if(statusName[i] == status) {
+        if(statusName[i] == name) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+// 수정될 status의 이름 타당성 여부를 반환합니다.
+function validateNewName(originalName, newName) {
+    for(let i=0;i<statusName.length;i++) {
+        if(statusName[i] == newName && statusName[i] != originalName) {
             return false;
         }
     }
@@ -122,5 +133,5 @@ function updateStatusName(prevName, nextName) {
 export { statusList, statusName, TODO, DOING, DONE, JSON_DATA, 
     addJSONData, deleteJSONData, validateStatus,
     addStatus, deleteStatus, moveJSONData,
-    updateStatusName
+    updateStatusName, validateNewName
 }
