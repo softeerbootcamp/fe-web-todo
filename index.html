@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+    <link rel="stylesheet" href="style.module.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header-wrapper">
+        <h1>TO-DO LIST</h1>
+        <button class="chat-menu-btn"></button>
+      </div>
+    </header>
+    <main>
+      <div class="columns-wrapper">
+        <div class="column-wrapper" id="0">
+          <div class="column-header-wrapper">
+            <div class="column-header-left-wrapper">
+              <h2 class="column-header-title">해야할 일</h2>
+              <span class="column-header-num">0</span>
+            </div>
+            <div class="column-header-right-wrapper">
+              <button class="column-add-btn"></button>
+              <button class="column-remove-btn"></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="column-wrapper" id="1">
+          <div class="column-header-wrapper">
+            <div class="column-header-left-wrapper">
+              <h2 class="column-header-title">진행중인 일</h2>
+              <span class="column-header-num">0</span>
+            </div>
+            <div class="column-header-right-wrapper">
+              <button class="column-add-btn"></button>
+              <button class="column-remove-btn"></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="column-wrapper" id="2">
+          <div class="column-header-wrapper">
+            <div class="column-header-left-wrapper">
+              <h2 class="column-header-title">완료된 일</h2>
+              <span class="column-header-num">1</span>
+            </div>
+            <div class="column-header-right-wrapper">
+              <button class="column-add-btn"></button>
+              <button class="column-remove-btn"></button>
+            </div>
+          </div>
+
+          <div class="card-wrapper" id="card-1">
+            <div class="card-header-wrapper">
+              <h3 class="card-title">card title</h3>
+              <div class="card-remove-btn-wrapper">
+                <button class="card-remove-btn"></button>
+              </div>
+            </div>
+            <div class="card-text-wrapper">
+              <p class="card-text">add, commit, push</p>
+            </div>
+            <div class="card-footer-wrapper">
+              <p class="card-footer-text">author by web</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="log-wrapper hidden">
+      <div class="log-card-wrapper">
+        <div class="log-image-wrapper">
+          <img src="./assets/user img.png" alt="img" />
+        </div>
+        <div class="log-text-wrapper">
+          <p class="log-author">@sam</p>
+          <p class="log-main-text">
+            <strong>완료된 일</strong>에 <strong>card title</strong>을
+            <strong>등록</strong>하였습니다.
+          </p>
+          <p class="log-timer">1분전</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-wrapper">
+      <div class="modal-text-wrapper">
+        <span class="modal-text">선택한 카드를 삭제할까요?</span>
+      </div>
+      <div class="modal-btn-wrapper">
+        <button class="modal-cancel-btn">취소</button>
+        <button class="modal-remove-btn">삭제</button>
+      </div>
+    </div>
+
+    <div class="add-column-btn-wrapper">
+      <button class="add-column-btn">+</button>
+    </div>
+
+    <script type="module" src="./js/init.js"></script>
+  </body>
+</html>
