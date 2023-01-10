@@ -1,12 +1,12 @@
-const delete_btn = document.querySelectorAll(".delete-lst");
-
 const input_data={
     'title': '',
     'contents': ''
 }
 
 const delete_data={
-    contents : null
+    Status : null,
+    Title : null,
+    Contents: null
 }
 
 const todos_status=['todo','doing','done'];
@@ -20,7 +20,7 @@ const todos = [
     {
         Status : 'todo',
         Title : 'Git hub 블로그에 포스팅할 것',
-        Contents: '* Git hub 공부내용\n* 모던 자바스크립트 1장 공부 내용'
+        Contents: '* Git hub 공부내용 * 모던 자바스크립트 1장 공부 내용'
     },
     {
         Status : 'doing',
@@ -29,10 +29,13 @@ const todos = [
     }
 ]
 
+//임시 id 나중에 UUID로 바꾸고 싶음
+let id = 1;
+
 const render = () =>{
     const todolist = document.querySelector('.todolist');
 
-    const sections = todolist.querySelector('section')
+    todolist.innerHTML='';
 
     //status에 따라 section 생성
     todos_status.map(status => {
@@ -48,10 +51,10 @@ const render = () =>{
                 </div>
             </div> 
             <ul class = "todolist-item">
-                ${items.map(item=> `<li class = "todolist-items" draggable="true">
+                ${items.map(item=> `<li class = "todolist-items" draggable="true" data-id =${id}>
                                     <div class="todolist-items-header">
                                         <h3>${item.Title}</h3>
-                                        <button class="delete-lst"><i class="fa-solid fa-x"></i></button> 
+                                        <button class="delete-lst"><i class="fa-solid fa-x" data-id =${id++}></i></button> 
                                     </div>
                                     <p style={white-space: pre-line;}>${item.Contents}</p> 
                         </li class = "todolist-items">
@@ -59,12 +62,7 @@ const render = () =>{
             </ul>
         </section>`
     todolist.insertAdjacentHTML('beforeend',parent_element);
-    // const parent = document.querySelector(`.${status} .todolist-item`);
-    //각각의 스테이터스에 해당하는 리스트들 생성
-    ;
-    /**
-     * todo 개행 처리
-     *  */ 
+    // todolist.innerHTML += parent_element;
     })
 }
 
@@ -81,19 +79,10 @@ modal_delete_btn.addEventListener('click',(e)=>{
 })
 
 modal_register_btn.addEventListener('click',(e)=>{
-    // item.parentNode.parentNode.remove();
     console.log('delete_data',delete_data.contents);
-    delete_data.contents.remove();
-    delete_data.contents = null;
+    todos.splice(todos.findIndex(e => e.Status === delete_data.Status && e.Title === delete_data.Title && e.Contents === delete_data.Contents),1);
     modal.classList.toggle('act');
-})
-
-//delete 누르면 모달창
-delete_btn.forEach(item=>{
-    item.addEventListener('click',()=>{
-        modal.classList.toggle('act');
-        delete_data.contents = item.parentNode.parentNode;
-    })
+    render();
 })
 
 //add에서 input값 받는 함수
@@ -112,7 +101,6 @@ const onChange = (e)=>{
     }
     register_button.disabled = true;
     input_items.style.opacity = 0.4;
-
 }
 
 //add 버튼 기능
@@ -142,141 +130,64 @@ add_btn.forEach(item=>{
             </li>
         `;
 
-        const lst_item = document.createElement("li");
-        const newForm = document.createElement('form');
+        child.insertAdjacentHTML('afterbegin',input_new_element);
 
-        const input_title = document.createElement('textarea');
-        input_title.setAttribute("type", "text");
-        input_title.setAttribute("placeholder", "제목을 입력하세요");
-        input_title.setAttribute('maxlength',500);
-        input_title.setAttribute('name','title');
-        input_title.addEventListener('change',onChange);
-
-        const input_contents = document.createElement('textarea');
-        input_contents.setAttribute("type", "text");
-        input_contents.setAttribute("placeholder", "내용을 입력하세요");
-        input_contents.setAttribute('maxlength', 500);
-        input_contents.setAttribute('name','contents');
-        input_contents.addEventListener('change',onChange);
-        input_title.className = 'input-title';
-        input_contents.className = 'input-contents';
-
-        const cancle_button = document.createElement("button");
-        cancle_button.setAttribute('type','button');
-        cancle_button.innerHTML = "취소";
-        const register_button = document.createElement("button");
-        register_button.setAttribute('type','button');
-        register_button.innerHTML = "등록";
-        register_button.disabled = true;
-        const buttons = document.createElement("div");
-        cancle_button.className = 'cancel-button';
-        register_button.className = 'register-button';
-        buttons.appendChild(cancle_button);
-        buttons.appendChild(register_button);
-
-        newForm.appendChild(input_title);
-        newForm.appendChild(input_contents);
-        newForm.appendChild(buttons);
-
-        lst_item.appendChild(newForm);
-
-        lst_item.className = 'input-items';
-        lst_item.setAttribute("tabindex",'-1');
-
-        // 취소버튼
-        cancle_button.addEventListener('click',()=>{
-            input_data['title'] ='';
-            input_data['contents']  = '';
-            lst_item.remove();})
-
-        // 등록버튼
-        register_button.addEventListener('mousedown',()=>{
-            // const new_item = make_new_lst(input_data['title'], input_data['contents']);
-            // item.parentNode.parentNode.parentNode.childNodes[3].prepend(new_item);
-            todos.unshift({
-                Status:item.closest('section').className,
-                Title:input_data['title'],
-                Contents:input_data['contents']});
-            console.log(todos);
-            input_data['title'] ='';
-            input_data['contents'] = '';
-            lst_item.remove();
-            render();
-        })
-
-        // focusout 이벤트
-        lst_item.addEventListener("blur", ()=>{
-            setTimeout(()=>{
-                input_data['title'] ='';
-                input_data['contents'] = '';
-                if(lst_item)
-                    lst_item.remove();
-            },0)
-        })
-
-        child.insertAdjacentHTML('beforebegin',input_new_element);
-
+        //input창 이벤트
+        document.querySelector('.input-title').focus();
+        document.querySelector('.input-title').addEventListener('change',onChange);
+        document.querySelector('.input-contents').addEventListener('change',onChange);
+        
+        //취소버튼 이벤트
         document.querySelector('.input-items').querySelector('.cancel-button').addEventListener('click',(e)=>{
             console.log(e.target);
             input_data['title'] ='';
             input_data['contents']  = '';
             document.querySelector('.input-items').remove();});
 
+        //등록버튼 이벤트
         document.querySelector('.input-items').querySelector('.register-button').addEventListener('mousedown',()=>{
             todos.unshift({
                 Status:item.closest('section').className,
                 Title:input_data['title'],
                 Contents:input_data['contents']});
             console.log(todos);
+            const new_item = make_new_lst(input_data['title'], input_data['contents']);
+            const parent = item.closest('section').querySelector('ul');
+            console.log('item', parent);
+            parent.insertAdjacentHTML('afterbegin',new_item);
             input_data['title'] ='';
             input_data['contents'] = '';
-            document.querySelector('.input-items').remove()
+            document.querySelector('.input-items').remove();
             render();
         });
 
+        //focusout 이벤트
         document.querySelector('.input-items').addEventListener("blur", ()=>{
             setTimeout(()=>{
                 input_data['title'] ='';
                 input_data['contents'] = '';
-                document.querySelector('.input-items').remove();
+                const input_item = document.querySelector('.input-items');
+                if(input_item)
+                input_item.remove();
             },0)
         })
-
-
-        // child.prepend(lst_item);
-        // input_title.focus();
     })
 })
 
 const make_new_lst = (title, contents)=>{
-    const item = document.createElement("li");
-    item.className='todolist-items';
-
-    const todolist_items_header = document.createElement("div");
-    todolist_items_header.className = 'todolist-items-header';
-
-    const item_title = document.createElement("h3");
-    item_title.innerHTML = title;
-
-    const delete_btn = document.createElement("button");
-    delete_btn.className = 'delete-lst';
-
-    const icon = document.createElement("i");
-    icon.className = 'fa-solid fa-x';
-
-    const item_contents = document.createElement("p");
-    item_contents.innerHTML = contents;
-    delete_btn.addEventListener('click',()=>{
-        modal.classList.toggle('act');
-        delete_data.contents = delete_btn.parentNode.parentNode;
-    })
-
-    todolist_items_header.appendChild(item_title);
-    delete_btn.appendChild(icon);
-    todolist_items_header.appendChild(delete_btn);
-
-    item.appendChild(todolist_items_header);
-    item.appendChild(item_contents);
+    const item = `
+        <li class="todolist-items" data-id =${id}>
+            <div class="todolist-items-header">
+                <h3>${title}</h3>
+            <button class="delete-lst"><i class="fa-solid fa-x" data-id =${id++}></i></button>
+        </div>
+        <p>${contents}</p>
+        </li>
+    `
+    // delete_btn.addEventListener('click',()=>{
+    //     modal.classList.toggle('act');
+    //     delete_data.contents = delete_btn.parentNode.parentNode;
+    // })
     return item;
 }
 
@@ -289,3 +200,20 @@ const changeNotificationMode = ()=>{
 document.querySelector('.fa-bars').addEventListener('click',changeNotificationMode)
 document.querySelector('.delete-notification-menu').addEventListener('click',changeNotificationMode);
 
+//delete 이벤트 한꺼번에 설정
+const todolist = document.querySelector('.todolist');
+todolist.addEventListener('click',(e)=>{
+    const id = e.target.dataset.id;
+    if(!e.target.dataset.id || e.target.tagName !== 'I')
+        return;
+    storeDeletedItem(id);
+    modal.classList.toggle('act');
+})
+
+const storeDeletedItem = (id)=>{
+    const toBedeleted = document.querySelector(`.todolist-items[data-id = "${id}"]`);
+    delete_data.Status = toBedeleted.closest('section').className;
+    delete_data.Title = toBedeleted.querySelector('h3').innerText;
+    delete_data.Contents = toBedeleted.querySelector('p').innerText;
+    console.log(delete_data);
+}
