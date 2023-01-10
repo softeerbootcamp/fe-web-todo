@@ -1,0 +1,72 @@
+body {
+  background-color: #e5e5e5;
+  margin-top: 0;
+  padding-left: 33px;
+}
+.container {
+  display: flex;
+  width: 72%;
+}
+.todoBox,
+.doingBox,
+.doneBox {
+  width: 32%;
+  margin-right: 1.5%;
+}
+.listTitleBox {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0px;
+  height: 40px;
+  padding: 5px;
+}
+
+.count-box {
+  background: #bdbdbd;
+  border-radius: 20px;
+  width: 26px;
+  height: 26px;
+  margin-left: 8px;
+  display: flex;
+}
+.count-num {
+  width: fit-content;
+  margin: auto;
+  height: fit-content;
+}
+.add-card-btn {
+  float: right;
+  color: #bdbdbd;
+  margin-left: auto;
+  font-size: 27px;
+  cursor: pointer;
+}
+.add-card-btn:hover {
+  float: right;
+  color: #0075de;
+  margin-left: auto;
+  font-size: 27px;
+}
+.close-card-btn:hover {
+  color: #ff4343;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.close-card-btn {
+  color: #bdbdbd;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.hidden {
+  display: none;
+}
+.list-wrapper {
+  height: 68vh;
+  overflow-y: scroll;
+}
+.list-wrapper::-webkit-scrollbar {
+  visibility: hidden;
+}
+ul {
+  padding: 0;
+}

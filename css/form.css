@@ -1,0 +1,94 @@
+.item-add-box {
+  background: #ffffff;
+  border: 1px solid #0075de;
+  box-shadow: 0px 1px 30px rgba(224, 224, 224, 0.3);
+  border-radius: 6px;
+  list-style-type: none;
+  margin-top: 13px;
+}
+
+#item-delete-btn {
+  color: #828282;
+  margin-left: auto;
+  cursor: pointer;
+}
+.btn-wrapper {
+  display: flex;
+  margin: auto;
+}
+.cancel-btn {
+  background: #e0e0e0;
+  border-radius: 6px;
+  height: 35px;
+  width: 45%;
+  display: flex;
+  margin: 10px;
+  cursor: pointer;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  color: #828282;
+  margin: auto;
+  border: none;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.register-btn {
+  background: #86c6ff;
+  border-radius: 6px;
+  height: 35px;
+  width: 45%;
+  display: flex;
+  margin: 10px;
+  margin-left: 0;
+  cursor: pointer;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  margin: auto;
+  color: rgba(255, 255, 255, 0.4);
+  border: none;
+  justify-content: center;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.title-input {
+  border: none;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  color: #828282;
+  margin: 16px;
+}
+.detail-input {
+  display: block;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  color: #828282;
+  border: none;
+  margin-left: 16px;
+  margin-bottom: 16px;
+}
+
+.active-btn {
+  background: #0075de;
+  border-radius: 6px;
+  height: 35px;
+  width: 45%;
+  display: flex;
+  margin: 10px;
+  margin-left: 0;
+  cursor: pointer;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  margin: auto;
+  color: #ffffff;
+  border: none;
+  justify-content: center;
+  margin-bottom: 10px;
+  align-items: center;
+}

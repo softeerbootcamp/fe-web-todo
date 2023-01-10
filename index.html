@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/form.css"/>
+    <link rel="stylesheet" href="css/item.css"/>
+    <link rel="stylesheet" href="css/header.css"/>
+    <link rel="stylesheet" href="css/menu.css"/>
+    <title>To Do List</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+  </head>
+  <body>
+    <!--메뉴 -->
+    <div class="menu-wrapper">
+        <div class="menu-box">
+          <span class="material-symbols-outlined" id="menu-close-btn">close</span>
+          <div class="logBox">
+          <div class="profile">
+            <div class="profileImg"></div>
+            <div class="profileName">@sam</div>
+          </div>
+          <div class="logContentBox">
+            <div class="logContent"></div>
+            <div class="logTime"></div>
+          </div>
+          </div>
+        </div>
+      </div>
+    <!--헤더-->
+    <header>
+        <h1>TO-DO LIST</h1>
+        <span class="material-symbols-outlined" id="hamburger-btn">menu</span>
+      </header>
+    <div class="container">
+      <div class="todoBox">
+        <div class="listTitleBox">
+          <h3>해야할 일</h3>
+          <div class="count-box">
+            <div class="count-num">1</div>
+          </div>
+          <span class="material-symbols-outlined add-card-btn" id="add-todo-btn">add</span>
+          <span class="material-symbols-outlined close-card-btn" id="close-todo-btn">close</span>
+          </div>
+        <div class="list-wrapper">
+          <form class="item-add-box hidden">
+            <input type="text" class="title-input" placeholder="제목을 입력하세요">
+            <input type="text" class="detail-input" placeholder="내용을 입력하세요">
+            <div class="btn-wrapper">
+              <input type='button' value='취소'  class="cancel-btn"></input>
+              <button type='submit' class="register-btn registerTodoBtn">등록</button>
+            </div>
+        </form>
+        <ul class="item-list" id="item-todo-list"></ul>
+        </div>
+      </div>
+      <div class="doingBox">
+        <div class="listTitleBox">
+          <h3>하고 있는 일</h3>
+          <div class="count-box">
+            <div class="count-num">1</div>
+          </div>
+          <span class="material-symbols-outlined add-card-btn" id="addDoingBtn">add</span>
+          <span class="material-symbols-outlined close-card-btn" id="closeDoingBtn">close</span>
+          </div>
+          <div class="list-wrapper">
+            <form class="item-add-box hidden">
+              <input type="text" class="title-input" placeholder="제목을 입력하세요">
+              <input type="text" class="detail-input" placeholder="내용을 입력하세요">
+              <div class="btn-wrapper">
+                <input type='button' value='취소'  class="cancel-btn"></input>
+                <button type='submit' class="register-btn registerTodoBtn">등록</button>
+              </div>
+            </form>
+            <ul class="item-list" id="item-doing-list"></ul>
+          </div>
+      </div>
+      <div class="doneBox">
+        <div class="listTitleBox">
+          <h3>완료한 일</h3>
+          <div class="count-box">
+            <div class="count-num">1</div>
+          </div>
+          <span class="material-symbols-outlined add-card-btn" id="addDoneBtn">add</span>
+          <span class="material-symbols-outlined close-card-btn" id="closeDoneBtn">close</span>
+        </div>
+          <div class="list-wrapper">
+            <form class="item-add-box hidden">
+              <input type="text" class="title-input" placeholder="제목을 입력하세요">
+              <input type="text" class="detail-input" placeholder="내용을 입력하세요">
+              <div class="btn-wrapper">
+                <input type='button' value='취소'  class="cancel-btn"></input>
+                <button type='submit' class="register-btn registerTodoBtn">등록</button>
+              </div>
+            </form>
+            <ul class="item-list" id="item-done-list"></ul>
+          </div>        
+      </div>
+    </div>
+    <div class="modal hidden" id="modal">
+      <div class="modal-background"></div>
+      <div class="modal-wrapper">
+        <div class="modal-text-wrapper">
+        <span class="modal-text">선택한 카드를 삭제할까요?</span>
+      </div>
+      <div class="modal-btn-wrapper">
+        <button class="modal-cancel-btn" id="modal-cancel-btn">취소</button>
+        <button class="modal-delete-btn" id="modal-delete-btn">삭제</button>
+      </div>
+      </div>
+    </div>
+      <script type="module" src="js/menu.js"></script>
+      <script type="module" src="js/arrCount.js"></script>
+      <script type="module" src="js/makeCard.js"></script>
+      <script type="module" src="js/init.js"></script>
+      <script type="module" src="js/menu.js"></script>
+      <script type="module" src="js/addForm.js"></script>
+      <script type="module" src="js/register.js"></script>
+    </body>
+
+</html>

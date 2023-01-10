@@ -1,0 +1,10 @@
+header {
+  display: flex;
+  align-items: center;
+  padding-top: 33px;
+  padding-left: 0px;
+  padding-right: 33px;
+}
+h1 {
+  width: 100%;
+}

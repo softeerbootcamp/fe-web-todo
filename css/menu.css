@@ -1,0 +1,28 @@
+#hamburger-btn {
+  float: right;
+  cursor: pointer;
+}
+.menu-wrapper {
+  background: #fff;
+  width: 26%;
+  position: fixed;
+  top: 0;
+  right: -26%;
+  height: 100%;
+  transition: all 0.5s ease-out;
+}
+.menu-box {
+  display: flex;
+  flex-direction: column;
+}
+#menu-close-btn {
+  margin-top: 50px;
+  margin-right: 20%;
+  margin-left: auto;
+  font-size: 15px;
+  color: #010101;
+  cursor: pointer;
+}
+.sidebar-show {
+  right: 0;
+}
