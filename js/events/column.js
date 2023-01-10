@@ -8,17 +8,19 @@ import {
 } from "../components/card.js";
 import {
   deleteNode,
-  getTargetChild,
   addClsssName,
   getTargetParentByClassName,
   checkLogCount,
+  getElems,
+  getElem,
 } from "../utils/utils.js";
 import { store } from "../init.js";
 
 const changeColumnNameEventHandler = (e) => {
   if (e.target.className === "column-header-title") {
-    const targetColumn = e.target.closest("column-wrapper");
+    const targetColumn = getTargetParentByClassName(e.target, "column-wrapper");
     const currentName = e.target.innerHTML;
+    console.log("to be fixed......");
   }
 };
 
@@ -27,7 +29,7 @@ const columnAddBtnClickEventHandler = (e) => {
     const targetColumn = getTargetParentByClassName(e.target, "column-wrapper");
     addClsssName(e.target, "active");
     targetColumn.innerHTML += newCardWrapper({ id: "newCardInput" });
-    const addBtn = document.querySelector(".column-add-btn");
+    const addBtn = getElem(".column-add-btn");
     addBtn.classList.add("active");
   }
 };
@@ -40,20 +42,21 @@ const cardAddBtnClickEventHandler = (e) => {
       id: null,
     };
     const targetColumn = getTargetParentByClassName(e.target, "column-wrapper");
-    const newCardInputEl = document.querySelector("#newCardInput");
-    const columnName = targetColumn.querySelector("h2");
+    const newCardInputEl = getElem("#newCardInput");
+    const columnName = getElem(".column-header-title", targetColumn);
     const newInputData = [...newCardInputEl.children]
       .filter((v) => v.tagName === "INPUT")
       .map((v) => v.value);
     newCardInfor.title = newInputData[0];
     newCardInfor.text = newInputData[1];
     if (
+      //이거 validation으로 빼자.
       newCardInfor.title === null ||
       newCardInfor.title === "" ||
       newCardInfor.text === null ||
       newCardInfor.text === ""
     ) {
-      document.querySelectorAll(".column-add-btn").forEach((v) => {
+      getElems(".column-add-btn", targetColumn).forEach((v) => {
         if (v.classList.contains("active")) v.classList.remove("active");
       });
       deleteNode("#newCardInput");
@@ -70,12 +73,12 @@ const cardAddBtnClickEventHandler = (e) => {
       contents: newCardInfor.text,
     });
 
-    document.querySelectorAll(".column-add-btn").forEach((v) => {
+    getElems(".column-add-btn", targetColumn).forEach((v) => {
       if (v.classList.contains("active")) v.classList.remove("active");
     });
     targetColumn.innerHTML += cardWrapper(newCardInfor);
     deleteNode("#newCardInput");
-    document.querySelector(".log-wrapper").innerHTML += log(
+    getElem(".log-wrapper").innerHTML += log(
       columnName.innerHTML,
       newCardInfor.title,
       "add"
@@ -86,7 +89,7 @@ const cardAddBtnClickEventHandler = (e) => {
 
 const cardCancelBtnClickEventHandler = (e) => {
   if (e.target.className === "card-cancel-btn") {
-    document.querySelectorAll(".column-add-btn").forEach((v) => {
+    getElems(".column-add-btn").forEach((v) => {
       if (v.classList.contains("active")) v.classList.remove("active");
     });
     deleteNode("#newCardInput");
@@ -95,24 +98,23 @@ const cardCancelBtnClickEventHandler = (e) => {
 
 const cardRemoveHoverEventHandler = (e) => {
   if (e.target.className === "card-remove-btn") {
-    const cardNode = e.target.closest(".card-wrapper");
+    const cardNode = getTargetParentByClassName(e.target, "card-wrapper");
     cardNode.classList.add("mouse-on");
   }
 };
 
 const cardRemoveOutEvenetHandler = (e) => {
   if (e.target.className === "card-remove-btn") {
-    const cardNode = e.target.closest(".card-wrapper");
+    const cardNode = getTargetParentByClassName(e.target, "card-wrapper");
     cardNode.classList.remove("mouse-on");
   }
 };
 
 const cardRemoveClickEventHandler = (e) => {
   if (e.target.className === "card-remove-btn") {
-    const cardNode = e.target.closest(".card-wrapper");
-    const modalWrapperEl = document.querySelector(".modal-wrapper");
+    const cardNode = getTargetParentByClassName(e.target, "card-wrapper");
+    const modalWrapperEl = getElem(".modal-wrapper");
     const bodyEl = document.body;
-
     cardNode.classList.add("focused");
     cardNode.classList.add("clicked");
     modalWrapperEl.classList.add("active");
@@ -129,7 +131,7 @@ const cardModificationEventHandler = (e) => {
 
 const cardModificationCancelBtnHandler = (e) => {
   if (e.target.className === "card-fix-cancel-btn") {
-    const cardEl = e.target.closest(".fixing");
+    const cardEl = getTargetParentByClassName(e.target, "fixing");
     const cardId = cardEl.getAttribute("id");
     const originData = store.getDatas();
     const d = originData.find((ele) => ele.id === cardId);
@@ -140,7 +142,7 @@ const cardModificationCancelBtnHandler = (e) => {
 
 const cardModificationSubmittnHandler = (e) => {
   if (e.target.className === "card-fix-add-btn") {
-    const cardEl = e.target.closest(".fixing");
+    const cardEl = getTargetParentByClassName(e.target, "fixing");
     const cardId = cardEl.getAttribute("id");
     const newInputData = [...cardEl.children]
       .filter((v) => v.tagName === "INPUT")
@@ -157,7 +159,7 @@ const cardModificationSubmittnHandler = (e) => {
 };
 
 const addWholeColumnClickEventHandler = (e) => {
-  const colNode = document.querySelector(".columns-wrapper");
+  const colNode = getElem(".columns-wrapper");
   store.updateColumnId();
   colNode.innerHTML += newColumn({ id: store.getColumnId(), title: "냉무" });
 };
@@ -175,13 +177,13 @@ const deleteWholeColumnClickEventHandler = (e) => {
 };
 
 const doubleClickEvent = () => {
-  const columnsWrapperEl = document.querySelector(".columns-wrapper");
+  const columnsWrapperEl = getElem(".columns-wrapper");
   columnsWrapperEl.addEventListener("dblclick", changeColumnNameEventHandler);
   columnsWrapperEl.addEventListener("dblclick", cardModificationEventHandler);
 };
 
 const columnEvent = () => {
-  const columnsWrapperEl = document.querySelectorAll(".columns-wrapper");
+  const columnsWrapperEl = getElems(".columns-wrapper");
   columnsWrapperEl.forEach((columnWrapper) => {
     columnWrapper.addEventListener("click", (e) => {
       columnAddBtnClickEventHandler(e);
@@ -204,14 +206,14 @@ const columnEvent = () => {
     });
   });
 
-  const columns = document.querySelector(".add-column-btn-wrapper");
+  const columns = getElem(".add-column-btn-wrapper");
   columns.addEventListener("click", addWholeColumnClickEventHandler);
 };
 
 const logBtnClickEvent = () => {
-  document.querySelector(".chat-menu-btn").addEventListener("click", () => {
-    document.querySelector(".log-wrapper").classList.toggle("hidden");
-    document.querySelector(".chat-menu-btn").classList.toggle("hidden");
+  getElem(".chat-menu-btn").addEventListener("click", () => {
+    getElem(".log-wrapper").classList.toggle("hidden");
+    getElem(".chat-menu-btn").classList.toggle("hidden");
   });
 };
 
