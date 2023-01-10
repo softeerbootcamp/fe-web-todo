@@ -77,7 +77,7 @@ function newCardTemplate(title = "", content = "", prevCard="", isUpdated=false)
     newCardDom.classList.add("new-card-frame");
 
     newCardDom.innerHTML = `
-        <input type="text" placeholder="제목을 입력하세요" value=${title}>
+        <input type="text" placeholder="제목을 입력하세요" value='${title}'>
         <textarea cols="30" rows="20" maxlength="500" placeholder="내용을 입력하세요">${content}</textarea>
         <div class="new-card-button-area">
             <button id="new-card-cancel-btn">취소</button>

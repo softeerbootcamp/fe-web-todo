@@ -74,8 +74,9 @@ function newCardRegisterEvent(btn, currentCard, prevCard, isUpdated) {
         registering = false;
 
         let title = currentCard.children[0].value;
-        let content = currentCard.children[1].value ;
-        let newCard = cardTemplate(title, parseContent(content));
+        let prevContent = prevCard.children[1].innerHTML
+        let newContent = currentCard.children[1].value ;
+        let newCard = cardTemplate(title, parseContent(newContent));
 
         // drag 이벤트 추가
         makeCardDragEvent(newCard);
@@ -86,14 +87,18 @@ function newCardRegisterEvent(btn, currentCard, prevCard, isUpdated) {
 
         // 데이터 반영
         let currentStatus = findColumnStatusByCard(newCard)
-        addJSONData(currentStatus, title, content)
+        addJSONData(currentStatus, title, newContent)
+
+        // 메뉴 update (update 사항이 있는 경우 메뉴 바에 반영)
+        if(isUpdated && prevContent != newContent) {
+            menuLogUpdate(title, findColumnStatusByCard(currentCard));   
+        }
 
         // 메뉴 update
         if(isUpdated) {
-            menuLogUpdate(title, findColumnStatusByCard(currentCard));
             prevCard.remove();
             currentCard.remove();
-        }
+        } 
         // 메뉴 add
         else {
             menuLogAdd(title, findCardHeaderName(currentCard));
