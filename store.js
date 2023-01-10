@@ -29,4 +29,17 @@ const todos = [
     }
 ]
 
-export {input_data,delete_data,todos_status,todos}
+class Notice {
+    constructor() {
+        this.notices = [];
+    }
+    show(){
+        this.notices.map(notice => {
+            console.log(notice);
+        })
+    }
+}
+
+const notice = new Notice();
+
+export {input_data,delete_data,todos_status,todos,notice}

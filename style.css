@@ -20,7 +20,7 @@
 	--font-small: 16px;
 	--font-micro: 14px;
 	/* Font weight */
-	--weight-bold: 700;
+	--weight-bold: 800;
 	--weight-semi-bold:600;
 	--weight-regular:400;
 
@@ -83,7 +83,7 @@ p{
 	font-weight: var(--font-regular);
 	color: var(--color-black);
 	margin: 4px 0;
-    word-wrap:break-word;
+    /* word-wrap:break-word; */
 }
 
 h1,h2,h3,p{
@@ -190,6 +190,7 @@ ul{
 .todolist-items{
     border-radius: 10px;
     margin-bottom: 10px;
+    max-width: 30vw;
     padding: 20px;
     list-style: none;
     background-color: whitesmoke;
@@ -209,6 +210,7 @@ ul{
     background-color: whitesmoke;
     display: flex;
     padding: 20px;
+    max-width: 30vw;
 }
 
 textarea{
@@ -222,12 +224,14 @@ textarea{
 .input-title{
     font-weight: var(--weight-bold);
     font-size: var(--font-regular);
+    height: var(--font-regular);
     margin: 5px 0;
 }
 
 .input-contents{
     font-size: var(--font-regular);
 	font-weight: var(--font-regular);
+    height: var(--font-regular);
     margin: 5px 0;
 }
 
@@ -292,6 +296,10 @@ textarea{
 
 .notification-menu-items-time{
     color: var(--color-light-grey);
+}
+
+.notice-keyword{
+    font-weight: var(--weight-bold);
 }
 
 .modal{
