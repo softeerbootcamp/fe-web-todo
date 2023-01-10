@@ -1,0 +1,58 @@
+.ColumnSection > div.ColumnList > div.ColumnHead > div.ButtonGroup > i.fa-plus:hover{
+    color: #0075de;
+}
+
+.ColumnSection > div.ColumnList > div.ColumnHead > div.ButtonGroup > i.fa-xmark:hover{
+    color: #ff4343;
+}
+
+.ColumnList > div.CardSection > div.ColumnCards > div.CardTitle > i.fa-xmark:hover{
+    color: #ff4343;
+}
+
+.ColumnList > div.CardSection > div.ColumnCards:has(i.fa-xmark:hover){
+    background: #FFEEEC;
+    border: 1px solid #FF4343;
+}
+
+.ColumnList > div.NewCard > div.CardTitle > input::placeholder{
+    color: #828282;
+}
+
+.ColumnList > div.NewCard > div.CardBody > input::placeholder{
+    color: #828282;
+}
+
+.ColumnList > div.NewCard > div.CardButton > button.CardCancel:hover{
+    background: #828282;
+    color: #ffffff;
+}
+
+.ColumnList > div.NewCard > div.CardButton > button.CardRegister:disabled{
+    background: #86C6FF;
+    color: rgba(255, 255, 255, 0.4);
+    cursor: default;
+}
+
+.ColumnList > div.CardSection > div.NewCard > div.CardButton > button.CardRegister:disabled{
+    background: #86C6FF;
+    color: rgba(255, 255, 255, 0.4);
+    cursor: default;
+}
+
+.ColumnList > div.NewCard > div.CardButton > button.CardRegister:enabled:hover{
+    background: #00529B;
+}
+
+.Modal.show{
+    display: block;
+}
+
+.Modal > div.ModalAlert > div.ModalButton > button.ModalCancel:hover{
+    background: #828282;
+    color: #ffffff;
+}
+
+.Modal > div.ModalAlert > div.ModalButton > button.ModalDelete:hover{
+    background: #00529B;
+}

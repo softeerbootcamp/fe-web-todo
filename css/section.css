@@ -1,0 +1,616 @@
+.TitleSection{
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 2%;
+}
+
+.MainTitle{
+    display: inline;
+    margin-left: 5%;
+    color: #010101;
+}
+
+.MenuButton{
+    display: block;
+    margin: auto;
+    margin-left: auto;
+    margin-right: 5%;
+    width: 17px;
+    height: 11px;
+    left: 12.5%;
+    right: 16.67%;
+    top: 29.17%;
+    bottom: 25%;
+    color: #010101;
+    cursor: pointer;
+}
+
+.ColumnSection{
+    margin-left: 5%;
+}
+
+.ColumnList{
+    margin-right: 2%;
+    float: left;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: 16px;
+}
+
+.ColumnList > div.ColumnHead{
+    width: 348px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 26px;
+
+    padding: auto;
+
+    display: flex;
+    align-items: center;
+
+    color: #010101;
+}
+
+.ColumnList > div.ColumnHead > div.ColumnTitle{
+    height: 26px;
+    
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 26px;
+    
+    display: flex;
+    align-items: center;
+    
+    color: #010101;
+    
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.ColumnList > div.ColumnHead > div.ColumnTitle > span.CardCount{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 10px;
+    
+    width: 26px;
+    height: 26px;
+    
+    background: #bdbdbd;
+    border-radius: 20px;
+    margin-left: 8px;
+    
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.ColumnList > div.ColumnHead > div.ButtonGroup{
+    width: 114px;
+    height: 26px;
+    
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 26px;
+    color: #bdbdbd;
+    
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.ColumnList > div.ColumnHead > div.ButtonGroup > i.fa-plus{
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.ColumnList > div.ColumnHead > div.ButtonGroup > i.fa-xmark{
+    margin-left: 20px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.ColumnList > div.CardSection{
+    display: block;
+    align-items: flex-start;
+    height: 640px;
+    overflow-y: auto;
+}
+
+.ColumnList > div.CardSection > div.ColumnCards{
+    display: block;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 16px;
+    margin: 20px 0px 20px 0px;
+
+    width: 308px;
+
+    background: #FFFFFF;
+
+    box-shadow: 0px 1px 30px rgba(224, 224, 224, 0.3);
+    border-radius: 6px;
+
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.ColumnList > div.CardSection > div.ColumnCards > div.CardTitle{
+    height: 23px;
+    display: flex;
+
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 23px;
+
+    color: #010101;
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.ColumnList > div.CardSection > div.ColumnCards > div.CardTitle > i.fa-xmark{
+    display: flex;
+    margin-left: auto;
+    align-items: flex-start;
+    color: #828282;
+    cursor: pointer;
+}
+
+.ColumnList > div.CardSection > div.ColumnCards > div.CardBody{
+    width: 252px;
+    display: block;
+
+    align-items: center;
+    margin: 10px 0px 10px 0px;
+    
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    
+    color: #010101;
+    
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.ColumnList > div.CardSection > div.ColumnCards > div.CardAuthor{
+    width: 252px;
+    height: 17px;
+    display: block;
+
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 17px;
+
+    color: #BDBDBD;
+    margin-top: auto;
+    
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+}
+
+.ColumnList > div.NewCard{
+    display: none;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 16px;
+    margin: 20px 0px 10px 0px;
+    
+    width: 308px;
+    height: 139px;
+    
+    background: #FFFFFF;
+    
+    border: 1px solid #0075DE;
+    
+    box-shadow: 0px 1px 30px rgba(224, 224, 224, 0.3);
+    border-radius: 6px;
+}
+
+.ColumnList > div.CardSection > div.NewCard{
+    display: block;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 16px;
+    margin: 20px 0px 10px 0px;
+    
+    width: 308px;
+    height: 139px;
+    
+    background: #FFFFFF;
+    
+    border: 1px solid #0075DE;
+    
+    box-shadow: 0px 1px 30px rgba(224, 224, 224, 0.3);
+    border-radius: 6px;
+}
+
+.ColumnList > div.NewCard > div.CardTitle > input{
+    width: 276px;
+    height: 23px;
+    
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 23px;
+    margin: 0px 0px 10px 0px;
+    
+    color: #010101;
+    border: none;
+    
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.ColumnList > div.CardSection > div.NewCard > div.CardTitle > input{
+    width: 276px;
+    height: 23px;
+    
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 23px;
+    margin: 0px 0px 10px 0px;
+    
+    color: #010101;
+    border: none;
+    
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.ColumnList > div.NewCard > div.CardBody > textarea{
+    width: 276px;
+    height: 48px;
+    
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0px 0px 10px 0px;
+    
+    border: none;
+    resize: none;
+    
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.ColumnList > div.CardSection > div.NewCard > div.CardBody > textarea{
+    width: 276px;
+    height: 48px;
+    
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0px 0px 10px 0px;
+    
+    border: none;
+    resize: none;
+    
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.ColumnList > div.NewCard > div.CardButton{
+    display: flex;
+}
+
+.ColumnList > div.CardSection > div.NewCard > div.CardButton{
+    display: flex;
+}
+
+.ColumnList > div.NewCard > div.CardButton > button.CardCancel{
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 10px;
+    
+    width: 134px;
+    height: 40px;
+    
+    background: #E0E0E0;
+    border-radius: 6px;
+    cursor: pointer;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+
+    color: #828282;
+    
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.ColumnList > div.CardSection > div.NewCard > div.CardButton > button.CardCancel{
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 10px;
+    
+    width: 134px;
+    height: 40px;
+    
+    background: #E0E0E0;
+    border-radius: 6px;
+    cursor: pointer;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+
+    color: #828282;
+    
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.ColumnList > div.NewCard > div.CardButton > button.CardRegister{
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 10px;
+    
+    width: 134px;
+    height: 40px;
+    
+    margin-left: auto;
+    background: #0075DE;
+    border-radius: 6px;
+    cursor: pointer;
+
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+
+    color: #FFFFFF;
+    
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.ColumnList > div.CardSection > div.NewCard > div.CardButton > button.CardRegister{
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 10px;
+    
+    width: 134px;
+    height: 40px;
+    
+    margin-left: auto;
+    background: #0075DE;
+    border-radius: 6px;
+    cursor: pointer;
+
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+
+    color: #FFFFFF;
+    
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.Modal{
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: none;
+
+    background: rgba(1, 1, 1, 0.4);
+}
+
+.Modal > div.ModalAlert {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 24px;
+    gap: 24px;
+    
+    position: absolute;
+    width: 400px;
+    height: 138px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    
+    background: #FFFFFF;
+    /* up */
+    
+    box-shadow: 0px 0px 4px rgba(204, 204, 204, 0.5), 0px 2px 4px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(2px);
+    /* Note: backdrop-filter has minimal browser support */
+    
+    border-radius: 6px;
+}
+
+.Modal > div.ModalAlert > div.ModalMessage{
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 26px;
+
+    color: #010101;
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.Modal > div.ModalAlert > div.ModalButton{
+    display: block;
+    text-align: end;
+}
+
+.Modal > div.ModalAlert > div.ModalButton > button.ModalCancel{
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 10px;
+    
+    width: 134px;
+    height: 40px;
+    
+    background: #E0E0E0;
+    border-radius: 6px;
+
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    cursor: pointer;
+    
+    color: #828282;
+    
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.Modal > div.ModalAlert > div.ModalButton > button.ModalDelete{
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 10px;
+    margin-left: 10px;
+    
+    width: 134px;
+    height: 40px;
+    
+    background: #0075DE;
+    border-radius: 6px;
+
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    cursor: pointer;
+    
+    color: #FFFFFF;
+    
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.SideMenu{
+    position: fixed;
+    visibility: hidden;
+    width: 25%;
+    height: 100%;
+    top: 0%;
+    right: -25%;
+    transition: all 1s ease-in-out;
+    
+    background: #FFFFFF;
+    
+    box-shadow: 0px 0px 4px rgba(204, 204, 204, 0.5), 0px 2px 4px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(2px);
+}
+
+.SideMenu > div.MenuHead{
+    display: flex;
+    margin: 10% 10% 2% 10%;
+}
+
+.SideMenu > div.MenuHead > i.fa-xmark{
+    margin-left: auto;
+    color: #010101;
+    cursor: pointer;
+}
+
+.SideMenu > div.MenuLog{
+    display: block;
+    width: auto;
+    height: 80%;
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: auto;
+    margin: 0% 10% 0% 10%;
+}
+
+.SideMenu > div.MenuLog > div.LogCard{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 16px;
+    gap: 16px;
+    
+    height: 137px;
+    
+    background: #FFFFFF;
+    
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.SideMenu > div.MenuLog > div.LogCard > span.SmileIcon{
+    font-size: xx-large;
+}
+
+.SideMenu > div.MenuLog > div.LogCard > div.LogContent > div.CardUser{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 23px;
+    
+    color: #010101;
+    
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.SideMenu > div.MenuLog > div.LogCard > div.LogContent > div.CardBody{
+    margin: 2% 0% 2% 0%;
+
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 23px;
+    
+    color: #010101;
+    
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.SideMenu > div.MenuLog > div.LogCard > div.LogContent > div.CardTime{
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    
+    color: #828282;
+    
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+}
