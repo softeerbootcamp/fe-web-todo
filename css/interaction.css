@@ -34,6 +34,12 @@
     cursor: default;
 }
 
+.ColumnList > div.CardSection > div.NewCard > div.CardButton > button.CardRegister:disabled{
+    background: #86C6FF;
+    color: rgba(255, 255, 255, 0.4);
+    cursor: default;
+}
+
 .ColumnList > div.NewCard > div.CardButton > button.CardRegister:enabled:hover{
     background: #00529B;
 }

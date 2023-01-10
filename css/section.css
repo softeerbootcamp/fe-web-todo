@@ -133,7 +133,6 @@
     margin: 20px 0px 20px 0px;
 
     width: 308px;
-    height: 108px;
 
     background: #FFFFFF;
 
@@ -170,10 +169,10 @@
 
 .ColumnList > div.CardSection > div.ColumnCards > div.CardBody{
     width: 252px;
-    height: 70px;
-    display: flex;
+    display: block;
 
     align-items: center;
+    margin: 10px 0px 10px 0px;
     
     font-weight: 400;
     font-size: 14px;
@@ -189,13 +188,14 @@
 .ColumnList > div.CardSection > div.ColumnCards > div.CardAuthor{
     width: 252px;
     height: 17px;
-    display: flex;
+    display: block;
 
     font-weight: 400;
     font-size: 12px;
     line-height: 17px;
 
     color: #BDBDBD;
+    margin-top: auto;
     
     flex: none;
     order: 2;

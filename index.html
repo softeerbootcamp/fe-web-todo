@@ -31,7 +31,7 @@
     <div class="Modal">
         <div class="ModalAlert">
             <div class="ModalMessage">선택한 카드를 삭제할까요?</div>
-            <div class="ModalButton"><button class="ModalCancel" onclick="ModalExit()">취소</button><button class="ModalDelete">삭제</button></div>
+            <div class="ModalButton"><button class="ModalCancel" onclick="ModalExit()">취소</button><button class="ModalDelete" onclick="CardDelete()">삭제</button></div>
         </div>
     </div>
 
@@ -60,7 +60,7 @@
                     <div class="CardBody">add, commit, push</div>
                     <div class="CardAuthor">author by web</div>
                 </div>
-                <div class="ColumnCards" draggable="true">
+                <div class="ColumnCards" draggable="true" ondblclick="CardModifying(this)">
                     <div class="CardTitle">블로그에 포스팅할 것<i class="fa-solid fa-xmark" onclick="ModalAlert(this)"></i></div>
                     <div class="CardBody">* GitHub 공부내용<br>* 모던 자바스크립트 1장 공부내용</div>
                     <div class="CardAuthor">author by web</div>
@@ -81,7 +81,7 @@
                 <div class="CardButton"><button class="CardCancel" onclick="RegisterFormShow(this)">취소</button><button class="CardRegister" disabled="false">등록</button></div>
             </div>
             <div class="CardSection">
-                <div class="ColumnCards" draggable="true">
+                <div class="ColumnCards" draggable="true" ondblclick="CardModifying(this)">
                     <div class="CardTitle">Github 공부하기<i class="fa-solid fa-xmark" onclick="ModalAlert(this)"></i></div>
                     <div class="CardBody">add, commit, push</div>
                     <div class="CardAuthor">author by web</div>
