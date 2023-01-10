@@ -8,9 +8,13 @@
             content: "\00d7";
         }
     </style>
-
+    <script type = "module" src = './plus_item.js'></script>
+    <script type = "module" src = './data.js'></script>
+    <script type = "module" src = './initialize.js'></script>
+    <script type = "module" src = './initialize_list.js'></script>
+    <script type = "module" src = './plus_list.js'></script>
     </head>
-    <button style="cursor:pointer">
+    <button style="cursor:pointer" id = "plus_list">
         <div class = "circle_side" ></div>
         <div class = "circle_side_plus">+</div>
     </button>
@@ -54,14 +58,24 @@
                     <TodoItem class = "item_name"></TodoItem>
                     <button id = "button_x"></button>
                 </div>
-                <li class = "item_tag"></li>
+                <textarea class = "item_tag"></textarea>
                 <div class = "author_by_web">author by web</div>
             </ul>
          </template>
+
+         <template class="todo_plus_modal">
+            <div id="modal">
+                <div class="modalconent">
+                    <div class = "modal_input">        
+                    <textarea id = "item_plus_name"></textarea>
+                </div>
+                <div class = "modal_button">
+                    <button style = "cursor:pointer" id="modal_plus">추가</button>
+                    <button style = "cursor:pointer" id="modal_close">취소</button>
+                </div>
+                </div>
+            </div>
+        </template>
     </body>
 
-    <script type = "module" src = './plus.js'></script>
-    <script type = "module" src = './data.js'></script>
-    <script type = "module" src = './initialize.js'></script>
-    <script type = "module" src = './initialize_list.js'></script>
 </html>

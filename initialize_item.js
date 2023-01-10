@@ -9,7 +9,6 @@ function initialize_item(i){
     let current_item_id; //list 배열의 번호
     for(k = 0; k < initialize_location.length; k++){
         if(initialize_location_name[k].innerHTML == input_item){
-            console.log(initialize_location_name[k].innerHTML);
             current_item_id = k;
         }
     }
@@ -17,11 +16,15 @@ function initialize_item(i){
 
     let templates = document.getElementsByClassName('template-item')[0];
     var input_name = item[i].name;
+    var input_tag = item[i].tag;
     let input_thing = document.importNode(templates.content,true);
 
     node.appendChild(input_thing);
     initialize_location[current_item_id].appendChild(node);
     document.getElementsByClassName('item_name')[i].innerHTML = input_name;
+
+    document.getElementsByClassName('item_tag')[i].innerHTML = input_tag;
+
 
 }
 
