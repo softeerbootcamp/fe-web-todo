@@ -1,7 +1,15 @@
 @import url("./src/components/Header/header.css");
 @import url("./src/components/NotificationCard/notificationcard.css");
+@import url("./src/components/AddColumnButton/addcolumnbutton.css");
+@import url("./src/components/TodoHolder/todoholder.css");
+@import url("./src/components/DoubleClickInput/doubleclickinput.css");
+@import url("./src/components/TodoAddForm/todoaddform.css");
+@import url("./src/components/TodoCard/todocard.css");
+@import url("./src/app.css");
 
 body {
     background-color: #F5F5F7;
     font-family: 'Noto Sans KR', sans-serif;
+    overflow-x: hidden;
+    margin: 10px;
 }

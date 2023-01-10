@@ -10,7 +10,9 @@ class Component {
     }
     initialize() {}
     mounted() {}
-    template() {}
+    template() {
+        return '';
+    }
 
     addEvent(type, selector, listener) {
         const children = [...this.$target.querySelectorAll(selector)];

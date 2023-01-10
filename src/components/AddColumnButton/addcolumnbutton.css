@@ -1,0 +1,17 @@
+[data-component="AddColumnButton"] {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 0 50px 50px 0;
+    z-index: 80;
+}
+
+#add_col_btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    border: none;
+    box-shadow: 0 0 4px rgba(204, 204, 204, 0.5), 0 2px 4px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(2px);
+    background: #0075DE;
+}

@@ -1,5 +1,7 @@
 import App from "./src/App.js";
 
+
+
 const $appTarget = document.querySelector('[data-component="App"]');
 
 const appOnClick = () => {
