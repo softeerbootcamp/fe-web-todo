@@ -165,3 +165,18 @@ p {
     cursor:pointer;
     margin-left:80%;
 }
+
+.column_add_button {
+    position:absolute;
+    z-index:1;
+    width:50px;
+    height:50px;
+    margin-left:90%;
+    margin-top:800px;
+    background-color: rgb(109, 109, 188);
+    border-radius: 50%;
+    border-color: transparent;
+    color:white;
+    font-size:30px;
+    cursor:pointer;
+}
