@@ -4,7 +4,7 @@ const getTargetParentByClassName = (node, className) => {
   if (node) {
     let current = node;
     while (current !== document.body) {
-      if (current.className === className) return current;
+      if (current.className.includes(className)) return current;
       current = current.parentNode;
     }
     return false;
@@ -16,10 +16,10 @@ const elementSeparator = (attr) => {
   const sliced = attr.slice(1);
   if (firstChar === ".") return { toFind: "class", attr: sliced };
   if (firstChar === "#") return { toFind: "id", attr: sliced };
-  return { toFind: "tagName", attr };
+  return { toFind: "tagname", attr };
 };
 
-const getElems = (start = document.body, attributes) => {
+const getElems = (attributes, start = document.body) => {
   const { toFind, attr } = elementSeparator(attributes);
   const elementsArr = [];
   const queue = [start];
@@ -41,7 +41,7 @@ const getElems = (start = document.body, attributes) => {
   return elementsArr.length === 0 ? null : elementsArr;
 };
 
-const getElem = (start = document.body, attributes) => {
+const getElem = (attributes, start = document.body) => {
   const { toFind, attr } = elementSeparator(attributes);
   const queue = [start];
   const visited = {};
@@ -58,11 +58,11 @@ const getElem = (start = document.body, attributes) => {
       }
     }
   }
-  return null;
+  return "not found";
 };
 
 const deleteNode = (query) => {
-  document.querySelector(`${query}`).remove();
+  getElem(`${query}`).remove();
 };
 
 const addClsssName = (node, className) => {
@@ -74,7 +74,7 @@ const checkLogCount = (targetColumn, columnId) => {
   const activeListNum = activeList.filter(
     (elem) => elem.status === true
   ).length;
-  const targetChild = getElem(targetColumn, ".column-header-num");
+  const targetChild = getElem(".column-header-num", targetColumn);
   targetChild.innerHTML = activeListNum;
 };
 
