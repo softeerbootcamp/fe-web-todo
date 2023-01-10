@@ -21,7 +21,7 @@ const cardWrapper = ({ title, text, id }) => {
         <p class="card-text">${text}</p>
       </div>
       <div class="card-footer-wrapper">
-        <p class="card-footer-text">fotter</p>
+        <p class="card-footer-text">author by web</p>
       </div>
     </div>`;
 };
@@ -47,7 +47,7 @@ const fixedWrapper = ({ title = "", text = "" }) => {
     <p class="card-text">${text}</p>
   </div>
   <div class="card-footer-wrapper">
-    <p class="card-footer-text">fotter</p>
+    <p class="card-footer-text">author by web</p>
   </div>
   `;
 };
