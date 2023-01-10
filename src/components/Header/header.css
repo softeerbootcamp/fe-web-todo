@@ -6,7 +6,7 @@
     position: sticky;
     top: 0;
     background: linear-gradient(#F5F5F7 80%, transparent);
-    z-index: 10;
+    z-index: 90;
 }
 
 [data-component="Header"] > h1 {
@@ -22,7 +22,7 @@
     padding: 0;
 }
 
-.sidebar-opened {
+.sidebar-opened #sidebar {
     width: 400px !important;
 }
 
@@ -36,6 +36,7 @@
     right: 0;
     transition: 0.5s;
     overflow-x: hidden;
+    z-index: 99;
 }
 
 #sidebar header {
@@ -65,4 +66,26 @@
 
 #sidebar ul::-webkit-scrollbar {
     display: none;
+}
+
+#sidebar_wrapper {
+    position: absolute;
+    width: 0;
+    height: 0;
+}
+
+#sidebar_bgbtn {
+    border: none;
+    background: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    padding: 0;
+    height: 100vh;
+    z-index: 98;
+}
+
+.sidebar-opened #sidebar_bgbtn {
+    width: 100% !important;
 }
