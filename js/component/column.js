@@ -35,14 +35,16 @@ columnAddBtn.addEventListener("click", () => {
 // 카드가 속한 헤더의 이름을 반환합니다.
 function findCardHeaderName(card) {
     let currentSection = card.parentElement.parentElement;
-    let header = currentSection.children[0].innerHTML
+    let headerName = currentSection.children[0].children[0].innerHTML
 
-    return header.split("\n")[0]
+    return headerName
 }
 
+// column 길이를 갱신합니다.
 function updateColumnLength(status) {
     let currentSection = document.querySelectorAll("article")[status].parentElement
-    let sectionLength = currentSection.children[0].children[0]
+    let sectionLength = currentSection.children[0].children[1]
+    
     sectionLength.innerHTML = JSON_DATA[status].length
 }
 
@@ -60,12 +62,16 @@ function findColumnStatusByCard(card) {
 // column의 header에 더블 클릭 이벤트를 추가합니다.
 function headerDoubleClickEvent(headerDom) {
     headerDom.addEventListener("dblclick", () => {
-        let headerTitle = headerDom.innerHTML.split("\n")[0];
+        let headerTitle = headerDom.children[0].innerHTML;
         let headerInputTemplate = headerTitleTemplate(headerTitle, headerDom);
 
         headerDom.after(headerInputTemplate)
         headerDom.style.display = "none";
     })
+}
+
+function changeHeaderName(headerDom, newTitle) {
+    headerDom.children[0].innerHTML = newTitle
 }
 
 function inputFocusOutEvent(inputDom, originalTitle, originalHeaderDom) {
@@ -74,7 +80,7 @@ function inputFocusOutEvent(inputDom, originalTitle, originalHeaderDom) {
 
         // 새로 바뀐 이름 중복 검사
         if(validateNewName(originalTitle, newTitle)) {
-            originalHeaderDom.innerHTML = originalHeaderDom.innerHTML.replace(originalTitle, newTitle);
+            changeHeaderName(originalHeaderDom, newTitle)
             originalHeaderDom.style.display = "flex";
 
             updateStatusName(originalTitle, inputDom.value);

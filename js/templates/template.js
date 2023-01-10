@@ -12,8 +12,9 @@ function columnTemplate(columnTitle, cardCount = 0) {
     let columnNode = document.createElement("section");
 
     columnNode.innerHTML = `
-            <h3>${columnTitle}
-                <span>${cardCount}</span>
+            <h3>
+                <span>${columnTitle}</span>
+                <span class="column-length">${cardCount}</span>
                 <div class="column-btn-area">
                     <i class="card-add-btn fa-solid fa-plus"></i>
                     <i class="column-delete-btn fa-solid fa-xmark"></i>
@@ -23,8 +24,8 @@ function columnTemplate(columnTitle, cardCount = 0) {
             </article>
         `
 
-    let cardAddBtn = columnNode.children[0].children[1].children[0];
-    let columnDeleteBtn = columnNode.children[0].children[1].children[1];
+    let cardAddBtn = columnNode.children[0].children[2].children[0]
+    let columnDeleteBtn = columnNode.children[0].children[2].children[1];
     let header = columnNode.children[0]
     let article = header.parentElement.children[1];
 

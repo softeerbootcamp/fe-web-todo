@@ -52,7 +52,6 @@ modalDeleteBtn.addEventListener("click", () => {
 
     // column에 길이 반영
     let span = findHeaderLengthByCard(chosenCard)
-    span.innerHTML = span.innerHTML - 1
 
     // 로컬 data 반영
     deleteJSONData(status, title);

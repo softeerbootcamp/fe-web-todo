@@ -122,6 +122,7 @@ function deleteStatus(status) {
 
 // status의 이름을 바꾸어 줍니다.
 function updateStatusName(prevName, nextName) {
+    console.log(prevName, nextName)
     for(let i=0;i<statusName.length;i++) {
         if(statusName[i] == prevName) {
             statusName[i] = nextName;
