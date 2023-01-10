@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset = "UTF-8">
+    <link rel = "stylesheet" href = "./public/css/style.css" type="text/css"/>
+    <style>
+        #button_x::after{
+            content: "\00d7";
+        }
+    </style>
+    <script type = "module" src = './plus_item.js'></script>
+    <script type = "module" src = './data.js'></script>
+    <script type = "module" src = './initialize.js'></script>
+    <script type = "module" src = './initialize_list.js'></script>
+    <script type = "module" src = './plus_list.js'></script>
+    </head>
+    <button style="cursor:pointer" id = "plus_list">
+        <div class = "circle_side" ></div>
+        <div class = "circle_side_plus">+</div>
+    </button>
+    <body style="background-color: rgb(245, 245, 245); padding-left:10vw" ;>
+        <div>
+            <div class = "Title_part">
+                <div>
+                    <div id="Title">TO-DO LIST</div>
+                </div>
+                <div>
+                    <input type = "checkbox" id = "icon">
+                    <label for = "icon">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </label>
+                </div>
+            </div>
+
+                <div class="flex_row" id = "main">
+            </div>
+        </div>
+
+
+         <template class="template-list">
+            <div class="flex_between"  id = "todo_thing">
+                <div class="flex_row">
+                    <TodoList class = "list_name"></TodoList>
+                    <div class="circle"></div>
+                </div>
+                <div class="flex_row">
+                    <button class = "button_plus">+</button>
+                    <button id = "button_x"></button>
+                </div>
+            </div>
+         </template>
+
+         <template class="template-item">
+            <ul>
+                <div class="flex_between">
+                    <TodoItem class = "item_name"></TodoItem>
+                    <button id = "button_x"></button>
+                </div>
+                <textarea class = "item_tag"></textarea>
+                <div class = "author_by_web">author by web</div>
+            </ul>
+         </template>
+
+         <template class="todo_plus_modal">
+            <div id="modal">
+                <div class="modalcontent">
+                    <div class = "modal_input">        
+                    <textarea id = "item_plus_name"></textarea>
+                </div>
+                <div class = "modal_button">
+                    <button style = "cursor:pointer" id="modal_plus">추가</button>
+                    <button style = "cursor:pointer" id="modal_close">취소</button>
+                </div>
+                </div>
+            </div>
+        </template>
+    </body>
+
+</html>
