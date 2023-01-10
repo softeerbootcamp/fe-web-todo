@@ -1,0 +1,73 @@
+.todo-main {
+  display: flex;
+  flex-direction: row;
+}
+
+.todo-article {
+  display: flex;
+  flex-direction: column;
+  min-width: 18.75rem;
+  margin-right: 2rem;
+}
+
+.todo-article:last-child {
+  margin: 0;
+}
+
+.todo-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.todo-header > .todo-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.todo-header > .todo-title > h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.todo-header > .todo-title > div {
+  padding: 0.313rem;
+  background: #bdbdbd;
+  border-radius: 50%;
+  width: 1rem;
+  height: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo-header > .todo-svg {
+  display: flex;
+}
+
+.todo-header > .todo-svg > span {
+  cursor: pointer;
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.todo-header > .todo-svg > span:hover {
+  padding: 0 0.375rem;
+}
+
+.todo-header > .todo-svg > span:hover > svg {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.todo-header > .todo-svg > span:hover > svg > path {
+  fill: purple;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}

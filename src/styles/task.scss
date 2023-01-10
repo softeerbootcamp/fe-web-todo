@@ -1,0 +1,64 @@
+@mixin ellipsis($line-cnt, $line-height) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $line-cnt;
+  -webkit-box-orient: vertical;
+  word-wrap: break-word;
+  line-height: $line-height;
+}
+
+.todo-task {
+  display: flex;
+  background-color: white;
+  border-radius: 0.375rem;
+  flex-direction: column;
+  padding: 1.25rem 1rem;
+  margin-bottom: 1rem;
+  width: 16.75rem;
+  min-height: 6.875rem;
+  position: relative;
+}
+
+.todo-task > form {
+  display: flex;
+  flex-direction: column;
+}
+
+.todo-task > form > input {
+  border: none;
+  margin-bottom: 1rem;
+  font-size: 0.875rem;
+  outline: none;
+}
+
+.todo-task > form > input:nth-child(1) {
+  font-weight: bold;
+  font-size: 1.125rem;
+  margin-bottom: 0.75rem;
+}
+
+.task-active {
+  display: flex;
+  flex-direction: column;
+
+  .task-title {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.125rem;
+    font-weight: bold;
+  }
+
+  .task-content {
+    @include ellipsis(2, 1.2rem);
+    margin-top: 0.75rem;
+    font-size: 1rem;
+  }
+
+  .task-author {
+    position: absolute;
+    bottom: 1rem;
+    color: $gray400;
+    font-size: 0.85rem;
+  }
+}

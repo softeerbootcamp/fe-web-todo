@@ -1,0 +1,22 @@
+@import './color.scss';
+@import './common.scss';
+@import './header.scss';
+@import './todo.scss';
+@import './task.scss';
+
+body {
+  height: calc(100vh - 3.75rem);
+  padding: 1.875rem 5rem 1.875rem 5rem;
+  background-color: $main-bg-color;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+  margin: 0;
+  padding: 0;
+}
